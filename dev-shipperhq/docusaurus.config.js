@@ -6,15 +6,18 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  url: 'https://your-docusaurus-test-site.com',
+  title: 'ShipperHQ',
+  tagline: 'dev portal',
+  url: 'https://dev.shipperhq.com/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'shipperhq', // Usually your GitHub org/user name.
+  projectName: 'shipperhq.github.io', // Usually your repo name.
+  deploymentBranch: 'gh-pages', // Branch to deploy the static files to
+  trailingSlash: false,
+
 
   presets: [
     [
