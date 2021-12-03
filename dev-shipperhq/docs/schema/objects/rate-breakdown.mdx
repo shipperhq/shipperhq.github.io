@@ -1,0 +1,37 @@
+---
+id: rate-breakdown
+title: RateBreakdown
+---
+
+No description
+
+```graphql
+type RateBreakdown {
+  advancedFees: AdvancedFee
+  carrierDetail: CarrierDetail
+  methodCode: String!
+  methodDetails: MethodDetail!
+  packages: [Package!]!
+  shipmentDetail: ShipmentDetail
+  timeInTransitOptions: TimeInTransitOption
+  winningRate: Boolean
+}
+```
+
+### Fields
+
+#### `advancedFees` ([`AdvancedFee`](/schema/objects/advanced-fee))
+
+#### `carrierDetail` ([`CarrierDetail`](/schema/objects/carrier-detail))
+
+#### `methodCode` ([`String`](/schema/scalars/string))
+
+#### `methodDetails` ([`MethodDetail`](/schema/objects/method-detail))
+
+#### `packages` ([`Package`](/schema/objects/package))
+
+#### `shipmentDetail` ([`ShipmentDetail`](/schema/objects/shipment-detail))
+
+#### `timeInTransitOptions` ([`TimeInTransitOption`](/schema/objects/time-in-transit-option))
+
+#### `winningRate` ([`Boolean`](/schema/scalars/boolean))

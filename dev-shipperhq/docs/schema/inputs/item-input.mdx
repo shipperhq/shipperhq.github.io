@@ -1,0 +1,85 @@
+---
+id: item-input
+title: ItemInput
+---
+
+No description
+
+```graphql
+type ItemInput {
+  freeShipping: Boolean
+  baseCurrency: String
+  storeCurrentCurrency: String
+  storeBaseCurrency: String
+  discountedTaxInclStorePrice: BigDecimal
+  discountedStorePrice: BigDecimal
+  fixedWeight: Boolean
+  weight: BigDecimal
+  taxInclStorePrice: BigDecimal
+  discountedTaxInclBasePrice: BigDecimal
+  itemId: String
+  taxInclBasePrice: BigDecimal
+  discountPercent: BigDecimal
+  packageCurrency: String
+  items: [ItemInput]
+  basePrice: BigDecimal
+  storePrice: BigDecimal
+  discountedBasePrice: BigDecimal
+  qty: Int
+  type: ItemType
+  attributes: [AttributeInput]
+  taxPercentage: BigDecimal
+  fixedPrice: Boolean
+  sku: String
+}
+```
+
+### Fields
+
+#### `freeShipping` ([`Boolean`](/schema/scalars/boolean))
+
+#### `baseCurrency` ([`String`](/schema/scalars/string))
+
+#### `storeCurrentCurrency` ([`String`](/schema/scalars/string))
+
+#### `storeBaseCurrency` ([`String`](/schema/scalars/string))
+
+#### `discountedTaxInclStorePrice` ([`BigDecimal`](/schema/scalars/big-decimal))
+
+#### `discountedStorePrice` ([`BigDecimal`](/schema/scalars/big-decimal))
+
+#### `fixedWeight` ([`Boolean`](/schema/scalars/boolean))
+
+#### `weight` ([`BigDecimal`](/schema/scalars/big-decimal))
+
+#### `taxInclStorePrice` ([`BigDecimal`](/schema/scalars/big-decimal))
+
+#### `discountedTaxInclBasePrice` ([`BigDecimal`](/schema/scalars/big-decimal))
+
+#### `itemId` ([`String`](/schema/scalars/string))
+
+#### `taxInclBasePrice` ([`BigDecimal`](/schema/scalars/big-decimal))
+
+#### `discountPercent` ([`BigDecimal`](/schema/scalars/big-decimal))
+
+#### `packageCurrency` ([`String`](/schema/scalars/string))
+
+#### `items` ([`ItemInput`](/schema/inputs/item-input))
+
+#### `basePrice` ([`BigDecimal`](/schema/scalars/big-decimal))
+
+#### `storePrice` ([`BigDecimal`](/schema/scalars/big-decimal))
+
+#### `discountedBasePrice` ([`BigDecimal`](/schema/scalars/big-decimal))
+
+#### `qty` ([`Int`](/schema/scalars/int))
+
+#### `type` ([`ItemType`](/schema/enums/item-type))
+
+#### `attributes` ([`AttributeInput`](/schema/inputs/attribute-input))
+
+#### `taxPercentage` ([`BigDecimal`](/schema/scalars/big-decimal))
+
+#### `fixedPrice` ([`Boolean`](/schema/scalars/boolean))
+
+#### `sku` ([`String`](/schema/scalars/string))

@@ -42,6 +42,21 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+      '@edno/docusaurus2-graphql-doc-generator',
+      {
+        schema: "https://api.shipperhq.com/v2/graphql", // reference the api url or the schema.docs.graphql file
+        rootPath: "./docs", // docs will be generated under './docs/schema' (rootPath/baseURL)
+        baseURL: "schema",
+        homepage: "./data/api.md",
+        loaders: {
+          UrlLoader: "@graphql-tools/url-loader"
+        }
+      },
+    ],
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -59,6 +74,7 @@ const config = {
             label: 'Tutorial',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/docs/schema', label: 'API', position: 'left'},
           {
             href: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',

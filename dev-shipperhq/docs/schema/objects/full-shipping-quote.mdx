@@ -1,0 +1,28 @@
+---
+id: full-shipping-quote
+title: FullShippingQuote
+---
+
+No description
+
+```graphql
+type FullShippingQuote {
+  errors: [Error!]
+  shipments: [Shipment!]!
+  transactionId: String!
+  units: Units
+  validationStatus: String!
+}
+```
+
+### Fields
+
+#### `errors` ([`Error`](/schema/objects/error))
+
+#### `shipments` ([`Shipment`](/schema/objects/shipment))
+
+#### `transactionId` ([`String`](/schema/scalars/string))
+
+#### `units` ([`Units`](/schema/objects/units))
+
+#### `validationStatus` ([`String`](/schema/scalars/string))
