@@ -73,7 +73,17 @@ const config = {
             label: 'Tutorial',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
-          {to: '/docs/schema', label: 'API', position: 'left'},
+          {
+            type: 'dropdown',
+            label: 'API',
+            position: 'left',
+            items: [
+              {
+                to: '/docs/schema',
+                label: 'Rate Service GraphQL'
+              }
+            ]
+          },
           {
             type: 'docsVersionDropdown',
             position: 'right',
