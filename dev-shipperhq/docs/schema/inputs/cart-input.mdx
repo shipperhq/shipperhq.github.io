@@ -7,16 +7,16 @@ No description
 
 ```graphql
 type CartInput {
-  items: [ItemInput]
   freeShipping: Boolean
   declaredValue: BigDecimal
+  items: [ItemInput]
 }
 ```
 
 ### Fields
 
-#### `items` ([`ItemInput`](/schema/inputs/item-input))
+#### `freeShipping` ([`Boolean`](/docs/schema/scalars/boolean))
 
-#### `freeShipping` ([`Boolean`](/schema/scalars/boolean))
+#### `declaredValue` ([`BigDecimal`](/docs/schema/scalars/big-decimal))
 
-#### `declaredValue` ([`BigDecimal`](/schema/scalars/big-decimal))
+#### `items` ([`ItemInput`](/docs/schema/inputs/item-input))

@@ -49,6 +49,7 @@ const config = {
         schema: "https://api.shipperhq.com/v2/graphql", // reference the api url or the schema.docs.graphql file
         rootPath: "./docs", // docs will be generated under './docs/schema' (rootPath/baseURL)
         baseURL: "schema",
+        linkRoot: "/docs",
         homepage: "./data/api.md",
         loaders: {
           UrlLoader: "@graphql-tools/url-loader"

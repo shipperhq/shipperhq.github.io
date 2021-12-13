@@ -7,25 +7,25 @@ No description
 
 ```graphql
 type RatingInfoInput {
+  customer: CustomerInput
   siteDetails: SiteDetailsInput
-  destination: DestinationInput
   requestedOptions: RequestedOptionsInput
   cart: CartInput
+  destination: DestinationInput
   cartType: CartType
-  customer: CustomerInput
 }
 ```
 
 ### Fields
 
-#### `siteDetails` ([`SiteDetailsInput`](/schema/inputs/site-details-input))
+#### `customer` ([`CustomerInput`](/docs/schema/inputs/customer-input))
 
-#### `destination` ([`DestinationInput`](/schema/inputs/destination-input))
+#### `siteDetails` ([`SiteDetailsInput`](/docs/schema/inputs/site-details-input))
 
-#### `requestedOptions` ([`RequestedOptionsInput`](/schema/inputs/requested-options-input))
+#### `requestedOptions` ([`RequestedOptionsInput`](/docs/schema/inputs/requested-options-input))
 
-#### `cart` ([`CartInput`](/schema/inputs/cart-input))
+#### `cart` ([`CartInput`](/docs/schema/inputs/cart-input))
 
-#### `cartType` ([`CartType`](/schema/enums/cart-type))
+#### `destination` ([`DestinationInput`](/docs/schema/inputs/destination-input))
 
-#### `customer` ([`CustomerInput`](/schema/inputs/customer-input))
+#### `cartType` ([`CartType`](/docs/schema/enums/cart-type))
