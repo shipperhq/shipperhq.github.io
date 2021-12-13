@@ -26,14 +26,12 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
+          editUrl: 'https://github.com/shipperhq/shipperhq.github.io/tree/main/dev-shipperhq/docs',
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
           editUrl:
-            'https://github.com/facebook/docusaurus/edit/main/website/blog/',
+            'https://github.com/shipperhq/shipperhq.github.io/tree/main/dev-shipperhq/blog',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -77,7 +75,13 @@ const config = {
           {to: '/blog', label: 'Blog', position: 'left'},
           {to: '/docs/schema', label: 'API', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            type: 'docsVersionDropdown',
+            position: 'right',
+            dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
+            dropdownActiveClassDisabled: true,
+          },
+          {
+            href: 'https://github.com/shipperhq/shipperhq.github.io',
             label: 'GitHub',
             position: 'right',
           },
@@ -121,7 +125,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/shipperhq/shipperhq.github.io',
               },
             ],
           },
