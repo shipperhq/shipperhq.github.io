@@ -1,0 +1,24 @@
+---
+id: store-final-shipping-chosen
+title: storeFinalShippingChosen
+---
+
+Submit finalized shipping selections for this cart.
+(Requires use of the x-shipperhq-secret-token or x-shipperhq-public-token headers.)
+
+```graphql
+storeFinalShippingChosen(
+  inputRequest: RMSChosenShippingRatesInput
+): TotalShippingRate
+
+```
+
+### Arguments
+
+#### `inputRequest` ([`RMSChosenShippingRatesInput`](../rate-manager-service/inputs/rmschosen-shipping-rates-input))
+
+### Type
+
+#### [`TotalShippingRate`](../rate-manager-service/objects/total-shipping-rate)
+
+Shipping totals

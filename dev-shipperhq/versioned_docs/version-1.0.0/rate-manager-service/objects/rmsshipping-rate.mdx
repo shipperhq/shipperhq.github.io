@@ -1,0 +1,58 @@
+---
+id: rmsshipping-rate
+title: RMSShippingRate
+---
+
+No description
+
+```graphql
+type RMSShippingRate implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  code: String!
+  title: String!
+  totalCharges: Float!
+  handlingFee: Float
+  shippingPrice: Float
+  deliveryDate: String
+  dispatchDate: String
+  deliveryMessage: String
+  description: String
+  rMSCarrier: RMSCarrier
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `code` ([`String`](../rate-manager-service/scalars/string))
+
+#### `title` ([`String`](../rate-manager-service/scalars/string))
+
+#### `totalCharges` ([`Float`](../rate-manager-service/scalars/float))
+
+#### `handlingFee` ([`Float`](../rate-manager-service/scalars/float))
+
+#### `shippingPrice` ([`Float`](../rate-manager-service/scalars/float))
+
+#### `deliveryDate` ([`String`](../rate-manager-service/scalars/string))
+
+#### `dispatchDate` ([`String`](../rate-manager-service/scalars/string))
+
+#### `deliveryMessage` ([`String`](../rate-manager-service/scalars/string))
+
+#### `description` ([`String`](../rate-manager-service/scalars/string))
+
+#### `rMSCarrier` ([`RMSCarrier`](../rate-manager-service/objects/rmscarrier))
+
+### Interfaces
+
+#### [`Node`](../rate-manager-service/interfaces/node)
+
+An object with an ID

@@ -1,0 +1,28 @@
+---
+id: total-shipping-rate
+title: TotalShippingRate
+---
+
+Shipping totals
+
+```graphql
+type TotalShippingRate {
+  carrierCode: String!
+  methodCode: String!
+  totalCharges: Float!
+}
+```
+
+### Fields
+
+#### `carrierCode` ([`String`](../rate-manager-service/scalars/string))
+
+Chosen carrier
+
+#### `methodCode` ([`String`](../rate-manager-service/scalars/string))
+
+Chosen method
+
+#### `totalCharges` ([`Float`](../rate-manager-service/scalars/float))
+
+Shipping total

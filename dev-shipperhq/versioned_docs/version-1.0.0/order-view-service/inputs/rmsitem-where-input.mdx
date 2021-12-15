@@ -1,0 +1,777 @@
+---
+id: rmsitem-where-input
+title: RMSItemWhereInput
+---
+
+No description
+
+```graphql
+type RMSItemWhereInput {
+  AND: [RMSItemWhereInput!]
+  OR: [RMSItemWhereInput!]
+  NOT: [RMSItemWhereInput!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  itemId: String
+  itemId_not: String
+  itemId_in: [String!]
+  itemId_not_in: [String!]
+  itemId_lt: String
+  itemId_lte: String
+  itemId_gt: String
+  itemId_gte: String
+  itemId_contains: String
+  itemId_not_contains: String
+  itemId_starts_with: String
+  itemId_not_starts_with: String
+  itemId_ends_with: String
+  itemId_not_ends_with: String
+  sku: String
+  sku_not: String
+  sku_in: [String!]
+  sku_not_in: [String!]
+  sku_lt: String
+  sku_lte: String
+  sku_gt: String
+  sku_gte: String
+  sku_contains: String
+  sku_not_contains: String
+  sku_starts_with: String
+  sku_not_starts_with: String
+  sku_ends_with: String
+  sku_not_ends_with: String
+  storePrice: Float
+  storePrice_not: Float
+  storePrice_in: [Float!]
+  storePrice_not_in: [Float!]
+  storePrice_lt: Float
+  storePrice_lte: Float
+  storePrice_gt: Float
+  storePrice_gte: Float
+  weight: Float
+  weight_not: Float
+  weight_in: [Float!]
+  weight_not_in: [Float!]
+  weight_lt: Float
+  weight_lte: Float
+  weight_gt: Float
+  weight_gte: Float
+  qty: Int
+  qty_not: Int
+  qty_in: [Int!]
+  qty_not_in: [Int!]
+  qty_lt: Int
+  qty_lte: Int
+  qty_gt: Int
+  qty_gte: Int
+  type: ItemType
+  type_not: ItemType
+  type_in: [ItemType!]
+  type_not_in: [ItemType!]
+  basePrice: Float
+  basePrice_not: Float
+  basePrice_in: [Float!]
+  basePrice_not_in: [Float!]
+  basePrice_lt: Float
+  basePrice_lte: Float
+  basePrice_gt: Float
+  basePrice_gte: Float
+  taxInclBasePrice: Float
+  taxInclBasePrice_not: Float
+  taxInclBasePrice_in: [Float!]
+  taxInclBasePrice_not_in: [Float!]
+  taxInclBasePrice_lt: Float
+  taxInclBasePrice_lte: Float
+  taxInclBasePrice_gt: Float
+  taxInclBasePrice_gte: Float
+  taxInclStorePrice: Float
+  taxInclStorePrice_not: Float
+  taxInclStorePrice_in: [Float!]
+  taxInclStorePrice_not_in: [Float!]
+  taxInclStorePrice_lt: Float
+  taxInclStorePrice_lte: Float
+  taxInclStorePrice_gt: Float
+  taxInclStorePrice_gte: Float
+  discountPercent: Float
+  discountPercent_not: Float
+  discountPercent_in: [Float!]
+  discountPercent_not_in: [Float!]
+  discountPercent_lt: Float
+  discountPercent_lte: Float
+  discountPercent_gt: Float
+  discountPercent_gte: Float
+  discountedBasePrice: Float
+  discountedBasePrice_not: Float
+  discountedBasePrice_in: [Float!]
+  discountedBasePrice_not_in: [Float!]
+  discountedBasePrice_lt: Float
+  discountedBasePrice_lte: Float
+  discountedBasePrice_gt: Float
+  discountedBasePrice_gte: Float
+  discountedStorePrice: Float
+  discountedStorePrice_not: Float
+  discountedStorePrice_in: [Float!]
+  discountedStorePrice_not_in: [Float!]
+  discountedStorePrice_lt: Float
+  discountedStorePrice_lte: Float
+  discountedStorePrice_gt: Float
+  discountedStorePrice_gte: Float
+  discountedTaxInclBasePrice: Float
+  discountedTaxInclBasePrice_not: Float
+  discountedTaxInclBasePrice_in: [Float!]
+  discountedTaxInclBasePrice_not_in: [Float!]
+  discountedTaxInclBasePrice_lt: Float
+  discountedTaxInclBasePrice_lte: Float
+  discountedTaxInclBasePrice_gt: Float
+  discountedTaxInclBasePrice_gte: Float
+  discountedTaxInclStorePrice: Float
+  discountedTaxInclStorePrice_not: Float
+  discountedTaxInclStorePrice_in: [Float!]
+  discountedTaxInclStorePrice_not_in: [Float!]
+  discountedTaxInclStorePrice_lt: Float
+  discountedTaxInclStorePrice_lte: Float
+  discountedTaxInclStorePrice_gt: Float
+  discountedTaxInclStorePrice_gte: Float
+  freeShipping: Boolean
+  freeShipping_not: Boolean
+  fixedPrice: Boolean
+  fixedPrice_not: Boolean
+  fixedWeight: Boolean
+  fixedWeight_not: Boolean
+  attributes_every: RMSAttributeWhereInput
+  attributes_some: RMSAttributeWhereInput
+  attributes_none: RMSAttributeWhereInput
+}
+```
+
+### Fields
+
+#### `AND` ([`RMSItemWhereInput`](../order-view-service/inputs/rmsitem-where-input))
+
+Logical AND on all given filters.
+
+#### `OR` ([`RMSItemWhereInput`](../order-view-service/inputs/rmsitem-where-input))
+
+Logical OR on all given filters.
+
+#### `NOT` ([`RMSItemWhereInput`](../order-view-service/inputs/rmsitem-where-input))
+
+Logical NOT on all given filters combined by AND.
+
+#### `id` ([`ID`](../order-view-service/scalars/id))
+
+#### `id_not` ([`ID`](../order-view-service/scalars/id))
+
+All values that are not equal to given value.
+
+#### `id_in` ([`ID`](../order-view-service/scalars/id))
+
+All values that are contained in given list.
+
+#### `id_not_in` ([`ID`](../order-view-service/scalars/id))
+
+All values that are not contained in given list.
+
+#### `id_lt` ([`ID`](../order-view-service/scalars/id))
+
+All values less than the given value.
+
+#### `id_lte` ([`ID`](../order-view-service/scalars/id))
+
+All values less than or equal the given value.
+
+#### `id_gt` ([`ID`](../order-view-service/scalars/id))
+
+All values greater than the given value.
+
+#### `id_gte` ([`ID`](../order-view-service/scalars/id))
+
+All values greater than or equal the given value.
+
+#### `id_contains` ([`ID`](../order-view-service/scalars/id))
+
+All values containing the given string.
+
+#### `id_not_contains` ([`ID`](../order-view-service/scalars/id))
+
+All values not containing the given string.
+
+#### `id_starts_with` ([`ID`](../order-view-service/scalars/id))
+
+All values starting with the given string.
+
+#### `id_not_starts_with` ([`ID`](../order-view-service/scalars/id))
+
+All values not starting with the given string.
+
+#### `id_ends_with` ([`ID`](../order-view-service/scalars/id))
+
+All values ending with the given string.
+
+#### `id_not_ends_with` ([`ID`](../order-view-service/scalars/id))
+
+All values not ending with the given string.
+
+#### `createdAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `createdAt_not` ([`DateTime`](../order-view-service/scalars/date-time))
+
+All values that are not equal to given value.
+
+#### `createdAt_in` ([`DateTime`](../order-view-service/scalars/date-time))
+
+All values that are contained in given list.
+
+#### `createdAt_not_in` ([`DateTime`](../order-view-service/scalars/date-time))
+
+All values that are not contained in given list.
+
+#### `createdAt_lt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+All values less than the given value.
+
+#### `createdAt_lte` ([`DateTime`](../order-view-service/scalars/date-time))
+
+All values less than or equal the given value.
+
+#### `createdAt_gt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+All values greater than the given value.
+
+#### `createdAt_gte` ([`DateTime`](../order-view-service/scalars/date-time))
+
+All values greater than or equal the given value.
+
+#### `updatedAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `updatedAt_not` ([`DateTime`](../order-view-service/scalars/date-time))
+
+All values that are not equal to given value.
+
+#### `updatedAt_in` ([`DateTime`](../order-view-service/scalars/date-time))
+
+All values that are contained in given list.
+
+#### `updatedAt_not_in` ([`DateTime`](../order-view-service/scalars/date-time))
+
+All values that are not contained in given list.
+
+#### `updatedAt_lt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+All values less than the given value.
+
+#### `updatedAt_lte` ([`DateTime`](../order-view-service/scalars/date-time))
+
+All values less than or equal the given value.
+
+#### `updatedAt_gt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+All values greater than the given value.
+
+#### `updatedAt_gte` ([`DateTime`](../order-view-service/scalars/date-time))
+
+All values greater than or equal the given value.
+
+#### `itemId` ([`String`](../order-view-service/scalars/string))
+
+#### `itemId_not` ([`String`](../order-view-service/scalars/string))
+
+All values that are not equal to given value.
+
+#### `itemId_in` ([`String`](../order-view-service/scalars/string))
+
+All values that are contained in given list.
+
+#### `itemId_not_in` ([`String`](../order-view-service/scalars/string))
+
+All values that are not contained in given list.
+
+#### `itemId_lt` ([`String`](../order-view-service/scalars/string))
+
+All values less than the given value.
+
+#### `itemId_lte` ([`String`](../order-view-service/scalars/string))
+
+All values less than or equal the given value.
+
+#### `itemId_gt` ([`String`](../order-view-service/scalars/string))
+
+All values greater than the given value.
+
+#### `itemId_gte` ([`String`](../order-view-service/scalars/string))
+
+All values greater than or equal the given value.
+
+#### `itemId_contains` ([`String`](../order-view-service/scalars/string))
+
+All values containing the given string.
+
+#### `itemId_not_contains` ([`String`](../order-view-service/scalars/string))
+
+All values not containing the given string.
+
+#### `itemId_starts_with` ([`String`](../order-view-service/scalars/string))
+
+All values starting with the given string.
+
+#### `itemId_not_starts_with` ([`String`](../order-view-service/scalars/string))
+
+All values not starting with the given string.
+
+#### `itemId_ends_with` ([`String`](../order-view-service/scalars/string))
+
+All values ending with the given string.
+
+#### `itemId_not_ends_with` ([`String`](../order-view-service/scalars/string))
+
+All values not ending with the given string.
+
+#### `sku` ([`String`](../order-view-service/scalars/string))
+
+#### `sku_not` ([`String`](../order-view-service/scalars/string))
+
+All values that are not equal to given value.
+
+#### `sku_in` ([`String`](../order-view-service/scalars/string))
+
+All values that are contained in given list.
+
+#### `sku_not_in` ([`String`](../order-view-service/scalars/string))
+
+All values that are not contained in given list.
+
+#### `sku_lt` ([`String`](../order-view-service/scalars/string))
+
+All values less than the given value.
+
+#### `sku_lte` ([`String`](../order-view-service/scalars/string))
+
+All values less than or equal the given value.
+
+#### `sku_gt` ([`String`](../order-view-service/scalars/string))
+
+All values greater than the given value.
+
+#### `sku_gte` ([`String`](../order-view-service/scalars/string))
+
+All values greater than or equal the given value.
+
+#### `sku_contains` ([`String`](../order-view-service/scalars/string))
+
+All values containing the given string.
+
+#### `sku_not_contains` ([`String`](../order-view-service/scalars/string))
+
+All values not containing the given string.
+
+#### `sku_starts_with` ([`String`](../order-view-service/scalars/string))
+
+All values starting with the given string.
+
+#### `sku_not_starts_with` ([`String`](../order-view-service/scalars/string))
+
+All values not starting with the given string.
+
+#### `sku_ends_with` ([`String`](../order-view-service/scalars/string))
+
+All values ending with the given string.
+
+#### `sku_not_ends_with` ([`String`](../order-view-service/scalars/string))
+
+All values not ending with the given string.
+
+#### `storePrice` ([`Float`](../order-view-service/scalars/float))
+
+#### `storePrice_not` ([`Float`](../order-view-service/scalars/float))
+
+All values that are not equal to given value.
+
+#### `storePrice_in` ([`Float`](../order-view-service/scalars/float))
+
+All values that are contained in given list.
+
+#### `storePrice_not_in` ([`Float`](../order-view-service/scalars/float))
+
+All values that are not contained in given list.
+
+#### `storePrice_lt` ([`Float`](../order-view-service/scalars/float))
+
+All values less than the given value.
+
+#### `storePrice_lte` ([`Float`](../order-view-service/scalars/float))
+
+All values less than or equal the given value.
+
+#### `storePrice_gt` ([`Float`](../order-view-service/scalars/float))
+
+All values greater than the given value.
+
+#### `storePrice_gte` ([`Float`](../order-view-service/scalars/float))
+
+All values greater than or equal the given value.
+
+#### `weight` ([`Float`](../order-view-service/scalars/float))
+
+#### `weight_not` ([`Float`](../order-view-service/scalars/float))
+
+All values that are not equal to given value.
+
+#### `weight_in` ([`Float`](../order-view-service/scalars/float))
+
+All values that are contained in given list.
+
+#### `weight_not_in` ([`Float`](../order-view-service/scalars/float))
+
+All values that are not contained in given list.
+
+#### `weight_lt` ([`Float`](../order-view-service/scalars/float))
+
+All values less than the given value.
+
+#### `weight_lte` ([`Float`](../order-view-service/scalars/float))
+
+All values less than or equal the given value.
+
+#### `weight_gt` ([`Float`](../order-view-service/scalars/float))
+
+All values greater than the given value.
+
+#### `weight_gte` ([`Float`](../order-view-service/scalars/float))
+
+All values greater than or equal the given value.
+
+#### `qty` ([`Int`](../order-view-service/scalars/int))
+
+#### `qty_not` ([`Int`](../order-view-service/scalars/int))
+
+All values that are not equal to given value.
+
+#### `qty_in` ([`Int`](../order-view-service/scalars/int))
+
+All values that are contained in given list.
+
+#### `qty_not_in` ([`Int`](../order-view-service/scalars/int))
+
+All values that are not contained in given list.
+
+#### `qty_lt` ([`Int`](../order-view-service/scalars/int))
+
+All values less than the given value.
+
+#### `qty_lte` ([`Int`](../order-view-service/scalars/int))
+
+All values less than or equal the given value.
+
+#### `qty_gt` ([`Int`](../order-view-service/scalars/int))
+
+All values greater than the given value.
+
+#### `qty_gte` ([`Int`](../order-view-service/scalars/int))
+
+All values greater than or equal the given value.
+
+#### `type` ([`ItemType`](../order-view-service/enums/item-type))
+
+#### `type_not` ([`ItemType`](../order-view-service/enums/item-type))
+
+All values that are not equal to given value.
+
+#### `type_in` ([`ItemType`](../order-view-service/enums/item-type))
+
+All values that are contained in given list.
+
+#### `type_not_in` ([`ItemType`](../order-view-service/enums/item-type))
+
+All values that are not contained in given list.
+
+#### `basePrice` ([`Float`](../order-view-service/scalars/float))
+
+#### `basePrice_not` ([`Float`](../order-view-service/scalars/float))
+
+All values that are not equal to given value.
+
+#### `basePrice_in` ([`Float`](../order-view-service/scalars/float))
+
+All values that are contained in given list.
+
+#### `basePrice_not_in` ([`Float`](../order-view-service/scalars/float))
+
+All values that are not contained in given list.
+
+#### `basePrice_lt` ([`Float`](../order-view-service/scalars/float))
+
+All values less than the given value.
+
+#### `basePrice_lte` ([`Float`](../order-view-service/scalars/float))
+
+All values less than or equal the given value.
+
+#### `basePrice_gt` ([`Float`](../order-view-service/scalars/float))
+
+All values greater than the given value.
+
+#### `basePrice_gte` ([`Float`](../order-view-service/scalars/float))
+
+All values greater than or equal the given value.
+
+#### `taxInclBasePrice` ([`Float`](../order-view-service/scalars/float))
+
+#### `taxInclBasePrice_not` ([`Float`](../order-view-service/scalars/float))
+
+All values that are not equal to given value.
+
+#### `taxInclBasePrice_in` ([`Float`](../order-view-service/scalars/float))
+
+All values that are contained in given list.
+
+#### `taxInclBasePrice_not_in` ([`Float`](../order-view-service/scalars/float))
+
+All values that are not contained in given list.
+
+#### `taxInclBasePrice_lt` ([`Float`](../order-view-service/scalars/float))
+
+All values less than the given value.
+
+#### `taxInclBasePrice_lte` ([`Float`](../order-view-service/scalars/float))
+
+All values less than or equal the given value.
+
+#### `taxInclBasePrice_gt` ([`Float`](../order-view-service/scalars/float))
+
+All values greater than the given value.
+
+#### `taxInclBasePrice_gte` ([`Float`](../order-view-service/scalars/float))
+
+All values greater than or equal the given value.
+
+#### `taxInclStorePrice` ([`Float`](../order-view-service/scalars/float))
+
+#### `taxInclStorePrice_not` ([`Float`](../order-view-service/scalars/float))
+
+All values that are not equal to given value.
+
+#### `taxInclStorePrice_in` ([`Float`](../order-view-service/scalars/float))
+
+All values that are contained in given list.
+
+#### `taxInclStorePrice_not_in` ([`Float`](../order-view-service/scalars/float))
+
+All values that are not contained in given list.
+
+#### `taxInclStorePrice_lt` ([`Float`](../order-view-service/scalars/float))
+
+All values less than the given value.
+
+#### `taxInclStorePrice_lte` ([`Float`](../order-view-service/scalars/float))
+
+All values less than or equal the given value.
+
+#### `taxInclStorePrice_gt` ([`Float`](../order-view-service/scalars/float))
+
+All values greater than the given value.
+
+#### `taxInclStorePrice_gte` ([`Float`](../order-view-service/scalars/float))
+
+All values greater than or equal the given value.
+
+#### `discountPercent` ([`Float`](../order-view-service/scalars/float))
+
+#### `discountPercent_not` ([`Float`](../order-view-service/scalars/float))
+
+All values that are not equal to given value.
+
+#### `discountPercent_in` ([`Float`](../order-view-service/scalars/float))
+
+All values that are contained in given list.
+
+#### `discountPercent_not_in` ([`Float`](../order-view-service/scalars/float))
+
+All values that are not contained in given list.
+
+#### `discountPercent_lt` ([`Float`](../order-view-service/scalars/float))
+
+All values less than the given value.
+
+#### `discountPercent_lte` ([`Float`](../order-view-service/scalars/float))
+
+All values less than or equal the given value.
+
+#### `discountPercent_gt` ([`Float`](../order-view-service/scalars/float))
+
+All values greater than the given value.
+
+#### `discountPercent_gte` ([`Float`](../order-view-service/scalars/float))
+
+All values greater than or equal the given value.
+
+#### `discountedBasePrice` ([`Float`](../order-view-service/scalars/float))
+
+#### `discountedBasePrice_not` ([`Float`](../order-view-service/scalars/float))
+
+All values that are not equal to given value.
+
+#### `discountedBasePrice_in` ([`Float`](../order-view-service/scalars/float))
+
+All values that are contained in given list.
+
+#### `discountedBasePrice_not_in` ([`Float`](../order-view-service/scalars/float))
+
+All values that are not contained in given list.
+
+#### `discountedBasePrice_lt` ([`Float`](../order-view-service/scalars/float))
+
+All values less than the given value.
+
+#### `discountedBasePrice_lte` ([`Float`](../order-view-service/scalars/float))
+
+All values less than or equal the given value.
+
+#### `discountedBasePrice_gt` ([`Float`](../order-view-service/scalars/float))
+
+All values greater than the given value.
+
+#### `discountedBasePrice_gte` ([`Float`](../order-view-service/scalars/float))
+
+All values greater than or equal the given value.
+
+#### `discountedStorePrice` ([`Float`](../order-view-service/scalars/float))
+
+#### `discountedStorePrice_not` ([`Float`](../order-view-service/scalars/float))
+
+All values that are not equal to given value.
+
+#### `discountedStorePrice_in` ([`Float`](../order-view-service/scalars/float))
+
+All values that are contained in given list.
+
+#### `discountedStorePrice_not_in` ([`Float`](../order-view-service/scalars/float))
+
+All values that are not contained in given list.
+
+#### `discountedStorePrice_lt` ([`Float`](../order-view-service/scalars/float))
+
+All values less than the given value.
+
+#### `discountedStorePrice_lte` ([`Float`](../order-view-service/scalars/float))
+
+All values less than or equal the given value.
+
+#### `discountedStorePrice_gt` ([`Float`](../order-view-service/scalars/float))
+
+All values greater than the given value.
+
+#### `discountedStorePrice_gte` ([`Float`](../order-view-service/scalars/float))
+
+All values greater than or equal the given value.
+
+#### `discountedTaxInclBasePrice` ([`Float`](../order-view-service/scalars/float))
+
+#### `discountedTaxInclBasePrice_not` ([`Float`](../order-view-service/scalars/float))
+
+All values that are not equal to given value.
+
+#### `discountedTaxInclBasePrice_in` ([`Float`](../order-view-service/scalars/float))
+
+All values that are contained in given list.
+
+#### `discountedTaxInclBasePrice_not_in` ([`Float`](../order-view-service/scalars/float))
+
+All values that are not contained in given list.
+
+#### `discountedTaxInclBasePrice_lt` ([`Float`](../order-view-service/scalars/float))
+
+All values less than the given value.
+
+#### `discountedTaxInclBasePrice_lte` ([`Float`](../order-view-service/scalars/float))
+
+All values less than or equal the given value.
+
+#### `discountedTaxInclBasePrice_gt` ([`Float`](../order-view-service/scalars/float))
+
+All values greater than the given value.
+
+#### `discountedTaxInclBasePrice_gte` ([`Float`](../order-view-service/scalars/float))
+
+All values greater than or equal the given value.
+
+#### `discountedTaxInclStorePrice` ([`Float`](../order-view-service/scalars/float))
+
+#### `discountedTaxInclStorePrice_not` ([`Float`](../order-view-service/scalars/float))
+
+All values that are not equal to given value.
+
+#### `discountedTaxInclStorePrice_in` ([`Float`](../order-view-service/scalars/float))
+
+All values that are contained in given list.
+
+#### `discountedTaxInclStorePrice_not_in` ([`Float`](../order-view-service/scalars/float))
+
+All values that are not contained in given list.
+
+#### `discountedTaxInclStorePrice_lt` ([`Float`](../order-view-service/scalars/float))
+
+All values less than the given value.
+
+#### `discountedTaxInclStorePrice_lte` ([`Float`](../order-view-service/scalars/float))
+
+All values less than or equal the given value.
+
+#### `discountedTaxInclStorePrice_gt` ([`Float`](../order-view-service/scalars/float))
+
+All values greater than the given value.
+
+#### `discountedTaxInclStorePrice_gte` ([`Float`](../order-view-service/scalars/float))
+
+All values greater than or equal the given value.
+
+#### `freeShipping` ([`Boolean`](../order-view-service/scalars/boolean))
+
+#### `freeShipping_not` ([`Boolean`](../order-view-service/scalars/boolean))
+
+All values that are not equal to given value.
+
+#### `fixedPrice` ([`Boolean`](../order-view-service/scalars/boolean))
+
+#### `fixedPrice_not` ([`Boolean`](../order-view-service/scalars/boolean))
+
+All values that are not equal to given value.
+
+#### `fixedWeight` ([`Boolean`](../order-view-service/scalars/boolean))
+
+#### `fixedWeight_not` ([`Boolean`](../order-view-service/scalars/boolean))
+
+All values that are not equal to given value.
+
+#### `attributes_every` ([`RMSAttributeWhereInput`](../order-view-service/inputs/rmsattribute-where-input))
+
+#### `attributes_some` ([`RMSAttributeWhereInput`](../order-view-service/inputs/rmsattribute-where-input))
+
+#### `attributes_none` ([`RMSAttributeWhereInput`](../order-view-service/inputs/rmsattribute-where-input))

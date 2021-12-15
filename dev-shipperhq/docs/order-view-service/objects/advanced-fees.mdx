@@ -1,0 +1,55 @@
+---
+id: advanced-fees
+title: AdvancedFees
+---
+
+No description
+
+```graphql
+type AdvancedFees implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  handlingFee: Float!
+  shippingPrice: Float!
+  totalCharges: Float!
+  cost: Float
+  customDuties: Float
+  flatRulesApplied: [String!]!
+  changeRulesApplied: [String!]!
+  method: Method
+  rateBreakdown: RateBreakdown
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../order-view-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `handlingFee` ([`Float`](../order-view-service/scalars/float))
+
+#### `shippingPrice` ([`Float`](../order-view-service/scalars/float))
+
+#### `totalCharges` ([`Float`](../order-view-service/scalars/float))
+
+#### `cost` ([`Float`](../order-view-service/scalars/float))
+
+#### `customDuties` ([`Float`](../order-view-service/scalars/float))
+
+#### `flatRulesApplied` ([`String`](../order-view-service/scalars/string))
+
+#### `changeRulesApplied` ([`String`](../order-view-service/scalars/string))
+
+#### `method` ([`Method`](../order-view-service/objects/method))
+
+#### `rateBreakdown` ([`RateBreakdown`](../order-view-service/objects/rate-breakdown))
+
+### Interfaces
+
+#### [`Node`](../order-view-service/interfaces/node)
+
+An object with an ID

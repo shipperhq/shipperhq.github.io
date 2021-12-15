@@ -44,11 +44,8 @@ const config = {
     [
       '@edno/docusaurus2-graphql-doc-generator',
       {
-        schema: "https://api.shipperhq.com/v2/graphql", // reference the api url or the schema.docs.graphql file
-        rootPath: "./docs", // docs will be generated under './docs/schema' (rootPath/baseURL)
-        baseURL: "schema",
-        linkRoot: "/docs",
-        homepage: "./data/api.md",
+        rootPath: "./docs",
+        linkRoot: "../../",
         loaders: {
           UrlLoader: "@graphql-tools/url-loader"
         }
@@ -79,8 +76,19 @@ const config = {
             position: 'left',
             items: [
               {
-                to: '/docs/schema',
+                type: 'doc',
+                docId: 'rate-service/rate-service',
                 label: 'Rate Service GraphQL'
+              },
+              {
+                type: 'doc',
+                docId: 'rate-manager-service/rate-manager-service',
+                label: 'Rate Manager Service GraphQL'
+              },
+              {
+                type: 'doc',
+                docId: 'order-view-service/order-view-service',
+                label: 'Order View Service GraphQL'
               }
             ]
           },

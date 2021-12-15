@@ -1,0 +1,43 @@
+---
+id: item
+title: Item
+---
+
+No description
+
+```graphql
+type Item implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  sku: String!
+  qtyPacked: Float!
+  weightPacked: Float!
+  package: Package
+  storedRMSCart: StoredRMSCart
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `sku` ([`String`](../rate-manager-service/scalars/string))
+
+#### `qtyPacked` ([`Float`](../rate-manager-service/scalars/float))
+
+#### `weightPacked` ([`Float`](../rate-manager-service/scalars/float))
+
+#### `package` ([`Package`](../rate-manager-service/objects/package))
+
+#### `storedRMSCart` ([`StoredRMSCart`](../rate-manager-service/objects/stored-rmscart))
+
+### Interfaces
+
+#### [`Node`](../rate-manager-service/interfaces/node)
+
+An object with an ID

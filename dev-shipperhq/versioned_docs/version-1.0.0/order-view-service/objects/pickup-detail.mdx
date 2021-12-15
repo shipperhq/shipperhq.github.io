@@ -1,0 +1,71 @@
+---
+id: pickup-detail
+title: PickupDetail
+---
+
+No description
+
+```graphql
+type PickupDetail implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  pickupLocationDetails(
+    where: PickupLocationDetailWhereInput
+    orderBy: PickupLocationDetailOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [PickupLocationDetail!]
+  pickupCart: Boolean
+  googleApiKey: String
+  showOpeningHours: Boolean
+  showMap: String
+  showAddress: String
+  carrier: Carrier
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../order-view-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `pickupLocationDetails` ([`PickupLocationDetail`](../order-view-service/objects/pickup-location-detail))
+
+- ##### `where` ([`PickupLocationDetailWhereInput`](../order-view-service/inputs/pickup-location-detail-where-input))
+
+- ##### `orderBy` ([`PickupLocationDetailOrderByInput`](../order-view-service/enums/pickup-location-detail-order-by-input))
+
+- ##### `skip` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `after` ([`String`](../order-view-service/scalars/string))
+
+- ##### `before` ([`String`](../order-view-service/scalars/string))
+
+- ##### `first` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `last` ([`Int`](../order-view-service/scalars/int))
+
+#### `pickupCart` ([`Boolean`](../order-view-service/scalars/boolean))
+
+#### `googleApiKey` ([`String`](../order-view-service/scalars/string))
+
+#### `showOpeningHours` ([`Boolean`](../order-view-service/scalars/boolean))
+
+#### `showMap` ([`String`](../order-view-service/scalars/string))
+
+#### `showAddress` ([`String`](../order-view-service/scalars/string))
+
+#### `carrier` ([`Carrier`](../order-view-service/objects/carrier))
+
+### Interfaces
+
+#### [`Node`](../order-view-service/interfaces/node)
+
+An object with an ID

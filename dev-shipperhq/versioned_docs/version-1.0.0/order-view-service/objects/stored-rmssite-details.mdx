@@ -1,0 +1,46 @@
+---
+id: stored-rmssite-details
+title: StoredRMSSiteDetails
+---
+
+No description
+
+```graphql
+type StoredRMSSiteDetails implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  appVersion: String
+  ecommerceCart: String
+  ecommerceVersion: String
+  websiteUrl: String
+  ipAddress: String
+  storedRMSRatingInfo: StoredRMSRatingInfo
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../order-view-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `appVersion` ([`String`](../order-view-service/scalars/string))
+
+#### `ecommerceCart` ([`String`](../order-view-service/scalars/string))
+
+#### `ecommerceVersion` ([`String`](../order-view-service/scalars/string))
+
+#### `websiteUrl` ([`String`](../order-view-service/scalars/string))
+
+#### `ipAddress` ([`String`](../order-view-service/scalars/string))
+
+#### `storedRMSRatingInfo` ([`StoredRMSRatingInfo`](../order-view-service/objects/stored-rmsrating-info))
+
+### Interfaces
+
+#### [`Node`](../order-view-service/interfaces/node)
+
+An object with an ID

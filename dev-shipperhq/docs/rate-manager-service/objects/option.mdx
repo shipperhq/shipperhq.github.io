@@ -1,0 +1,43 @@
+---
+id: option
+title: Option
+---
+
+No description
+
+```graphql
+type Option implements Node {
+  id: ID!
+  code: String!
+  name: String!
+  values: Json
+  defaultValue: String
+  displayType: String!
+  requestRates: Boolean
+  availableOptions: AvailableOptions
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `code` ([`String`](../rate-manager-service/scalars/string))
+
+#### `name` ([`String`](../rate-manager-service/scalars/string))
+
+#### `values` ([`Json`](../rate-manager-service/scalars/json))
+
+#### `defaultValue` ([`String`](../rate-manager-service/scalars/string))
+
+#### `displayType` ([`String`](../rate-manager-service/scalars/string))
+
+#### `requestRates` ([`Boolean`](../rate-manager-service/scalars/boolean))
+
+#### `availableOptions` ([`AvailableOptions`](../rate-manager-service/objects/available-options))
+
+### Interfaces
+
+#### [`Node`](../rate-manager-service/interfaces/node)
+
+An object with an ID

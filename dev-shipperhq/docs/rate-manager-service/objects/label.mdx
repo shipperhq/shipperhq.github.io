@@ -1,0 +1,80 @@
+---
+id: label
+title: Label
+---
+
+No description
+
+```graphql
+type Label implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  order: Order
+  carrierCode: String!
+  carrierName: String!
+  methodName: String!
+  trackingId: String
+  labelUrl: String
+  labelImage: String
+  postageCost: PostageCost
+  items(
+    where: LabelItemWhereInput
+    orderBy: LabelItemOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [LabelItem!]
+  packageId: String
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `order` ([`Order`](../rate-manager-service/objects/order))
+
+#### `carrierCode` ([`String`](../rate-manager-service/scalars/string))
+
+#### `carrierName` ([`String`](../rate-manager-service/scalars/string))
+
+#### `methodName` ([`String`](../rate-manager-service/scalars/string))
+
+#### `trackingId` ([`String`](../rate-manager-service/scalars/string))
+
+#### `labelUrl` ([`String`](../rate-manager-service/scalars/string))
+
+#### `labelImage` ([`String`](../rate-manager-service/scalars/string))
+
+#### `postageCost` ([`PostageCost`](../rate-manager-service/objects/postage-cost))
+
+#### `items` ([`LabelItem`](../rate-manager-service/objects/label-item))
+
+- ##### `where` ([`LabelItemWhereInput`](../rate-manager-service/inputs/label-item-where-input))
+
+- ##### `orderBy` ([`LabelItemOrderByInput`](../rate-manager-service/enums/label-item-order-by-input))
+
+- ##### `skip` ([`Int`](../rate-manager-service/scalars/int))
+
+- ##### `after` ([`String`](../rate-manager-service/scalars/string))
+
+- ##### `before` ([`String`](../rate-manager-service/scalars/string))
+
+- ##### `first` ([`Int`](../rate-manager-service/scalars/int))
+
+- ##### `last` ([`Int`](../rate-manager-service/scalars/int))
+
+#### `packageId` ([`String`](../rate-manager-service/scalars/string))
+
+### Interfaces
+
+#### [`Node`](../rate-manager-service/interfaces/node)
+
+An object with an ID

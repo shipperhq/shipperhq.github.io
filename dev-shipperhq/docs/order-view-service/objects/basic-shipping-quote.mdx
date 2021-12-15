@@ -1,0 +1,75 @@
+---
+id: basic-shipping-quote
+title: BasicShippingQuote
+---
+
+No description
+
+```graphql
+type BasicShippingQuote implements Node {
+  id: ID!
+  transactionId: String!
+  carriers(
+    where: RatingCarrierWhereInput
+    orderBy: RatingCarrierOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [RatingCarrier!]
+  errors(
+    where: RMSErrorWhereInput
+    orderBy: RMSErrorOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [RMSError!]
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../order-view-service/scalars/id))
+
+#### `transactionId` ([`String`](../order-view-service/scalars/string))
+
+#### `carriers` ([`RatingCarrier`](../order-view-service/objects/rating-carrier))
+
+- ##### `where` ([`RatingCarrierWhereInput`](../order-view-service/inputs/rating-carrier-where-input))
+
+- ##### `orderBy` ([`RatingCarrierOrderByInput`](../order-view-service/enums/rating-carrier-order-by-input))
+
+- ##### `skip` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `after` ([`String`](../order-view-service/scalars/string))
+
+- ##### `before` ([`String`](../order-view-service/scalars/string))
+
+- ##### `first` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `last` ([`Int`](../order-view-service/scalars/int))
+
+#### `errors` ([`RMSError`](../order-view-service/objects/rmserror))
+
+- ##### `where` ([`RMSErrorWhereInput`](../order-view-service/inputs/rmserror-where-input))
+
+- ##### `orderBy` ([`RMSErrorOrderByInput`](../order-view-service/enums/rmserror-order-by-input))
+
+- ##### `skip` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `after` ([`String`](../order-view-service/scalars/string))
+
+- ##### `before` ([`String`](../order-view-service/scalars/string))
+
+- ##### `first` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `last` ([`Int`](../order-view-service/scalars/int))
+
+### Interfaces
+
+#### [`Node`](../order-view-service/interfaces/node)
+
+An object with an ID

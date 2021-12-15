@@ -1,0 +1,196 @@
+---
+id: calendar-date-where-input
+title: CalendarDateWhereInput
+---
+
+No description
+
+```graphql
+type CalendarDateWhereInput {
+  AND: [CalendarDateWhereInput!]
+  OR: [CalendarDateWhereInput!]
+  NOT: [CalendarDateWhereInput!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  deliveryDateRanges_every: DeliveryDateRangeWhereInput
+  deliveryDateRanges_some: DeliveryDateRangeWhereInput
+  deliveryDateRanges_none: DeliveryDateRangeWhereInput
+  timeSlots_every: TimeSlotWhereInput
+  timeSlots_some: TimeSlotWhereInput
+  timeSlots_none: TimeSlotWhereInput
+  carrier: CarrierWhereInput
+  pickupLocationDetail: PickupLocationDetailWhereInput
+}
+```
+
+### Fields
+
+#### `AND` ([`CalendarDateWhereInput`](../rate-manager-service/inputs/calendar-date-where-input))
+
+Logical AND on all given filters.
+
+#### `OR` ([`CalendarDateWhereInput`](../rate-manager-service/inputs/calendar-date-where-input))
+
+Logical OR on all given filters.
+
+#### `NOT` ([`CalendarDateWhereInput`](../rate-manager-service/inputs/calendar-date-where-input))
+
+Logical NOT on all given filters combined by AND.
+
+#### `id` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `id_not` ([`ID`](../rate-manager-service/scalars/id))
+
+All values that are not equal to given value.
+
+#### `id_in` ([`ID`](../rate-manager-service/scalars/id))
+
+All values that are contained in given list.
+
+#### `id_not_in` ([`ID`](../rate-manager-service/scalars/id))
+
+All values that are not contained in given list.
+
+#### `id_lt` ([`ID`](../rate-manager-service/scalars/id))
+
+All values less than the given value.
+
+#### `id_lte` ([`ID`](../rate-manager-service/scalars/id))
+
+All values less than or equal the given value.
+
+#### `id_gt` ([`ID`](../rate-manager-service/scalars/id))
+
+All values greater than the given value.
+
+#### `id_gte` ([`ID`](../rate-manager-service/scalars/id))
+
+All values greater than or equal the given value.
+
+#### `id_contains` ([`ID`](../rate-manager-service/scalars/id))
+
+All values containing the given string.
+
+#### `id_not_contains` ([`ID`](../rate-manager-service/scalars/id))
+
+All values not containing the given string.
+
+#### `id_starts_with` ([`ID`](../rate-manager-service/scalars/id))
+
+All values starting with the given string.
+
+#### `id_not_starts_with` ([`ID`](../rate-manager-service/scalars/id))
+
+All values not starting with the given string.
+
+#### `id_ends_with` ([`ID`](../rate-manager-service/scalars/id))
+
+All values ending with the given string.
+
+#### `id_not_ends_with` ([`ID`](../rate-manager-service/scalars/id))
+
+All values not ending with the given string.
+
+#### `createdAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `createdAt_not` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values that are not equal to given value.
+
+#### `createdAt_in` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values that are contained in given list.
+
+#### `createdAt_not_in` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values that are not contained in given list.
+
+#### `createdAt_lt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values less than the given value.
+
+#### `createdAt_lte` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values less than or equal the given value.
+
+#### `createdAt_gt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values greater than the given value.
+
+#### `createdAt_gte` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values greater than or equal the given value.
+
+#### `updatedAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `updatedAt_not` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values that are not equal to given value.
+
+#### `updatedAt_in` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values that are contained in given list.
+
+#### `updatedAt_not_in` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values that are not contained in given list.
+
+#### `updatedAt_lt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values less than the given value.
+
+#### `updatedAt_lte` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values less than or equal the given value.
+
+#### `updatedAt_gt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values greater than the given value.
+
+#### `updatedAt_gte` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values greater than or equal the given value.
+
+#### `deliveryDateRanges_every` ([`DeliveryDateRangeWhereInput`](../rate-manager-service/inputs/delivery-date-range-where-input))
+
+#### `deliveryDateRanges_some` ([`DeliveryDateRangeWhereInput`](../rate-manager-service/inputs/delivery-date-range-where-input))
+
+#### `deliveryDateRanges_none` ([`DeliveryDateRangeWhereInput`](../rate-manager-service/inputs/delivery-date-range-where-input))
+
+#### `timeSlots_every` ([`TimeSlotWhereInput`](../rate-manager-service/inputs/time-slot-where-input))
+
+#### `timeSlots_some` ([`TimeSlotWhereInput`](../rate-manager-service/inputs/time-slot-where-input))
+
+#### `timeSlots_none` ([`TimeSlotWhereInput`](../rate-manager-service/inputs/time-slot-where-input))
+
+#### `carrier` ([`CarrierWhereInput`](../rate-manager-service/inputs/carrier-where-input))
+
+#### `pickupLocationDetail` ([`PickupLocationDetailWhereInput`](../rate-manager-service/inputs/pickup-location-detail-where-input))

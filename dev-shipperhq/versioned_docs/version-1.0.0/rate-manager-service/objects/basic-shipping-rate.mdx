@@ -1,0 +1,37 @@
+---
+id: basic-shipping-rate
+title: BasicShippingRate
+---
+
+No description
+
+```graphql
+type BasicShippingRate implements Node {
+  id: ID!
+  code: String!
+  currency: String
+  title: String!
+  totalCharges: Float!
+  ratingCarrier: RatingCarrier
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `code` ([`String`](../rate-manager-service/scalars/string))
+
+#### `currency` ([`String`](../rate-manager-service/scalars/string))
+
+#### `title` ([`String`](../rate-manager-service/scalars/string))
+
+#### `totalCharges` ([`Float`](../rate-manager-service/scalars/float))
+
+#### `ratingCarrier` ([`RatingCarrier`](../rate-manager-service/objects/rating-carrier))
+
+### Interfaces
+
+#### [`Node`](../rate-manager-service/interfaces/node)
+
+An object with an ID

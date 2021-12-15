@@ -1,0 +1,43 @@
+---
+id: rmsoption
+title: RMSOption
+---
+
+No description
+
+```graphql
+type RMSOption implements Node {
+  id: ID!
+  code: String!
+  name: String!
+  values: Json
+  defaultValue: String
+  displayType: String!
+  requestRates: Boolean
+  rMSAvailableOptions: RMSAvailableOptions
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `code` ([`String`](../rate-manager-service/scalars/string))
+
+#### `name` ([`String`](../rate-manager-service/scalars/string))
+
+#### `values` ([`Json`](../rate-manager-service/scalars/json))
+
+#### `defaultValue` ([`String`](../rate-manager-service/scalars/string))
+
+#### `displayType` ([`String`](../rate-manager-service/scalars/string))
+
+#### `requestRates` ([`Boolean`](../rate-manager-service/scalars/boolean))
+
+#### `rMSAvailableOptions` ([`RMSAvailableOptions`](../rate-manager-service/objects/rmsavailable-options))
+
+### Interfaces
+
+#### [`Node`](../rate-manager-service/interfaces/node)
+
+An object with an ID

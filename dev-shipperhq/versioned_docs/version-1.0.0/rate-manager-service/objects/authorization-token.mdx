@@ -1,0 +1,40 @@
+---
+id: authorization-token
+title: AuthorizationToken
+---
+
+No description
+
+```graphql
+type AuthorizationToken implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  secretToken: String!
+  publicToken: String!
+  apiKey: String!
+  expiresAt: DateTime!
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `secretToken` ([`String`](../rate-manager-service/scalars/string))
+
+#### `publicToken` ([`String`](../rate-manager-service/scalars/string))
+
+#### `apiKey` ([`String`](../rate-manager-service/scalars/string))
+
+#### `expiresAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+### Interfaces
+
+#### [`Node`](../rate-manager-service/interfaces/node)
+
+An object with an ID

@@ -1,0 +1,75 @@
+---
+id: rmsshipping-quote
+title: RMSShippingQuote
+---
+
+No description
+
+```graphql
+type RMSShippingQuote implements Node {
+  id: ID!
+  transactionId: String!
+  shipments(
+    where: RMSShipmentWhereInput
+    orderBy: RMSShipmentOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [RMSShipment!]
+  errors(
+    where: RMSErrorWhereInput
+    orderBy: RMSErrorOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [RMSError!]
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../order-view-service/scalars/id))
+
+#### `transactionId` ([`String`](../order-view-service/scalars/string))
+
+#### `shipments` ([`RMSShipment`](../order-view-service/objects/rmsshipment))
+
+- ##### `where` ([`RMSShipmentWhereInput`](../order-view-service/inputs/rmsshipment-where-input))
+
+- ##### `orderBy` ([`RMSShipmentOrderByInput`](../order-view-service/enums/rmsshipment-order-by-input))
+
+- ##### `skip` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `after` ([`String`](../order-view-service/scalars/string))
+
+- ##### `before` ([`String`](../order-view-service/scalars/string))
+
+- ##### `first` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `last` ([`Int`](../order-view-service/scalars/int))
+
+#### `errors` ([`RMSError`](../order-view-service/objects/rmserror))
+
+- ##### `where` ([`RMSErrorWhereInput`](../order-view-service/inputs/rmserror-where-input))
+
+- ##### `orderBy` ([`RMSErrorOrderByInput`](../order-view-service/enums/rmserror-order-by-input))
+
+- ##### `skip` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `after` ([`String`](../order-view-service/scalars/string))
+
+- ##### `before` ([`String`](../order-view-service/scalars/string))
+
+- ##### `first` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `last` ([`Int`](../order-view-service/scalars/int))
+
+### Interfaces
+
+#### [`Node`](../order-view-service/interfaces/node)
+
+An object with an ID

@@ -1,0 +1,87 @@
+---
+id: shipment
+title: Shipment
+---
+
+No description
+
+```graphql
+type Shipment implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  shipmentDetail: ShipmentDetail!
+  carriers(
+    where: CarrierWhereInput
+    orderBy: CarrierOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Carrier!]
+  groupedItems(
+    where: GroupedItemWhereInput
+    orderBy: GroupedItemOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [GroupedItem!]
+  order: Order
+  quote: Quote
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../order-view-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `shipmentDetail` ([`ShipmentDetail`](../order-view-service/objects/shipment-detail))
+
+#### `carriers` ([`Carrier`](../order-view-service/objects/carrier))
+
+- ##### `where` ([`CarrierWhereInput`](../order-view-service/inputs/carrier-where-input))
+
+- ##### `orderBy` ([`CarrierOrderByInput`](../order-view-service/enums/carrier-order-by-input))
+
+- ##### `skip` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `after` ([`String`](../order-view-service/scalars/string))
+
+- ##### `before` ([`String`](../order-view-service/scalars/string))
+
+- ##### `first` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `last` ([`Int`](../order-view-service/scalars/int))
+
+#### `groupedItems` ([`GroupedItem`](../order-view-service/objects/grouped-item))
+
+- ##### `where` ([`GroupedItemWhereInput`](../order-view-service/inputs/grouped-item-where-input))
+
+- ##### `orderBy` ([`GroupedItemOrderByInput`](../order-view-service/enums/grouped-item-order-by-input))
+
+- ##### `skip` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `after` ([`String`](../order-view-service/scalars/string))
+
+- ##### `before` ([`String`](../order-view-service/scalars/string))
+
+- ##### `first` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `last` ([`Int`](../order-view-service/scalars/int))
+
+#### `order` ([`Order`](../order-view-service/objects/order))
+
+#### `quote` ([`Quote`](../order-view-service/objects/quote))
+
+### Interfaces
+
+#### [`Node`](../order-view-service/interfaces/node)
+
+An object with an ID

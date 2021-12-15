@@ -1,0 +1,34 @@
+---
+id: master-quote
+title: MasterQuote
+---
+
+No description
+
+```graphql
+type MasterQuote implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  externalQuoteId: ID!
+  internalQuote: Json!
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `externalQuoteId` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `internalQuote` ([`Json`](../rate-manager-service/scalars/json))
+
+### Interfaces
+
+#### [`Node`](../rate-manager-service/interfaces/node)
+
+An object with an ID

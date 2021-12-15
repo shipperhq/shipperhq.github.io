@@ -1,0 +1,87 @@
+---
+id: shipment
+title: Shipment
+---
+
+No description
+
+```graphql
+type Shipment implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  shipmentDetail: ShipmentDetail!
+  carriers(
+    where: CarrierWhereInput
+    orderBy: CarrierOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Carrier!]
+  groupedItems(
+    where: GroupedItemWhereInput
+    orderBy: GroupedItemOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [GroupedItem!]
+  order: Order
+  quote: Quote
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `shipmentDetail` ([`ShipmentDetail`](../rate-manager-service/objects/shipment-detail))
+
+#### `carriers` ([`Carrier`](../rate-manager-service/objects/carrier))
+
+- ##### `where` ([`CarrierWhereInput`](../rate-manager-service/inputs/carrier-where-input))
+
+- ##### `orderBy` ([`CarrierOrderByInput`](../rate-manager-service/enums/carrier-order-by-input))
+
+- ##### `skip` ([`Int`](../rate-manager-service/scalars/int))
+
+- ##### `after` ([`String`](../rate-manager-service/scalars/string))
+
+- ##### `before` ([`String`](../rate-manager-service/scalars/string))
+
+- ##### `first` ([`Int`](../rate-manager-service/scalars/int))
+
+- ##### `last` ([`Int`](../rate-manager-service/scalars/int))
+
+#### `groupedItems` ([`GroupedItem`](../rate-manager-service/objects/grouped-item))
+
+- ##### `where` ([`GroupedItemWhereInput`](../rate-manager-service/inputs/grouped-item-where-input))
+
+- ##### `orderBy` ([`GroupedItemOrderByInput`](../rate-manager-service/enums/grouped-item-order-by-input))
+
+- ##### `skip` ([`Int`](../rate-manager-service/scalars/int))
+
+- ##### `after` ([`String`](../rate-manager-service/scalars/string))
+
+- ##### `before` ([`String`](../rate-manager-service/scalars/string))
+
+- ##### `first` ([`Int`](../rate-manager-service/scalars/int))
+
+- ##### `last` ([`Int`](../rate-manager-service/scalars/int))
+
+#### `order` ([`Order`](../rate-manager-service/objects/order))
+
+#### `quote` ([`Quote`](../rate-manager-service/objects/quote))
+
+### Interfaces
+
+#### [`Node`](../rate-manager-service/interfaces/node)
+
+An object with an ID

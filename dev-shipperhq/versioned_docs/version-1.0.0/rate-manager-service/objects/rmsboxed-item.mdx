@@ -1,0 +1,34 @@
+---
+id: rmsboxed-item
+title: RMSBoxedItem
+---
+
+No description
+
+```graphql
+type RMSBoxedItem implements Node {
+  id: ID!
+  itemId: String!
+  weightPacked: Float!
+  qtyPacked: Float!
+  rMSPackage: RMSPackage
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `itemId` ([`String`](../rate-manager-service/scalars/string))
+
+#### `weightPacked` ([`Float`](../rate-manager-service/scalars/float))
+
+#### `qtyPacked` ([`Float`](../rate-manager-service/scalars/float))
+
+#### `rMSPackage` ([`RMSPackage`](../rate-manager-service/objects/rmspackage))
+
+### Interfaces
+
+#### [`Node`](../rate-manager-service/interfaces/node)
+
+An object with an ID

@@ -1,0 +1,68 @@
+---
+id: rmspackage
+title: RMSPackage
+---
+
+No description
+
+```graphql
+type RMSPackage implements Node {
+  id: ID!
+  weight: Float!
+  length: Float
+  width: Float
+  height: Float
+  packingWeight: Float
+  declaredValue: Float
+  boxedItems(
+    where: RMSBoxedItemWhereInput
+    orderBy: RMSBoxedItemOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [RMSBoxedItem!]
+  rMSCarrier: RMSCarrier
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `weight` ([`Float`](../rate-manager-service/scalars/float))
+
+#### `length` ([`Float`](../rate-manager-service/scalars/float))
+
+#### `width` ([`Float`](../rate-manager-service/scalars/float))
+
+#### `height` ([`Float`](../rate-manager-service/scalars/float))
+
+#### `packingWeight` ([`Float`](../rate-manager-service/scalars/float))
+
+#### `declaredValue` ([`Float`](../rate-manager-service/scalars/float))
+
+#### `boxedItems` ([`RMSBoxedItem`](../rate-manager-service/objects/rmsboxed-item))
+
+- ##### `where` ([`RMSBoxedItemWhereInput`](../rate-manager-service/inputs/rmsboxed-item-where-input))
+
+- ##### `orderBy` ([`RMSBoxedItemOrderByInput`](../rate-manager-service/enums/rmsboxed-item-order-by-input))
+
+- ##### `skip` ([`Int`](../rate-manager-service/scalars/int))
+
+- ##### `after` ([`String`](../rate-manager-service/scalars/string))
+
+- ##### `before` ([`String`](../rate-manager-service/scalars/string))
+
+- ##### `first` ([`Int`](../rate-manager-service/scalars/int))
+
+- ##### `last` ([`Int`](../rate-manager-service/scalars/int))
+
+#### `rMSCarrier` ([`RMSCarrier`](../rate-manager-service/objects/rmscarrier))
+
+### Interfaces
+
+#### [`Node`](../rate-manager-service/interfaces/node)
+
+An object with an ID

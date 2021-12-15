@@ -1,0 +1,46 @@
+---
+id: stored-rmsrating-info
+title: StoredRMSRatingInfo
+---
+
+No description
+
+```graphql
+type StoredRMSRatingInfo implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  cart: StoredRMSCart!
+  destination: StoredRMSDestination!
+  customer: StoredRMSCustomer
+  cartType: CartType
+  requestedOptions: StoredRMSRequestedOptions
+  siteDetails: StoredRMSSiteDetails
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../order-view-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `cart` ([`StoredRMSCart`](../order-view-service/objects/stored-rmscart))
+
+#### `destination` ([`StoredRMSDestination`](../order-view-service/objects/stored-rmsdestination))
+
+#### `customer` ([`StoredRMSCustomer`](../order-view-service/objects/stored-rmscustomer))
+
+#### `cartType` ([`CartType`](../order-view-service/enums/cart-type))
+
+#### `requestedOptions` ([`StoredRMSRequestedOptions`](../order-view-service/objects/stored-rmsrequested-options))
+
+#### `siteDetails` ([`StoredRMSSiteDetails`](../order-view-service/objects/stored-rmssite-details))
+
+### Interfaces
+
+#### [`Node`](../order-view-service/interfaces/node)
+
+An object with an ID

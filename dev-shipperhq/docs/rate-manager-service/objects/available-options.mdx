@@ -1,0 +1,71 @@
+---
+id: available-options
+title: AvailableOptions
+---
+
+No description
+
+```graphql
+type AvailableOptions implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  liftGateRequired: Boolean
+  insideDelivery: Boolean
+  limitedDelivery: Boolean
+  notifyRequired: Boolean
+  destinationType: String
+  options(
+    where: OptionWhereInput
+    orderBy: OptionOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Option!]
+  carrier: Carrier
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `liftGateRequired` ([`Boolean`](../rate-manager-service/scalars/boolean))
+
+#### `insideDelivery` ([`Boolean`](../rate-manager-service/scalars/boolean))
+
+#### `limitedDelivery` ([`Boolean`](../rate-manager-service/scalars/boolean))
+
+#### `notifyRequired` ([`Boolean`](../rate-manager-service/scalars/boolean))
+
+#### `destinationType` ([`String`](../rate-manager-service/scalars/string))
+
+#### `options` ([`Option`](../rate-manager-service/objects/option))
+
+- ##### `where` ([`OptionWhereInput`](../rate-manager-service/inputs/option-where-input))
+
+- ##### `orderBy` ([`OptionOrderByInput`](../rate-manager-service/enums/option-order-by-input))
+
+- ##### `skip` ([`Int`](../rate-manager-service/scalars/int))
+
+- ##### `after` ([`String`](../rate-manager-service/scalars/string))
+
+- ##### `before` ([`String`](../rate-manager-service/scalars/string))
+
+- ##### `first` ([`Int`](../rate-manager-service/scalars/int))
+
+- ##### `last` ([`Int`](../rate-manager-service/scalars/int))
+
+#### `carrier` ([`Carrier`](../rate-manager-service/objects/carrier))
+
+### Interfaces
+
+#### [`Node`](../rate-manager-service/interfaces/node)
+
+An object with an ID

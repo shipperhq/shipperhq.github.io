@@ -1,0 +1,38 @@
+---
+id: rmscarrier-option-input
+title: RMSCarrierOptionInput
+---
+
+User-selected options at checkout
+
+```graphql
+type RMSCarrierOptionInput {
+  selectedDate: String
+  selectedTimeSlot: String
+  selectedPickupId: String
+  accessorials: [String!]
+  selectedOptions: [RMSOptionInput!]
+}
+```
+
+### Fields
+
+#### `selectedDate` ([`String`](../rate-manager-service/scalars/string))
+
+User-selected Delivery Date
+
+#### `selectedTimeSlot` ([`String`](../rate-manager-service/scalars/string))
+
+User-selected Delivery Time
+
+#### `selectedPickupId` ([`String`](../rate-manager-service/scalars/string))
+
+User-selected Pickup Location ID
+
+#### `accessorials` ([`String`](../rate-manager-service/scalars/string))
+
+DEPRECATED User-selected Accessorial options
+
+#### `selectedOptions` ([`RMSOptionInput`](../rate-manager-service/inputs/rmsoption-input))
+
+User-selected accessorial options

@@ -1,0 +1,115 @@
+---
+id: method
+title: Method
+---
+
+No description
+
+```graphql
+type Method implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  methodDetails: MethodDetail!
+  timeInTransitOptions: TimeInTransitOptions
+  rateBreakdownList(
+    where: RateBreakdownWhereInput
+    orderBy: RateBreakdownOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [RateBreakdown!]
+  advancedFees: AdvancedFees
+  packages(
+    where: PackageWhereInput
+    orderBy: PackageOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Package!]
+  selectedOptions(
+    where: SelectedOptionWhereInput
+    orderBy: SelectedOptionOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [SelectedOption!]
+  carrier: Carrier
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `methodDetails` ([`MethodDetail`](../rate-manager-service/objects/method-detail))
+
+#### `timeInTransitOptions` ([`TimeInTransitOptions`](../rate-manager-service/objects/time-in-transit-options))
+
+#### `rateBreakdownList` ([`RateBreakdown`](../rate-manager-service/objects/rate-breakdown))
+
+- ##### `where` ([`RateBreakdownWhereInput`](../rate-manager-service/inputs/rate-breakdown-where-input))
+
+- ##### `orderBy` ([`RateBreakdownOrderByInput`](../rate-manager-service/enums/rate-breakdown-order-by-input))
+
+- ##### `skip` ([`Int`](../rate-manager-service/scalars/int))
+
+- ##### `after` ([`String`](../rate-manager-service/scalars/string))
+
+- ##### `before` ([`String`](../rate-manager-service/scalars/string))
+
+- ##### `first` ([`Int`](../rate-manager-service/scalars/int))
+
+- ##### `last` ([`Int`](../rate-manager-service/scalars/int))
+
+#### `advancedFees` ([`AdvancedFees`](../rate-manager-service/objects/advanced-fees))
+
+#### `packages` ([`Package`](../rate-manager-service/objects/package))
+
+- ##### `where` ([`PackageWhereInput`](../rate-manager-service/inputs/package-where-input))
+
+- ##### `orderBy` ([`PackageOrderByInput`](../rate-manager-service/enums/package-order-by-input))
+
+- ##### `skip` ([`Int`](../rate-manager-service/scalars/int))
+
+- ##### `after` ([`String`](../rate-manager-service/scalars/string))
+
+- ##### `before` ([`String`](../rate-manager-service/scalars/string))
+
+- ##### `first` ([`Int`](../rate-manager-service/scalars/int))
+
+- ##### `last` ([`Int`](../rate-manager-service/scalars/int))
+
+#### `selectedOptions` ([`SelectedOption`](../rate-manager-service/objects/selected-option))
+
+- ##### `where` ([`SelectedOptionWhereInput`](../rate-manager-service/inputs/selected-option-where-input))
+
+- ##### `orderBy` ([`SelectedOptionOrderByInput`](../rate-manager-service/enums/selected-option-order-by-input))
+
+- ##### `skip` ([`Int`](../rate-manager-service/scalars/int))
+
+- ##### `after` ([`String`](../rate-manager-service/scalars/string))
+
+- ##### `before` ([`String`](../rate-manager-service/scalars/string))
+
+- ##### `first` ([`Int`](../rate-manager-service/scalars/int))
+
+- ##### `last` ([`Int`](../rate-manager-service/scalars/int))
+
+#### `carrier` ([`Carrier`](../rate-manager-service/objects/carrier))
+
+### Interfaces
+
+#### [`Node`](../rate-manager-service/interfaces/node)
+
+An object with an ID

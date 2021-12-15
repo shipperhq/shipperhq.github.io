@@ -1,0 +1,34 @@
+---
+id: time-in-transit-options
+title: TimeInTransitOptions
+---
+
+No description
+
+```graphql
+type TimeInTransitOptions implements Node {
+  id: ID!
+  dispatchDate: String
+  deliveryDate: String
+  method: Method
+  rateBreakdown: RateBreakdown
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../order-view-service/scalars/id))
+
+#### `dispatchDate` ([`String`](../order-view-service/scalars/string))
+
+#### `deliveryDate` ([`String`](../order-view-service/scalars/string))
+
+#### `method` ([`Method`](../order-view-service/objects/method))
+
+#### `rateBreakdown` ([`RateBreakdown`](../order-view-service/objects/rate-breakdown))
+
+### Interfaces
+
+#### [`Node`](../order-view-service/interfaces/node)
+
+An object with an ID

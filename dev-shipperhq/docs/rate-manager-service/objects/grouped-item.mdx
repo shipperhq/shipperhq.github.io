@@ -1,0 +1,52 @@
+---
+id: grouped-item
+title: GroupedItem
+---
+
+No description
+
+```graphql
+type GroupedItem implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  itemId: String!
+  sku: String
+  qty: Int
+  name: String
+  hs_code: String
+  origin_country: String
+  declared_value: Float
+  shipment: Shipment
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `itemId` ([`String`](../rate-manager-service/scalars/string))
+
+#### `sku` ([`String`](../rate-manager-service/scalars/string))
+
+#### `qty` ([`Int`](../rate-manager-service/scalars/int))
+
+#### `name` ([`String`](../rate-manager-service/scalars/string))
+
+#### `hs_code` ([`String`](../rate-manager-service/scalars/string))
+
+#### `origin_country` ([`String`](../rate-manager-service/scalars/string))
+
+#### `declared_value` ([`Float`](../rate-manager-service/scalars/float))
+
+#### `shipment` ([`Shipment`](../rate-manager-service/objects/shipment))
+
+### Interfaces
+
+#### [`Node`](../rate-manager-service/interfaces/node)
+
+An object with an ID

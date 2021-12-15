@@ -1,0 +1,37 @@
+---
+id: selected-rate-option
+title: SelectedRateOption
+---
+
+No description
+
+```graphql
+type SelectedRateOption implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  code: String!
+  value: String!
+  selectedShippingRates: SelectedShippingRates
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../order-view-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `code` ([`String`](../order-view-service/scalars/string))
+
+#### `value` ([`String`](../order-view-service/scalars/string))
+
+#### `selectedShippingRates` ([`SelectedShippingRates`](../order-view-service/objects/selected-shipping-rates))
+
+### Interfaces
+
+#### [`Node`](../order-view-service/interfaces/node)
+
+An object with an ID

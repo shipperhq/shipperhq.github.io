@@ -1,0 +1,52 @@
+---
+id: rmserror
+title: RMSError
+---
+
+No description
+
+```graphql
+type RMSError implements Node {
+  id: ID!
+  errorCode: Int!
+  internalErrorMessage: String
+  externalErrorMessage: String
+  priority: Int
+  storedBasicShippingQuote: StoredBasicShippingQuote
+  basicShippingQuote: BasicShippingQuote
+  carrier: Carrier
+  ratingCarrier: RatingCarrier
+  rMSCarrier: RMSCarrier
+  rMSShippingQuote: RMSShippingQuote
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `errorCode` ([`Int`](../rate-manager-service/scalars/int))
+
+#### `internalErrorMessage` ([`String`](../rate-manager-service/scalars/string))
+
+#### `externalErrorMessage` ([`String`](../rate-manager-service/scalars/string))
+
+#### `priority` ([`Int`](../rate-manager-service/scalars/int))
+
+#### `storedBasicShippingQuote` ([`StoredBasicShippingQuote`](../rate-manager-service/objects/stored-basic-shipping-quote))
+
+#### `basicShippingQuote` ([`BasicShippingQuote`](../rate-manager-service/objects/basic-shipping-quote))
+
+#### `carrier` ([`Carrier`](../rate-manager-service/objects/carrier))
+
+#### `ratingCarrier` ([`RatingCarrier`](../rate-manager-service/objects/rating-carrier))
+
+#### `rMSCarrier` ([`RMSCarrier`](../rate-manager-service/objects/rmscarrier))
+
+#### `rMSShippingQuote` ([`RMSShippingQuote`](../rate-manager-service/objects/rmsshipping-quote))
+
+### Interfaces
+
+#### [`Node`](../rate-manager-service/interfaces/node)
+
+An object with an ID
