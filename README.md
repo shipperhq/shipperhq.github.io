@@ -1,29 +1,36 @@
 # shipperhq.github.io
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator. 
+
+The live site is at https://dev.shipperhq.com/ .
 
 ## Installation
 
-```
-$ yarn
-```
+- You will need to have `yarn` installed.
 
 ## Getting Started
 
-- To get started, `cd dev-shipperhq` and `yarn start`
-- Create a `.env` file and add your GitHub username. Use `.env.template` as an example.
+1.  `cd dev-shipperhq`  
+2. `yarn`
+3. `yarn start`
 
-## Local Development
+Go to http://localhost:3000/ to see the site!
+
+Optional: create a `.env` file and add your GitHub username. Use `.env.template` as an example.
+
+## Build and Deploy
+1. `yarn build`
+2. `yarn serve`
+3. `GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy`  - this command is a convenient way to build the website and push to the `gh-pages` branch. This command **automatically deploys** your local changes to the live site. 
+
+## Important Commands
 
 - `yarn start` - Starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 - `yarn build` - Generates static content into the `build` directory.
 - `yarn serve` - Serves the built website locally.
 - `yarn deploy`- Pushes to the `gh-pages` branch and publishes the website to GitHub pages.
-
-## Build and Deploy
-1. `yarn build`
-2. `yarn serve`
-3. `GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy`  - this command is a convenient way to build the website and push to the `gh-pages` branch.
+- `yarn graphql`- generates graphQL docs, add `-f` to force generate docs.
+- `yarn run docusaurus docs:version 1.1.0`- copies docs into a versioned directory and marks docs with that specified version.
 
 ## Branch
 
@@ -39,3 +46,16 @@ $ yarn
 - `/docusaurus.config.js` - A config file containing the site configuration. More details can be found in the [api docs](https://docusaurus.io/docs/api/docusaurus-config).
 - `/package.json` - A Docusaurus website is a React app. You can install and use any npm packages you like in them.
 - `/sidebar.js` - Used by the documentation to specify the order of documents in the sidebar.
+
+## Versioning
+
+- Run the command with the new version number
+
+```jsx
+yarn run docusaurus docs:version 1.1.0
+```
+
+- When tagging a new version, the document versioning mechanism will:
+    - Copy the full `docs/` folder contents into a new `versioned_docs/version-<version>/` folder.
+    - Create a versioned sidebars file based from your current [sidebar](https://docusaurus.io/docs/docs-introduction#sidebar) configuration (if it exists) - saved as `versioned_sidebars/version-<version>-sidebars.json`.
+    - Append the new version number to `versions.json`.

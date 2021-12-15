@@ -26,14 +26,12 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
+          editUrl: 'https://github.com/shipperhq/shipperhq.github.io/tree/main/dev-shipperhq/docs',
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
           editUrl:
-            'https://github.com/facebook/docusaurus/edit/main/website/blog/',
+            'https://github.com/shipperhq/shipperhq.github.io/tree/main/dev-shipperhq/blog',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -42,14 +40,30 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+      '@edno/docusaurus2-graphql-doc-generator',
+      {
+        schema: "https://api.shipperhq.com/v2/graphql", // reference the api url or the schema.docs.graphql file
+        rootPath: "./docs", // docs will be generated under './docs/schema' (rootPath/baseURL)
+        baseURL: "schema",
+        linkRoot: "/docs",
+        homepage: "./data/api.md",
+        loaders: {
+          UrlLoader: "@graphql-tools/url-loader"
+        }
+      },
+    ],
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'My Site',
+        title: 'Home',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'ShipperHQ',
+          src: 'img/shq-mark-3c.svg',
         },
         items: [
           {
@@ -60,7 +74,24 @@ const config = {
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            type: 'dropdown',
+            label: 'API',
+            position: 'left',
+            items: [
+              {
+                to: '/docs/schema',
+                label: 'Rate Service GraphQL'
+              }
+            ]
+          },
+          {
+            type: 'docsVersionDropdown',
+            position: 'right',
+            dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
+            dropdownActiveClassDisabled: true,
+          },
+          {
+            href: 'https://github.com/shipperhq/shipperhq.github.io',
             label: 'GitHub',
             position: 'right',
           },
@@ -104,7 +135,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/shipperhq/shipperhq.github.io',
               },
             ],
           },

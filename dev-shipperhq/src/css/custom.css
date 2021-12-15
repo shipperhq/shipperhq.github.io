@@ -4,18 +4,29 @@
  * work well for content-centric websites.
  */
 
+@import url('https://use.typekit.net/ijr7wgn.css');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: rgb(33, 175, 144);
-  --ifm-color-primary-darker: rgb(31, 165, 136);
-  --ifm-color-primary-darkest: rgb(26, 136, 112);
-  --ifm-color-primary-light: rgb(70, 203, 174);
-  --ifm-color-primary-lighter: rgb(102, 212, 189);
-  --ifm-color-primary-lightest: rgb(146, 224, 208);
+  --ifm-font-family-base: 'Proxima Nova', sans-serif;
+  --ifm-color-primary: #0391D9;
+  --ifm-color-primary-dark: #037FD0;
+  --ifm-color-primary-darker: #015F99;
+  --ifm-color-primary-darkest: #1C4D76;
+  --ifm-color-primary-light: #00AAE5;
+  --ifm-color-primary-lighter: #03C6F4;
+  --ifm-color-primary-lightest: #E6F7FD;
   --ifm-code-font-size: 95%;
+  --ifm-heading-color: #384451;
+  --ifm-footer-background-color: #384451;
 }
-
+html[data-theme='dark']{
+  --ifm-heading-color: white;
+}
+.footer--dark {
+  background-color: #242526;
+}
 .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.1);
   display: block;
@@ -26,3 +37,18 @@
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
+
+h1, h2, h3, h4 {
+  font-family: 'Filson Pro', sans-serif;
+}
+
+.navbar__logo img {
+  height: 112%;
+  margin-top: -8px;
+  margin-right: 10px;
+}
+
+.theme-doc-version-badge {
+  margin-bottom: 20px;
+}
+
