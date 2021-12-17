@@ -1,0 +1,62 @@
+---
+id: stored-rmscart
+title: StoredRMSCart
+---
+
+No description
+
+```graphql
+type StoredRMSCart implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  items(
+    where: ItemWhereInput
+    orderBy: ItemOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Item!]
+  declaredValue: Float
+  freeShipping: Boolean
+  storedRMSRatingInfo: StoredRMSRatingInfo
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../order-view-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `items` ([`Item`](../order-view-service/objects/item))
+
+- ##### `where` ([`ItemWhereInput`](../order-view-service/inputs/item-where-input))
+
+- ##### `orderBy` ([`ItemOrderByInput`](../order-view-service/enums/item-order-by-input))
+
+- ##### `skip` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `after` ([`String`](../order-view-service/scalars/string))
+
+- ##### `before` ([`String`](../order-view-service/scalars/string))
+
+- ##### `first` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `last` ([`Int`](../order-view-service/scalars/int))
+
+#### `declaredValue` ([`Float`](../order-view-service/scalars/float))
+
+#### `freeShipping` ([`Boolean`](../order-view-service/scalars/boolean))
+
+#### `storedRMSRatingInfo` ([`StoredRMSRatingInfo`](../order-view-service/objects/stored-rmsrating-info))
+
+### Interfaces
+
+#### [`Node`](../order-view-service/interfaces/node)
+
+An object with an ID

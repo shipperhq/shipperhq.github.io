@@ -1,0 +1,68 @@
+---
+id: rmspackage
+title: RMSPackage
+---
+
+No description
+
+```graphql
+type RMSPackage implements Node {
+  id: ID!
+  weight: Float!
+  length: Float
+  width: Float
+  height: Float
+  packingWeight: Float
+  declaredValue: Float
+  boxedItems(
+    where: RMSBoxedItemWhereInput
+    orderBy: RMSBoxedItemOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [RMSBoxedItem!]
+  rMSCarrier: RMSCarrier
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../order-view-service/scalars/id))
+
+#### `weight` ([`Float`](../order-view-service/scalars/float))
+
+#### `length` ([`Float`](../order-view-service/scalars/float))
+
+#### `width` ([`Float`](../order-view-service/scalars/float))
+
+#### `height` ([`Float`](../order-view-service/scalars/float))
+
+#### `packingWeight` ([`Float`](../order-view-service/scalars/float))
+
+#### `declaredValue` ([`Float`](../order-view-service/scalars/float))
+
+#### `boxedItems` ([`RMSBoxedItem`](../order-view-service/objects/rmsboxed-item))
+
+- ##### `where` ([`RMSBoxedItemWhereInput`](../order-view-service/inputs/rmsboxed-item-where-input))
+
+- ##### `orderBy` ([`RMSBoxedItemOrderByInput`](../order-view-service/enums/rmsboxed-item-order-by-input))
+
+- ##### `skip` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `after` ([`String`](../order-view-service/scalars/string))
+
+- ##### `before` ([`String`](../order-view-service/scalars/string))
+
+- ##### `first` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `last` ([`Int`](../order-view-service/scalars/int))
+
+#### `rMSCarrier` ([`RMSCarrier`](../order-view-service/objects/rmscarrier))
+
+### Interfaces
+
+#### [`Node`](../order-view-service/interfaces/node)
+
+An object with an ID

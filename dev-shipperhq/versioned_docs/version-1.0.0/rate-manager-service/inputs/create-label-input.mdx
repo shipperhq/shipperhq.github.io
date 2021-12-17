@@ -1,0 +1,43 @@
+---
+id: create-label-input
+title: CreateLabelInput
+---
+
+No description
+
+```graphql
+type CreateLabelInput {
+  orderNumber: String!
+  carrierCode: String!
+  carrierName: String!
+  methodName: String!
+  trackingId: String
+  items: [LabelItemInput!]
+  pieces: [PieceInput!]
+  shipmentDetail: LabelShipmentDetailInput!
+  recipient: RecipientInput!
+  sender: SenderInput!
+}
+```
+
+### Fields
+
+#### `orderNumber` ([`String`](../rate-manager-service/scalars/string))
+
+#### `carrierCode` ([`String`](../rate-manager-service/scalars/string))
+
+#### `carrierName` ([`String`](../rate-manager-service/scalars/string))
+
+#### `methodName` ([`String`](../rate-manager-service/scalars/string))
+
+#### `trackingId` ([`String`](../rate-manager-service/scalars/string))
+
+#### `items` ([`LabelItemInput`](../rate-manager-service/inputs/label-item-input))
+
+#### `pieces` ([`PieceInput`](../rate-manager-service/inputs/piece-input))
+
+#### `shipmentDetail` ([`LabelShipmentDetailInput`](../rate-manager-service/inputs/label-shipment-detail-input))
+
+#### `recipient` ([`RecipientInput`](../rate-manager-service/inputs/recipient-input))
+
+#### `sender` ([`SenderInput`](../rate-manager-service/inputs/sender-input))

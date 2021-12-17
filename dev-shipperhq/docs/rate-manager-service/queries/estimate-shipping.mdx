@@ -1,0 +1,22 @@
+---
+id: estimate-shipping
+title: estimateShipping
+---
+
+Retrieves a basic shipping quote without storing it.
+(Requires use of the x-shipperhq-secret-token header.)
+
+```graphql
+estimateShipping(
+  ratingInfo: RMSRatingInfo!
+): RMSShippingQuote
+
+```
+
+### Arguments
+
+#### `ratingInfo` ([`RMSRatingInfo`](../rate-manager-service/inputs/rmsrating-info))
+
+### Type
+
+#### [`RMSShippingQuote`](../rate-manager-service/objects/rmsshipping-quote)

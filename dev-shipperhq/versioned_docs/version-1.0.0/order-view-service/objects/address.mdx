@@ -1,0 +1,64 @@
+---
+id: address
+title: Address
+---
+
+No description
+
+```graphql
+type Address implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  country: String
+  region: String
+  city: String
+  street: String
+  street2: String
+  zipcode: String
+  firstName: String
+  lastName: String
+  email: String
+  company: String
+  telephone: String
+  order: Order
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../order-view-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `country` ([`String`](../order-view-service/scalars/string))
+
+#### `region` ([`String`](../order-view-service/scalars/string))
+
+#### `city` ([`String`](../order-view-service/scalars/string))
+
+#### `street` ([`String`](../order-view-service/scalars/string))
+
+#### `street2` ([`String`](../order-view-service/scalars/string))
+
+#### `zipcode` ([`String`](../order-view-service/scalars/string))
+
+#### `firstName` ([`String`](../order-view-service/scalars/string))
+
+#### `lastName` ([`String`](../order-view-service/scalars/string))
+
+#### `email` ([`String`](../order-view-service/scalars/string))
+
+#### `company` ([`String`](../order-view-service/scalars/string))
+
+#### `telephone` ([`String`](../order-view-service/scalars/string))
+
+#### `order` ([`Order`](../order-view-service/objects/order))
+
+### Interfaces
+
+#### [`Node`](../order-view-service/interfaces/node)
+
+An object with an ID

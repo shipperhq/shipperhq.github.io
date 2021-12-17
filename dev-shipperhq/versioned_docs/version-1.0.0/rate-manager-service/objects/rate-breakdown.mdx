@@ -1,0 +1,77 @@
+---
+id: rate-breakdown
+title: RateBreakdown
+---
+
+No description
+
+```graphql
+type RateBreakdown implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  shipmentDetail: ShipmentDetail!
+  carrierDetail: CarrierDetail!
+  methodCode: String!
+  methodDetails: MethodDetail!
+  timeInTransitOptions: TimeInTransitOptions
+  advancedFees: AdvancedFees
+  packages(
+    where: PackageWhereInput
+    orderBy: PackageOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Package!]
+  method: Method
+  isWinningRate: Boolean
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `shipmentDetail` ([`ShipmentDetail`](../rate-manager-service/objects/shipment-detail))
+
+#### `carrierDetail` ([`CarrierDetail`](../rate-manager-service/objects/carrier-detail))
+
+#### `methodCode` ([`String`](../rate-manager-service/scalars/string))
+
+#### `methodDetails` ([`MethodDetail`](../rate-manager-service/objects/method-detail))
+
+#### `timeInTransitOptions` ([`TimeInTransitOptions`](../rate-manager-service/objects/time-in-transit-options))
+
+#### `advancedFees` ([`AdvancedFees`](../rate-manager-service/objects/advanced-fees))
+
+#### `packages` ([`Package`](../rate-manager-service/objects/package))
+
+- ##### `where` ([`PackageWhereInput`](../rate-manager-service/inputs/package-where-input))
+
+- ##### `orderBy` ([`PackageOrderByInput`](../rate-manager-service/enums/package-order-by-input))
+
+- ##### `skip` ([`Int`](../rate-manager-service/scalars/int))
+
+- ##### `after` ([`String`](../rate-manager-service/scalars/string))
+
+- ##### `before` ([`String`](../rate-manager-service/scalars/string))
+
+- ##### `first` ([`Int`](../rate-manager-service/scalars/int))
+
+- ##### `last` ([`Int`](../rate-manager-service/scalars/int))
+
+#### `method` ([`Method`](../rate-manager-service/objects/method))
+
+#### `isWinningRate` ([`Boolean`](../rate-manager-service/scalars/boolean))
+
+### Interfaces
+
+#### [`Node`](../rate-manager-service/interfaces/node)
+
+An object with an ID

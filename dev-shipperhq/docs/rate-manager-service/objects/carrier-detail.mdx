@@ -1,0 +1,52 @@
+---
+id: carrier-detail
+title: CarrierDetail
+---
+
+No description
+
+```graphql
+type CarrierDetail implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  carrierCode: String!
+  carrierTitle: String!
+  carrierType: String!
+  deliveryDateMessage: String
+  carrier: Carrier
+  rateBreakdown: RateBreakdown
+  customDescription: String
+  displayTab: String
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `carrierCode` ([`String`](../rate-manager-service/scalars/string))
+
+#### `carrierTitle` ([`String`](../rate-manager-service/scalars/string))
+
+#### `carrierType` ([`String`](../rate-manager-service/scalars/string))
+
+#### `deliveryDateMessage` ([`String`](../rate-manager-service/scalars/string))
+
+#### `carrier` ([`Carrier`](../rate-manager-service/objects/carrier))
+
+#### `rateBreakdown` ([`RateBreakdown`](../rate-manager-service/objects/rate-breakdown))
+
+#### `customDescription` ([`String`](../rate-manager-service/scalars/string))
+
+#### `displayTab` ([`String`](../rate-manager-service/scalars/string))
+
+### Interfaces
+
+#### [`Node`](../rate-manager-service/interfaces/node)
+
+An object with an ID

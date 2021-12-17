@@ -1,0 +1,85 @@
+---
+id: item-input
+title: ItemInput
+---
+
+No description
+
+```graphql
+type ItemInput {
+  qty: Int
+  discountedBasePrice: BigDecimal
+  freeShipping: Boolean
+  storePrice: BigDecimal
+  storeBaseCurrency: String
+  items: [ItemInput]
+  basePrice: BigDecimal
+  fixedPrice: Boolean
+  baseCurrency: String
+  packageCurrency: String
+  discountedTaxInclBasePrice: BigDecimal
+  taxInclStorePrice: BigDecimal
+  itemId: String
+  type: ItemType
+  discountPercent: BigDecimal
+  discountedTaxInclStorePrice: BigDecimal
+  storeCurrentCurrency: String
+  discountedStorePrice: BigDecimal
+  fixedWeight: Boolean
+  attributes: [AttributeInput]
+  taxInclBasePrice: BigDecimal
+  sku: String
+  weight: BigDecimal
+  taxPercentage: BigDecimal
+}
+```
+
+### Fields
+
+#### `qty` ([`Int`](../../rate-service/scalars/int))
+
+#### `discountedBasePrice` ([`BigDecimal`](../../rate-service/scalars/big-decimal))
+
+#### `freeShipping` ([`Boolean`](../../rate-service/scalars/boolean))
+
+#### `storePrice` ([`BigDecimal`](../../rate-service/scalars/big-decimal))
+
+#### `storeBaseCurrency` ([`String`](../../rate-service/scalars/string))
+
+#### `items` ([`ItemInput`](../../rate-service/inputs/item-input))
+
+#### `basePrice` ([`BigDecimal`](../../rate-service/scalars/big-decimal))
+
+#### `fixedPrice` ([`Boolean`](../../rate-service/scalars/boolean))
+
+#### `baseCurrency` ([`String`](../../rate-service/scalars/string))
+
+#### `packageCurrency` ([`String`](../../rate-service/scalars/string))
+
+#### `discountedTaxInclBasePrice` ([`BigDecimal`](../../rate-service/scalars/big-decimal))
+
+#### `taxInclStorePrice` ([`BigDecimal`](../../rate-service/scalars/big-decimal))
+
+#### `itemId` ([`String`](../../rate-service/scalars/string))
+
+#### `type` ([`ItemType`](../../rate-service/enums/item-type))
+
+#### `discountPercent` ([`BigDecimal`](../../rate-service/scalars/big-decimal))
+
+#### `discountedTaxInclStorePrice` ([`BigDecimal`](../../rate-service/scalars/big-decimal))
+
+#### `storeCurrentCurrency` ([`String`](../../rate-service/scalars/string))
+
+#### `discountedStorePrice` ([`BigDecimal`](../../rate-service/scalars/big-decimal))
+
+#### `fixedWeight` ([`Boolean`](../../rate-service/scalars/boolean))
+
+#### `attributes` ([`AttributeInput`](../../rate-service/inputs/attribute-input))
+
+#### `taxInclBasePrice` ([`BigDecimal`](../../rate-service/scalars/big-decimal))
+
+#### `sku` ([`String`](../../rate-service/scalars/string))
+
+#### `weight` ([`BigDecimal`](../../rate-service/scalars/big-decimal))
+
+#### `taxPercentage` ([`BigDecimal`](../../rate-service/scalars/big-decimal))

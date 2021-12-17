@@ -1,0 +1,48 @@
+---
+id: rmsshipment-shipping-rate-input
+title: RMSShipmentShippingRateInput
+---
+
+User-selected shipment details for an individual shipment
+
+```graphql
+type RMSShipmentShippingRateInput {
+  shipmentId: String!
+  carrierCode: String!
+  methodCode: String!
+  selectedDate: String
+  selectedPickupId: String
+  selectedTimeSlot: String
+  selectedOptions: [RMSOptionInput!]
+}
+```
+
+### Fields
+
+#### `shipmentId` ([`String`](../rate-manager-service/scalars/string))
+
+Shipment these details apply to
+
+#### `carrierCode` ([`String`](../rate-manager-service/scalars/string))
+
+User-selected carrier
+
+#### `methodCode` ([`String`](../rate-manager-service/scalars/string))
+
+User-selected method
+
+#### `selectedDate` ([`String`](../rate-manager-service/scalars/string))
+
+User-selected delivery/pickup date
+
+#### `selectedPickupId` ([`String`](../rate-manager-service/scalars/string))
+
+User-selected pickup location id
+
+#### `selectedTimeSlot` ([`String`](../rate-manager-service/scalars/string))
+
+User-selected delivery/pickup time slot
+
+#### `selectedOptions` ([`RMSOptionInput`](../rate-manager-service/inputs/rmsoption-input))
+
+User-selected accessorials

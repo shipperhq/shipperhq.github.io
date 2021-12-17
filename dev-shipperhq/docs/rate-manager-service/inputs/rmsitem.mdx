@@ -1,0 +1,104 @@
+---
+id: rmsitem
+title: RMSItem
+---
+
+Full Details of an item in the cart
+
+```graphql
+type RMSItem {
+  itemId: String!
+  sku: String
+  storePrice: Float!
+  weight: Float!
+  qty: Int!
+  type: ItemType!
+  basePrice: Float
+  taxInclBasePrice: Float
+  taxInclStorePrice: Float
+  discountPercent: Float
+  discountedBasePrice: Float
+  discountedStorePrice: Float
+  discountedTaxInclBasePrice: Float
+  discountedTaxInclStorePrice: Float
+  freeShipping: Boolean
+  fixedPrice: Boolean
+  fixedWeight: Boolean
+  attributes: [RMSAttribute!]
+  items: [RMSItem]
+}
+```
+
+### Fields
+
+#### `itemId` ([`String`](../rate-manager-service/scalars/string))
+
+The Item's ID
+
+#### `sku` ([`String`](../rate-manager-service/scalars/string))
+
+The Item's SKU
+
+#### `storePrice` ([`Float`](../rate-manager-service/scalars/float))
+
+Price of the Item before discounts, no tax, user's currency
+
+#### `weight` ([`Float`](../rate-manager-service/scalars/float))
+
+The Item's Weight
+
+#### `qty` ([`Int`](../rate-manager-service/scalars/int))
+
+Quantity of the item in the cart
+
+#### `type` ([`ItemType`](../rate-manager-service/enums/item-type))
+
+Type of item
+
+#### `basePrice` ([`Float`](../rate-manager-service/scalars/float))
+
+Price of the item before discounts, no tax, store's base currency
+
+#### `taxInclBasePrice` ([`Float`](../rate-manager-service/scalars/float))
+
+Price of the item before discounts, including tax, store's base currency
+
+#### `taxInclStorePrice` ([`Float`](../rate-manager-service/scalars/float))
+
+Price of the item before discounts, including tax, user's currency
+
+#### `discountPercent` ([`Float`](../rate-manager-service/scalars/float))
+
+Percent Discount applied
+
+#### `discountedBasePrice` ([`Float`](../rate-manager-service/scalars/float))
+
+Price of the item after discounts, no tax, store's base currency
+
+#### `discountedStorePrice` ([`Float`](../rate-manager-service/scalars/float))
+
+Price of the item after discounts, no tax, user's currency
+
+#### `discountedTaxInclBasePrice` ([`Float`](../rate-manager-service/scalars/float))
+
+Price of the item after discounts, with tax, store's base currency
+
+#### `discountedTaxInclStorePrice` ([`Float`](../rate-manager-service/scalars/float))
+
+Price of the item after discounts, with tax, user's currency
+
+#### `freeShipping` ([`Boolean`](../rate-manager-service/scalars/boolean))
+
+Does the item receive free shipping? Boolean true/false
+
+#### `fixedPrice` ([`Boolean`](../rate-manager-service/scalars/boolean))
+
+#### `fixedWeight` ([`Boolean`](../rate-manager-service/scalars/boolean))
+
+#### `attributes` ([`RMSAttribute`](../rate-manager-service/inputs/rmsattribute))
+
+Item Attributes
+
+#### `items` ([`RMSItem`](../rate-manager-service/inputs/rmsitem))
+
+Child item details (if any)

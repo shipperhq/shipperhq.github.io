@@ -1,0 +1,105 @@
+---
+id: carrier
+title: Carrier
+---
+
+No description
+
+```graphql
+type Carrier implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  carrierDetail: CarrierDetail!
+  methods(
+    where: MethodWhereInput
+    orderBy: MethodOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Method!]
+  sortOrder: Int
+  dateFormat: String
+  availableOptions: AvailableOptions
+  calendarDate: CalendarDate
+  packages(
+    where: PackageWhereInput
+    orderBy: PackageOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Package!]
+  pickupDetail: PickupDetail
+  error: RMSError
+  preventRulesApplied: [String!]!
+  shipment: Shipment
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../order-view-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `carrierDetail` ([`CarrierDetail`](../order-view-service/objects/carrier-detail))
+
+#### `methods` ([`Method`](../order-view-service/objects/method))
+
+- ##### `where` ([`MethodWhereInput`](../order-view-service/inputs/method-where-input))
+
+- ##### `orderBy` ([`MethodOrderByInput`](../order-view-service/enums/method-order-by-input))
+
+- ##### `skip` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `after` ([`String`](../order-view-service/scalars/string))
+
+- ##### `before` ([`String`](../order-view-service/scalars/string))
+
+- ##### `first` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `last` ([`Int`](../order-view-service/scalars/int))
+
+#### `sortOrder` ([`Int`](../order-view-service/scalars/int))
+
+#### `dateFormat` ([`String`](../order-view-service/scalars/string))
+
+#### `availableOptions` ([`AvailableOptions`](../order-view-service/objects/available-options))
+
+#### `calendarDate` ([`CalendarDate`](../order-view-service/objects/calendar-date))
+
+#### `packages` ([`Package`](../order-view-service/objects/package))
+
+- ##### `where` ([`PackageWhereInput`](../order-view-service/inputs/package-where-input))
+
+- ##### `orderBy` ([`PackageOrderByInput`](../order-view-service/enums/package-order-by-input))
+
+- ##### `skip` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `after` ([`String`](../order-view-service/scalars/string))
+
+- ##### `before` ([`String`](../order-view-service/scalars/string))
+
+- ##### `first` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `last` ([`Int`](../order-view-service/scalars/int))
+
+#### `pickupDetail` ([`PickupDetail`](../order-view-service/objects/pickup-detail))
+
+#### `error` ([`RMSError`](../order-view-service/objects/rmserror))
+
+#### `preventRulesApplied` ([`String`](../order-view-service/scalars/string))
+
+#### `shipment` ([`Shipment`](../order-view-service/objects/shipment))
+
+### Interfaces
+
+#### [`Node`](../order-view-service/interfaces/node)
+
+An object with an ID

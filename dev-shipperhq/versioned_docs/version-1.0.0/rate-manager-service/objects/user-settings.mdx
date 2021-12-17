@@ -1,0 +1,60 @@
+---
+id: user-settings
+title: UserSettings
+---
+
+The settings for the current user
+
+```graphql
+type UserSettings {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  session: String!
+  googleApiKey: String
+  mergedRateCarrierTitle: String
+  mergedRateMethodTitle: String
+  mergedRateCarrierCode: String
+  mergedRateMethodCode: String
+  shippingTooltipText: String
+  ppse: PPSESettings
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `session` ([`String`](../rate-manager-service/scalars/string))
+
+#### `googleApiKey` ([`String`](../rate-manager-service/scalars/string))
+
+API Key to use when rendering google maps
+
+#### `mergedRateCarrierTitle` ([`String`](../rate-manager-service/scalars/string))
+
+Carrier title used when rates are combined
+
+#### `mergedRateMethodTitle` ([`String`](../rate-manager-service/scalars/string))
+
+Method title used when rates are combined
+
+#### `mergedRateCarrierCode` ([`String`](../rate-manager-service/scalars/string))
+
+Carrier code used when rates are combined
+
+#### `mergedRateMethodCode` ([`String`](../rate-manager-service/scalars/string))
+
+Method code used when rates are combined
+
+#### `shippingTooltipText` ([`String`](../rate-manager-service/scalars/string))
+
+Shipping tooltip text
+
+#### `ppse` ([`PPSESettings`](../rate-manager-service/objects/ppsesettings))
+
+Product Page Shipping Estimator settings

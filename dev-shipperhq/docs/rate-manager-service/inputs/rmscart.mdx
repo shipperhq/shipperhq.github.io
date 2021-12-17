@@ -1,0 +1,28 @@
+---
+id: rmscart
+title: RMSCart
+---
+
+Cart Details
+
+```graphql
+type RMSCart {
+  items: [RMSItem!]!
+  declaredValue: Float
+  freeShipping: Boolean
+}
+```
+
+### Fields
+
+#### `items` ([`RMSItem`](../rate-manager-service/inputs/rmsitem))
+
+List of items in the cart
+
+#### `declaredValue` ([`Float`](../rate-manager-service/scalars/float))
+
+Total value of the cart
+
+#### `freeShipping` ([`Boolean`](../rate-manager-service/scalars/boolean))
+
+Does the cart receive free shipping?

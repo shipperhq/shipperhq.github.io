@@ -1,0 +1,58 @@
+---
+id: rmsshipping-rate
+title: RMSShippingRate
+---
+
+No description
+
+```graphql
+type RMSShippingRate implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  code: String!
+  title: String!
+  totalCharges: Float!
+  handlingFee: Float
+  shippingPrice: Float
+  deliveryDate: String
+  dispatchDate: String
+  deliveryMessage: String
+  description: String
+  rMSCarrier: RMSCarrier
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../order-view-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `code` ([`String`](../order-view-service/scalars/string))
+
+#### `title` ([`String`](../order-view-service/scalars/string))
+
+#### `totalCharges` ([`Float`](../order-view-service/scalars/float))
+
+#### `handlingFee` ([`Float`](../order-view-service/scalars/float))
+
+#### `shippingPrice` ([`Float`](../order-view-service/scalars/float))
+
+#### `deliveryDate` ([`String`](../order-view-service/scalars/string))
+
+#### `dispatchDate` ([`String`](../order-view-service/scalars/string))
+
+#### `deliveryMessage` ([`String`](../order-view-service/scalars/string))
+
+#### `description` ([`String`](../order-view-service/scalars/string))
+
+#### `rMSCarrier` ([`RMSCarrier`](../order-view-service/objects/rmscarrier))
+
+### Interfaces
+
+#### [`Node`](../order-view-service/interfaces/node)
+
+An object with an ID

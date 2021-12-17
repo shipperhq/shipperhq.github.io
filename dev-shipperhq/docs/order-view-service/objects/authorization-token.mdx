@@ -1,0 +1,40 @@
+---
+id: authorization-token
+title: AuthorizationToken
+---
+
+No description
+
+```graphql
+type AuthorizationToken implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  secretToken: String!
+  publicToken: String!
+  apiKey: String!
+  expiresAt: DateTime!
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../order-view-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `secretToken` ([`String`](../order-view-service/scalars/string))
+
+#### `publicToken` ([`String`](../order-view-service/scalars/string))
+
+#### `apiKey` ([`String`](../order-view-service/scalars/string))
+
+#### `expiresAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+### Interfaces
+
+#### [`Node`](../order-view-service/interfaces/node)
+
+An object with an ID

@@ -1,0 +1,87 @@
+---
+id: calendar-date
+title: CalendarDate
+---
+
+No description
+
+```graphql
+type CalendarDate implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deliveryDateRanges(
+    where: DeliveryDateRangeWhereInput
+    orderBy: DeliveryDateRangeOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [DeliveryDateRange!]
+  availableDeliveryDates: [String!]!
+  timeSlots(
+    where: TimeSlotWhereInput
+    orderBy: TimeSlotOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [TimeSlot!]
+  carrier: Carrier
+  pickupLocationDetail: PickupLocationDetail
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../order-view-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `deliveryDateRanges` ([`DeliveryDateRange`](../order-view-service/objects/delivery-date-range))
+
+- ##### `where` ([`DeliveryDateRangeWhereInput`](../order-view-service/inputs/delivery-date-range-where-input))
+
+- ##### `orderBy` ([`DeliveryDateRangeOrderByInput`](../order-view-service/enums/delivery-date-range-order-by-input))
+
+- ##### `skip` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `after` ([`String`](../order-view-service/scalars/string))
+
+- ##### `before` ([`String`](../order-view-service/scalars/string))
+
+- ##### `first` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `last` ([`Int`](../order-view-service/scalars/int))
+
+#### `availableDeliveryDates` ([`String`](../order-view-service/scalars/string))
+
+#### `timeSlots` ([`TimeSlot`](../order-view-service/objects/time-slot))
+
+- ##### `where` ([`TimeSlotWhereInput`](../order-view-service/inputs/time-slot-where-input))
+
+- ##### `orderBy` ([`TimeSlotOrderByInput`](../order-view-service/enums/time-slot-order-by-input))
+
+- ##### `skip` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `after` ([`String`](../order-view-service/scalars/string))
+
+- ##### `before` ([`String`](../order-view-service/scalars/string))
+
+- ##### `first` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `last` ([`Int`](../order-view-service/scalars/int))
+
+#### `carrier` ([`Carrier`](../order-view-service/objects/carrier))
+
+#### `pickupLocationDetail` ([`PickupLocationDetail`](../order-view-service/objects/pickup-location-detail))
+
+### Interfaces
+
+#### [`Node`](../order-view-service/interfaces/node)
+
+An object with an ID

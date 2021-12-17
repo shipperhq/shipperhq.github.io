@@ -1,0 +1,275 @@
+---
+id: rate-breakdown-where-input
+title: RateBreakdownWhereInput
+---
+
+No description
+
+```graphql
+type RateBreakdownWhereInput {
+  AND: [RateBreakdownWhereInput!]
+  OR: [RateBreakdownWhereInput!]
+  NOT: [RateBreakdownWhereInput!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  methodCode: String
+  methodCode_not: String
+  methodCode_in: [String!]
+  methodCode_not_in: [String!]
+  methodCode_lt: String
+  methodCode_lte: String
+  methodCode_gt: String
+  methodCode_gte: String
+  methodCode_contains: String
+  methodCode_not_contains: String
+  methodCode_starts_with: String
+  methodCode_not_starts_with: String
+  methodCode_ends_with: String
+  methodCode_not_ends_with: String
+  isWinningRate: Boolean
+  isWinningRate_not: Boolean
+  shipmentDetail: ShipmentDetailWhereInput
+  carrierDetail: CarrierDetailWhereInput
+  methodDetails: MethodDetailWhereInput
+  timeInTransitOptions: TimeInTransitOptionsWhereInput
+  advancedFees: AdvancedFeesWhereInput
+  packages_every: PackageWhereInput
+  packages_some: PackageWhereInput
+  packages_none: PackageWhereInput
+  method: MethodWhereInput
+}
+```
+
+### Fields
+
+#### `AND` ([`RateBreakdownWhereInput`](../rate-manager-service/inputs/rate-breakdown-where-input))
+
+Logical AND on all given filters.
+
+#### `OR` ([`RateBreakdownWhereInput`](../rate-manager-service/inputs/rate-breakdown-where-input))
+
+Logical OR on all given filters.
+
+#### `NOT` ([`RateBreakdownWhereInput`](../rate-manager-service/inputs/rate-breakdown-where-input))
+
+Logical NOT on all given filters combined by AND.
+
+#### `id` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `id_not` ([`ID`](../rate-manager-service/scalars/id))
+
+All values that are not equal to given value.
+
+#### `id_in` ([`ID`](../rate-manager-service/scalars/id))
+
+All values that are contained in given list.
+
+#### `id_not_in` ([`ID`](../rate-manager-service/scalars/id))
+
+All values that are not contained in given list.
+
+#### `id_lt` ([`ID`](../rate-manager-service/scalars/id))
+
+All values less than the given value.
+
+#### `id_lte` ([`ID`](../rate-manager-service/scalars/id))
+
+All values less than or equal the given value.
+
+#### `id_gt` ([`ID`](../rate-manager-service/scalars/id))
+
+All values greater than the given value.
+
+#### `id_gte` ([`ID`](../rate-manager-service/scalars/id))
+
+All values greater than or equal the given value.
+
+#### `id_contains` ([`ID`](../rate-manager-service/scalars/id))
+
+All values containing the given string.
+
+#### `id_not_contains` ([`ID`](../rate-manager-service/scalars/id))
+
+All values not containing the given string.
+
+#### `id_starts_with` ([`ID`](../rate-manager-service/scalars/id))
+
+All values starting with the given string.
+
+#### `id_not_starts_with` ([`ID`](../rate-manager-service/scalars/id))
+
+All values not starting with the given string.
+
+#### `id_ends_with` ([`ID`](../rate-manager-service/scalars/id))
+
+All values ending with the given string.
+
+#### `id_not_ends_with` ([`ID`](../rate-manager-service/scalars/id))
+
+All values not ending with the given string.
+
+#### `createdAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `createdAt_not` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values that are not equal to given value.
+
+#### `createdAt_in` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values that are contained in given list.
+
+#### `createdAt_not_in` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values that are not contained in given list.
+
+#### `createdAt_lt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values less than the given value.
+
+#### `createdAt_lte` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values less than or equal the given value.
+
+#### `createdAt_gt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values greater than the given value.
+
+#### `createdAt_gte` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values greater than or equal the given value.
+
+#### `updatedAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `updatedAt_not` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values that are not equal to given value.
+
+#### `updatedAt_in` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values that are contained in given list.
+
+#### `updatedAt_not_in` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values that are not contained in given list.
+
+#### `updatedAt_lt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values less than the given value.
+
+#### `updatedAt_lte` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values less than or equal the given value.
+
+#### `updatedAt_gt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values greater than the given value.
+
+#### `updatedAt_gte` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+All values greater than or equal the given value.
+
+#### `methodCode` ([`String`](../rate-manager-service/scalars/string))
+
+#### `methodCode_not` ([`String`](../rate-manager-service/scalars/string))
+
+All values that are not equal to given value.
+
+#### `methodCode_in` ([`String`](../rate-manager-service/scalars/string))
+
+All values that are contained in given list.
+
+#### `methodCode_not_in` ([`String`](../rate-manager-service/scalars/string))
+
+All values that are not contained in given list.
+
+#### `methodCode_lt` ([`String`](../rate-manager-service/scalars/string))
+
+All values less than the given value.
+
+#### `methodCode_lte` ([`String`](../rate-manager-service/scalars/string))
+
+All values less than or equal the given value.
+
+#### `methodCode_gt` ([`String`](../rate-manager-service/scalars/string))
+
+All values greater than the given value.
+
+#### `methodCode_gte` ([`String`](../rate-manager-service/scalars/string))
+
+All values greater than or equal the given value.
+
+#### `methodCode_contains` ([`String`](../rate-manager-service/scalars/string))
+
+All values containing the given string.
+
+#### `methodCode_not_contains` ([`String`](../rate-manager-service/scalars/string))
+
+All values not containing the given string.
+
+#### `methodCode_starts_with` ([`String`](../rate-manager-service/scalars/string))
+
+All values starting with the given string.
+
+#### `methodCode_not_starts_with` ([`String`](../rate-manager-service/scalars/string))
+
+All values not starting with the given string.
+
+#### `methodCode_ends_with` ([`String`](../rate-manager-service/scalars/string))
+
+All values ending with the given string.
+
+#### `methodCode_not_ends_with` ([`String`](../rate-manager-service/scalars/string))
+
+All values not ending with the given string.
+
+#### `isWinningRate` ([`Boolean`](../rate-manager-service/scalars/boolean))
+
+#### `isWinningRate_not` ([`Boolean`](../rate-manager-service/scalars/boolean))
+
+All values that are not equal to given value.
+
+#### `shipmentDetail` ([`ShipmentDetailWhereInput`](../rate-manager-service/inputs/shipment-detail-where-input))
+
+#### `carrierDetail` ([`CarrierDetailWhereInput`](../rate-manager-service/inputs/carrier-detail-where-input))
+
+#### `methodDetails` ([`MethodDetailWhereInput`](../rate-manager-service/inputs/method-detail-where-input))
+
+#### `timeInTransitOptions` ([`TimeInTransitOptionsWhereInput`](../rate-manager-service/inputs/time-in-transit-options-where-input))
+
+#### `advancedFees` ([`AdvancedFeesWhereInput`](../rate-manager-service/inputs/advanced-fees-where-input))
+
+#### `packages_every` ([`PackageWhereInput`](../rate-manager-service/inputs/package-where-input))
+
+#### `packages_some` ([`PackageWhereInput`](../rate-manager-service/inputs/package-where-input))
+
+#### `packages_none` ([`PackageWhereInput`](../rate-manager-service/inputs/package-where-input))
+
+#### `method` ([`MethodWhereInput`](../rate-manager-service/inputs/method-where-input))

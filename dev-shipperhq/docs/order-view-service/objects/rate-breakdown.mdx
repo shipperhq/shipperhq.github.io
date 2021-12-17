@@ -1,0 +1,77 @@
+---
+id: rate-breakdown
+title: RateBreakdown
+---
+
+No description
+
+```graphql
+type RateBreakdown implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  shipmentDetail: ShipmentDetail!
+  carrierDetail: CarrierDetail!
+  methodCode: String!
+  methodDetails: MethodDetail!
+  timeInTransitOptions: TimeInTransitOptions
+  advancedFees: AdvancedFees
+  packages(
+    where: PackageWhereInput
+    orderBy: PackageOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Package!]
+  method: Method
+  isWinningRate: Boolean
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../order-view-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `shipmentDetail` ([`ShipmentDetail`](../order-view-service/objects/shipment-detail))
+
+#### `carrierDetail` ([`CarrierDetail`](../order-view-service/objects/carrier-detail))
+
+#### `methodCode` ([`String`](../order-view-service/scalars/string))
+
+#### `methodDetails` ([`MethodDetail`](../order-view-service/objects/method-detail))
+
+#### `timeInTransitOptions` ([`TimeInTransitOptions`](../order-view-service/objects/time-in-transit-options))
+
+#### `advancedFees` ([`AdvancedFees`](../order-view-service/objects/advanced-fees))
+
+#### `packages` ([`Package`](../order-view-service/objects/package))
+
+- ##### `where` ([`PackageWhereInput`](../order-view-service/inputs/package-where-input))
+
+- ##### `orderBy` ([`PackageOrderByInput`](../order-view-service/enums/package-order-by-input))
+
+- ##### `skip` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `after` ([`String`](../order-view-service/scalars/string))
+
+- ##### `before` ([`String`](../order-view-service/scalars/string))
+
+- ##### `first` ([`Int`](../order-view-service/scalars/int))
+
+- ##### `last` ([`Int`](../order-view-service/scalars/int))
+
+#### `method` ([`Method`](../order-view-service/objects/method))
+
+#### `isWinningRate` ([`Boolean`](../order-view-service/scalars/boolean))
+
+### Interfaces
+
+#### [`Node`](../order-view-service/interfaces/node)
+
+An object with an ID

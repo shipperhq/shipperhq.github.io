@@ -1,0 +1,43 @@
+---
+id: carrier
+title: Carrier
+---
+
+No description
+
+```graphql
+type Carrier {
+  availableOptions: AvailableOption
+  calendarDate: CalendarDate
+  carrierDetail: CarrierDetail!
+  dateFormat: String
+  error: Error
+  methods: [Method!]!
+  packages: [Package!]!
+  pickupDetail: PickupDetail
+  preventRulesApplied: [String]
+  sortOrder: Int
+}
+```
+
+### Fields
+
+#### `availableOptions` ([`AvailableOption`](../../rate-service/objects/available-option))
+
+#### `calendarDate` ([`CalendarDate`](../../rate-service/objects/calendar-date))
+
+#### `carrierDetail` ([`CarrierDetail`](../../rate-service/objects/carrier-detail))
+
+#### `dateFormat` ([`String`](../../rate-service/scalars/string))
+
+#### `error` ([`Error`](../../rate-service/objects/error))
+
+#### `methods` ([`Method`](../../rate-service/objects/method))
+
+#### `packages` ([`Package`](../../rate-service/objects/package))
+
+#### `pickupDetail` ([`PickupDetail`](../../rate-service/objects/pickup-detail))
+
+#### `preventRulesApplied` ([`String`](../../rate-service/scalars/string))
+
+#### `sortOrder` ([`Int`](../../rate-service/scalars/int))

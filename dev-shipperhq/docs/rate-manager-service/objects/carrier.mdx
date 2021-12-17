@@ -1,0 +1,105 @@
+---
+id: carrier
+title: Carrier
+---
+
+No description
+
+```graphql
+type Carrier implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  carrierDetail: CarrierDetail!
+  methods(
+    where: MethodWhereInput
+    orderBy: MethodOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Method!]
+  sortOrder: Int
+  dateFormat: String
+  availableOptions: AvailableOptions
+  calendarDate: CalendarDate
+  packages(
+    where: PackageWhereInput
+    orderBy: PackageOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Package!]
+  pickupDetail: PickupDetail
+  error: RMSError
+  preventRulesApplied: [String!]!
+  shipment: Shipment
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `carrierDetail` ([`CarrierDetail`](../rate-manager-service/objects/carrier-detail))
+
+#### `methods` ([`Method`](../rate-manager-service/objects/method))
+
+- ##### `where` ([`MethodWhereInput`](../rate-manager-service/inputs/method-where-input))
+
+- ##### `orderBy` ([`MethodOrderByInput`](../rate-manager-service/enums/method-order-by-input))
+
+- ##### `skip` ([`Int`](../rate-manager-service/scalars/int))
+
+- ##### `after` ([`String`](../rate-manager-service/scalars/string))
+
+- ##### `before` ([`String`](../rate-manager-service/scalars/string))
+
+- ##### `first` ([`Int`](../rate-manager-service/scalars/int))
+
+- ##### `last` ([`Int`](../rate-manager-service/scalars/int))
+
+#### `sortOrder` ([`Int`](../rate-manager-service/scalars/int))
+
+#### `dateFormat` ([`String`](../rate-manager-service/scalars/string))
+
+#### `availableOptions` ([`AvailableOptions`](../rate-manager-service/objects/available-options))
+
+#### `calendarDate` ([`CalendarDate`](../rate-manager-service/objects/calendar-date))
+
+#### `packages` ([`Package`](../rate-manager-service/objects/package))
+
+- ##### `where` ([`PackageWhereInput`](../rate-manager-service/inputs/package-where-input))
+
+- ##### `orderBy` ([`PackageOrderByInput`](../rate-manager-service/enums/package-order-by-input))
+
+- ##### `skip` ([`Int`](../rate-manager-service/scalars/int))
+
+- ##### `after` ([`String`](../rate-manager-service/scalars/string))
+
+- ##### `before` ([`String`](../rate-manager-service/scalars/string))
+
+- ##### `first` ([`Int`](../rate-manager-service/scalars/int))
+
+- ##### `last` ([`Int`](../rate-manager-service/scalars/int))
+
+#### `pickupDetail` ([`PickupDetail`](../rate-manager-service/objects/pickup-detail))
+
+#### `error` ([`RMSError`](../rate-manager-service/objects/rmserror))
+
+#### `preventRulesApplied` ([`String`](../rate-manager-service/scalars/string))
+
+#### `shipment` ([`Shipment`](../rate-manager-service/objects/shipment))
+
+### Interfaces
+
+#### [`Node`](../rate-manager-service/interfaces/node)
+
+An object with an ID

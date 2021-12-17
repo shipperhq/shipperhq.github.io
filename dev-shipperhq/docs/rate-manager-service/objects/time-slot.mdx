@@ -1,0 +1,40 @@
+---
+id: time-slot
+title: TimeSlot
+---
+
+No description
+
+```graphql
+type TimeSlot implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  timeStart: String!
+  timeEnd: String!
+  interval: String!
+  calendarDate: CalendarDate
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `timeStart` ([`String`](../rate-manager-service/scalars/string))
+
+#### `timeEnd` ([`String`](../rate-manager-service/scalars/string))
+
+#### `interval` ([`String`](../rate-manager-service/scalars/string))
+
+#### `calendarDate` ([`CalendarDate`](../rate-manager-service/objects/calendar-date))
+
+### Interfaces
+
+#### [`Node`](../rate-manager-service/interfaces/node)
+
+An object with an ID

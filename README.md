@@ -30,6 +30,7 @@ Optional: create a `.env` file and add your GitHub username. Use `.env.template`
 - `yarn serve` - Serves the built website locally.
 - `yarn deploy`- Pushes to the `gh-pages` branch and publishes the website to GitHub pages.
 - `yarn graphql`- generates graphQL docs, add `-f` to force generate docs.
+<!-- TODO: Adjust to new graphql -->
 - `yarn run docusaurus docs:version 1.1.0`- copies docs into a versioned directory and marks docs with that specified version.
 
 ## Branch
@@ -38,14 +39,14 @@ Optional: create a `.env` file and add your GitHub username. Use `.env.template`
 
 ## Project Structure
 
-- `/blog/` - Contains the blog Markdown files. You can delete the directory if you do not want/need a blog. More details can be found in the [blog guide](https://docusaurus.io/docs/blog).
-- `/docs/` - Contains the Markdown files for the docs. Customize the order of the docs sidebar in `sidebars.js`. More details can be found in the [docs guide](https://docusaurus.io/docs/docs-markdown-features).
-- `/src/` - Non-documentation files like pages or custom React components. You don't have to strictly put your non-documentation files in here but putting them under a centralized directory makes it easier to specify in case you need to do some sort of linting/processing.
-    - `/src/pages` - Any files within this directory will be converted into a website page. More details can be found in the [pages guide](https://docusaurus.io/docs/creating-pages).
-- `/static/` - Static directory. Any contents inside here will be copied into the root of the final `build` directory.
-- `/docusaurus.config.js` - A config file containing the site configuration. More details can be found in the [api docs](https://docusaurus.io/docs/api/docusaurus-config).
-- `/package.json` - A Docusaurus website is a React app. You can install and use any npm packages you like in them.
-- `/sidebar.js` - Used by the documentation to specify the order of documents in the sidebar.
+- `/blog/` - Contains the blog Markdown files. You can delete the directory if you do not want/need a blog. More details can be found in the [blog guide](https://docusaurus.io/docs/blog).
+- `/docs/` - Contains the Markdown files for the docs. Customize the order of the docs sidebar in `sidebars.js`. More details can be found in the [docs guide](https://docusaurus.io/docs/docs-markdown-features).
+- `/src/` - Non-documentation files like pages or custom React components. You don't have to strictly put your non-documentation files in here but putting them under a centralized directory makes it easier to specify in case you need to do some sort of linting/processing.
+    - `/src/pages` - Any files within this directory will be converted into a website page. More details can be found in the [pages guide](https://docusaurus.io/docs/creating-pages).
+- `/static/` - Static directory. Any contents inside here will be copied into the root of the final `build` directory.
+- `/docusaurus.config.js` - A config file containing the site configuration. More details can be found in the [api docs](https://docusaurus.io/docs/api/docusaurus-config).
+- `/package.json` - A Docusaurus website is a React app. You can install and use any npm packages you like in them.
+- `/sidebar.js` - Used by the documentation to specify the order of documents in the sidebar.
 
 ## Versioning
 
@@ -56,6 +57,8 @@ yarn run docusaurus docs:version 1.1.0
 ```
 
 - When tagging a new version, the document versioning mechanism will:
-    - Copy the full `docs/` folder contents into a new `versioned_docs/version-<version>/` folder.
-    - Create a versioned sidebars file based from your current [sidebar](https://docusaurus.io/docs/docs-introduction#sidebar) configuration (if it exists) - saved as `versioned_sidebars/version-<version>-sidebars.json`.
-    - Append the new version number to `versions.json`.
+    - Copy the full `docs/` folder contents into a new `versioned_docs/version-<version>/` folder.
+    - Create a versioned sidebars file based from your current [sidebar](https://docusaurus.io/docs/docs-introduction#sidebar) configuration (if it exists) - saved as `versioned_sidebars/version-<version>-sidebars.json`.
+    - Append the new version number to `versions.json`.
+
+## Adding API docs

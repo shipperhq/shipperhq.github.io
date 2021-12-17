@@ -1,0 +1,34 @@
+---
+id: stored-rmscustomer
+title: StoredRMSCustomer
+---
+
+No description
+
+```graphql
+type StoredRMSCustomer implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  customerGroup: String
+  storedRMSRatingInfo: StoredRMSRatingInfo
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../order-view-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../order-view-service/scalars/date-time))
+
+#### `customerGroup` ([`String`](../order-view-service/scalars/string))
+
+#### `storedRMSRatingInfo` ([`StoredRMSRatingInfo`](../order-view-service/objects/stored-rmsrating-info))
+
+### Interfaces
+
+#### [`Node`](../order-view-service/interfaces/node)
+
+An object with an ID

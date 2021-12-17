@@ -1,0 +1,40 @@
+---
+id: postage-cost
+title: PostageCost
+---
+
+No description
+
+```graphql
+type PostageCost implements Node {
+  id: ID!
+  duties: Float
+  insurance: Float
+  shipping: Float
+  tax: Float
+  total: Float
+  label: Label
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../order-view-service/scalars/id))
+
+#### `duties` ([`Float`](../order-view-service/scalars/float))
+
+#### `insurance` ([`Float`](../order-view-service/scalars/float))
+
+#### `shipping` ([`Float`](../order-view-service/scalars/float))
+
+#### `tax` ([`Float`](../order-view-service/scalars/float))
+
+#### `total` ([`Float`](../order-view-service/scalars/float))
+
+#### `label` ([`Label`](../order-view-service/objects/label))
+
+### Interfaces
+
+#### [`Node`](../order-view-service/interfaces/node)
+
+An object with an ID

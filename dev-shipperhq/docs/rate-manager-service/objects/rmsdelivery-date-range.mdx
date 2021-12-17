@@ -1,0 +1,37 @@
+---
+id: rmsdelivery-date-range
+title: RMSDeliveryDateRange
+---
+
+No description
+
+```graphql
+type RMSDeliveryDateRange implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  fromDate: String
+  toDate: String
+  rMSCalendarDate: RMSCalendarDate
+}
+```
+
+### Fields
+
+#### `id` ([`ID`](../rate-manager-service/scalars/id))
+
+#### `createdAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `updatedAt` ([`DateTime`](../rate-manager-service/scalars/date-time))
+
+#### `fromDate` ([`String`](../rate-manager-service/scalars/string))
+
+#### `toDate` ([`String`](../rate-manager-service/scalars/string))
+
+#### `rMSCalendarDate` ([`RMSCalendarDate`](../rate-manager-service/objects/rmscalendar-date))
+
+### Interfaces
+
+#### [`Node`](../rate-manager-service/interfaces/node)
+
+An object with an ID
