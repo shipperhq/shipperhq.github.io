@@ -28,10 +28,11 @@ Optional: create a `.env` file and add your GitHub username. Use `.env.template`
 - `yarn start` - Starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 - `yarn build` - Generates static content into the `build` directory.
 - `yarn serve` - Serves the built website locally.
-- `yarn deploy`- Pushes to the `gh-pages` branch and publishes the website to GitHub pages.
-- `yarn graphql`- generates graphQL docs, add `-f` to force generate docs.
-<!-- TODO: Adjust to new graphql -->
-- `yarn run docusaurus docs:version 1.1.0`- copies docs into a versioned directory and marks docs with that specified version.
+- `yarn deploy` - Pushes to the `gh-pages` branch and publishes the website to GitHub pages.
+- `yarn rate-service-graphql` - generates graphQL docs for rate service using `https://api.shipperhq.com/v2/graphql` for insprospection.
+- `yarn order-view-service-graphql` - generates graphQL docs for order view service using `https://ovs.shipperhq.com` for insprospection
+- `yarn rate-manager-service-graphql` - generates graphQL docs for rate manager service using `https://rms.shipperhq.com` for insprospection
+- `yarn run docusaurus docs:version 1.1.0` - copies docs into a versioned directory and marks docs with that specified version.
 
 ## Branch
 
