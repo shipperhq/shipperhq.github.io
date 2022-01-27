@@ -41,10 +41,12 @@ You can retrieve shipping rates by querying the Rating GraphQL API.
 Request Definitions
 The ShipperHQ rating API includes the following three queries. 
 
-## Query	Description
-- ```retrieveShippingQuote```	Retrieve basic shipping rates including carrier and method titles and total shipping charges.
-- ```retrieveFullShippingQuote```	Retrieve detailed shipping rate information for each shipment, including origin or warehouse information, carrier and method information, freight options available, available dates, in-store pickup information, and more.
-- ```retrieveUserSettings```	Retrieve merchant’s settings like locale and currency.
+| Query                      | Description         |
+| ---------------------------|---------------------|
+|```retrieveShippingQuote``` |	Retrieve basic shipping rates including carrier and method titles and total shipping charges. |
+|```retrieveFullShippingQuote```	| Retrieve detailed shipping rate information for each shipment, including origin or warehouse information, carrier and method information, freight options available, available dates, in-store pickup information, and more.|
+|```retrieveUserSettings```|	Retrieve merchant’s settings like locale and currency.|
+
 You can view the details of queries/mutations, and their descriptions within the ShipperHQ GraphQL playground. 
 
 Use your own tool or navigate to ShipperHQ’s playground to view any GraphQL queries. Follow the procedure outlined below to use GraphQL.
@@ -67,7 +69,11 @@ To use the ShipperHQ API you must generate an authentication token. To do so, yo
 - Copy your API Key shown in the API Key field next to your website’s URL.
 - If your site is not yet live, Generate New Authentication Code and copy the API key provided.
 
+:::danger Chanching authentication code in production
+
 Do NOT reset this authentication code if your website is live. If you do, this breaks your rating in checkout. If this happens, please ensure you update your Magento extension to use the new code.
+
+:::
 
 ### Obtain Authentication Token
 Use the following steps to create an Authentication token for testing. You will need to use this same query in your integration to create secret tokens when required, as they expire after 30 days. 
@@ -90,7 +96,11 @@ mutation CreateSecretToken {
 }
 ```
 
-The response contains the token you use to make requests to the ShipperHQ API. Note, this token currently expires every 30 days and you can request a new token an hour before your current token is set to expire. The token is a JWT and they have an expiration timestamp encoded inside them so there is no need to remember the expieration date. We recommend using your favorite JWT parsing library to extract the expiration from the token, so you’ll know the exact second the token expires.
+:::tip We use JWT and the token has a 30 days expiration date
+
+The response contains the token you use to make requests to the ShipperHQ API. Note, this token currently expires every 30 days and you can request a new token an hour before your current token is set to expire. The token is a [JWT](https://jwt.io/ and they have an expiration timestamp encoded inside them so there is no need to remember the expieration date. We recommend using your favorite [JWT](https://jwt.io/) parsing library to extract the expiration from the token, so you’ll know the exact second the token expires.
+
+:::
 
 ## Requests
 ### Request Headers
@@ -104,8 +114,10 @@ Any query or request must include the following headers
 Item attributes in the request allow you to include item-specific values like a shipping group or an origin. They are required if you are using any type of features such as carrier rules, dimensional shipping, multi-origin, etc. The most common attributes are listed below. 
 
 
+:::tip Values are case sensitive and require delimiter
 All values are case sensitive and require a delimiter between multiple values. The default delimiter is a comma, but if your data is already separated by hashes (#), it is required for you to set the appVersion to 2.0.0 within the siteDetails.
 
+:::
 Attribute Name	Description
 shipperhq_shipping_group	This is used to place the shipping group on an item to match carrier rules.
 shipperhq_warehouse	This is used if you are using multi-origin functionality in order to specify which origin(s) are applicable for an item. These values are separated by the “#’ character and must match origin names configured in ShipperHQ.
@@ -141,8 +153,9 @@ ship_separately	This allows for the item to be packed separately into its own bo
 
 Requested Options in the requestedOptions field in the request allow you to include services for the entire shipment such as Liftgate or Residential delivery. These are useful if you are using Freight carriers or small package carriers that offer specific delivery methods for residential delivery. The most common attributes are listed below. 
 
+::: tip All values are case-sensitive
+:::
 
-All values are case-sensitive.
 Requested Options	Data Type	Description
 liftgate_required	Boolean	This specifies liftgate is required at the destination.
 notify_required	Boolean	This requests an appointment delivery or notice of delivery.
@@ -179,10 +192,13 @@ X-ShipperHQ-Session – This identifies a cart/order, use any value
 After the headers are entered, you can input the query you want to test into the field box provided and before clicking the Send Request button. The results are displayed in the pane on the right.
 
 
+:::tip How to add variables?
 You can add variables by clicking the Variables button (icon of stacked boxes) on the left toolbar. These variables are entered in JSON format.
-- Examples
-- Basic Rating GraphQL API
-- Example: Rate Request
+:::
+
+## Examples
+### Basic Rating GraphQL API
+#### Example: Rate Request
 
 This example does not flush out the multi-origin logic. Please view the Detailed Shipping Rate GraphQL API portion of this document for more information. The following example is an MVP setup. 
 
@@ -377,6 +393,8 @@ Some example queries are below. For each of these queries, you can submit the ra
 
 In this section, let's explore typical queries that may be useful on a regular basis.
 
+#### Example: Retrieve shipping quote with scheduling option
+
 ```json title="Query example: Retrieve shipping quote with scheduling"
 # 
 # Fetches a detailed quote with calendar details included
@@ -433,6 +451,7 @@ query RetrieveFullShippingQuote($ratingInfo: RatingInfoInput!) {
   }
 }
 ```
+#### Example: Rate request for LTL carriers
 
 ```json title="Query example: rate request for LTL carriers"
 # 
@@ -487,6 +506,7 @@ query RetrieveFullShippingQuote($ratingInfo: RatingInfoInput!) {
   }
 }
 ```
+#### Example: Rate breakdown for multiple shipment or multiple origins
 
 ```json title="Query example: Rates breakdown for multiple shipment or multiple origins"
 # 
