@@ -34,11 +34,11 @@ Depending on whether you choose to request simple rates or full shipping rates, 
 You can retrieve shipping rates by querying the Rating GraphQL API. 
 
 ## GraphQL API URL and Limits
-- Endpoint URL: The current GraphQL API endpoint is at https://api.shipperhq.com/v2/graphql and all requests must be HTTP POST requests with application/JSON encoded bodies.
+- Endpoint URL: The current GraphQL API endpoint is at https://api.shipperhq.com/v2/graphql and all requests must be ```HTTP POST``` requests with ```application/JSON``` encoded bodies.
 - Request Limits:  These queries are subject to your request limits. Please view your request limits on ShipperHQ’s pricing page.
 - Monitoring Request limits: Review your requests within your ShipperHQ analytics dashboard.
 
-Request Definitions
+## Request Definitions
 The ShipperHQ rating API includes the following three queries. 
 
 | Query                      | Description         |
@@ -102,8 +102,8 @@ The response contains the token you use to make requests to the ShipperHQ API. N
 
 :::
 
-## Requests
-### Request Headers
+# Requests
+## Request Headers
 Any query or request must include the following headers
 
 - ```X-ShipperHQ-Secret-Token``` – This is the Secret token you have generated for your ShipperHQ account (see Authentication section)
@@ -149,7 +149,7 @@ ship_separately	This allows for the item to be packed separately into its own bo
       } ], 
 ```
 
-### Requested Options
+## Requested Options
 
 Requested Options in the requestedOptions field in the request allow you to include services for the entire shipment such as Liftgate or Residential delivery. These are useful if you are using Freight carriers or small package carriers that offer specific delivery methods for residential delivery. The most common attributes are listed below. 
 
@@ -176,7 +176,7 @@ requestedOptions: {
    }]}   
 ```
 
-#### Preparing Queries in GraphQL Playground
+## Preparing Queries in GraphQL Playground
 Use the following process to use the GraphQL Playground. Include the required Headers before writing a query within GraphQL Playground.
 
 - Go to https://graphiql.shipperhq.com/ to access our GraphQL Playground.
@@ -196,9 +196,9 @@ After the headers are entered, you can input the query you want to test into the
 You can add variables by clicking the Variables button (icon of stacked boxes) on the left toolbar. These variables are entered in JSON format.
 :::
 
-## Examples
-### Basic Rating GraphQL API
-#### Example: Rate Request
+#  Examples
+## Basic Rating GraphQL API
+### Example: Rate Request
 
 This example does not flush out the multi-origin logic. Please view the Detailed Shipping Rate GraphQL API portion of this document for more information. The following example is an MVP setup. 
 
@@ -274,6 +274,7 @@ query retrieveShippingQuote {
 }
 ```
 
+### Example: Rate response
 ```json title="Example of a rate response"
 Example: Rate Response
 {
@@ -328,7 +329,7 @@ Example: Rate Response
 }
 ```
 
-### Detailed Shipping Rates GraphQL API
+## Detailed Shipping Rates GraphQL API
 Use this API request to retrieve detailed shipping rate information including packages, detailed information on shipping rates, date information, rates for each shipment in a multi-origin request.
 
 Some example queries are below. For each of these queries, you can submit the ratingInfo variable. If you wish to use multi-origin functionality, your request should include the shipperhq_warehouse item attribute value.
@@ -389,7 +390,7 @@ Some example queries are below. For each of these queries, you can submit the ra
 }
 ```
 
-#### Example Queries
+### Example Queries
 
 In this section, let's explore typical queries that may be useful on a regular basis.
 
@@ -620,5 +621,5 @@ The internal error message describes the issue and is intended to help with your
            ] 
 ```
 
-### Additional resources
+# Additional resources
 - [List of ShipperHQ standard error messages](https://docs.shipperhq.com/rating-error-messages)
