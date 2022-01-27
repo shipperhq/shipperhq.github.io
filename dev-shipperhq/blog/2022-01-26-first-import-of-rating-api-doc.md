@@ -106,9 +106,9 @@ The response contains the token you use to make requests to the ShipperHQ API. N
 ### Request Headers
 Any query or request must include the following headers
 
-- X-ShipperHQ-Secret-Token – This is the Secret token you have generated for your ShipperHQ account (see Authentication section)
-- X-ShipperHQ-Scope – This is the SCOPE from your SHQ account
-- X-ShipperHQ-Session – This identifies a cart/order, use any unique value
+- ```X-ShipperHQ-Secret-Token``` – This is the Secret token you have generated for your ShipperHQ account (see Authentication section)
+- ```X-ShipperHQ-Scope``` – This is the SCOPE from your SHQ account
+- ```X-ShipperHQ-Session``` – This identifies a cart/order, use any unique value
 
 ## Item Attributes
 Item attributes in the request allow you to include item-specific values like a shipping group or an origin. They are required if you are using any type of features such as carrier rules, dimensional shipping, multi-origin, etc. The most common attributes are listed below. 
@@ -620,5 +620,5 @@ The internal error message describes the issue and is intended to help with your
            ] 
 ```
 
-Resources
-https://docs.shipperhq.com/rating-error-messages – List of ShipperHQ standard error messages.
+### Additional resources
+- [List of ShipperHQ standard error messages](https://docs.shipperhq.com/rating-error-messages)
