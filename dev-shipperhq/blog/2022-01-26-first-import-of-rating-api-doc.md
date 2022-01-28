@@ -34,7 +34,7 @@ Depending on whether you choose to request simple rates or full shipping rates, 
 You can retrieve shipping rates by querying the Rating GraphQL API. 
 
 ## GraphQL API URL and Limits
-- Endpoint URL: The current GraphQL API endpoint is at https://api.shipperhq.com/v2/graphql and all requests must be ```HTTP POST``` requests with ```application/JSON``` encoded bodies.
+- Endpoint URL: The current GraphQL API endpoint is at https://api.shipperhq.com/v2/graphql and all requests must be `HTTP POST` requests with `application/JSON` encoded bodies.
 - Request Limits:  These queries are subject to your request limits. Please view your request limits on ShipperHQ’s pricing page.
 - Monitoring Request limits: Review your requests within your ShipperHQ analytics dashboard.
 
@@ -43,9 +43,9 @@ The ShipperHQ rating API includes the following three queries.
 
 | Query                      | Description         |
 | ---------------------------|---------------------|
-|```retrieveShippingQuote``` |	Retrieve basic shipping rates including carrier and method titles and total shipping charges. |
-|```retrieveFullShippingQuote```	| Retrieve detailed shipping rate information for each shipment, including origin or warehouse information, carrier and method information, freight options available, available dates, in-store pickup information, and more.|
-|```retrieveUserSettings```|	Retrieve merchant’s settings like locale and currency.|
+|`retrieveShippingQuote` |	Retrieve basic shipping rates including carrier and method titles and total shipping charges. |
+|`retrieveFullShippingQuote`	| Retrieve detailed shipping rate information for each shipment, including origin or warehouse information, carrier and method information, freight options available, available dates, in-store pickup information, and more.|
+|`retrieveUserSettings`|	Retrieve merchant’s settings like locale and currency.|
 
 You can view the details of queries/mutations, and their descriptions within the ShipperHQ GraphQL playground. 
 
@@ -106,9 +106,9 @@ The response contains the token you use to make requests to the ShipperHQ API. N
 ## Request Headers
 Any query or request must include the following headers
 
-- ```X-ShipperHQ-Secret-Token``` – This is the Secret token you have generated for your ShipperHQ account (see Authentication section)
-- ```X-ShipperHQ-Scope``` – This is the SCOPE from your SHQ account
-- ```X-ShipperHQ-Session``` – This identifies a cart/order, use any unique value
+- `X-ShipperHQ-Secret-Token` – This is the Secret token you have generated for your ShipperHQ account (see Authentication section)
+- `X-ShipperHQ-Scope` – This is the SCOPE from your SHQ account
+- `X-ShipperHQ-Session` – This identifies a cart/order, use any unique value
 
 ## Item Attributes
 Item attributes in the request allow you to include item-specific values like a shipping group or an origin. They are required if you are using any type of features such as carrier rules, dimensional shipping, multi-origin, etc. The most common attributes are listed below. 
@@ -153,7 +153,7 @@ ship_separately	This allows for the item to be packed separately into its own bo
 
 Requested Options in the requestedOptions field in the request allow you to include services for the entire shipment such as Liftgate or Residential delivery. These are useful if you are using Freight carriers or small package carriers that offer specific delivery methods for residential delivery. The most common attributes are listed below. 
 
-::: tip All values are case-sensitive
+:::tip All values are case-sensitive
 :::
 
 Requested Options	Data Type	Description
