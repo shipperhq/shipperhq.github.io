@@ -118,12 +118,15 @@ Item attributes in the request allow you to include item-specific values like a 
 All values are case sensitive and require a delimiter between multiple values. The default delimiter is a comma, but if your data is already separated by hashes (#), it is required for you to set the appVersion to 2.0.0 within the siteDetails.
 
 :::
-Attribute Name	Description
-shipperhq_shipping_group	This is used to place the shipping group on an item to match carrier rules.
-shipperhq_warehouse	This is used if you are using multi-origin functionality in order to specify which origin(s) are applicable for an item. These values are separated by the “#’ character and must match origin names configured in ShipperHQ.
-shipperhq_dim_group	This is used if you have created any dimensional rules for your items to be packed in a specific way.
-ship_length, ship_width, ship_height	These are used if you are placing dimensions on items; Note, you must include all 3 attributes when using this query.
-ship_separately	This allows for the item to be packed separately into its own box when used for rating.
+| Attribute Name | 	Description |
+| -------------- | ------------ |
+|`shipperhq_shipping_group` | 	This is used to place the shipping group on an item to match carrier rules.|
+|`shipperhq_warehouse`|	This is used if you are using multi-origin functionality in order to specify which origin(s) are applicable for an item. These values are separated by the “#’ character and must match origin names configured in ShipperHQ.|
+|`shipperhq_dim_group` |	This is used if you have created any dimensional rules for your items to be packed in a specific way.|
+|`ship_length`, `ship_width`, `ship_height`|	These are used if you are placing dimensions on items; Note, you must include all 3 attributes when using this query.
+|`ship_separately`|	This allows for the item to be packed separately into its own box when used for rating.|
+
+
 ```json title="Attribute example"
     "attributes" : [ {
         "name" : "shipperhq_shipping_group",
@@ -334,7 +337,7 @@ Example: Rate Response
 ## Detailed Shipping Rates GraphQL API
 Use this API request to retrieve detailed shipping rate information including packages, detailed information on shipping rates, date information, rates for each shipment in a multi-origin request.
 
-Some example queries are below. For each of these queries, you can submit the ratingInfo variable. If you wish to use multi-origin functionality, your request should include the shipperhq_warehouse item attribute value.
+Some example queries are below. For each of these queries, you can submit the `ratingInfo` variable. If you wish to use multi-origin functionality, your request should include the `shipperhq_warehouse` item attribute value.
 
 #### Example Variables
 ```json title="Example for variables"
