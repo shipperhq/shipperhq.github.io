@@ -43,7 +43,7 @@ The ShipperHQ rating API includes the following three queries.
 
 | Query                      | Description         |
 | ---------------------------|---------------------|
-|`retrieveShippingQuote` |	Retrieve basic shipping rates including carrier and method titles and total shipping charges. |
+|`retrieveShippingQuote`     |	Retrieve basic shipping rates including carrier and method titles and total shipping charges. |
 |`retrieveFullShippingQuote`	| Retrieve detailed shipping rate information for each shipment, including origin or warehouse information, carrier and method information, freight options available, available dates, in-store pickup information, and more.|
 |`retrieveUserSettings`|	Retrieve merchant’s settings like locale and currency.|
 
@@ -153,15 +153,17 @@ ship_separately	This allows for the item to be packed separately into its own bo
 
 Requested Options in the requestedOptions field in the request allow you to include services for the entire shipment such as Liftgate or Residential delivery. These are useful if you are using Freight carriers or small package carriers that offer specific delivery methods for residential delivery. The most common attributes are listed below. 
 
+| Requested Options  | 	Data Type| 	Description |
+|--------------------|-----------|--------------|
+|`liftgate_required` |	Boolean	 | This specifies liftgate is required at the destination.  |
+|`notify_required`  |	Boolean	   | This requests an appointment delivery or notice of delivery. |
+| `inside_delivery` |	Boolean	   | This requests delivery inside the destination. |
+|`limited_delivery` |	Boolean    | 	This specifies limited access at the destination address. |
+|`destination_type` |	Boolean |	This specifies if a destination is a Residential or Business address and is used for freight and small package shipments.|
+
 :::tip All values are case-sensitive
 :::
 
-Requested Options	Data Type	Description
-liftgate_required	Boolean	This specifies liftgate is required at the destination.
-notify_required	Boolean	This requests an appointment delivery or notice of delivery.
-inside_delivery	Boolean	This requests delivery inside the destination.
-limited_delivery	Boolean	This specifies limited access at the destination address.
-destination_type	Boolean	This specifies if a destination is a Residential or Business address and is used for freight and small package shipments.
 
 ```json title="Available options"
 requestedOptions: {
