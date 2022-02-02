@@ -4,15 +4,23 @@ This website is built using [Docusaurus 2](https://docusaurus.io/), a modern sta
 
 The live site is at https://dev.shipperhq.com/ .
 
+## Prerequisites
+- Set up Git: https://secure.helpscout.net/docs/59b2d827042863033a1cb358/article/5b7edba02c7d3a03f89e0ced/
+- Set up ssh key: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
 ## Installation
 
-- You will need to have `yarn` installed.
+- Install npm: https://nodejs.org/en/download/
+- Install 'yarn' via npm: https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable
 
 ## Getting Started
 
-1.  `cd dev-shipperhq`  
-2. `yarn`
-3. `yarn start`
+1. `git clone https://dev.shipperhq.com/`
+2. `ls` -> verify shipperhq.github.io is listed
+3. `cd shipperhq.github.io`
+4. `cd dev-shipperhq`  
+5. `yarn`
+6. `yarn start`
 
 Go to http://localhost:3000/ to see the site!
 
