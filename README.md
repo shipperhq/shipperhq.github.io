@@ -5,7 +5,7 @@ This website is built using [Docusaurus 2](https://docusaurus.io/), a modern sta
 The live site is at https://dev.shipperhq.com/ .
 
 ## Prerequisites
-- Set up Git: https://secure.helpscout.net/docs/59b2d827042863033a1cb358/article/5b7edba02c7d3a03f89e0ced/
+- Set up Git: https://stackoverflow.com/c/shipperhq/questions/481
 - Set up ssh key: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 
 ## Installation
