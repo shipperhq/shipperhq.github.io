@@ -34,7 +34,7 @@ Depending on whether you choose to request simple rates or full shipping rates, 
 You can retrieve shipping rates by querying the Rating GraphQL API. 
 
 ## GraphQL API URL and Limits
-- Endpoint URL: The current GraphQL API endpoint is at https://api.shipperhq.com/v2/graphql and all requests must be ```HTTP POST``` requests with ```application/JSON``` encoded bodies.
+- Endpoint URL: The current GraphQL API endpoint is at https://api.shipperhq.com/v2/graphql and all requests must be `HTTP POST` requests with `application/JSON` encoded bodies.
 - Request Limits:  These queries are subject to your request limits. Please view your request limits on ShipperHQ’s pricing page.
 - Monitoring Request limits: Review your requests within your ShipperHQ analytics dashboard.
 
@@ -43,9 +43,9 @@ The ShipperHQ rating API includes the following three queries.
 
 | Query                      | Description         |
 | ---------------------------|---------------------|
-|```retrieveShippingQuote``` |	Retrieve basic shipping rates including carrier and method titles and total shipping charges. |
-|```retrieveFullShippingQuote```	| Retrieve detailed shipping rate information for each shipment, including origin or warehouse information, carrier and method information, freight options available, available dates, in-store pickup information, and more.|
-|```retrieveUserSettings```|	Retrieve merchant’s settings like locale and currency.|
+|`retrieveShippingQuote`     |	Retrieve basic shipping rates including carrier and method titles and total shipping charges. |
+|`retrieveFullShippingQuote`	| Retrieve detailed shipping rate information for each shipment, including origin or warehouse information, carrier and method information, freight options available, available dates, in-store pickup information, and more.|
+|`retrieveUserSettings`|	Retrieve merchant’s settings like locale and currency.|
 
 You can view the details of queries/mutations, and their descriptions within the ShipperHQ GraphQL playground. 
 
@@ -107,9 +107,9 @@ The response contains the token you use to make requests to the ShipperHQ API. N
 ## Request Headers
 Any query or request must include the following headers
 
-- ```X-ShipperHQ-Secret-Token``` – This is the Secret token you have generated for your ShipperHQ account (see Authentication section)
-- ```X-ShipperHQ-Scope``` – This is the SCOPE from your SHQ account
-- ```X-ShipperHQ-Session``` – This identifies a cart/order, use any unique value
+- `X-ShipperHQ-Secret-Token` – This is the Secret token you have generated for your ShipperHQ account (see Authentication section)
+- `X-ShipperHQ-Scope` – This is the SCOPE from your SHQ account
+- `X-ShipperHQ-Session` – This identifies a cart/order, use any unique value
 
 ## Item Attributes
 Item attributes in the request allow you to include item-specific values like a shipping group or an origin. They are required if you are using any type of features such as carrier rules, dimensional shipping, multi-origin, etc. The most common attributes are listed below. 
@@ -119,12 +119,15 @@ Item attributes in the request allow you to include item-specific values like a 
 All values are case sensitive and require a delimiter between multiple values. The default delimiter is a comma, but if your data is already separated by hashes (#), it is required for you to set the appVersion to 2.0.0 within the siteDetails.
 
 :::
-Attribute Name	Description
-shipperhq_shipping_group	This is used to place the shipping group on an item to match carrier rules.
-shipperhq_warehouse	This is used if you are using multi-origin functionality in order to specify which origin(s) are applicable for an item. These values are separated by the “#’ character and must match origin names configured in ShipperHQ.
-shipperhq_dim_group	This is used if you have created any dimensional rules for your items to be packed in a specific way.
-ship_length, ship_width, ship_height	These are used if you are placing dimensions on items; Note, you must include all 3 attributes when using this query.
-ship_separately	This allows for the item to be packed separately into its own box when used for rating.
+| Attribute Name | 	Description |
+| -------------- | ------------ |
+|`shipperhq_shipping_group` | 	This is used to place the shipping group on an item to match carrier rules.|
+|`shipperhq_warehouse`|	This is used if you are using multi-origin functionality in order to specify which origin(s) are applicable for an item. These values are separated by the “#’ character and must match origin names configured in ShipperHQ.|
+|`shipperhq_dim_group` |	This is used if you have created any dimensional rules for your items to be packed in a specific way.|
+|`ship_length`, `ship_width`, `ship_height`|	These are used if you are placing dimensions on items; Note, you must include all 3 attributes when using this query.
+|`ship_separately`|	This allows for the item to be packed separately into its own box when used for rating.|
+
+
 ```json title="Attribute example"
     "attributes" : [ {
         "name" : "shipperhq_shipping_group",
@@ -154,15 +157,17 @@ ship_separately	This allows for the item to be packed separately into its own bo
 
 Requested Options in the requestedOptions field in the request allow you to include services for the entire shipment such as Liftgate or Residential delivery. These are useful if you are using Freight carriers or small package carriers that offer specific delivery methods for residential delivery. The most common attributes are listed below. 
 
-::: tip All values are case-sensitive
+| Requested Options  | 	Data Type| 	Description |
+|--------------------|-----------|--------------|
+|`liftgate_required` |	Boolean	 | This specifies liftgate is required at the destination.  |
+|`notify_required`  |	Boolean	   | This requests an appointment delivery or notice of delivery. |
+| `inside_delivery` |	Boolean	   | This requests delivery inside the destination. |
+|`limited_delivery` |	Boolean    | 	This specifies limited access at the destination address. |
+|`destination_type` |	Boolean |	This specifies if a destination is a Residential or Business address and is used for freight and small package shipments.|
+
+:::tip All values are case-sensitive
 :::
 
-Requested Options	Data Type	Description
-liftgate_required	Boolean	This specifies liftgate is required at the destination.
-notify_required	Boolean	This requests an appointment delivery or notice of delivery.
-inside_delivery	Boolean	This requests delivery inside the destination.
-limited_delivery	Boolean	This specifies limited access at the destination address.
-destination_type	Boolean	This specifies if a destination is a Residential or Business address and is used for freight and small package shipments.
 
 ```json title="Available options"
 requestedOptions: {
@@ -333,7 +338,7 @@ Example: Rate Response
 ## Detailed Shipping Rates GraphQL API
 Use this API request to retrieve detailed shipping rate information including packages, detailed information on shipping rates, date information, rates for each shipment in a multi-origin request.
 
-Some example queries are below. For each of these queries, you can submit the ratingInfo variable. If you wish to use multi-origin functionality, your request should include the shipperhq_warehouse item attribute value.
+Some example queries are below. For each of these queries, you can submit the `ratingInfo` variable. If you wish to use multi-origin functionality, your request should include the `shipperhq_warehouse` item attribute value.
 
 #### Example Variables
 ```json title="Example for variables"
