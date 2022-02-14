@@ -58,6 +58,7 @@ In a new GraphQL playground window, enter https://api.shipperhq.com/v2/graphql i
 - Click the Query link to view a list of available queries and the arguments and fields you can include in your request.
 You can also view the structure of the ratingInfo required as a parameter in your request.
 
+![GraphiQL example](./graphiql-example-2021-08-11_10-20-25.jpeg)
 
 ## Authentication Process
 To use the ShipperHQ API you must generate an authentication token. To do so, you will need your ShipperHQ API Key and Authentication Code.
