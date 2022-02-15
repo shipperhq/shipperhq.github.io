@@ -27,6 +27,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/shipperhq/shipperhq.github.io/tree/main/dev-shipperhq/docs',
+          lastVersion: 'current',
         },
         blog: {
           showReadingTime: true,
@@ -80,16 +81,21 @@ const config = {
                 docId: 'rate-service/rate-service',
                 label: 'Rate Service GraphQL'
               },
-              {
-                type: 'doc',
-                docId: 'rate-manager-service/rate-manager-service',
-                label: 'Rate Manager Service GraphQL'
-              },
+              // {
+              //   type: 'doc',
+              //   docId: 'rate-manager-service/rate-manager-service',
+              //   label: 'Rate Manager Service GraphQL'
+              // },
               {
                 type: 'doc',
                 docId: 'order-view-service/order-view-service',
                 label: 'Order View Service GraphQL'
-              }
+              },
+              {
+                type: 'doc',
+                docId: 'label-service/label-service',
+                label: 'Label Service GraphQL'
+              },
             ]
           },
           {
