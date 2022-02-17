@@ -28,6 +28,11 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/shipperhq/shipperhq.github.io/tree/main/dev-shipperhq/docs',
           lastVersion: 'current',
+          versions: {
+            current: {
+              label: 'current',
+            },
+          },
         },
         blog: {
           showReadingTime: true,
@@ -98,12 +103,12 @@ const config = {
               },
             ]
           },
-          {
-            type: 'docsVersionDropdown',
-            position: 'right',
-            dropdownItemsAfter: [/*{to: '/versions', label: 'All versions'}*/],
-            dropdownActiveClassDisabled: true,
-          },
+          // {
+          //   type: 'docsVersionDropdown',
+          //   position: 'right',
+          //   dropdownItemsAfter: [/*{to: '/versions', label: 'All versions'}*/],
+          //   dropdownActiveClassDisabled: true,
+          // },
           {
             href: 'https://github.com/shipperhq/shipperhq.github.io',
             label: 'GitHub',
