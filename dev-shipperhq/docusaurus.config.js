@@ -89,9 +89,29 @@ const config = {
             items: [
               {
                 type: 'doc',
+                docId: 'rate/overview',
+                label: 'Overview'
+              },
+              {
+                type: 'doc',
+                docId: 'rate/how-rates-work',
+                label: 'How Rates Work'
+              },
+              {
+                type: 'doc',
+                docId: 'rate/quickstart',
+                label: 'Quickstart'
+              },
+              {
+                type: 'doc',
+                docId: 'rate/faq',
+                label: 'FAQ'
+              },
+              {
+                type: 'doc',
                 docId: 'rate-service/rate-service',
                 label: 'Rate Service GraphQL'
-              }
+              },
             ]
           },
           {
@@ -99,6 +119,26 @@ const config = {
             position: 'left',
             label: 'Insight',
             items: [
+              {
+                type: 'doc',
+                docId: 'insight/overview',
+                label: 'Overview'
+              },
+              {
+                type: 'doc',
+                docId: 'insight/how-insight-works',
+                label: 'How Rates Work'
+              },
+              {
+                type: 'doc',
+                docId: 'insight/quickstart',
+                label: 'Quickstart'
+              },
+              {
+                type: 'doc',
+                docId: 'insight/faq',
+                label: 'FAQ'
+              },
               {
                 type: 'doc',
                 docId: 'order-view-service/order-view-service',
@@ -111,6 +151,26 @@ const config = {
             position: 'left',
             label: 'Label',
             items: [
+              {
+                type: 'doc',
+                docId: 'label/overview',
+                label: 'Overview'
+              },
+              {
+                type: 'doc',
+                docId: 'label/how-label-works',
+                label: 'How Label Works'
+              },
+              {
+                type: 'doc',
+                docId: 'label/quickstart',
+                label: 'Quickstart'
+              },
+              {
+                type: 'doc',
+                docId: 'label/faq',
+                label: 'FAQ'
+              },
               {
                 type: 'doc',
                 docId: 'label-service/label-service',
