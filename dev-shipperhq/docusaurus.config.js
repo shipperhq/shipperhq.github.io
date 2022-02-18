@@ -31,6 +31,7 @@ const config = {
           versions: {
             current: {
               label: 'current',
+              badge: false
             },
           },
         },
