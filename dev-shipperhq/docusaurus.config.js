@@ -72,12 +72,6 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'overview',
-            position: 'left',
-            label: 'Overview',
-          },
-          {
-            type: 'doc',
             docId: 'sdk-use-cases',
             position: 'left',
             label: 'SDK Use Cases',
@@ -145,8 +139,8 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'SDK Use Cases',
+                to: '/docs/sdk-use-cases',
               },
             ],
           },
