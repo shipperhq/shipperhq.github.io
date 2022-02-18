@@ -28,6 +28,12 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/shipperhq/shipperhq.github.io/tree/main/dev-shipperhq/docs',
           lastVersion: 'current',
+          versions: {
+            current: {
+              label: 'current',
+              badge: false
+            },
+          },
         },
         blog: {
           showReadingTime: true,
@@ -66,44 +72,119 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'intro',
+            docId: 'sdk-use-cases',
             position: 'left',
-            label: 'Tutorial',
+            label: 'SDK Use Cases',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            type: 'doc',
+            docId: 'quickstart',
+            position: 'left',
+            label: 'Quickstart',
+          },
           {
             type: 'dropdown',
-            label: 'API',
             position: 'left',
+            label: 'Rate',
             items: [
+              {
+                type: 'doc',
+                docId: 'rate/overview',
+                label: 'Overview'
+              },
+              {
+                type: 'doc',
+                docId: 'rate/how-rates-work',
+                label: 'How Rates Work'
+              },
+              {
+                type: 'doc',
+                docId: 'rate/quickstart',
+                label: 'Quickstart'
+              },
+              {
+                type: 'doc',
+                docId: 'rate/faq',
+                label: 'FAQ'
+              },
               {
                 type: 'doc',
                 docId: 'rate-service/rate-service',
                 label: 'Rate Service GraphQL'
               },
-              // {
-              //   type: 'doc',
-              //   docId: 'rate-manager-service/rate-manager-service',
-              //   label: 'Rate Manager Service GraphQL'
-              // },
+            ]
+          },
+          {
+            type: 'dropdown',
+            position: 'left',
+            label: 'Insight',
+            items: [
+              {
+                type: 'doc',
+                docId: 'insight/overview',
+                label: 'Overview'
+              },
+              {
+                type: 'doc',
+                docId: 'insight/how-insight-works',
+                label: 'How Rates Work'
+              },
+              {
+                type: 'doc',
+                docId: 'insight/quickstart',
+                label: 'Quickstart'
+              },
+              {
+                type: 'doc',
+                docId: 'insight/faq',
+                label: 'FAQ'
+              },
               {
                 type: 'doc',
                 docId: 'order-view-service/order-view-service',
                 label: 'Order View Service GraphQL'
+              }
+            ]
+          },
+          {
+            type: 'dropdown',
+            position: 'left',
+            label: 'Label',
+            items: [
+              {
+                type: 'doc',
+                docId: 'label/overview',
+                label: 'Overview'
+              },
+              {
+                type: 'doc',
+                docId: 'label/how-label-works',
+                label: 'How Label Works'
+              },
+              {
+                type: 'doc',
+                docId: 'label/quickstart',
+                label: 'Quickstart'
+              },
+              {
+                type: 'doc',
+                docId: 'label/faq',
+                label: 'FAQ'
               },
               {
                 type: 'doc',
                 docId: 'label-service/label-service',
                 label: 'Label Service GraphQL'
-              },
+              }
             ]
           },
-          {
-            type: 'docsVersionDropdown',
-            position: 'right',
-            dropdownItemsAfter: [/*{to: '/versions', label: 'All versions'}*/],
-            dropdownActiveClassDisabled: true,
-          },
+          // {to: '/blog', label: 'Blog', position: 'left'},
+          // {
+          //   type: 'docsVersionDropdown',
+          //   position: 'right',
+          //   dropdownItemsAfter: [/*{to: '/versions', label: 'All versions'}*/],
+          //   dropdownActiveClassDisabled: true,
+          // },
           {
             href: 'https://github.com/shipperhq/shipperhq.github.io',
             label: 'GitHub',
@@ -118,8 +199,8 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'SDK Use Cases',
+                to: '/docs/sdk-use-cases',
               },
             ],
           },
