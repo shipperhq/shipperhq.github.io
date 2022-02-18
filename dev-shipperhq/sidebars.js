@@ -15,7 +15,7 @@
 const sidebars = {
   // By default, Docusaurus generates a sidebar from the docs folder structure
   tutorialSidebar: [
-    'intro',
+    'overview',
     {
       type: 'category',
       label: 'Tutorial - Basics', // category title that matches the label in _category_.json

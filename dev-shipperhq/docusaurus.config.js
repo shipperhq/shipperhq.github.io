@@ -71,38 +71,59 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'intro',
+            docId: 'overview',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Overview',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            type: 'doc',
+            docId: 'sdk-use-cases',
+            position: 'left',
+            label: 'SDK Use Cases',
+          },
+          {
+            type: 'doc',
+            docId: 'quickstart',
+            position: 'left',
+            label: 'Quickstart',
+          },
           {
             type: 'dropdown',
-            label: 'API',
             position: 'left',
+            label: 'Rate',
             items: [
               {
                 type: 'doc',
                 docId: 'rate-service/rate-service',
                 label: 'Rate Service GraphQL'
-              },
-              // {
-              //   type: 'doc',
-              //   docId: 'rate-manager-service/rate-manager-service',
-              //   label: 'Rate Manager Service GraphQL'
-              // },
+              }
+            ]
+          },
+          {
+            type: 'dropdown',
+            position: 'left',
+            label: 'Insight',
+            items: [
               {
                 type: 'doc',
                 docId: 'order-view-service/order-view-service',
                 label: 'Order View Service GraphQL'
-              },
+              }
+            ]
+          },
+          {
+            type: 'dropdown',
+            position: 'left',
+            label: 'Label',
+            items: [
               {
                 type: 'doc',
                 docId: 'label-service/label-service',
                 label: 'Label Service GraphQL'
-              },
+              }
             ]
           },
+          // {to: '/blog', label: 'Blog', position: 'left'},
           // {
           //   type: 'docsVersionDropdown',
           //   position: 'right',
