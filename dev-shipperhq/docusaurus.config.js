@@ -112,6 +112,11 @@ const config = {
                 docId: 'rate-service/rate-service',
                 label: 'Rate Service GraphQL'
               },
+              {
+                to: 'rate-service',
+                label: 'SpectaQL Rates API',
+                target: '_blank'
+              }
             ]
           },
           {
