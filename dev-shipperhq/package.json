@@ -16,7 +16,7 @@
     "order-view-service-graphql": "docusaurus graphql-to-doc -f -b order-view-service -h data/order-view-service.md -s https://ovs.shipperhq.com",
     "label-service-graphql": "docusaurus graphql-to-doc -f -b label-service -h data/label-service.md -s https://postapi.shipperhq.com/v3/graphql/label",
     "rate-service-spectaql": "spectaql spectaql-configs/rate-service-config.yml -t static/rate-service",
-    "ovs-service-spectaql": "spectaql spectaql-configs/ovs-service-config.yml -t static/order-view-service",
+    "ovs-spectaql": "spectaql spectaql-configs/ovs-config.yml -t static/order-view-service",
     "label-service-spectaql": "spectaql spectaql-configs/label-service-config.yml -t static/label-service"
   },
   "dependencies": {
