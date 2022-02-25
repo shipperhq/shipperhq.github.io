@@ -131,7 +131,7 @@ const config = {
               },
               {
                 type: 'doc',
-                docId: 'insight/how-insight-works',
+                docId: 'insight/how-shipping-insights-works',
                 label: 'How Shipping Insights Work'
               },
               {

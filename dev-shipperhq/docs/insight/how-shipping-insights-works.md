@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# How Insight Works
+# How Shipping Insights Works
 
 ## Testing
 
