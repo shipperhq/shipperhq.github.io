@@ -185,6 +185,11 @@ const config = {
                 type: 'doc',
                 docId: 'label-service/label-service',
                 label: 'Label Service GraphQL'
+              },
+              {
+                to: 'label-service',
+                label: 'SpectaQL Label API',
+                target: '_blank'
               }
             ]
           },
