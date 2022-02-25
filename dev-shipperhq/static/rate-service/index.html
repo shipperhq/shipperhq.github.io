@@ -24,7 +24,6 @@
           <h5>Operations</h5>
           <a href="#operation-retrievefullshippingquote-Queries"> retrieveFullShippingQuote </a>
           <a href="#operation-retrieveshippingquote-Queries"> retrieveShippingQuote </a>
-          <a href="#operation-retrieveusersettings-Queries"> retrieveUserSettings </a>
           <h5>Types</h5>
           <a href="#definition-AdvancedFee"> AdvancedFee </a>
           <a href="#definition-AttributeInput"> AttributeInput </a>
@@ -56,7 +55,6 @@
           <a href="#definition-NameValuePairInput"> NameValuePairInput </a>
           <a href="#definition-Option"> Option </a>
           <a href="#definition-OptionInput"> OptionInput </a>
-          <a href="#definition-PPSESettings"> PPSESettings </a>
           <a href="#definition-Package"> Package </a>
           <a href="#definition-PackageDetail"> PackageDetail </a>
           <a href="#definition-PickupDetail"> PickupDetail </a>
@@ -194,7 +192,7 @@ https://yoursite.com/graphql
       <span class="hljs-attr">"shipments"</span>: [<span class="hljs-string">Shipment</span>],
       <span class="hljs-attr">"transactionId"</span>: <span class="hljs-string">"abc123"</span>,
       <span class="hljs-attr">"units"</span>: <span class="hljs-string">Units</span>,
-      <span class="hljs-attr">"validationStatus"</span>: <span class="hljs-string">"abc123"</span>
+      <span class="hljs-attr">"validationStatus"</span>: <span class="hljs-string">"xyz789"</span>
     }
   }
 }
@@ -269,83 +267,7 @@ https://yoursite.com/graphql
     <span class="hljs-attr">"retrieveShippingQuote"</span>: {
       <span class="hljs-attr">"carriers"</span>: [<span class="hljs-string">RatingCarrier</span>],
       <span class="hljs-attr">"errors"</span>: [<span class="hljs-string">Error</span>],
-      <span class="hljs-attr">"transactionId"</span>: <span class="hljs-string">"xyz789"</span>
-    }
-  }
-}
-</code></pre> </body>
-                  </html>
-                </section>
-              </div>
-            </div>
-          </div>
-          <span id="path-retrieveusersettings"></span>
-          <div id="operation-retrieveusersettings-Queries" class="operation panel" data-traverse-target="operation-retrieveusersettings-Queries">
-            <h2 class="operation-name "> <code>retrieveUserSettings</code> </h2>
-            <div class="doc-row">
-              <div class="doc-copy">
-                <section class="swagger-request-body"> </section>
-                <section class="swagger-responses"> Returns a
-                  <a href="#definition-UserSettings"><code>UserSettings</code></a>
-                </section>
-                <br> </div>
-              <div class="doc-examples">
-                <section>
-                  <h4>Example</h4>
-                  <h5>Query</h5>
-                  <html>
-                  <head></head>
-                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> retrieveUserSettings <span class="hljs-tag">{
-  <span class="hljs-symbol">retrieveUserSettings <span class="hljs-tag">{
-    <span class="hljs-symbol">calendarDisplay</span>
-    <span class="hljs-symbol">carrierGroupDescription</span>
-    <span class="hljs-symbol">cityRequired</span>
-    <span class="hljs-symbol">dateFormat</span>
-    <span class="hljs-symbol">googleApiKey</span>
-    <span class="hljs-symbol">mergedRateCarrierCode</span>
-    <span class="hljs-symbol">mergedRateCarrierTitle</span>
-    <span class="hljs-symbol">mergedRateMethodCode</span>
-    <span class="hljs-symbol">mergedRateMethodTitle</span>
-    <span class="hljs-symbol">ppse <span class="hljs-tag">{
-      <span class="hljs-type">...PPSESettingsFragment</span>
-    }</span></span>
-    <span class="hljs-symbol">printNodeApiKey</span>
-    <span class="hljs-symbol">shippingTooltipText</span>
-    <span class="hljs-symbol">storepickupShowAddress</span>
-    <span class="hljs-symbol">storepickupShowHours</span>
-    <span class="hljs-symbol">storepickupShowMap</span>
-  }</span></span>
-}</span></span>
-</code></pre> </body>
-                  </html>
-                </section>
-              </div>
-            </div>
-            <div class="doc-row">
-              <div class="doc-copy"> </div>
-              <div class="doc-examples">
-                <section>
-                  <h5>Response </h5>
-                  <html>
-                  <head></head>
-                  <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"data"</span>: {
-    <span class="hljs-attr">"retrieveUserSettings"</span>: {
-      <span class="hljs-attr">"calendarDisplay"</span>: <span class="hljs-string">"abc123"</span>,
-      <span class="hljs-attr">"carrierGroupDescription"</span>: <span class="hljs-string">"abc123"</span>,
-      <span class="hljs-attr">"cityRequired"</span>: <span class="hljs-string">"abc123"</span>,
-      <span class="hljs-attr">"dateFormat"</span>: <span class="hljs-string">"abc123"</span>,
-      <span class="hljs-attr">"googleApiKey"</span>: <span class="hljs-string">"abc123"</span>,
-      <span class="hljs-attr">"mergedRateCarrierCode"</span>: <span class="hljs-string">"abc123"</span>,
-      <span class="hljs-attr">"mergedRateCarrierTitle"</span>: <span class="hljs-string">"abc123"</span>,
-      <span class="hljs-attr">"mergedRateMethodCode"</span>: <span class="hljs-string">"abc123"</span>,
-      <span class="hljs-attr">"mergedRateMethodTitle"</span>: <span class="hljs-string">"xyz789"</span>,
-      <span class="hljs-attr">"ppse"</span>: <span class="hljs-string">PPSESettings</span>,
-      <span class="hljs-attr">"printNodeApiKey"</span>: <span class="hljs-string">"abc123"</span>,
-      <span class="hljs-attr">"shippingTooltipText"</span>: <span class="hljs-string">"abc123"</span>,
-      <span class="hljs-attr">"storepickupShowAddress"</span>: <span class="hljs-string">"xyz789"</span>,
-      <span class="hljs-attr">"storepickupShowHours"</span>: <span class="hljs-literal">false</span>,
-      <span class="hljs-attr">"storepickupShowMap"</span>: <span class="hljs-string">"xyz789"</span>
+      <span class="hljs-attr">"transactionId"</span>: <span class="hljs-string">"abc123"</span>
     }
   }
 }
@@ -424,7 +346,7 @@ https://yoursite.com/graphql
   <span class="hljs-attr">"changeRulesApplied"</span>: [<span class="hljs-string">"abc123"</span>],
   <span class="hljs-attr">"cost"</span>: <span class="hljs-string">BigDecimal</span>,
   <span class="hljs-attr">"customDuties"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"flatRulesApplied"</span>: [<span class="hljs-string">"abc123"</span>],
+  <span class="hljs-attr">"flatRulesApplied"</span>: [<span class="hljs-string">"xyz789"</span>],
   <span class="hljs-attr">"handlingFee"</span>: <span class="hljs-string">BigDecimal</span>,
   <span class="hljs-attr">"shippingPrice"</span>: <span class="hljs-string">BigDecimal</span>,
   <span class="hljs-attr">"totalCharges"</span>: <span class="hljs-string">BigDecimal</span>
@@ -452,13 +374,13 @@ https://yoursite.com/graphql
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td><code>name</code> -
+                      <td><code>value</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
                       <td> </td>
                     </tr>
                     <tr>
-                      <td><code>value</code> -
+                      <td><code>name</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
                       <td> </td>
@@ -471,7 +393,7 @@ https://yoursite.com/graphql
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"value"</span>: <span class="hljs-string">"xyz789"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"value"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -540,10 +462,10 @@ https://yoursite.com/graphql
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"destinationType"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"insideDelivery"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">"liftGateRequired"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">"limitedDelivery"</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-attr">"notifyRequired"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"insideDelivery"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">"liftGateRequired"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">"limitedDelivery"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"notifyRequired"</span>: <span class="hljs-literal">false</span>,
   <span class="hljs-attr">"options"</span>: [<span class="hljs-string">Option</span>]
 }
 </code></pre> </body>
@@ -693,9 +615,9 @@ https://yoursite.com/graphql
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"code"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"code"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"totalCharges"</span>: <span class="hljs-string">BigDecimal</span>
 }
 </code></pre> </body>
@@ -749,7 +671,7 @@ https://yoursite.com/graphql
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-literal">false</span></span>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-literal">true</span></span>
 </code></pre> </body>
                   </html>
                 </section>
@@ -902,8 +824,8 @@ https://yoursite.com/graphql
   <span class="hljs-attr">"methods"</span>: [<span class="hljs-string">Method</span>],
   <span class="hljs-attr">"packages"</span>: [<span class="hljs-string">Package</span>],
   <span class="hljs-attr">"pickupDetail"</span>: <span class="hljs-string">PickupDetail</span>,
-  <span class="hljs-attr">"preventRulesApplied"</span>: [<span class="hljs-string">"xyz789"</span>],
-  <span class="hljs-attr">"sortOrder"</span>: <span class="hljs-number">123</span>
+  <span class="hljs-attr">"preventRulesApplied"</span>: [<span class="hljs-string">"abc123"</span>],
+  <span class="hljs-attr">"sortOrder"</span>: <span class="hljs-number">987</span>
 }
 </code></pre> </body>
                   </html>
@@ -974,10 +896,10 @@ https://yoursite.com/graphql
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"carrierCode"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"carrierEstimatedDeliveryDate"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"carrierTitle"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"carrierTitle"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"carrierType"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"customDescription"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"displayTab"</span>: <span class="hljs-string">"xyz789"</span>
+  <span class="hljs-attr">"displayTab"</span>: <span class="hljs-string">"abc123"</span>
 }
 </code></pre> </body>
                   </html>
@@ -1131,7 +1053,7 @@ https://yoursite.com/graphql
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"customerGroup"</span>: <span class="hljs-string">"xyz789"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"customerGroup"</span>: <span class="hljs-string">"abc123"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -1174,7 +1096,7 @@ https://yoursite.com/graphql
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"fromDate"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"toDate"</span>: <span class="hljs-string">"abc123"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"fromDate"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"toDate"</span>: <span class="hljs-string">"xyz789"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -1198,31 +1120,13 @@ https://yoursite.com/graphql
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td><code>region</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td><code>city</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
                       <td> </td>
                     </tr>
                     <tr>
-                      <td><code>country</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td><code>zipcode</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td><code>street2</code> -
+                      <td><code>region</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
                       <td> </td>
@@ -1234,8 +1138,26 @@ https://yoursite.com/graphql
                       <td> </td>
                     </tr>
                     <tr>
+                      <td><code>street2</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td><code>country</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
                       <td><code>selectedOptions</code> -
                         <a href="#definition-SelectedOptionsInput"><code>SelectedOptionsInput</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td><code>zipcode</code> -
+                        <a href="#definition-String"><code>String</code></a>
                       </td>
                       <td> </td>
                     </tr>
@@ -1248,13 +1170,13 @@ https://yoursite.com/graphql
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"region"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"city"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"city"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"region"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"street"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"street2"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"country"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"zipcode"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"street2"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"street"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"selectedOptions"</span>: <span class="hljs-string">SelectedOptionsInput</span>
+  <span class="hljs-attr">"selectedOptions"</span>: <span class="hljs-string">SelectedOptionsInput</span>,
+  <span class="hljs-attr">"zipcode"</span>: <span class="hljs-string">"abc123"</span>
 }
 </code></pre> </body>
                   </html>
@@ -1379,9 +1301,9 @@ https://yoursite.com/graphql
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"errors"</span>: [<span class="hljs-string">Error</span>],
   <span class="hljs-attr">"shipments"</span>: [<span class="hljs-string">Shipment</span>],
-  <span class="hljs-attr">"transactionId"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"transactionId"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"units"</span>: <span class="hljs-string">Units</span>,
-  <span class="hljs-attr">"validationStatus"</span>: <span class="hljs-string">"abc123"</span>
+  <span class="hljs-attr">"validationStatus"</span>: <span class="hljs-string">"xyz789"</span>
 }
 </code></pre> </body>
                   </html>
@@ -1458,10 +1380,10 @@ https://yoursite.com/graphql
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"declaredValue"</span>: <span class="hljs-string">BigDecimal</span>,
   <span class="hljs-attr">"hsCode"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"itemId"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"itemId"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"originCountry"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"qty"</span>: <span class="hljs-number">123</span>,
+  <span class="hljs-attr">"originCountry"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"qty"</span>: <span class="hljs-number">987</span>,
   <span class="hljs-attr">"sku"</span>: <span class="hljs-string">"xyz789"</span>
 }
 </code></pre> </body>
@@ -1489,7 +1411,7 @@ https://yoursite.com/graphql
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">123</span>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">987</span>
 </code></pre> </body>
                   </html>
                 </section>
@@ -1566,86 +1488,14 @@ https://yoursite.com/graphql
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="storePrice"> <code>storePrice</code> -
-                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="qty"> <code>qty</code> -
-                        <a href="#definition-Int"><code>Int</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="discountedBasePrice"> <code>discountedBasePrice</code> -
-                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="packageCurrency"> <code>packageCurrency</code> -
+                      <td data-property-name="baseCurrency"> <code>baseCurrency</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
                       <td> </td>
                     </tr>
                     <tr>
-                      <td data-property-name="taxInclStorePrice"> <code>taxInclStorePrice</code> -
-                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="storeCurrentCurrency"> <code>storeCurrentCurrency</code> -
+                      <td data-property-name="storeBaseCurrency"> <code>storeBaseCurrency</code> -
                         <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="attributes"> <code>attributes</code> -
-                        <a href="#definition-AttributeInput"><code>[AttributeInput]</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="fixedWeight"> <code>fixedWeight</code> -
-                        <a href="#definition-Boolean"><code>Boolean</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="freeShipping"> <code>freeShipping</code> -
-                        <a href="#definition-Boolean"><code>Boolean</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="taxInclBasePrice"> <code>taxInclBasePrice</code> -
-                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="itemId"> <code>itemId</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="basePrice"> <code>basePrice</code> -
-                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="sku"> <code>sku</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="items"> <code>items</code> -
-                        <a href="#definition-ItemInput"><code>[ItemInput]</code></a>
                       </td>
                       <td> </td>
                     </tr>
@@ -1656,13 +1506,49 @@ https://yoursite.com/graphql
                       <td> </td>
                     </tr>
                     <tr>
-                      <td data-property-name="fixedPrice"> <code>fixedPrice</code> -
+                      <td data-property-name="storePrice"> <code>storePrice</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="basePrice"> <code>basePrice</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="fixedWeight"> <code>fixedWeight</code> -
                         <a href="#definition-Boolean"><code>Boolean</code></a>
                       </td>
                       <td> </td>
                     </tr>
                     <tr>
+                      <td data-property-name="attributes"> <code>attributes</code> -
+                        <a href="#definition-AttributeInput"><code>[AttributeInput]</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="qty"> <code>qty</code> -
+                        <a href="#definition-Int"><code>Int</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="taxInclStorePrice"> <code>taxInclStorePrice</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
                       <td data-property-name="discountPercent"> <code>discountPercent</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="discountedTaxInclBasePrice"> <code>discountedTaxInclBasePrice</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
                       </td>
                       <td> </td>
@@ -1674,25 +1560,25 @@ https://yoursite.com/graphql
                       <td> </td>
                     </tr>
                     <tr>
-                      <td data-property-name="weight"> <code>weight</code> -
+                      <td data-property-name="discountedBasePrice"> <code>discountedBasePrice</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
                       </td>
                       <td> </td>
                     </tr>
                     <tr>
-                      <td data-property-name="storeBaseCurrency"> <code>storeBaseCurrency</code> -
+                      <td data-property-name="sku"> <code>sku</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
                       <td> </td>
                     </tr>
                     <tr>
-                      <td data-property-name="discountedTaxInclBasePrice"> <code>discountedTaxInclBasePrice</code> -
-                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      <td data-property-name="storeCurrentCurrency"> <code>storeCurrentCurrency</code> -
+                        <a href="#definition-String"><code>String</code></a>
                       </td>
                       <td> </td>
                     </tr>
                     <tr>
-                      <td data-property-name="baseCurrency"> <code>baseCurrency</code> -
+                      <td data-property-name="packageCurrency"> <code>packageCurrency</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
                       <td> </td>
@@ -1709,6 +1595,42 @@ https://yoursite.com/graphql
                       </td>
                       <td> </td>
                     </tr>
+                    <tr>
+                      <td data-property-name="fixedPrice"> <code>fixedPrice</code> -
+                        <a href="#definition-Boolean"><code>Boolean</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="items"> <code>items</code> -
+                        <a href="#definition-ItemInput"><code>[ItemInput]</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="weight"> <code>weight</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="itemId"> <code>itemId</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="taxInclBasePrice"> <code>taxInclBasePrice</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="freeShipping"> <code>freeShipping</code> -
+                        <a href="#definition-Boolean"><code>Boolean</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
                   </table>
                 </section>
               </div>
@@ -1718,30 +1640,30 @@ https://yoursite.com/graphql
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"storePrice"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"qty"</span>: <span class="hljs-number">123</span>,
-  <span class="hljs-attr">"discountedBasePrice"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"packageCurrency"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"taxInclStorePrice"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"storeCurrentCurrency"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"attributes"</span>: [<span class="hljs-string">AttributeInput</span>],
-  <span class="hljs-attr">"fixedWeight"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">"freeShipping"</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-attr">"taxInclBasePrice"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"itemId"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"basePrice"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"sku"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"items"</span>: [<span class="hljs-string">ItemInput</span>],
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">ItemType</span>,
-  <span class="hljs-attr">"fixedPrice"</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-attr">"discountPercent"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"discountedStorePrice"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"weight"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"baseCurrency"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"storeBaseCurrency"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">ItemType</span>,
+  <span class="hljs-attr">"storePrice"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"basePrice"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"fixedWeight"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"attributes"</span>: [<span class="hljs-string">AttributeInput</span>],
+  <span class="hljs-attr">"qty"</span>: <span class="hljs-number">123</span>,
+  <span class="hljs-attr">"taxInclStorePrice"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"discountPercent"</span>: <span class="hljs-string">BigDecimal</span>,
   <span class="hljs-attr">"discountedTaxInclBasePrice"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"baseCurrency"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"discountedStorePrice"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"discountedBasePrice"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"sku"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"storeCurrentCurrency"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"packageCurrency"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"taxPercentage"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"discountedTaxInclStorePrice"</span>: <span class="hljs-string">BigDecimal</span>
+  <span class="hljs-attr">"discountedTaxInclStorePrice"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"fixedPrice"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"items"</span>: [<span class="hljs-string">ItemInput</span>],
+  <span class="hljs-attr">"weight"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"itemId"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"taxInclBasePrice"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"freeShipping"</span>: <span class="hljs-literal">false</span>
 }
 </code></pre> </body>
                   </html>
@@ -1982,8 +1904,8 @@ https://yoursite.com/graphql
   <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"deliveryMessage"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"methodCode"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"methodDescription"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"methodTitle"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"methodDescription"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"methodTitle"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"negotiatedRate"</span>: <span class="hljs-literal">false</span>,
   <span class="hljs-attr">"totalCharges"</span>: <span class="hljs-string">BigDecimal</span>
 }
@@ -2029,7 +1951,7 @@ https://yoursite.com/graphql
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"value"</span>: <span class="hljs-string">"xyz789"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"value"</span>: <span class="hljs-string">"abc123"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -2072,7 +1994,7 @@ https://yoursite.com/graphql
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"value"</span>: <span class="hljs-string">"abc123"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"value"</span>: <span class="hljs-string">"xyz789"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -2140,11 +2062,11 @@ https://yoursite.com/graphql
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"code"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"code"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"defaultValue"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"displayType"</span>: <span class="hljs-string">AvailableOptionType</span>,
   <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"requestRates"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">"requestRates"</span>: <span class="hljs-literal">true</span>,
   <span class="hljs-attr">"values"</span>: <span class="hljs-string">Map_String_StringScalar</span>
 }
 </code></pre> </body>
@@ -2170,60 +2092,17 @@ https://yoursite.com/graphql
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td><code>value</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td><code>code</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
                       <td> </td>
                     </tr>
-                  </table>
-                </section>
-              </div>
-              <div class="doc-examples">
-                <section>
-                  <h5>Example</h5>
-                  <html>
-                  <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"value"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"code"</span>: <span class="hljs-string">"abc123"</span>}
-</code></pre> </body>
-                  </html>
-                </section>
-              </div>
-            </div>
-          </div>
-          <div id="definition-PPSESettings" class="definition panel" data-traverse-target="definition-PPSESettings">
-            <div class="definition-tags">
-              <a class="label" href="#tag-types">Types</a>
-            </div>
-            <h2 class="panel-title">
-              <a name="/definitions/PPSESettings"></a>
-              <p><code>PPSESettings</code></p>
-            </h2>
-            <div class="doc-row">
-              <div class="doc-copy">
-                <section class="json-schema-properties-blank">
-                  <table>
                     <tr>
-                      <th>Field Name</th>
-                      <th>Description</th>
-                    </tr>
-                    <tr>
-                      <td data-property-name="defaultCountry"> <code>defaultCountry</code> -
+                      <td><code>value</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
                       <td> </td>
                     </tr>
-                    <tr>
-                      <td data-property-name="hideFields"> <code>hideFields</code> -
-                        <a href="#definition-String"><code>[String]</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
                   </table>
                 </section>
               </div>
@@ -2232,7 +2111,7 @@ https://yoursite.com/graphql
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"defaultCountry"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"hideFields"</span>: [<span class="hljs-string">"abc123"</span>]}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"code"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"value"</span>: <span class="hljs-string">"xyz789"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -2636,31 +2515,31 @@ https://yoursite.com/graphql
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"calendarDate"</span>: <span class="hljs-string">CalendarDate</span>,
   <span class="hljs-attr">"city"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"contactName"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"country"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"contactName"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"country"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"currentTime"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"dispatchDate"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"dispatchDate"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"distance"</span>: <span class="hljs-string">BigDecimal</span>,
   <span class="hljs-attr">"email"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"emailOption"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"imageUrl"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"emailOption"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"imageUrl"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"latitude"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"locationMap"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"locationMap"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"longitude"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"nonStandardHours"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"nonStandardHours"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"pickupDate"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"pickupFullName"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"pickupId"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"pickupName"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"pickupName"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"publicId"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"standardHours"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"standardHours"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"state"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"street1"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"street1"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"street2"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"walkingDirections"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"websiteUrl"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"zipcode"</span>: <span class="hljs-string">"xyz789"</span>
+  <span class="hljs-attr">"websiteUrl"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"zipcode"</span>: <span class="hljs-string">"abc123"</span>
 }
 </code></pre> </body>
                   </html>
@@ -2743,12 +2622,12 @@ https://yoursite.com/graphql
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"advancedFees"</span>: <span class="hljs-string">AdvancedFee</span>,
   <span class="hljs-attr">"carrierDetail"</span>: <span class="hljs-string">CarrierDetail</span>,
-  <span class="hljs-attr">"methodCode"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"methodCode"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"methodDetails"</span>: <span class="hljs-string">MethodDetail</span>,
   <span class="hljs-attr">"packages"</span>: [<span class="hljs-string">Package</span>],
   <span class="hljs-attr">"shipmentDetail"</span>: <span class="hljs-string">ShipmentDetail</span>,
   <span class="hljs-attr">"timeInTransitOptions"</span>: <span class="hljs-string">TimeInTransitOption</span>,
-  <span class="hljs-attr">"winningRate"</span>: <span class="hljs-literal">true</span>
+  <span class="hljs-attr">"winningRate"</span>: <span class="hljs-literal">false</span>
 }
 </code></pre> </body>
                   </html>
@@ -2811,9 +2690,9 @@ https://yoursite.com/graphql
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"carrierCode"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"carrierTitle"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"carrierType"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"carrierCode"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"carrierTitle"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"carrierType"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"error"</span>: <span class="hljs-string">Error</span>,
   <span class="hljs-attr">"shippingRates"</span>: [<span class="hljs-string">BasicShippingRate</span>]
 }
@@ -2846,8 +2725,8 @@ https://yoursite.com/graphql
                       <td> </td>
                     </tr>
                     <tr>
-                      <td><code>requestedOptions</code> -
-                        <a href="#definition-RequestedOptionsInput"><code>RequestedOptionsInput</code></a>
+                      <td><code>cart</code> -
+                        <a href="#definition-CartInput"><code>CartInput</code></a>
                       </td>
                       <td> </td>
                     </tr>
@@ -2858,20 +2737,20 @@ https://yoursite.com/graphql
                       <td> </td>
                     </tr>
                     <tr>
-                      <td><code>cart</code> -
-                        <a href="#definition-CartInput"><code>CartInput</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td><code>siteDetails</code> -
-                        <a href="#definition-SiteDetailsInput"><code>SiteDetailsInput</code></a>
+                      <td><code>requestedOptions</code> -
+                        <a href="#definition-RequestedOptionsInput"><code>RequestedOptionsInput</code></a>
                       </td>
                       <td> </td>
                     </tr>
                     <tr>
                       <td><code>cartType</code> -
                         <a href="#definition-CartType"><code>CartType</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td><code>siteDetails</code> -
+                        <a href="#definition-SiteDetailsInput"><code>SiteDetailsInput</code></a>
                       </td>
                       <td> </td>
                     </tr>
@@ -2885,11 +2764,11 @@ https://yoursite.com/graphql
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"destination"</span>: <span class="hljs-string">DestinationInput</span>,
-  <span class="hljs-attr">"requestedOptions"</span>: <span class="hljs-string">RequestedOptionsInput</span>,
-  <span class="hljs-attr">"customer"</span>: <span class="hljs-string">CustomerInput</span>,
   <span class="hljs-attr">"cart"</span>: <span class="hljs-string">CartInput</span>,
-  <span class="hljs-attr">"siteDetails"</span>: <span class="hljs-string">SiteDetailsInput</span>,
-  <span class="hljs-attr">"cartType"</span>: <span class="hljs-string">CartType</span>
+  <span class="hljs-attr">"customer"</span>: <span class="hljs-string">CustomerInput</span>,
+  <span class="hljs-attr">"requestedOptions"</span>: <span class="hljs-string">RequestedOptionsInput</span>,
+  <span class="hljs-attr">"cartType"</span>: <span class="hljs-string">CartType</span>,
+  <span class="hljs-attr">"siteDetails"</span>: <span class="hljs-string">SiteDetailsInput</span>
 }
 </code></pre> </body>
                   </html>
@@ -2926,6 +2805,12 @@ https://yoursite.com/graphql
                       <td> </td>
                     </tr>
                     <tr>
+                      <td data-property-name="selectedDate"> <code>selectedDate</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
                       <td data-property-name="shipmentId"> <code>shipmentId</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
@@ -2934,12 +2819,6 @@ https://yoursite.com/graphql
                     <tr>
                       <td data-property-name="options"> <code>options</code> -
                         <a href="#definition-OptionInput"><code>[OptionInput]</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="selectedDate"> <code>selectedDate</code> -
-                        <a href="#definition-String"><code>String</code></a>
                       </td>
                       <td> </td>
                     </tr>
@@ -2952,11 +2831,11 @@ https://yoursite.com/graphql
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"selectedPickupId"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"selectedPickupId"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"carrierCode"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"shipmentId"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"options"</span>: [<span class="hljs-string">OptionInput</span>],
-  <span class="hljs-attr">"selectedDate"</span>: <span class="hljs-string">"xyz789"</span>
+  <span class="hljs-attr">"selectedDate"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"shipmentId"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"options"</span>: [<span class="hljs-string">OptionInput</span>]
 }
 </code></pre> </body>
                   </html>
@@ -3096,7 +2975,7 @@ https://yoursite.com/graphql
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"description"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"shipmentId"</span>: <span class="hljs-string">"abc123"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"description"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"shipmentId"</span>: <span class="hljs-string">"xyz789"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -3126,7 +3005,7 @@ https://yoursite.com/graphql
                       <td> </td>
                     </tr>
                     <tr>
-                      <td><code>websiteUrl</code> -
+                      <td><code>ipAddress</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
                       <td> </td>
@@ -3138,13 +3017,13 @@ https://yoursite.com/graphql
                       <td> </td>
                     </tr>
                     <tr>
-                      <td><code>ipAddress</code> -
+                      <td><code>ecommerceCart</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
                       <td> </td>
                     </tr>
                     <tr>
-                      <td><code>ecommerceCart</code> -
+                      <td><code>websiteUrl</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
                       <td> </td>
@@ -3158,11 +3037,11 @@ https://yoursite.com/graphql
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"ecommerceVersion"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"websiteUrl"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"appVersion"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"ecommerceVersion"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"ipAddress"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"ecommerceCart"</span>: <span class="hljs-string">"abc123"</span>
+  <span class="hljs-attr">"appVersion"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"ecommerceCart"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"websiteUrl"</span>: <span class="hljs-string">"xyz789"</span>
 }
 </code></pre> </body>
                   </html>
@@ -3222,7 +3101,7 @@ https://yoursite.com/graphql
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"deliveryDate"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"dispatchDate"</span>: <span class="hljs-string">"xyz789"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"deliveryDate"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"dispatchDate"</span>: <span class="hljs-string">"abc123"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -3271,7 +3150,7 @@ https://yoursite.com/graphql
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"interval"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"timeEnd"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"timeStart"</span>: <span class="hljs-string">"abc123"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"interval"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"timeEnd"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"timeStart"</span>: <span class="hljs-string">"xyz789"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -3320,7 +3199,7 @@ https://yoursite.com/graphql
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"currency"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"volume"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"weight"</span>: <span class="hljs-string">"xyz789"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"currency"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"volume"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"weight"</span>: <span class="hljs-string">"abc123"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -3398,12 +3277,6 @@ https://yoursite.com/graphql
                       <td> </td>
                     </tr>
                     <tr>
-                      <td data-property-name="ppse"> <code>ppse</code> -
-                        <a href="#definition-PPSESettings"><code>PPSESettings</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="printNodeApiKey"> <code>printNodeApiKey</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
@@ -3442,20 +3315,19 @@ https://yoursite.com/graphql
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"calendarDisplay"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"calendarDisplay"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"carrierGroupDescription"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"cityRequired"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"dateFormat"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"googleApiKey"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"mergedRateCarrierCode"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"cityRequired"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"dateFormat"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"googleApiKey"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"mergedRateCarrierCode"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"mergedRateCarrierTitle"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"mergedRateMethodCode"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"mergedRateMethodTitle"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"ppse"</span>: <span class="hljs-string">PPSESettings</span>,
-  <span class="hljs-attr">"printNodeApiKey"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"mergedRateMethodCode"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"mergedRateMethodTitle"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"printNodeApiKey"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"shippingTooltipText"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"storepickupShowAddress"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"storepickupShowHours"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"storepickupShowHours"</span>: <span class="hljs-literal">false</span>,
   <span class="hljs-attr">"storepickupShowMap"</span>: <span class="hljs-string">"xyz789"</span>
 }
 </code></pre> </body>
