@@ -14,7 +14,6 @@
     "write-heading-ids": "docusaurus write-heading-ids",
     "rate-service-graphql": "docusaurus graphql-to-doc -f -b rate-service -h data/rate-service.md -s https://api.shipperhq.com/v2/graphql",
     "order-view-service-graphql": "docusaurus graphql-to-doc -f -b order-view-service -h data/order-view-service.md -s https://ovs.shipperhq.com",
-    "rate-manager-service-graphql": "docusaurus graphql-to-doc -f -b rate-manager-service -h data/rate-manager-service.md -s https://rms.shipperhq.com",
     "label-service-graphql": "docusaurus graphql-to-doc -f -b label-service -h data/label-service.md -s https://postapi.shipperhq.com/v3/graphql/label"
   },
   "dependencies": {
