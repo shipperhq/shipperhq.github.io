@@ -122,7 +122,7 @@ const config = {
           {
             type: 'dropdown',
             position: 'left',
-            label: 'Insight',
+            label: 'Shipping Insights',
             items: [
               {
                 type: 'doc',
@@ -132,7 +132,7 @@ const config = {
               {
                 type: 'doc',
                 docId: 'insight/how-insight-works',
-                label: 'How Rates Work'
+                label: 'How Shipping Insights Work'
               },
               {
                 type: 'doc',
@@ -148,6 +148,11 @@ const config = {
                 type: 'doc',
                 docId: 'order-view-service/order-view-service',
                 label: 'Order View Service GraphQL'
+              },
+              {
+                to: 'order-view-service',
+                label: 'SpectaQL Shipping Insights API',
+                target: '_blank'
               }
             ]
           },
