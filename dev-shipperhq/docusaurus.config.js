@@ -58,6 +58,7 @@ const config = {
         }
       },
     ],
+    'docusaurus-plugin-sass'
   ],
 
   themeConfig:
