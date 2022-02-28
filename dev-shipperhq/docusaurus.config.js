@@ -200,11 +200,11 @@ const config = {
           //   dropdownItemsAfter: [/*{to: '/versions', label: 'All versions'}*/],
           //   dropdownActiveClassDisabled: true,
           // },
-          {
-            href: 'https://github.com/shipperhq/shipperhq.github.io',
-            label: 'GitHub',
-            position: 'right',
-          },
+          // {
+          //   href: 'https://github.com/shipperhq/shipperhq.github.io',
+          //   label: 'GitHub',
+          //   position: 'right',
+          // },
         ],
       },
       footer: {
@@ -223,16 +223,8 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
                 label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                href: 'https://twitter.com/shipperhq',
               },
             ],
           },
@@ -243,14 +235,10 @@ const config = {
                 label: 'Blog',
                 to: '/blog',
               },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/shipperhq/shipperhq.github.io',
-              },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} ShipperHQ, Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
