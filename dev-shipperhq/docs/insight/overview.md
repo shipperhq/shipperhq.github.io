@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Insight Overview
+# Shipping Insights Overview
 
 ## Testing
 

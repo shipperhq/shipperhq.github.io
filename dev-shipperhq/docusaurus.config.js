@@ -112,12 +112,17 @@ const config = {
                 docId: 'rate-service/rate-service',
                 label: 'Rate Service GraphQL'
               },
+              {
+                to: 'rate-service',
+                label: 'SpectaQL Rates API',
+                target: '_blank'
+              }
             ]
           },
           {
             type: 'dropdown',
             position: 'left',
-            label: 'Insight',
+            label: 'Shipping Insights',
             items: [
               {
                 type: 'doc',
@@ -126,8 +131,8 @@ const config = {
               },
               {
                 type: 'doc',
-                docId: 'insight/how-insight-works',
-                label: 'How Rates Work'
+                docId: 'insight/how-shipping-insights-works',
+                label: 'How Shipping Insights Work'
               },
               {
                 type: 'doc',
@@ -143,6 +148,11 @@ const config = {
                 type: 'doc',
                 docId: 'order-view-service/order-view-service',
                 label: 'Order View Service GraphQL'
+              },
+              {
+                to: 'order-view-service',
+                label: 'SpectaQL Shipping Insights API',
+                target: '_blank'
               }
             ]
           },
@@ -175,6 +185,11 @@ const config = {
                 type: 'doc',
                 docId: 'label-service/label-service',
                 label: 'Label Service GraphQL'
+              },
+              {
+                to: 'label-service',
+                label: 'SpectaQL Label API',
+                target: '_blank'
               }
             ]
           },
