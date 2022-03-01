@@ -32,7 +32,7 @@ You need:
   
 
 ## Example Request
-```type=json
+```json title="Example Request"
 query placeOrder {
   placeOrder( placeOrderInfo: {
     orderNumber: "1234",      
@@ -55,7 +55,7 @@ query placeOrder {
 ```
 
 ## Example Response
-```type=json
+```json title="Example response"
 {
     “placeOrder: {
       “transactionId” : “SHQ_20220212_12345678_BAQ_639272”,
@@ -68,7 +68,7 @@ query placeOrder {
 ```
 
 ## Example Error Response
-```type=json
+```json title="Error response"
 {
     “placeOrder: {
        “transactionId” : “SHQ_20220212_12345678_BAQ_639273”,
