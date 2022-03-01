@@ -17,7 +17,7 @@ You need to use the PlaceOrder mutation because:
 * you want to capture orders outside of the platform for instance going headless, building a mobile app, etc.
 * you want to implement a different order capture mechanism than a supported platform 
   
-Before using PlaceOrder, you need to use generate rates via the [rating API](/rate). 
+Before using PlaceOrder, you need to use generate rates via the [rating API](/docs/rate/overview). 
 
 # Quickstart guide
 
@@ -26,7 +26,7 @@ Submit POST requests to  https://postapi.shipperhq.com/v3/graphql/label
 
 ## Request Headers
 You need:
-* `X-ShipperHQ-Secret-Token` that you have generated to use the [rating API](/rate)
+* `X-ShipperHQ-Secret-Token` that you have generated to use the [rating API](/docs/rate/overview)
 * `X-ShipperHQ-Scope`: This is the SCOPE from your SHQ account, if unsure use “LIVE” (SCOPE is only available for Magento for now)
 * `X-ShipperHQ-Session`: This identifies the cart that you want to convert as an order. You have to use the exact same value as the Rating API request used to generate this quote.
   
