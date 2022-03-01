@@ -1,11 +1,11 @@
 ---
 slug: static-rating-API
-title: Rating API static documentation
+title: Quickstart
 authors: []
 tags: [rating, api, introduction]
 ---
 
-# Overview 
+# Quickstart 
 This document is intended for technical architects and developers that need to integrate with ShipperHQ’s Rating API to build their own integration to retrieve shipping rates from ShipperHQ.
 
 Use the information outlined in this document to view how custom fields and attributes are queried and modified.
