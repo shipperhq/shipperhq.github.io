@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Insight Quickstart
+# Shipping Insights Quickstart
 
 ## Testing
 
