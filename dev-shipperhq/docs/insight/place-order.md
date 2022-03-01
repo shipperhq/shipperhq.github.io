@@ -30,10 +30,12 @@ You need to use the PlaceOrder mutation because:
 * you want to capture orders outside of the platform for instance going headless, building a mobile app, etc.
 * you want to implement a different order capture mechanism on a supported platform (from your CRM, an ERP) leveraging the [rating API](/docs/rate/overview)
   
-Before using PlaceOrder, you need to use generate rates via the [rating API](/docs/rate/overview). 
+To successfully call `PlaceOrder`, you need to generate rates via the [rating API](/docs/rate/overview). 
 
 ## Endpoint
-Submit `POST` requests to  https://postapi.shipperhq.com/v3/graphql/label
+| Protocol                      | Endpoint         |
+| ---------------------------|---------------------|
+| `POST` |  https://postapi.shipperhq.com/v3/graphql/label |
 
 ## Request Headers
 | Header                      | Description         |
@@ -97,13 +99,3 @@ query placeOrder {
     }
 }
 ```
-
-## Requests
-Endpoint
-Submit POST requests to  https://postapi.shipperhq.com/v3/graphql/label
-Request Headers
-Any query or request must include the following headers, and should match the header values used in your Rating API requests.
-X-ShipperHQ-Secret-Token – This is the Secret token you have generated for your ShipperHQ account and are using your Rating API requests
-X-ShipperHQ-Scope – This is the SCOPE from your SHQ account, if unsure use “LIVE”
-X-ShipperHQ-Session – This identifies your cart/order, use the same unique value as your Rating API request
-
