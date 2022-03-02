@@ -5,6 +5,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.scss';
 import HomepageFeatures from '../components/HomepageFeatures';
 import './homepage.scss'
+import Head from '@docusaurus/Head';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -29,6 +30,9 @@ export default function Home() {
     <Layout
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
+      <Head>
+        <script src="https://kit.fontawesome.com/b5946a4266.js" crossorigin="anonymous"></script>
+      </Head>
       <HomepageHeader />
       <main>
         <HomepageFeatures />
