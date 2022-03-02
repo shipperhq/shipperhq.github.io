@@ -48,16 +48,6 @@ const config = {
   ],
 
   plugins: [
-    [
-      '@edno/docusaurus2-graphql-doc-generator',
-      {
-        rootPath: "./docs",
-        linkRoot: "../../",
-        loaders: {
-          UrlLoader: "@graphql-tools/url-loader"
-        }
-      },
-    ],
     'docusaurus-plugin-sass'
   ],
 
@@ -114,13 +104,8 @@ const config = {
                 label: 'FAQ'
               },
               {
-                type: 'doc',
-                docId: 'rate-service/rate-service',
-                label: 'Rate Service GraphQL'
-              },
-              {
                 to: 'rate-service',
-                label: 'SpectaQL Rates API',
+                label: 'Rates API',
                 target: '_blank'
               },
               {
@@ -161,13 +146,8 @@ const config = {
                 label: 'FAQ'
               },
               {
-                type: 'doc',
-                docId: 'order-view-service/order-view-service',
-                label: 'Order View Service GraphQL'
-              },
-              {
                 to: 'order-view-service',
-                label: 'SpectaQL Shipping Insights API',
+                label: 'Shipping Insights API',
                 target: '_blank'
               },
               {
@@ -203,13 +183,8 @@ const config = {
                 label: 'FAQ'
               },
               {
-                type: 'doc',
-                docId: 'label-service/label-service',
-                label: 'Label Service GraphQL'
-              },
-              {
                 to: 'label-service',
-                label: 'SpectaQL Label API',
+                label: 'Label API',
                 target: '_blank'
               },
               {
