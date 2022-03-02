@@ -105,6 +105,11 @@ const config = {
               },
               {
                 type: 'doc',
+                docId: 'insight/place-order',
+                label: 'Place Order'
+              },
+              {
+                type: 'doc',
                 docId: 'rate/faq',
                 label: 'FAQ'
               },
@@ -139,6 +144,11 @@ const config = {
                 type: 'doc',
                 docId: 'insight/quickstart',
                 label: 'Quickstart'
+              },
+              {
+                type: 'doc',
+                docId: 'insight/place-order',
+                label: 'Place Order'
               },
               {
                 type: 'doc',
