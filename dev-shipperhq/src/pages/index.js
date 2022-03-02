@@ -12,12 +12,9 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <h1 className="hero__title test">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <h1 className="hero__title mb0">{siteConfig.title}</h1>
+        <h4 className="hero__subtitle reg">{siteConfig.tagline}</h4>
         <div className={styles.buttons}>
-          <h2>
-            Docusaurus Tutorial - 5min ⏱️
-          </h2>
         </div>
       </div>
     </header>
@@ -31,7 +28,9 @@ export default function Home() {
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
       <Head>
-        <script src="https://kit.fontawesome.com/b5946a4266.js" crossorigin="anonymous"></script>
+          {/*Custom Fonts*/}
+          <link rel="stylesheet" href="https://use.typekit.net/ijr7wgn.css" />
+          <script src="https://kit.fontawesome.com/b5946a4266.js" crossorigin="anonymous"></script>
       </Head>
       <HomepageHeader />
       <main>

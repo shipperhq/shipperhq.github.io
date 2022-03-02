@@ -1,35 +1,32 @@
 import React from 'react';
 import clsx from 'clsx';
-import styles from './HomepageFeatures.module.css';
+import styles from './HomepageFeatures.module.scss';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
+    title: 'Rating',
     Svg: require('../../static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+          Access shipping rate details and query what is most important to you and your business.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Shipping Insights',
     Svg: require('../../static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+          Connect your checkout with post-order fulfillment with detailed shipping information for each order.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Label',
     Svg: require('../../static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+          Generate labels with essential shipment infomation like tracking ID, returns, taxes and more..
       </>
     ),
   },
@@ -37,28 +34,33 @@ const FeatureList = [
 
 function Feature({Svg, title, description}) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} alt={title} />
+      <div className="container">
+          <div className={styles.featureSect}>
+
+          <div className={clsx('col col--6 feature-img')}>
+            <Svg className={styles.featureSvg} alt={title} />
+          </div>
+          <div className="text--left padding-horiz--md col col--6">
+            <div className={styles.featureText}>
+            <h2 className="text-1xl mb10">{title}</h2>
+            <p className="text-lg">{description}</p>
+            <p className="text-md mb10"><a className="arrow-right">Go to Documentation</a></p>
+            <p className="text-md"><a className="arrow-right">Playground</a></p>
+            </div>
+        </div>
+
+          </div>
       </div>
-      <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </div>
-    </div>
+
   );
 }
 
 export default function HomepageFeatures() {
   return (
     <section className={styles.features}>
-      <div className="container">
-        <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
-        </div>
-      </div>
     </section>
   );
 }

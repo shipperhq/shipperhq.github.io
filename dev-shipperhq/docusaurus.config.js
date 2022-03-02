@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'ShipperHQ',
-  tagline: 'dev portal',
+  title: 'ShipperHQ Developers',
+  tagline: 'Explore our API guides and examples to integrate ShipperHQ',
   url: 'https://dev.shipperhq.com/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -41,7 +41,7 @@ const config = {
             'https://github.com/shipperhq/shipperhq.github.io/tree/main/dev-shipperhq/blog',
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/css/custom.scss'),
         },
       }),
     ],
