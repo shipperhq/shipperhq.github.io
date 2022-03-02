@@ -122,7 +122,12 @@ const config = {
                 to: 'rate-service',
                 label: 'SpectaQL Rates API',
                 target: '_blank'
-              }
+              },
+              {
+                to: '#',
+                label: 'API Playground',
+                target: '_blank'
+              },
             ]
           },
           {
@@ -164,7 +169,12 @@ const config = {
                 to: 'order-view-service',
                 label: 'SpectaQL Shipping Insights API',
                 target: '_blank'
-              }
+              },
+              {
+                to: '#',
+                label: 'API Playground',
+                target: '_blank'
+              },
             ]
           },
           {
@@ -201,7 +211,12 @@ const config = {
                 to: 'label-service',
                 label: 'SpectaQL Label API',
                 target: '_blank'
-              }
+              },
+              {
+                to: '#',
+                label: 'API Playground',
+                target: '_blank'
+              },
             ]
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
