@@ -194,6 +194,11 @@ const config = {
               }
             ]
           },
+          {
+            to: '/contact',
+            label: 'Contact Us',
+            position: 'right'
+          }
           // {to: '/blog', label: 'Blog', position: 'left'},
           // {
           //   type: 'docsVersionDropdown',
@@ -233,9 +238,13 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
                 to: '/blog',
+                label: 'Blog',
               },
+              {
+                to: '/contact',
+                label: 'Contact Us',
+              }
             ],
           },
         ],
