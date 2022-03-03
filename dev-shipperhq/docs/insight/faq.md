@@ -4,9 +4,15 @@ sidebar_position: 4
 
 # Shipping Insights FAQ
 
-## Testing
+## Is the data for past-order available via the Insight API?
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+No. The data collection of your orders starts when the `Insight API` is activated for this store (via the "Advanced Feature" management). Historical data produced before the `Insight Actication` is not available.
 
-## Testing 2
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+## Is the origin-location address available via the Insight API?
+
+Not at this time. The `Location ID` is available and can be retrieved but we do not store the address of this location in the Insight data store.
+
+## Is the `freight-class` property available via Insight?
+
+Not at the time.
+
