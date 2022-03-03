@@ -1,7 +1,5 @@
 ---
-slug: static-rating-API
-title: Quickstart
-authors: []
+sidebar_position: 5
 tags: [rating, api, introduction]
 ---
 

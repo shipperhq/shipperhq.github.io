@@ -51,6 +51,4 @@ Not at this time.
 |700| Missing rates for carrier groups. Unable to find rates for all of the carrier groups.|
 |800| This account does not permit address validation|
 |801| Address validation is not enabled.|
-
-
-~                       
+                    
