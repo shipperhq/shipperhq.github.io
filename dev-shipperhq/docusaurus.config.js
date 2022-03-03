@@ -48,16 +48,6 @@ const config = {
   ],
 
   plugins: [
-    [
-      '@edno/docusaurus2-graphql-doc-generator',
-      {
-        rootPath: "./docs",
-        linkRoot: "../../",
-        loaders: {
-          UrlLoader: "@graphql-tools/url-loader"
-        }
-      },
-    ],
     'docusaurus-plugin-sass'
   ],
 
@@ -105,19 +95,24 @@ const config = {
               },
               {
                 type: 'doc',
+                docId: 'insight/place-order',
+                label: 'Place Order'
+              },
+              {
+                type: 'doc',
                 docId: 'rate/faq',
                 label: 'FAQ'
               },
               {
-                type: 'doc',
-                docId: 'rate-service/rate-service',
-                label: 'Rate Service GraphQL'
+                to: 'rate-service',
+                label: 'Rates API',
+                target: '_blank'
               },
               {
-                to: 'rate-service',
-                label: 'SpectaQL Rates API',
+                to: '#',
+                label: 'API Playground',
                 target: '_blank'
-              }
+              },
             ]
           },
           {
@@ -142,19 +137,24 @@ const config = {
               },
               {
                 type: 'doc',
+                docId: 'insight/place-order',
+                label: 'Place Order'
+              },
+              {
+                type: 'doc',
                 docId: 'insight/faq',
                 label: 'FAQ'
               },
               {
-                type: 'doc',
-                docId: 'order-view-service/order-view-service',
-                label: 'Order View Service GraphQL'
+                to: 'order-view-service',
+                label: 'Shipping Insights API',
+                target: '_blank'
               },
               {
-                to: 'order-view-service',
-                label: 'SpectaQL Shipping Insights API',
+                to: '#',
+                label: 'API Playground',
                 target: '_blank'
-              }
+              },
             ]
           },
           {
@@ -183,15 +183,15 @@ const config = {
                 label: 'FAQ'
               },
               {
-                type: 'doc',
-                docId: 'label-service/label-service',
-                label: 'Label Service GraphQL'
+                to: 'label-service',
+                label: 'Label API',
+                target: '_blank'
               },
               {
-                to: 'label-service',
-                label: 'SpectaQL Label API',
+                to: '#',
+                label: 'API Playground',
                 target: '_blank'
-              }
+              },
             ]
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
