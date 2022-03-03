@@ -1,7 +1,7 @@
 import React from 'react';
 import { HubSpotForm } from '../components/HubSpotForm';
 import Layout from '@theme/Layout';
-import './contact-us.scss';
+import '../css/contact-us.scss';
 
 function Contact() {
   return (
