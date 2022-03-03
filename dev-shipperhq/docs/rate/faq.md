@@ -6,7 +6,7 @@ sidebar_position: 10
 
 ## Does the rating API return duties (DDU/DDP) information?
 
-Not at this time. 
+We support duties via the `AdvancedFee` attribute [doc](https://dev.shipperhq.com/rate-service/#definition-AdvancedFee) and the `customDuties` field. 
 
 ## What are the error codes and their definition?
 
