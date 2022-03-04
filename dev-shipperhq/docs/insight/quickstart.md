@@ -2,39 +2,42 @@
 sidebar_position: 3
 ---
 
-# Shipping Insights Quickstart
-This document is intended for technical architects and developers that need to integrate with ShipperHQ’s Shipping Insights API to build their own integration to retrieve shipment details from ShipperHQ.
+# Insight Quickstart
+This document is intended for technical architects and developers that need to integrate with ShipperHQ’s Insight API to build their own integration to retrieve shipment details from ShipperHQ.
 
-Use the information outlined in this document to view how custom fields and attributes are queried and modified.
+Note, this does not document the standard types and fields the API provides. This information is included in the [Insight API](https://dev.shipperhq.com/order-view-service/) documentation or can be obtained via our API playground.
 
-Note, this does not document the standard types and fields the API provides. This information is included in the [Shipping Insights](https://dev.shipperhq.com/order-view-service/) API documentation or can be obtained via our GraphQL playground. Please refer to the [Introduction to GraphQL](https://graphql.org/learn/) article from [GraphQL.org](https://graphql.org) for more information about GraphQL.
+## GraphQL
+We've implemented the Rate API in GraphQL. If you're unfamiliar with GraphQL, Please refer to the [Introduction to GraphQL](https://graphql.org/learn/) article from [GraphQL.org](https://graphql.org) for more information.
 
-## GraphQL Shipping Insights API Benefits
-- Flexibility: The GraphQL Shipping Insights API gives users the ability to access the details used to obtain the shipping rate and query what is most important to you and your business. As such, you can query 5 pieces of information or every possible field as you see fit.
-- Customization: The GraphQL Shipping Insights API gives users the ability to build their own integration into ShipperHQ to retrieve shipment details. For example, you can use it to get shipment information into your order processing system.
+## Insight API Benefits
+- **Flexibility:** The Insight API gives users the ability to access the details used to obtain the shipping rate and query what is most important to you and your business. As such, you can query 5 pieces of information or every possible field as you see fit.
+- **Customization:** The Insight API gives users the ability to build their own integration into ShipperHQ to retrieve shipment details. For example, you can use it to get shipment information into your order processing system.
 
 ## Requirements
-* ShipperHQ account with the Shipping Insights Advanced Feature enabled
-* An ecommerce platform or custom integration supporting the Place Order API, either:
-  * ShipperHQ’s native Magento 2, BigCommerce, or Shopify app installed on the eCommerce platform
-  * A custom integration implementing both the ShipperHQ Rating API and the ShipperHQ Place Order API
+* ShipperHQ account with the [Shipping Insights](https://docs.shipperhq.com/shipping-insights-configuration/#Requirements) Advanced Feature enabled
+* An ecommerce platform or custom integration supporting the [`PlaceOrder`](place-order/) mutation of the [Label API](../label/overview), either:
+  * ShipperHQ’s native [Magento 2](https://docs.shipperhq.com/installing-magento-2-shipperhq-extension/), [BigCommerce](https://docs.shipperhq.com/setup-shipperhq-bigcommerce-store/), or [Shopify](https://docs.shipperhq.com/connect-shopify-shipperhq/) app installed on the eCommerce platform
+  * A custom integration implementing both our [Rate API](../rate/overview/) and the [`PlaceOrder`](place-order) mutation of our [Label API](../label/overview/)
 
 ## Authentication
-The Shipping Insights API is accessed using a unique access token generated in a ShipperHQ account. Each access token is unique per website for multi-site ShipperHQ accounts.
+The Insight API is accessed using a unique Access Token generated in a ShipperHQ account. Each access token is unique per [Website](https://docs.shipperhq.com/adding-websites-in-shipperhq/) for multi-site ShipperHQ accounts.
 
-Since Access Tokens are unique for each ShipperHQ account and website, Partners or Third Party integrations should include a mechanism for merchants to input their ShipperHQ Insights access token in the integration. Each ShipperHQ merchant will generate an access token on their ShipperHQ account in order to access the Shipping Insights API for their orders.
+Since Access Tokens are unique for each ShipperHQ account and Website, Partners or Third Party integrations should include a mechanism for merchants to input their Shipping Insights Access Token in the integration. Each ShipperHQ merchant will generate an access token on their ShipperHQ account in order to access the Insight API for their orders.
 
 ### Generating an Access Token
 To generate an access token in ShipperHQ:
 * Log into a ShipperHQ account
 * Ensure the Shipping Insights Advanced Feature is enabled (under Advanced Features on the left-hand navbar)
-* Click “Websites” in the left-hand navbar and click the edit icon to edit the website which you wish to connect to
-* Go to the “Integrations” tab on the Website
+* Click "Websites"”" in the left-hand navbar and click the edit icon to edit the website which you wish to connect to
+* Go to the "Integrations" tab on the Website
 * Under Shipping Insights, select Generate New Access Token
+
+This will provide you with an Access Token which can be used for Insight API requests.
 
 :::danger Changing Live Access Tokens
 
-Generating a new Access Token invalidates any previously generated Access Tokens for that website. For this reason, this should not be done while in production unless absolutely necessary. Access Tokens should be kept secure and not exposed on any client facing code or committed to public code repositories.
+Generating a new Access Token invalidates any previously generated Access Tokens for that Website. For this reason, this should not be done while in production unless absolutely necessary. Access Tokens should be kept secure and not exposed on any client facing code or committed to public code repositories.
 
 :::
 
@@ -45,39 +48,85 @@ Generating a new Access Token invalidates any previously generated Access Tokens
 | `POST` |  https://ovs.shipperhq.com |
 
 ### Request Headers
-The following headers are required for every Shipping Insights API call.
+The following headers are required for every Insight API call.
 
 | Header                      | Description         |
 | ---------------------------|---------------------|
-| `X-ShipperHQ-Access-Token` | The secret token retrieved from the ShipperHQ dashboard |
-| `X-ShipperHQ-Scope` | The Scope for this ShipperHQ account (accepts `LIVE`,`TEST`,`DEV` or `INT`). If unsure or if the ShipperHQ account does not have multiple scopes, use `LIVE`. |
+| `X-ShipperHQ-Access-Token` | The Access Token retrieved from the ShipperHQ dashboard |
+| `X-ShipperHQ-Scope` | The cofiguration [Scope](https://docs.shipperhq.com/using-scopes-shipperhq/) for this ShipperHQ Website (accepts `LIVE`,`TEST`,`DEV` or `INT`). If unsure or if the ShipperHQ account does not support multiple scopes, use `LIVE`. |
 
-###
+### Useful fields for certain features
+
+#### Date & Time
+The [Date & Time](https://docs.shipperhq.com/delivery-datecalendar-configuration/) Advanced Feature allows merchants to give their customers accurate delivery dates, times in transit, or even a date picker on supported eCommerce platforms. In order to determine the correct delivery date to display, ShipperHQ also generates a Dispatch Date (the date on which the package is expected to be picked up by the carrier) based on the merchant's ShipperHQ configuration. For merchants who use Date & Time, it's useful to have the Insight API return the Dispatch and Delivery dates.
+
+**Fields**
+- `viewOrder` . `shipments` . `carriers` . `methods` . `timeInTransitOptions` . **`dispatchDate`**
+- `viewOrder` . `shipments` . `carriers` . `methods` . `timeInTransitOptions` . **`deliveryDate`**
+
+#### Dimensional Packing
+The [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/) will determine the best package or packages to use for each shipment based on the merchant's ShipperHQ configuration. When Dimensional Packing is used, the Insight API can return the packages, details about each package, and item assignments for each.
+
+This information will be returned as one or more `packages` objects each containing `packageDetail` and `items` objects. The `packageName` field of the `packageDetail` object will be the name defined in ShipperHQ for that package. The `items` object may contain one or more items and indicate the `sku` of each as well as the quantity of that SKU packed in this package.
+
+**Fields**
+
+Details about the package:
+- `viewOrder` . `shipments` . `carriers` . `packages` . `packageDetail` . **`height`**
+- `viewOrder` . `shipments` . `carriers` . `packages` . `packageDetail` . **`length`**
+- `viewOrder` . `shipments` . `carriers` . `packages` . `packageDetail` . **`width`**
+- `viewOrder` . `shipments` . `carriers` . `packages` . `packageDetail` . **`weight`**
+- `viewOrder` . `shipments` . `carriers` . `packages` . `packageDetail` . **`packageName`**
+
+The items packed into the package:
+- `viewOrder` . `shipments` . `carriers` . `packages` . `items` . [] . **`sku`**
+- `viewOrder` . `shipments` . `carriers` . `packages` . `items` . [] . **`qtyPacked`**
+
+Other related fields are available and can be found in the [Insight API](https://dev.shipperhq.com/order-view-service/) documentation.
+
+#### Multi-Origin Shipping
+With the [Multi-Origin Shipping](https://docs.shipperhq.com/setup-multiorigin-dropshipping/) Advanced Feature enabled, merchants are able to configure multiple ship-from locations ([Origins](https://docs.shipperhq.com/origin-configuration/)) in their ShipperHQ account. They can then assign specific products to specific Origins or use their ShipperHQ configuration to configure ShipperHQ to select Origins automatically.
+
+When an order contains shipments from multiple Origins, the Insight API will return multiple `shipments` objects. Each shipment has its own unique ID and contains the details about that shipment and the carriers used for that shipment. No special Insight API request is required to return multiple shipments but there are some fields which are useful in this scenario.
+
+**Fields**
+
+- `viewOrder` . `shipments` . `shipmentDetail` . **`name`**
+
+The `name` field returns the unique name of the Origin configured in ShipperHQ.
+
+Other related fields are available and can be found in the [Insight API](https://dev.shipperhq.com/order-view-service/) documentation.
 
 ### Errors
-TODO
+Most errors are returned as an `errors` object. These will include a `message` property which will indicate the specific error.
+
+**No order found**
+When an order can not be found that matches the `orderNumber` provided an empty `viewOrder` object will be returned.
+
+**Authentication issues**
+If the Access Token provided is invalid or the ShipperHQ account it belongs to is disabled, the error message `Access Denied` will be returned.
 
 ## Testing
-To test the Shipping Insights API you will need to already have either:
-1. ShipperHQ's native integration installed and enabled on Magento 2, BigCommerce, or Shopify
-2. A custom integration of the ShipperHQ Rating API and Place Order API
+To test the [Insight API](https://dev.shipperhq.com/order-view-service/) you will need to already have either:
+1. ShipperHQ's native integration installed and enabled on [Magento 2](https://docs.shipperhq.com/installing-magento-2-shipperhq-extension/), [BigCommerce](https://docs.shipperhq.com/setup-shipperhq-bigcommerce-store/), or [Shopify](https://docs.shipperhq.com/connect-shopify-shipperhq/)
+2. A custom integration of the ShipperHQ [Rate API](../rate/overview/) and the [`PlaceOrder`](place-order) mutation of the [Label API](../label/overview/).
 
-### Enable Shipping Insights & Retrieve Access Token
-Within the ShipperHQ you wish to use enable the Shipping Insights Advanced Feature from the Advanced Features section of the dashboard. Then, retrieve the Shipping Insights Access Token from the Website on that account.
+### Enable & Retrieve Access Token
+Within the ShipperHQ account you wish to use, enable the Shipping Insights Advanced Feature from the Advanced Features section of the dashboard. Then, retrieve the Shipping Insights Access Token from the Website on that account.
 
 ### Place an Order
 Place an order on your eCommerce or custom platform. Note the Order Number since this will be used to retrieve Shipping Insights information.
 
-### Test with the Shipping Insights API Playground
-- Navigate to the ShipperHQ GraphQL playground.
-- In a new GraphQL playground window, enter the Shipping Insights API Endpoint URL into the URL bar.
-- Click the Docs button.
-- Click the Reload Docs icon.
-- Click the Query link to view a list of available queries and the arguments and fields you can include in your request.
+### Test with the API Playground
+- Navigate to the ShipperHQ GraphQL playground
+- In a new GraphQL playground tab, enter the Insight API Endpoint URL into the URL bar
+- Click the Docs button
+- Click the Reload Docs icon
+- Click the Query link to view a list of available queries and the arguments and fields you can include in your request
 
 ## Examples
 
-Since the Shipping Insights API is implemented in GraphQL, you can retrieve as much information as you want or as little as you need. Below you'll find examples of both simple and more advanced Shipping Insights requests.
+Since the Insight API is implemented in GraphQL, you can retrieve as much information as you want or as little as you need. Below you'll find examples of both simple and more advanced Insight API requests and their associated responses.
 
 ### Basic Example
 ```json title="Basic Example Request"
