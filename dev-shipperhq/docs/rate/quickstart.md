@@ -1,4 +1,5 @@
 ---
+sidebar_position: 5
 ---
 
 # Quickstart
@@ -54,7 +55,7 @@ Please contact support: [support@shipperhq.com](mailto:support@shipperhq.com) an
 
 :::warning Regenerating a new code on a production store will break all existing integrations!
 
-Please be careful with the authentication code re-generation: regenerating a new authentication code will break all the current integrations with all the platforms and pre-existing third party integrations. Please contact support: [support@shipperhq.com](mailto:support@shipperhq.com) to double-check and avoid any service disrubtion for this Website.
+Please be careful with the authentication code re-generation: regenerating a new authentication code will break all the current integrations with all the platforms and pre-existing third party integrations. Please contact support: [support@shipperhq.com](mailto:support@shipperhq.com) to double-check and avoid any service disruption for this Website.
 
 :::
 
@@ -84,7 +85,7 @@ mutation CreateSecretToken {
 }
 ```
 
-:::tip We use JWT and the token has a 30 days expiration date
+:::tip ShipperHQ uses JWT token with a 30 days expiration date
 
 The response contains the token you use to make requests to the ShipperHQ API. This token expires every 30 days. You can request a new token up to an hour before your current token expiration date and time. The token is a [JWT token](https://jwt.io/) and they have an expiration timestamp encoded inside: no need to remember the expiration date. We recommend using your favorite [JWT](https://jwt.io/) parsing library to extract the expiration from the token, so you will know the exact second the token expires.
 
@@ -601,12 +602,8 @@ query RetrieveFullShippingQuote($ratingInfo: RatingInfoInput!) {
 
 ## Errors
 
-Please visit our [FAQ section](http://localhost:3000/docs/rate/faq#what-are-the-error-codes-and-their-definition) for a detailed list of all our error codes.
+When an error occurs, this is how it is presented to your application:
 
-* `internalErrorMessage`: It describes the issue and explain why an error was returned. It can not be changed and is controlled by ShipperHQ.
-* `externalErrorMessage`: This message can be controlled via ShipperHQ dashboard and can be custommized. This message should encou  intended to help understanding why an error was returned: this is fixed and controlled bu ShipperHQ 
-
-The external error message is taken from your ShipperHQ configuration default error messages and is designed to show for the end-user. Refer to the ShipperHQ Rating API Error Messages documentation for a full list of error messages.
 ```json title="Example query: Errors"
 "errors": [
                {
@@ -617,3 +614,13 @@ The external error message is taken from your ShipperHQ configuration default er
                }
            ] 
 ```
+
+
+
+
+* `internalErrorMessage`: It describes the issue and explain why an error was returned. It can not be changed and is controlled by ShipperHQ.
+* `externalErrorMessage`: This message can be controlled via ShipperHQ dashboard and can be custommized. This message should encourage users to understand the error and self-help.
+
+### What are the possible value for the `errorCode` and `internalErrorMessages`?
+
+Please visit our [FAQ section](http://localhost:3000/docs/rate/faq#what-are-the-error-codes-and-their-definition) for a detailed list of all our error codes.
