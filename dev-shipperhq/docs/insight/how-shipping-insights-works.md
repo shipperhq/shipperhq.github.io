@@ -10,13 +10,21 @@ When using the ShipperHQ native integrations with Magento 2, BigCommerce, or Sho
 
 ## Workflow
 ![Insights workflow](/img/insight/insight-workflow.png)
+1. A shipping rate request is sent via the [Rating API](../rate/overview/)
+2. ShipperHQ generates rates and options and returns them
+3. When the customer completes checkout, a call to [PlaceOrder](place-order) causes ShipperHQ to store the details
+4. Shipment details are available via the Shipping Insights API
 
-## Available information
-Information stored by ShipperHQ that can be retrieved with the Shipping Insights API includes:
-* **Carrier and Method Information**: The carrier and shipping method name, code, and type selected by the customer at checkout
-* **Shipping rate information**: Shipping rates retrieved from the carrier, rate charged to the customer (e.g. free shipping), delivery and dispatch dates, and more
-* **Origin information**: The ship-from location or locations used in rating as well as the item assignment per Origin
-* **Packing details**: The packages used by ShipperHQ in rating and the item assignments per package
-* **Customer-selected checkout options**: Including LTL Freight Accessorials, In-Store Pickup locations, and more
+## Key queries used for Shipping Insights requests
+The Shipping Insights API is a read-only API but can return either shipment details or labels for a given order.
 
-Specific fields and attributes can be found in the Shipping Insights API guide.
+| Query                      | Description         |
+| ---------------------------|---------------------|
+| `viewOrder`    |	Given an order number, retrieves shipment information for that order. |
+| `retrieveLabels`	| If a label has been produced for a given order using the [Label API](../label/overview), returns details of those labels. |
+
+:::tip `PlaceOrder` mutation
+
+Implementation of the related `PlaceOrder` mutation of the Label API may be required to use Shipping Insights. However, this is only the case if you are **not** using the native ShipperHQ apps/plugins/extensions on Magento/Adobe Commerce, BigCommerce, Shopify, SalesForce B2C Commerce Cloud, WooCommerce, Zoey - [complete list here](https://shipperhq.com/pricing)). When using the native ShipperHQ integration with any of these platforms, the PlaceOrder function occurs automatically so you are able to use the Shipping Insights API without implementing PlaceOrder yourself.
+
+:::
