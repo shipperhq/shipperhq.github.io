@@ -23,12 +23,11 @@ const FeatureList = [
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Purchase and print Shipping Labels to complete your orders',
     Svg: require('../../static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Coming soon! Please contact sales@shipperhq.com to get early access (API available in beta).
       </>
     ),
   },
