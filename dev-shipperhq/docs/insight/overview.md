@@ -1,5 +1,9 @@
 ---
 sidebar_position: 1
+slug: overview
+title: Insight Overview
+authors: []
+tags: [insight, api, introduction]
 ---
 
 # Insight Overview

@@ -1,5 +1,9 @@
 ---
 sidebar_position: 4
+slug: faq
+title: Shipping Insights FAQ
+authors: []
+tags: [insight, api, faq]
 ---
 
 # Shipping Insights FAQ
