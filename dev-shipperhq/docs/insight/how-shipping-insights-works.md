@@ -9,7 +9,7 @@ ShipperHQ generates a significant amount of detail about each shipment for which
 When using the ShipperHQ native integrations with Magento 2, BigCommerce, or Shopify, enabling the Shipping Insights Advanced Feature on a ShipperHQ account will automatically store shipment information when a customer completes checkout. For other platforms or custom integrations, the Place Order API can be used when an order is placed to tell ShipperHQ to store shipment information. In either case, the eCommerce-platform Order ID is attached to the shipment information when it is stored and can be used to look up shipment information using the Shipping Insights API.
 
 ## Workflow
-[[IMAGE]]
+![Insights workflow](/img/insight/insight-workflow.png)
 
 ## Available information
 Information stored by ShipperHQ that can be retrieved with the Shipping Insights API includes:
