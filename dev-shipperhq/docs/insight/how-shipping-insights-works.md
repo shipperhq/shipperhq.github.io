@@ -13,7 +13,8 @@ ShipperHQ generates a significant amount of detail about each shipment for which
 When using the ShipperHQ native integrations with [Magento 2](https://docs.shipperhq.com/installing-magento-2-shipperhq-extension/), [BigCommerce](https://docs.shipperhq.com/setup-shipperhq-bigcommerce-store/), or [Shopify](https://docs.shipperhq.com/connect-shopify-shipperhq/), enabling the Shipping Insights Advanced Feature on a ShipperHQ account will automatically store shipment information when a customer completes checkout. For other platforms or custom integrations, the [PlaceOrder](place-order) mutation of the [Label API](../label/overview/) can be used when an order is placed to tell ShipperHQ to store shipment information. In either case, the eCommerce-platform Order Number is attached to the shipment information when it is stored and can be used to look up shipment information using the Insight API.
 
 ## Workflow
-![Insights workflow](insight-workflow.png)
+![Insights workflow](./insight-workflow.png)
+
 1. A shipping rate request is sent via the [Rate API](../rate/overview/)
 2. ShipperHQ generates rates and options and returns them
 3. When the customer completes checkout, a call to [PlaceOrder](place-order) causes ShipperHQ to store the details
