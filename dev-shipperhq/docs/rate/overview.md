@@ -1,8 +1,9 @@
 ---
 sidebar_position: 1
+title: Rating Overview
 ---
 
-# Rate API Overview
+# Overview
 
 ## What are rates?
 

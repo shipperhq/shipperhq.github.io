@@ -1,8 +1,20 @@
 ---
-sidebar_position: 5
+sidebar_position: 2
+slug: quickstart
+title: Rating Quickstart
+authors: []
+tags: [rating, api, introduction, quickstart]
 ---
 
+
 # Quickstart
+This document is intended for technical architects and developers that need to integrate with ShipperHQ’s Insight API to build their own integration to retrieve shipment details from ShipperHQ.
+
+Note, this does not document the standard types and fields the API provides. This information is included in the [Insight API](https://dev.shipperhq.com/order-view-service/) documentation or can be obtained via our API playground.
+
+## GraphQL
+We've implemented the Rate API in GraphQL. If you're unfamiliar with GraphQL, Please refer to the [Introduction to GraphQL](https://graphql.org/learn/) article from [GraphQL.org](https://graphql.org) for more information.
+
 
 ## Authentication Process
 To use the ShipperHQ rating API you need to generate a JWT authentication token. This is a three step process:

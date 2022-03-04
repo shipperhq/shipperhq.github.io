@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+title: How Rates Work
 ---
 
 # How Rates Work
