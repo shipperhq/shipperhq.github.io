@@ -4,15 +4,14 @@ sidebar_position: 4
 
 # Shipping Insights FAQ
 
-## Is the data for past-order available via the Insight API?
+## Is the data for past orders available via the Insight API?
 
-No. The data collection of your orders starts when the `Insight API` is activated for this store (via the "Advanced Feature" management). Historical data produced before the `Insight Actication` is not available.
+No, ShipperHQ does not store shipment data until the Shipping Insights Advanced Feature enabled on a ShipperhQ account. Orders placed before this feature is enabled are not available via the Shipping Insights API.
 
-## Is the origin-location address available via the Insight API?
+## Is the Origin address available?
 
-Not at this time. The `Location ID` is available and can be retrieved but we do not store the address of this location in the Insight data store.
+Not currently. We return the Origin name (which is a unique identifier) but do not currently return the full ship-from address for that Origin. The ship-from address used will match the address
 
-## Is the `freight-class` property available via Insight?
+## Is Freight Class available via Insight?
 
-Not at the time.
-
+Not currently. Freight Class will be added in an upcoming version of the API.

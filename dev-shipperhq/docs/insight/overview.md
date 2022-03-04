@@ -4,9 +4,10 @@ sidebar_position: 1
 
 # Shipping Insights Overview
 
-## Testing
+There are many elements that impact both the shipping rates and options offered to eCommerce customers at checkout as well as how orders are fulfilled. For example, what carrier and service to use, what package or packages to use, what warehouse to ship from, etc. When ShipperHQ is used to produce shipping rates and options, it will determine many of these elements as part of its rating calculations. The Insights API gives you access to all of those details that can be used in a variety of scenarios.
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-## Testing 2
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+## Use Cases
+* **Time-Sensitive Delivery**: ShipperHQ is able to produce accurate dispatch and delivery dates for a number of carriers. Delivery dates can be shown to customers at checkout while dispatch dates can help guide fulfillment operations. The Shipping Insights API can be used to retrieve both.
+* **Cost-Effective Packing**: ShipperHQ’s Dimensional Packing functionality can produce estimates of what package or packages should be used for each shipment. This information is used to produce accurate shipping rates but can also be accessed via the Shipping Insights API to automate or guide fulfillment operations.
+* **Multi-Origin Fulfillment**: When shipping from multiple  warehouses, distribution centers, or even third party fulfillment or dropship providers ShipperHQ is able to rate multiple shipments within a single order. The item assignment per shipment and the details of each shipment can be retrieved with the Shipping Insights API.
+* **Pickup Orders**: ShipperHQ can be used to offer In Store Pickup options to customers at checkout. The Shipping Insights API can then return the pickup location along with the order to ensure the order is correctly routed.
