@@ -1,5 +1,9 @@
 ---
 sidebar_position: 2
+slug: how-shipping-insights-works
+title: How Shipping Insights Works
+authors: []
+tags: [insight, api, introduction]
 ---
 
 # How Shipping Insights Works

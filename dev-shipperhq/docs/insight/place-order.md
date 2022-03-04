@@ -9,28 +9,28 @@ tags: [rating, insight, api, introduction]
 
 ## How Rating + Shipping Insights Works with the `PlaceOrder` mutation
 
-Users integrate with ShipperHQ’s rating API to provide shipping rate estimates based on contents of a `virtual cart`. This is done leveraging the [rating API](/docs/rate/overview).  
+Merchants integrate with ShipperHQ's rating API to provide shipping rate estimates based on contents of a `virtual cart`. This is done leveraging the [Rate API](/docs/rate/overview).  
 
-Once a user has finalized his choices, the rating (a quote) need to be converted into an order. Usually, multiple quotes are send by ShipperHQ (for example in the cart, when the user changes her/his adress, when the user select delivery options, etc.). 
+Once a customer has finalized their choices at checkout and completes the order, the rating (a quote) needs to be converted into an order so it can stored for use with the [Insight API](overview). Usually, multiple quotes are sent by ShipperHQ (for example in the cart, when the customer changes their address, when they changes delivery options, etc.).
 
-`PlaceOrder`'s role is to convert one of these quotes into a full fledge order so that the complete quote information can be stored on ShipperHQ order database and later on retrieved via the [Insight API](/docs/insight/overview).
+The role of `PlaceOrder` is to convert one of these quotes into a full fledge order so that the complete quote information can be stored on ShipperHQ order database and later on retrieved via the [Insight API](/docs/insight/overview).
 
-:::tip Most users don't need to use the `PlaceOrder` mutation.
+:::tip Most users don't need to use the `PlaceOrder` mutation
 
-If you are using an eCommerce platform Supported by ShipperHQ (Magento/Adobe Commerce, BigCommerce, Shopify, SalesForce Commerce Cloud, WooCommerce, Zoey - [complete list here](https://shipperhq.com/pricing)): you do not need to use `PlaceOrder`. In these scenario, the order creation is done automatically by the platform using ShipperHQ rates and ShipperHQ capture this information automatically so that you can use directly the [Insight API](/docs/insight/overview).
+If you are using an eCommerce platform supported by ShipperHQ ([Magento/Adobe Commerce](https://docs.shipperhq.com/installing-magento-2-shipperhq-extension/), [BigCommerce](https://docs.shipperhq.com/setup-shipperhq-bigcommerce-store/), [Shopify](https://docs.shipperhq.com/connect-shopify-shipperhq/), [SalesForce B2C Commerce Cloud](https://docs.shipperhq.com/installing-salesforce/), [WooCommerce](https://docs.shipperhq.com/install-woocommerce-plugin/), [Zoey](https://docs.shipperhq.com/install-shipperhq-zoey/) - [complete list here](https://shipperhq.com/pricing)): you do not need to use `PlaceOrder`. In these scenarios, the order creation is done automatically by the platform using ShipperHQ rates and ShipperHQ captures this information automatically so that you can directly use the [Insight API](/docs/insight/overview).
 
-You only need to use `PlaceOrder` in very specific scenarios detailed below.
+The specific scenarios where you would need to use `PlaceOrder` are detailed below.
 
 :::
 
 ## Do I need to use the `PlaceOrder` mutation?
 
-You need to use the PlaceOrder mutation because:
-* you want to support an unsupported platform ([supported platform list here](https://shipperhq.com/pricing))
-* you want to capture orders outside of the platform for instance going headless, building a mobile app, etc.
-* you want to implement a different order capture mechanism on a supported platform (from your CRM, an ERP) leveraging the [rating API](/docs/rate/overview)
-  
-To successfully call `PlaceOrder`, you need to generate rates via the [rating API](/docs/rate/overview). 
+You need to use the `PlaceOrder` mutation if:
+* you use a platform that does not have a native ShipperHQ integration ([supported platform list here](https://shipperhq.com/pricing))
+* you want to capture orders outside of the platform (e.g. going headless, building a mobile app, etc.)
+* you want to implement a different order capture mechanism on a supported platform (from your CRM, an ERP) leveraging the [Rate API](/docs/rate/overview)
+
+To successfully call `PlaceOrder`, you need to generate rates via the [Rate API](/docs/rate/overview) first.
 
 ## Endpoint
 | Protocol                      | Endpoint         |
@@ -40,10 +40,10 @@ To successfully call `PlaceOrder`, you need to generate rates via the [rating AP
 ## Request Headers
 | Header                      | Description         |
 | ---------------------------|---------------------|
-| `X-ShipperHQ-Secret-Token` | The secret token that you have generated to use the [rating API](/docs/rate/overview) |
-| `X-ShipperHQ-Scope` | The Scope for this ShipperHQ account. If unsure use “LIVE” (note: the Scope functionality is only available for Magento for now |
-| `X-ShipperHQ-Session` |  This identifies the quote that you want to convert as an order. You have to use the exact same value as the Rating API request used to generate this quote.|
-  
+| `X-ShipperHQ-Secret-Token` | The secret token that you have generated to use the [Rate API](/docs/rate/overview) |
+| `X-ShipperHQ-Scope` | The configuration [Scope](https://docs.shipperhq.com/using-scopes-shipperhq/) for this ShipperHQ [Website](https://docs.shipperhq.com/adding-websites-in-shipperhq/).  If unsure or if the ShipperHQ account does not support multiple scopes, use `LIVE`. |
+| `X-ShipperHQ-Session` |  This identifies the quote that you want to convert to an order. You have to use the exact same value as the [Rate API](/docs/rate/overview) request used to generate this quote. |
+
 
 ## Example Request
 ```json title="Example Request"

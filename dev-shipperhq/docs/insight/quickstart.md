@@ -1,5 +1,9 @@
 ---
 sidebar_position: 3
+slug: quickstart
+title: Insight Quickstart
+authors: []
+tags: [insight, api, introduction]
 ---
 
 # Insight Quickstart
@@ -53,7 +57,7 @@ The following headers are required for every Insight API call.
 | Header                      | Description         |
 | ---------------------------|---------------------|
 | `X-ShipperHQ-Access-Token` | The Access Token retrieved from the ShipperHQ dashboard |
-| `X-ShipperHQ-Scope` | The cofiguration [Scope](https://docs.shipperhq.com/using-scopes-shipperhq/) for this ShipperHQ Website (accepts `LIVE`,`TEST`,`DEV` or `INT`). If unsure or if the ShipperHQ account does not support multiple scopes, use `LIVE`. |
+| `X-ShipperHQ-Scope` | The configuration [Scope](https://docs.shipperhq.com/using-scopes-shipperhq/) for this ShipperHQ [Website](https://docs.shipperhq.com/adding-websites-in-shipperhq/) (accepts `LIVE`,`TEST`,`DEV` or `INT`). If unsure or if the ShipperHQ account does not support multiple scopes, use `LIVE`. |
 
 ### Useful fields for certain features
 
