@@ -4,9 +4,13 @@ sidebar_position: 1
 
 # Label API Overview
 
-## Testing
+The Label API enable you to easily print shipping labels for shipments directly within your application.
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+## Higgh level overview
 
-## Testing 2
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+![High Level Workflow](./complete-rate-insight-label-process.jpg)
+
+## Early Access Program
+
+This API is beta and ShipperHQ is looking for early access partners.
+Please contact [support](mailto:support@shipperhq.com) to manifest your interest.
