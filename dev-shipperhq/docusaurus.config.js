@@ -26,7 +26,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/shipperhq/shipperhq.github.io/tree/main/dev-shipperhq/docs',
+          editUrl: 'https://github.com/shipperhq/shipperhq.github.io/tree/main/dev-shipperhq',
           lastVersion: 'current',
           versions: {
             current: {
@@ -38,7 +38,7 @@ const config = {
         blog: {
           showReadingTime: true,
           editUrl:
-            'https://github.com/shipperhq/shipperhq.github.io/tree/main/dev-shipperhq/blog',
+            'https://github.com/shipperhq/shipperhq.github.io/tree/main/dev-shipperhq',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
