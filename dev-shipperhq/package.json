@@ -17,8 +17,8 @@
     "label-service-spectaql": "spectaql spectaql-configs/label-service-config.yml -t static/label-service"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.9",
-    "@docusaurus/preset-classic": "2.0.0-beta.9",
+    "@docusaurus/core": "^2.0.0-beta.17",
+    "@docusaurus/preset-classic": "^2.0.0-beta.17",
     "@mdx-js/react": "^1.6.21",
     "@svgr/webpack": "^5.5.0",
     "clsx": "^1.1.1",
@@ -43,6 +43,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
