@@ -109,9 +109,8 @@ const config = {
                 target: '_blank'
               },
               {
-                to: '#',
+                to: 'https://graphiql.shipperhq.com/',
                 label: 'API Playground',
-                target: '_blank'
               },
             ]
           },
@@ -151,9 +150,8 @@ const config = {
                 target: '_blank'
               },
               {
-                to: '#',
+                to: 'https://graphiql.shipperhq.com/',
                 label: 'API Playground',
-                target: '_blank'
               },
             ]
           },
@@ -188,9 +186,8 @@ const config = {
                 target: '_blank'
               },
               {
-                to: '#',
+                to: 'https://graphiql.shipperhq.com/',
                 label: 'API Playground',
-                target: '_blank'
               },
             ]
           },
