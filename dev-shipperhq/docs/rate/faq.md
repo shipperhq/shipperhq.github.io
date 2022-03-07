@@ -58,7 +58,7 @@ These errors can be categorized into several types:
 |510|Account| Could not find carrier you requested|
 |512|Carrier| Missing credentials for carrier.|
 |600|Account| Shipping is prevented by a user defined rule. The merchant has used Carrier Rule to prevent shipping.|
-|601|| Shipping .|
+|601|Carrier| Shipping rates removed due to priority carrier returning rates.|
 |700|Account| Missing rates for carrier groups. Unable to find rates for all of the carrier groups.|
 |800|Account| This account does not permit address validation|
 |801|Account| Address validation is not enabled.|
