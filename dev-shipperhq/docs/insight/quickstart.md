@@ -11,12 +11,7 @@ This document is intended for technical architects and developers that need to i
 
 Note, this does not document the standard types and fields the API provides. This information is included in the [Insight API](https://dev.shipperhq.com/order-view-service/) documentation or can be obtained via our API playground.
 
-## GraphQL
-We've implemented the Rate API in GraphQL. If you're unfamiliar with GraphQL, Please refer to the [Introduction to GraphQL](https://graphql.org/learn/) article from [GraphQL.org](https://graphql.org) for more information.
-
-## Insight API Benefits
-- **Flexibility:** The Insight API gives users the ability to access the details used to obtain the shipping rate and query what is most important to you and your business. As such, you can query 5 pieces of information or every possible field as you see fit.
-- **Customization:** The Insight API gives users the ability to build their own integration into ShipperHQ to retrieve shipment details. For example, you can use it to get shipment information into your order processing system.
+As with all our APIs, our Insight API is implemented with GraphQL. If you're unfamiliar with GraphQL, see our [SDK Quickstart](../quickstart/).
 
 ## Requirements
 * ShipperHQ account with the [Shipping Insights](https://docs.shipperhq.com/shipping-insights-configuration/#Requirements) Advanced Feature enabled
