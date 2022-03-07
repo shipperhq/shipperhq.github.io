@@ -70,3 +70,19 @@ yarn run docusaurus docs:version 1.1.0
     - Append the new version number to `versions.json`.
 
 ## Adding API docs
+
+### Creating New API Docs
+1. Create a `config.yml` file inside of the `spectaql-configs` directory. (Ex file: rate-service-config.yml)
+2. Copy/paste the contents of an existing config file. Set the API URL and any other settings needed. 
+3. Inside of the `spectaql-data` directory, create a `metadata.json` file. (Ex file: rate-service-metadata.json)
+4. Change the metadata file path in the corresponding config file. 
+5. Inside of the `static` directory, create a new directory. This is where your graphQL docs will output. (Ex directory: rate-service)
+6. In package.json, add a new command with the updated file names. (See other spectaql commands for reference.)
+7. Run command to generate docs
+
+### Regenerating Existing API Docs
+- Run the spectaql command for the API you would like to regenerate. See package.json for commands. (Ex. `yarn rate-service-spectaql`)
+
+### Hiding Fields
+- You can hide fields inside of the metadata.json file. See rate-service-metadata.json for reference.
+- Run the spectaql command for that API to regenerate docs with new config. 
