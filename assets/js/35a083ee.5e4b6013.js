@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdev_shipperhq=self.webpackChunkdev_shipperhq||[]).push([[249],{9751:function(s){s.exports=JSON.parse('{"name":"faq","permalink":"/docs/tags/faq","docs":[{"id":"insight/faq","title":"Shipping Insights FAQ","description":"Is the data for past orders available via the Insight API?","permalink":"/docs/insight/faq"}],"allTagsPath":"/docs/tags"}')}}]);
