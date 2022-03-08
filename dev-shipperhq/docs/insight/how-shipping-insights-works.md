@@ -21,12 +21,11 @@ When using the ShipperHQ native integrations with [Magento 2](https://docs.shipp
 4. Order and shipment details are then available via the Insight API
 
 ## Key queries
-The Insight API is a read-only API but can return either shipment details or labels for a given order.
+The Insight API is a read-only API that can return shipment details for shipments rated with the [Rate API](../rate/overview/).
 
 | Query                      | Description         |
 | ---------------------------|---------------------|
 | `viewOrder`    |	Given an order number, retrieves shipment information for that order. |
-| `retrieveLabels`	| If a label has been produced for a given order using the [Label API](../label/overview), returns details of those labels. |
 
 :::tip `PlaceOrder` mutation
 
