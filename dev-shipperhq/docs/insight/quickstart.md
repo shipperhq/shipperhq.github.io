@@ -42,9 +42,9 @@ Generating a new Access Token invalidates any previously generated Access Tokens
 
 ## API Details
 ### Endpoint
-| Protocol                      | Endpoint         |
-| ---------------------------|---------------------|
-| `POST` |  https://ovs.shipperhq.com |
+| Protocol                      | Method | Body Encoding | Endpoint URL         |
+| ---------------------------|---------------------|---------------------|---------------------|
+| `HTTPS` | `POST` | `application/JSON` |  https://ovs.shipperhq.com |
 
 ### Request Headers
 The following headers are required for every Insight API call.
@@ -52,7 +52,7 @@ The following headers are required for every Insight API call.
 | Header                      | Description         |
 | ---------------------------|---------------------|
 | `X-ShipperHQ-Access-Token` | The Access Token retrieved from the ShipperHQ dashboard |
-| `X-ShipperHQ-Scope` | The configuration [Scope](https://docs.shipperhq.com/using-scopes-shipperhq/) for this ShipperHQ [Website](https://docs.shipperhq.com/adding-websites-in-shipperhq/) (accepts `LIVE`,`TEST`,`DEV` or `INT`). If unsure or if the ShipperHQ account does not support multiple scopes, use `LIVE`. |
+| `X-ShipperHQ-Scope` | The configuration [Scope](https://docs.shipperhq.com/using-scopes-shipperhq/) for this ShipperHQ [Website](https://docs.shipperhq.com/adding-websites-in-shipperhq/) (accepts `LIVE`, `TEST`, `DEVELOPMENT`, or `INTEGRATION`). If unsure or if the ShipperHQ account does not support multiple scopes, use `LIVE`. |
 
 ### Useful fields for certain features
 

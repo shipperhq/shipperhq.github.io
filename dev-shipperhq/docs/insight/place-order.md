@@ -33,15 +33,15 @@ You need to use the `PlaceOrder` mutation if:
 To successfully call `PlaceOrder`, you need to generate rates via the [Rate API](/docs/rate/overview) first.
 
 ## Endpoint
-| Protocol                      | Endpoint         |
-| ---------------------------|---------------------|
-| `POST` |  https://postapi.shipperhq.com/v3/graphql/label |
+| Protocol                      | Method | Body Encoding | Endpoint URL        |
+| ---------------------------|---------------------|---------------------|---------------------|
+| `HTTPS` | `POST` | `application/JSON` |  https://postapi.shipperhq.com/v3/graphql/label |
 
 ## Request Headers
 | Header                      | Description         |
 | ---------------------------|---------------------|
 | `X-ShipperHQ-Secret-Token` | The secret token that you have generated to use the [Rate API](/docs/rate/overview) |
-| `X-ShipperHQ-Scope` | The configuration [Scope](https://docs.shipperhq.com/using-scopes-shipperhq/) for this ShipperHQ [Website](https://docs.shipperhq.com/adding-websites-in-shipperhq/).  If unsure or if the ShipperHQ account does not support multiple scopes, use `LIVE`. |
+| `X-ShipperHQ-Scope` | The configuration [Scope](https://docs.shipperhq.com/using-scopes-shipperhq/) for this ShipperHQ [Website](https://docs.shipperhq.com/adding-websites-in-shipperhq/) (accepts `LIVE`, `TEST`, `DEVELOPMENT`, or `INTEGRATION`). If unsure or if the ShipperHQ account does not support multiple scopes, use `LIVE`. |
 | `X-ShipperHQ-Session` |  This identifies the quote that you want to convert to an order. You have to use the exact same value as the [Rate API](/docs/rate/overview) request used to generate this quote. |
 
 
