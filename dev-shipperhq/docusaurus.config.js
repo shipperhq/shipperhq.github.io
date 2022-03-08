@@ -26,7 +26,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/shipperhq/shipperhq.github.io/tree/main/dev-shipperhq/docs',
+          editUrl: 'https://github.com/shipperhq/shipperhq.github.io/tree/main/dev-shipperhq',
           lastVersion: 'current',
           versions: {
             current: {
@@ -38,7 +38,7 @@ const config = {
         blog: {
           showReadingTime: true,
           editUrl:
-            'https://github.com/shipperhq/shipperhq.github.io/tree/main/dev-shipperhq/blog',
+            'https://github.com/shipperhq/shipperhq.github.io/tree/main/dev-shipperhq',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),
@@ -48,16 +48,6 @@ const config = {
   ],
 
   plugins: [
-    [
-      '@edno/docusaurus2-graphql-doc-generator',
-      {
-        rootPath: "./docs",
-        linkRoot: "../../",
-        loaders: {
-          UrlLoader: "@graphql-tools/url-loader"
-        }
-      },
-    ],
     'docusaurus-plugin-sass'
   ],
 
@@ -105,19 +95,23 @@ const config = {
               },
               {
                 type: 'doc',
+                docId: 'insight/place-order',
+                label: 'Place Order'
+              },
+              {
+                type: 'doc',
                 docId: 'rate/faq',
                 label: 'FAQ'
               },
               {
-                type: 'doc',
-                docId: 'rate-service/rate-service',
-                label: 'Rate Service GraphQL'
+                to: 'rate-service',
+                label: 'Rates API',
+                target: '_blank'
               },
               {
-                to: 'rate-service',
-                label: 'SpectaQL Rates API',
-                target: '_blank'
-              }
+                to: 'https://graphiql.shipperhq.com/',
+                label: 'API Playground',
+              },
             ]
           },
           {
@@ -142,19 +136,23 @@ const config = {
               },
               {
                 type: 'doc',
+                docId: 'insight/place-order',
+                label: 'Place Order'
+              },
+              {
+                type: 'doc',
                 docId: 'insight/faq',
                 label: 'FAQ'
               },
               {
-                type: 'doc',
-                docId: 'order-view-service/order-view-service',
-                label: 'Order View Service GraphQL'
+                to: 'order-view-service',
+                label: 'Shipping Insights API',
+                target: '_blank'
               },
               {
-                to: 'order-view-service',
-                label: 'SpectaQL Shipping Insights API',
-                target: '_blank'
-              }
+                to: 'https://graphiql.shipperhq.com/',
+                label: 'API Playground',
+              },
             ]
           },
           {
@@ -183,17 +181,21 @@ const config = {
                 label: 'FAQ'
               },
               {
-                type: 'doc',
-                docId: 'label-service/label-service',
-                label: 'Label Service GraphQL'
+                to: 'label-service',
+                label: 'Label API',
+                target: '_blank'
               },
               {
-                to: 'label-service',
-                label: 'SpectaQL Label API',
-                target: '_blank'
-              }
+                to: 'https://graphiql.shipperhq.com/',
+                label: 'API Playground',
+              },
             ]
           },
+          {
+            to: '/contact',
+            label: 'Contact Us',
+            position: 'right'
+          }
           // {to: '/blog', label: 'Blog', position: 'left'},
           // {
           //   type: 'docsVersionDropdown',
@@ -233,9 +235,13 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
                 to: '/blog',
+                label: 'Blog',
               },
+              {
+                to: '/contact',
+                label: 'Contact Us',
+              }
             ],
           },
         ],

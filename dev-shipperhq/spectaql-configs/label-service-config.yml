@@ -197,7 +197,7 @@ servers:
 
   # same format as for OpenAPI Specification https://swagger.io/specification/#server-object
 
-  - url: https://yoursite.com/graphql
+  - url: https://postapi.shipperhq.com/v3/graphql/label
     description: Production Server
     # Indicates to use this server's URL as the typical GraphQL request base in the documentation
     # If no server entries have this indicator, the first server's URL will be used.
@@ -232,29 +232,29 @@ info:
   #
   ##############################################
 
-  description: Your description here
-  version: 1.0.0
-  title: Your Welcome title here
+  description: Static Label API Documentation
+  #version: unversioned
+  title: ShipperHQ Label API Static Documentation
   # This is non-standard and optional. If omitted, will use "title". Also only relevant
   # when building non-embedded.
-  x-htmlTitle: Your HTML page title here
-  termsOfService: 'https://yoursite.com/terms'
+  #x-htmlTitle: Your HTML page title here
+  termsOfService: 'https://shipperhq.com/useragreement'
   contact:
-    name: YourSite Support
-    email: support@yoursite.com
-    url: https://yoursite.com/support
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+    name: ShipperHQ Support
+    email: support@shipperhq.com
+    url: https://shipperhq.com/support
+  #license:
+  #  name: ShipperHQ User Agreement
+  #  url: '''
 
   # A non-standard array of items to display in your Introduction Area
   x-introItems:
     # Can be a Title (for the Nav panel) + URL to simply add a link to somewhere
-    - title: A silly link to our website!
-      url: http://yoursite.com
+    - title: Label API dev portal
+      url: /docs/label/overview
     # Can be a Title (for the Nav panel) + description (for the Content panel)
-    - title: Important thing 1
-      description: Some important stuff we wanted you to know. Supports `markdown`
+    - title: ShipperHQ
+      description: https://www.shipperhq.com/
 
   # If you really want to hide the "Documentation by" at the bottom of your output, you can do so here
   # Default: false

@@ -1,48 +1,447 @@
 {
   "OBJECT": {
-    "SecretType": {
+    "ID": {
       "documentation": { "undocumented": true }
     },
-    "MyType": {
-      "fields": {
-        "nonRequiredField": {
-          "documentation": { "example": "Metadata example of `nonRequiredField`"}
-        }
-      }
+    "AccessToken": {
+      "documentation": { "undocumented": true }
+    },
+    "AuthorizationToken": {
+      "documentation": { "undocumented": true }
+    },
+    "AvailableOptions": {
+      "documentation": { "undocumented": true }
+    },
+    "BasicShippingQuote": {
+      "documentation": { "undocumented": true }
+    },
+    "BasicShippingRate": {
+      "documentation": { "undocumented": true }
+    },
+    "CarrierQuote": {
+      "documentation": { "undocumented": true }
+    },
+    "ExternalQuote": {
+      "documentation": { "undocumented": true }
+    },
+    "ItemType": {
+      "documentation": { "undocumented": true }
+    },
+    "Label": {
+      "documentation": { "undocumented": true }
+    },
+    "LabelDetails": {
+      "documentation": { "undocumented": true }
+    },
+    "LabelItem": {
+      "documentation": { "undocumented": true }
+    },
+    "LabelRecipient": {
+      "documentation": { "undocumented": true }
+    },
+    "LabelResultItem": {
+      "documentation": { "undocumented": true }
+    },
+    "Manifest": {
+      "documentation": { "undocumented": true }
+    },
+    "MasterQuote": {
+      "documentation": { "undocumented": true }
+    },
+    "Option": {
+      "documentation": { "undocumented": true }
+    },
+    "PPSESettings": {
+      "documentation": { "undocumented": true }
+    },
+    "PostageCost": {
+      "documentation": { "undocumented": true }
+    },
+    "Quote": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSAttribute": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSAvailableOptions": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSBoxedItem": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSCalendarDate": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSCarrier": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSDeliveryDateRange": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSError": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSGroupedItem": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSItem": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSOption": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSPackage": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSPickupDetail": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSPickupLocationDetail": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSShipment": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSShippingQuote": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSShippingRate": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSTimeSlot": {
+      "documentation": { "undocumented": true }
+    },
+    "RatingCarrier": {
+      "documentation": { "undocumented": true }
+    },
+    "SelectedRateOption": {
+      "documentation": { "undocumented": true }
+    },
+    "SelectedShippingRates": {
+      "documentation": { "undocumented": true }
+    },
+    "ShopifyAddressDetails": {
+      "documentation": { "undocumented": true }
+    },
+    "StoredBasicShippingQuote": {
+      "documentation": { "undocumented": true }
+    },
+    "StoredRMSCart": {
+      "documentation": { "undocumented": true }
+    },
+    "StoredRMSCustomer": {
+      "documentation": { "undocumented": true }
+    },
+    "StoredRMSDestination": {
+      "documentation": { "undocumented": true }
+    },
+    "StoredRMSRatingInfo": {
+      "documentation": { "undocumented": true }
+    },
+    "StoredRMSRequestedOptions": {
+      "documentation": { "undocumented": true }
+    },
+    "StoredRMSSiteDetails": {
+      "documentation": { "undocumented": true }
+    },
+    "UserSettings": {
+      "documentation": { "undocumented": true }
     },
     "Query": {
       "fields": {
-        "myQuery": {
-          "args": {
-            "nonReqQueryArg": {
-              "documentation": { "example": "Metadata example of `nonReqQueryArg`" }
-            }
-          }
+        "retrieveLabels": {
+           "documentation": { "undocumented": true }
+        },
+        "shopifyLabelDetails": {
+          "documentation": { "undocumented": true}
+        },
+        "viewOrder" : {
+	        "documentation" : { "documented": true}
         }
       }
-    }
-  },
-  "SCALAR": {
-    "DateTime": {
-      "documentation": { "example": "\"2016-10-07T01:08:03.420Z\"" }
     }
   },
   "INPUT_OBJECT": {
-    "FilterType": {
-      "inputFields": {
-        "someField": {
-          "documentation": { "example": true }
-        },
-        "anotherField": {
-          "documentation": { "example": "Metadata example of `anotherField`" }
-        },
-        "lastName": {
-          "documentation": { "example": "Doe" }
-        },
-        "episodeEnums": {
-          "documentation": { "example": ["EMPIRE"] }
-        }
-      }
+    "AddressWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "AdvancedFeesWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "AvailableOptionsWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "BasicShippingQuoteWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "BasicShippingRateWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "CalendarDateWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "CarrierDetailWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "CarrierWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "DeliveryDateRange": {
+      "documentation": { "undocumented": true }
+    },
+    "DeliveryDateRangeWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "GroupedItemWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "ItemWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "LabelItemWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "LabelRecipientWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "LabelWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "MethodDetailWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "MethodWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "OptionWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "OrderDetailWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "OrderWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "PackageDetailWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "PackageWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "PickupDetailWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "PickupLocationDetailWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "PostageCostWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "QuoteWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSAttributeWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSAvailableOptionsWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSBoxedItemWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSCalendarDateWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSCarrierWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSDeliveryDateRangeWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSErrorWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSGroupedItemWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSItemWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSOptionWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSPackageWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSPickupDetailWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSPickupLocationDetailWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSShipmentWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSShippingQuoteWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSShippingRateWhereInput": {
+      "documentation": { "undocumented": true }
+    },   
+    "RMSTimeSlotWhereInput": {
+      "documentation": { "undocumented": true }
+    }, 
+    "RateBreakdownWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RatingCarrierWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "SelectedOptionWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "SelectedRateOptionWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "SelectedShippingRatesWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "ShipmentDetailWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "ShipmentWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "StoredBasicShippingQuoteWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "StoredRMSCartWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "StoredRMSCustomerWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "StoredRMSDestinationWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "StoredRMSRatingInfoWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "StoredRMSRequestedOptionsWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "StoredRMSSiteDetailsWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "TimeInTransitOptionsWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "TimeSlotWhereInput": {
+      "documentation": { "undocumented": true }
+    },
+    "UOMWhereInput": {
+      "documentation": { "undocumented": true }
+    }
+  },
+  "ENUM": {
+    "BasicShippingRateOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "CarrierOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "CartType": {
+      "documentation": { "undocumented": true }
+    },
+    "DeliveryDateRangeOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "GroupedItemOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "Json": {
+      "documentation": { "undocumented": true }
+    },
+    "LabelItemOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "MethodOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "Node": {
+      "documentation": { "undocumented": true }
+    },
+    "OptionOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "PackageOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "PickupLocationDetailOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSAttributeOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSBoxedItemOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSCarrierOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSDeliveryDateRangeOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSErrorOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSGroupedItemOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSOptionOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSPackageOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSPickupLocationDetailOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSShipmentOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSShippingRateOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RMSTimeSlotOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RateBreakdownOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "RatingCarrierOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "SelectedOptionOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "SelectedRateOptionOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "ShipmentOrderByInput": {
+      "documentation": { "undocumented": true }
+    },
+    "TimeSlotOrderByInput": {
+      "documentation": { "undocumented": true }
+    }
+  },
+  "SCALAR": {
+    "Json": {
+      "documentation": { "undocumented": true }
+    },
+    "Node": {
+      "documentation": { "undocumented": true }
     }
   }
 }
+
