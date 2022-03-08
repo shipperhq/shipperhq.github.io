@@ -48,7 +48,6 @@
           <a href="#definition-Item"> Item </a>
           <a href="#definition-ItemInput"> ItemInput </a>
           <a href="#definition-ItemType"> ItemType </a>
-          <a href="#definition-Map_String_StringScalar"> Map_String_StringScalar </a>
           <a href="#definition-Method"> Method </a>
           <a href="#definition-MethodDetail"> MethodDetail </a>
           <a href="#definition-NameValuePair"> NameValuePair </a>
@@ -71,7 +70,6 @@
           <a href="#definition-TimeInTransitOption"> TimeInTransitOption </a>
           <a href="#definition-TimeSlot"> TimeSlot </a>
           <a href="#definition-Units"> Units </a>
-          <a href="#definition-UserSettings"> UserSettings </a>
         </nav>
       </div>
       <div id="docs" class="row collapse expanded drawer" data-drawer>
@@ -119,6 +117,11 @@ https://api.shipperhq.com/v2/graphql
             <h2 class="operation-name "> <code>retrieveFullShippingQuote</code> </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="swagger-operation-description operation-description"> Retrieve detailed shipping rate information for each shipment, including shipping options available for each shipment and carrier </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
                 <section class="swagger-request-body"> </section>
                 <section class="swagger-responses"> Returns a
                   <a href="#definition-FullShippingQuote"><code>FullShippingQuote</code></a>
@@ -134,7 +137,7 @@ https://api.shipperhq.com/v2/graphql
                       <td><code>ratingInfo</code> -
                         <a href="#definition-RatingInfoInput"><code>RatingInfoInput</code></a>
                       </td>
-                      <td> Cart to get quote for </td>
+                      <td> Information on items in cart and destination, used to calculate shipping rates </td>
                     </tr>
                   </table>
                 </section>
@@ -183,9 +186,9 @@ https://api.shipperhq.com/v2/graphql
     <span class="hljs-attr">"retrieveFullShippingQuote"</span>: {
       <span class="hljs-attr">"errors"</span>: [<span class="hljs-string">Error</span>],
       <span class="hljs-attr">"shipments"</span>: [<span class="hljs-string">Shipment</span>],
-      <span class="hljs-attr">"transactionId"</span>: <span class="hljs-string">"xyz789"</span>,
+      <span class="hljs-attr">"transactionId"</span>: <span class="hljs-string">"abc123"</span>,
       <span class="hljs-attr">"units"</span>: <span class="hljs-string">Units</span>,
-      <span class="hljs-attr">"validationStatus"</span>: <span class="hljs-string">"abc123"</span>
+      <span class="hljs-attr">"validationStatus"</span>: <span class="hljs-string">"xyz789"</span>
     }
   }
 }
@@ -198,6 +201,11 @@ https://api.shipperhq.com/v2/graphql
           <span id="path-retrieveshippingquote"></span>
           <div id="operation-retrieveshippingquote-Queries" class="operation panel" data-traverse-target="operation-retrieveshippingquote-Queries">
             <h2 class="operation-name "> <code>retrieveShippingQuote</code> </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-description operation-description"> Retrieve basic shipping rates including carrier and method titles and total shipping charges. </section>
+              </div>
+            </div>
             <div class="doc-row">
               <div class="doc-copy">
                 <section class="swagger-request-body"> </section>
@@ -215,7 +223,7 @@ https://api.shipperhq.com/v2/graphql
                       <td><code>ratingInfo</code> -
                         <a href="#definition-RatingInfoInput"><code>RatingInfoInput</code></a>
                       </td>
-                      <td> Cart to get quote for </td>
+                      <td> Information on items in cart and destination, used to calculate shipping rates </td>
                     </tr>
                   </table>
                 </section>
@@ -260,7 +268,7 @@ https://api.shipperhq.com/v2/graphql
     <span class="hljs-attr">"retrieveShippingQuote"</span>: {
       <span class="hljs-attr">"carriers"</span>: [<span class="hljs-string">RatingCarrier</span>],
       <span class="hljs-attr">"errors"</span>: [<span class="hljs-string">Error</span>],
-      <span class="hljs-attr">"transactionId"</span>: <span class="hljs-string">"abc123"</span>
+      <span class="hljs-attr">"transactionId"</span>: <span class="hljs-string">"xyz789"</span>
     }
   }
 }
@@ -279,6 +287,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Fees and charges included in shipping method</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -289,43 +300,43 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="changeRulesApplied"> <code>changeRulesApplied</code> -
                         <a href="#definition-String"><code>[String]</code></a>
                       </td>
-                      <td> </td>
+                      <td> List of shipping rules that surcharged or discounted the shipping rate </td>
                     </tr>
                     <tr>
                       <td data-property-name="cost"> <code>cost</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
                       </td>
-                      <td> </td>
+                      <td> Base shipping rate before any rules or fees were applied </td>
                     </tr>
                     <tr>
                       <td data-property-name="customDuties"> <code>customDuties</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
                       </td>
-                      <td> </td>
+                      <td> Duties and taxes on shipping rate </td>
                     </tr>
                     <tr>
                       <td data-property-name="flatRulesApplied"> <code>flatRulesApplied</code> -
                         <a href="#definition-String"><code>[String]</code></a>
                       </td>
-                      <td> </td>
+                      <td> List of shipping rules that set the shipping rate </td>
                     </tr>
                     <tr>
                       <td data-property-name="handlingFee"> <code>handlingFee</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
                       </td>
-                      <td> </td>
+                      <td> Handling fees applied to the shipping rate </td>
                     </tr>
                     <tr>
                       <td data-property-name="shippingPrice"> <code>shippingPrice</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
                       </td>
-                      <td> </td>
+                      <td> Shipping rate without any handling fees or taxes applied </td>
                     </tr>
                     <tr>
                       <td data-property-name="totalCharges"> <code>totalCharges</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
                       </td>
-                      <td> </td>
+                      <td> Total price of shipping rate including any fees </td>
                     </tr>
                   </table>
                 </section>
@@ -336,7 +347,7 @@ https://api.shipperhq.com/v2/graphql
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"changeRulesApplied"</span>: [<span class="hljs-string">"abc123"</span>],
+  <span class="hljs-attr">"changeRulesApplied"</span>: [<span class="hljs-string">"xyz789"</span>],
   <span class="hljs-attr">"cost"</span>: <span class="hljs-string">BigDecimal</span>,
   <span class="hljs-attr">"customDuties"</span>: <span class="hljs-string">BigDecimal</span>,
   <span class="hljs-attr">"flatRulesApplied"</span>: [<span class="hljs-string">"xyz789"</span>],
@@ -360,6 +371,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>An attribute entry</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -370,13 +384,17 @@ https://api.shipperhq.com/v2/graphql
                       <td><code>name</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td>
+                        <p>ShipperHQ Attribute Name</p>
+                      </td>
                     </tr>
                     <tr>
                       <td><code>value</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td>
+                        <p>Value of ShipperHQ Attribute Name</p>
+                      </td>
                     </tr>
                   </table>
                 </section>
@@ -386,7 +404,7 @@ https://api.shipperhq.com/v2/graphql
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"value"</span>: <span class="hljs-string">"xyz789"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"value"</span>: <span class="hljs-string">"xyz789"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -403,6 +421,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Selectable options available for this carrier e.g liftgate, residential delivery</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -410,40 +431,50 @@ https://api.shipperhq.com/v2/graphql
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="destinationType"> <code>destinationType</code> -
+                      <td data-property-name="destinationType" class="swagger-operation-deprecated"> <code>destinationType</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td>
+                        <span class="properties-deprecation-reason">Moved to generic Options field</span>
+                      </td>
                     </tr>
                     <tr>
-                      <td data-property-name="insideDelivery"> <code>insideDelivery</code> -
+                      <td data-property-name="insideDelivery" class="swagger-operation-deprecated"> <code>insideDelivery</code> -
                         <a href="#definition-Boolean"><code>Boolean!</code></a>
                       </td>
-                      <td> </td>
+                      <td>
+                        <span class="properties-deprecation-reason">Moved to generic Options field</span>
+                      </td>
                     </tr>
                     <tr>
-                      <td data-property-name="liftGateRequired"> <code>liftGateRequired</code> -
+                      <td data-property-name="liftGateRequired" class="swagger-operation-deprecated"> <code>liftGateRequired</code> -
                         <a href="#definition-Boolean"><code>Boolean!</code></a>
                       </td>
-                      <td> </td>
+                      <td>
+                        <span class="properties-deprecation-reason">Moved to generic Options field</span>
+                      </td>
                     </tr>
                     <tr>
-                      <td data-property-name="limitedDelivery"> <code>limitedDelivery</code> -
+                      <td data-property-name="limitedDelivery" class="swagger-operation-deprecated"> <code>limitedDelivery</code> -
                         <a href="#definition-Boolean"><code>Boolean!</code></a>
                       </td>
-                      <td> </td>
+                      <td>
+                        <span class="properties-deprecation-reason">Moved to generic Options field</span>
+                      </td>
                     </tr>
                     <tr>
-                      <td data-property-name="notifyRequired"> <code>notifyRequired</code> -
+                      <td data-property-name="notifyRequired" class="swagger-operation-deprecated"> <code>notifyRequired</code> -
                         <a href="#definition-Boolean"><code>Boolean!</code></a>
                       </td>
-                      <td> </td>
+                      <td>
+                        <span class="properties-deprecation-reason">Moved to generic Options field</span>
+                      </td>
                     </tr>
                     <tr>
                       <td data-property-name="options"> <code>options</code> -
                         <a href="#definition-Option"><code>[Option]</code></a>
                       </td>
-                      <td> </td>
+                      <td> List of options available for this carrier </td>
                     </tr>
                   </table>
                 </section>
@@ -454,10 +485,10 @@ https://api.shipperhq.com/v2/graphql
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"destinationType"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"insideDelivery"</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-attr">"liftGateRequired"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">"limitedDelivery"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">"destinationType"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"insideDelivery"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"liftGateRequired"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">"limitedDelivery"</span>: <span class="hljs-literal">true</span>,
   <span class="hljs-attr">"notifyRequired"</span>: <span class="hljs-literal">false</span>,
   <span class="hljs-attr">"options"</span>: [<span class="hljs-string">Option</span>]
 }
@@ -516,6 +547,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Basic shipping rate information including carrier and method titles and total shipping charges</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -526,19 +560,19 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="carriers"> <code>carriers</code> -
                         <a href="#definition-RatingCarrier"><code>[RatingCarrier!]</code></a>
                       </td>
-                      <td> </td>
+                      <td> Carrier and shipping rate detail </td>
                     </tr>
                     <tr>
                       <td data-property-name="errors"> <code>errors</code> -
                         <a href="#definition-Error"><code>[Error!]</code></a>
                       </td>
-                      <td> </td>
+                      <td> Errors returned from request </td>
                     </tr>
                     <tr>
                       <td data-property-name="transactionId"> <code>transactionId</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> ShipperHQ's transction ID </td>
                     </tr>
                   </table>
                 </section>
@@ -551,7 +585,7 @@ https://api.shipperhq.com/v2/graphql
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"carriers"</span>: [<span class="hljs-string">RatingCarrier</span>],
   <span class="hljs-attr">"errors"</span>: [<span class="hljs-string">Error</span>],
-  <span class="hljs-attr">"transactionId"</span>: <span class="hljs-string">"xyz789"</span>
+  <span class="hljs-attr">"transactionId"</span>: <span class="hljs-string">"abc123"</span>
 }
 </code></pre> </body>
                   </html>
@@ -569,6 +603,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Basic shipping rates including carrier and method titles and total shipping charges</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -579,25 +616,25 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="code"> <code>code</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Unique code of shipping rate - intended for internal use </td>
                     </tr>
                     <tr>
                       <td data-property-name="currency"> <code>currency</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Currency code of shipping rate </td>
                     </tr>
                     <tr>
                       <td data-property-name="title"> <code>title</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Title of shipping rate - intended for display to end users </td>
                     </tr>
                     <tr>
                       <td data-property-name="totalCharges"> <code>totalCharges</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Shipping rate including all fees and charges </td>
                     </tr>
                   </table>
                 </section>
@@ -610,7 +647,7 @@ https://api.shipperhq.com/v2/graphql
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"code"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"totalCharges"</span>: <span class="hljs-string">BigDecimal</span>
 }
 </code></pre> </body>
@@ -681,6 +718,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Dates and timeslots available for selection with this carrier</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -691,19 +731,19 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="availableDeliveryDates"> <code>availableDeliveryDates</code> -
                         <a href="#definition-String"><code>[String!]</code></a>
                       </td>
-                      <td> </td>
+                      <td> Available delivery dates, returned as list of dates </td>
                     </tr>
                     <tr>
                       <td data-property-name="deliveryDateRanges"> <code>deliveryDateRanges</code> -
                         <a href="#definition-DeliveryDateRange"><code>[DeliveryDateRange!]!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Available delivery dates, returned as date ranges </td>
                     </tr>
                     <tr>
                       <td data-property-name="timeSlots"> <code>timeSlots</code> -
                         <a href="#definition-TimeSlot"><code>[TimeSlot!]!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Time slots available for selection </td>
                     </tr>
                   </table>
                 </section>
@@ -734,6 +774,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Carrier and rate information, to display as options to customer</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -744,61 +787,61 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="availableOptions"> <code>availableOptions</code> -
                         <a href="#definition-AvailableOption"><code>AvailableOption</code></a>
                       </td>
-                      <td> </td>
+                      <td> Selectable options available for this carrier e.g liftgate, residential delivery </td>
                     </tr>
                     <tr>
                       <td data-property-name="calendarDate"> <code>calendarDate</code> -
                         <a href="#definition-CalendarDate"><code>CalendarDate</code></a>
                       </td>
-                      <td> </td>
+                      <td> Dates and timeslots available for selection with this carrier </td>
                     </tr>
                     <tr>
                       <td data-property-name="carrierDetail"> <code>carrierDetail</code> -
                         <a href="#definition-CarrierDetail"><code>CarrierDetail!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Carrier specific information e.g. code and name </td>
                     </tr>
                     <tr>
                       <td data-property-name="dateFormat"> <code>dateFormat</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Merchants preferred date format, in ISO 8601 Date and time format </td>
                     </tr>
                     <tr>
                       <td data-property-name="error"> <code>error</code> -
                         <a href="#definition-Error"><code>Error</code></a>
                       </td>
-                      <td> </td>
+                      <td> Error information returned by carrier </td>
                     </tr>
                     <tr>
                       <td data-property-name="methods"> <code>methods</code> -
                         <a href="#definition-Method"><code>[Method!]!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Shipping methods and rate information </td>
                     </tr>
                     <tr>
                       <td data-property-name="packages"> <code>packages</code> -
                         <a href="#definition-Package"><code>[Package!]!</code></a>
                       </td>
-                      <td> </td>
+                      <td> List of packages calculated based on carrier settings and items in the request </td>
                     </tr>
                     <tr>
                       <td data-property-name="pickupDetail"> <code>pickupDetail</code> -
                         <a href="#definition-PickupDetail"><code>PickupDetail</code></a>
                       </td>
-                      <td> </td>
+                      <td> Pickup location details, for In Store Pickup carriers only </td>
                     </tr>
                     <tr>
                       <td data-property-name="preventRulesApplied"> <code>preventRulesApplied</code> -
                         <a href="#definition-String"><code>[String]</code></a>
                       </td>
-                      <td> </td>
+                      <td> List of rules applied that prevented carrier returning rates </td>
                     </tr>
                     <tr>
                       <td data-property-name="sortOrder"> <code>sortOrder</code> -
                         <a href="#definition-Int"><code>Int</code></a>
                       </td>
-                      <td> </td>
+                      <td> Order this carrier should be displayed in list of carriers, lowest to highest </td>
                     </tr>
                   </table>
                 </section>
@@ -812,13 +855,13 @@ https://api.shipperhq.com/v2/graphql
   <span class="hljs-attr">"availableOptions"</span>: <span class="hljs-string">AvailableOption</span>,
   <span class="hljs-attr">"calendarDate"</span>: <span class="hljs-string">CalendarDate</span>,
   <span class="hljs-attr">"carrierDetail"</span>: <span class="hljs-string">CarrierDetail</span>,
-  <span class="hljs-attr">"dateFormat"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"dateFormat"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"error"</span>: <span class="hljs-string">Error</span>,
   <span class="hljs-attr">"methods"</span>: [<span class="hljs-string">Method</span>],
   <span class="hljs-attr">"packages"</span>: [<span class="hljs-string">Package</span>],
   <span class="hljs-attr">"pickupDetail"</span>: <span class="hljs-string">PickupDetail</span>,
-  <span class="hljs-attr">"preventRulesApplied"</span>: [<span class="hljs-string">"abc123"</span>],
-  <span class="hljs-attr">"sortOrder"</span>: <span class="hljs-number">987</span>
+  <span class="hljs-attr">"preventRulesApplied"</span>: [<span class="hljs-string">"xyz789"</span>],
+  <span class="hljs-attr">"sortOrder"</span>: <span class="hljs-number">123</span>
 }
 </code></pre> </body>
                   </html>
@@ -836,6 +879,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Carrier specific information e.g. code and name</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -846,37 +892,37 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="carrierCode"> <code>carrierCode</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Unique code for this carrier - intended for internal use </td>
                     </tr>
                     <tr>
                       <td data-property-name="carrierEstimatedDeliveryDate"> <code>carrierEstimatedDeliveryDate</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Delivery date message to display estimated delivery dates </td>
                     </tr>
                     <tr>
                       <td data-property-name="carrierTitle"> <code>carrierTitle</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Title of carrier - intended for display to end users </td>
                     </tr>
                     <tr>
                       <td data-property-name="carrierType"> <code>carrierType</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Carrier type e.g. UPS, FedEx, custom </td>
                     </tr>
                     <tr>
                       <td data-property-name="customDescription"> <code>customDescription</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Description of carrier - intended for display to end users e.g. tooltip </td>
                     </tr>
                     <tr>
                       <td data-property-name="displayTab"> <code>displayTab</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Display carrier as delivery or pickup type carrier </td>
                     </tr>
                   </table>
                 </section>
@@ -910,6 +956,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Cart details</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -917,22 +966,22 @@ https://api.shipperhq.com/v2/graphql
                       <th>Description</th>
                     </tr>
                     <tr>
+                      <td data-property-name="declaredValue"> <code>declaredValue</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> Total value of the cart </td>
+                    </tr>
+                    <tr>
                       <td data-property-name="freeShipping"> <code>freeShipping</code> -
                         <a href="#definition-Boolean"><code>Boolean</code></a>
                       </td>
-                      <td> </td>
+                      <td> Does the cart receive free shipping? </td>
                     </tr>
                     <tr>
                       <td data-property-name="items"> <code>items</code> -
                         <a href="#definition-ItemInput"><code>[ItemInput]</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="declaredValue"> <code>declaredValue</code> -
-                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
-                      </td>
-                      <td> </td>
+                      <td> List of items in the cart </td>
                     </tr>
                   </table>
                 </section>
@@ -943,9 +992,9 @@ https://api.shipperhq.com/v2/graphql
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"declaredValue"</span>: <span class="hljs-string">BigDecimal</span>,
   <span class="hljs-attr">"freeShipping"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">"items"</span>: [<span class="hljs-string">ItemInput</span>],
-  <span class="hljs-attr">"declaredValue"</span>: <span class="hljs-string">BigDecimal</span>
+  <span class="hljs-attr">"items"</span>: [<span class="hljs-string">ItemInput</span>]
 }
 </code></pre> </body>
                   </html>
@@ -1026,6 +1075,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Customer group</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -1036,7 +1088,9 @@ https://api.shipperhq.com/v2/graphql
                       <td><code>customerGroup</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td>
+                        <p>The Customer Group this user is in</p>
+                      </td>
                     </tr>
                   </table>
                 </section>
@@ -1063,6 +1117,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Range of available delivery dates</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -1073,13 +1130,13 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="fromDate"> <code>fromDate</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Start date of range </td>
                     </tr>
                     <tr>
                       <td data-property-name="toDate"> <code>toDate</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> End date of range </td>
                     </tr>
                   </table>
                 </section>
@@ -1089,7 +1146,7 @@ https://api.shipperhq.com/v2/graphql
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"fromDate"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"toDate"</span>: <span class="hljs-string">"xyz789"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"fromDate"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"toDate"</span>: <span class="hljs-string">"abc123"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -1106,6 +1163,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Destination address details</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -1113,46 +1173,60 @@ https://api.shipperhq.com/v2/graphql
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td><code>street</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td><code>zipcode</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td><code>selectedOptions</code> -
                         <a href="#definition-SelectedOptionsInput"><code>SelectedOptionsInput</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td><code>street2</code> -
-                        <a href="#definition-String"><code>String</code></a>
+                      <td>
+                        <p>Additional address information selected in checkout</p>
                       </td>
-                      <td> </td>
                     </tr>
                     <tr>
                       <td><code>city</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td>
+                        <p>Destination city</p>
+                      </td>
                     </tr>
                     <tr>
-                      <td><code>country</code> -
+                      <td><code>street</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td>
+                        <p>Destination street address - first line</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>street2</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Destination street address - second line (SUITE/APT #)</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>zipcode</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Destination zipcode/postcode</p>
+                      </td>
                     </tr>
                     <tr>
                       <td><code>region</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td>
+                        <p>Destination state or region</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>country</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Destination country</p>
+                      </td>
                     </tr>
                   </table>
                 </section>
@@ -1163,13 +1237,13 @@ https://api.shipperhq.com/v2/graphql
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"street"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"zipcode"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"selectedOptions"</span>: <span class="hljs-string">SelectedOptionsInput</span>,
+  <span class="hljs-attr">"city"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"street"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"street2"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"city"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"country"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"region"</span>: <span class="hljs-string">"abc123"</span>
+  <span class="hljs-attr">"zipcode"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"region"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"country"</span>: <span class="hljs-string">"xyz789"</span>
 }
 </code></pre> </body>
                   </html>
@@ -1228,8 +1302,8 @@ https://api.shipperhq.com/v2/graphql
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"errorCode"</span>: <span class="hljs-number">123</span>,
   <span class="hljs-attr">"externalErrorMessage"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"internalErrorMessage"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"priority"</span>: <span class="hljs-number">123</span>
+  <span class="hljs-attr">"internalErrorMessage"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"priority"</span>: <span class="hljs-number">987</span>
 }
 </code></pre> </body>
                   </html>
@@ -1247,6 +1321,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Detailed shipping rate information including shipping options available for each shipment and carrier</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -1257,31 +1334,31 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="errors"> <code>errors</code> -
                         <a href="#definition-Error"><code>[Error!]</code></a>
                       </td>
-                      <td> </td>
+                      <td> List of errors returned </td>
                     </tr>
                     <tr>
                       <td data-property-name="shipments"> <code>shipments</code> -
                         <a href="#definition-Shipment"><code>[Shipment!]!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Shipping and packing information for each shipment </td>
                     </tr>
                     <tr>
                       <td data-property-name="transactionId"> <code>transactionId</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> ShipperHQ's transction ID </td>
                     </tr>
                     <tr>
                       <td data-property-name="units"> <code>units</code> -
                         <a href="#definition-Units"><code>Units</code></a>
                       </td>
-                      <td> </td>
+                      <td> Currency, volume and weight units </td>
                     </tr>
                     <tr>
                       <td data-property-name="validationStatus"> <code>validationStatus</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Address validation status </td>
                     </tr>
                   </table>
                 </section>
@@ -1314,6 +1391,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Details of item in shipment</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -1324,43 +1404,43 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="declaredValue"> <code>declaredValue</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
                       </td>
-                      <td> </td>
+                      <td> Item's declared value </td>
                     </tr>
                     <tr>
                       <td data-property-name="hsCode"> <code>hsCode</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> HS Code - used in customs and duties calculations </td>
                     </tr>
                     <tr>
                       <td data-property-name="itemId"> <code>itemId</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Unique item ID </td>
                     </tr>
                     <tr>
                       <td data-property-name="name"> <code>name</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Item's name </td>
                     </tr>
                     <tr>
                       <td data-property-name="originCountry"> <code>originCountry</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Item's country of origin or manufacture </td>
                     </tr>
                     <tr>
                       <td data-property-name="qty"> <code>qty</code> -
                         <a href="#definition-Int"><code>Int</code></a>
                       </td>
-                      <td> </td>
+                      <td> Item qty </td>
                     </tr>
                     <tr>
                       <td data-property-name="sku"> <code>sku</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Item's SKU </td>
                     </tr>
                   </table>
                 </section>
@@ -1372,11 +1452,11 @@ https://api.shipperhq.com/v2/graphql
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"declaredValue"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"hsCode"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"itemId"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"hsCode"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"itemId"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"originCountry"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"qty"</span>: <span class="hljs-number">987</span>,
+  <span class="hljs-attr">"qty"</span>: <span class="hljs-number">123</span>,
   <span class="hljs-attr">"sku"</span>: <span class="hljs-string">"xyz789"</span>
 }
 </code></pre> </body>
@@ -1404,7 +1484,7 @@ https://api.shipperhq.com/v2/graphql
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">123</span>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">987</span>
 </code></pre> </body>
                   </html>
                 </section>
@@ -1421,6 +1501,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Details of item in package</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -1431,19 +1514,19 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="qtyPacked"> <code>qtyPacked</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Quantity of items in package </td>
                     </tr>
                     <tr>
                       <td data-property-name="sku"> <code>sku</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Item's SKU </td>
                     </tr>
                     <tr>
                       <td data-property-name="weightPacked"> <code>weightPacked</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Weight of items in package </td>
                     </tr>
                   </table>
                 </section>
@@ -1455,7 +1538,7 @@ https://api.shipperhq.com/v2/graphql
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"qtyPacked"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"sku"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"sku"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"weightPacked"</span>: <span class="hljs-string">BigDecimal</span>
 }
 </code></pre> </body>
@@ -1474,6 +1557,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Full details of an item in the cart</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -1481,64 +1567,94 @@ https://api.shipperhq.com/v2/graphql
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="itemId"> <code>itemId</code> -
+                      <td data-property-name="discountedBasePrice"> <code>discountedBasePrice</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> Price of the item after discounts, no tax, store's base currency </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="baseCurrency"> <code>baseCurrency</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> User's base currency </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="discountedTaxInclStorePrice"> <code>discountedTaxInclStorePrice</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> Price of the item after discounts, with tax, user's currency </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="storeBaseCurrency"> <code>storeBaseCurrency</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> Store base currency </td>
                     </tr>
                     <tr>
                       <td data-property-name="storePrice"> <code>storePrice</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="taxInclStorePrice"> <code>taxInclStorePrice</code> -
-                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="qty"> <code>qty</code> -
-                        <a href="#definition-Int"><code>Int</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="taxInclBasePrice"> <code>taxInclBasePrice</code> -
-                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="sku"> <code>sku</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="weight"> <code>weight</code> -
-                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="attributes"> <code>attributes</code> -
-                        <a href="#definition-AttributeInput"><code>[AttributeInput]</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="fixedPrice"> <code>fixedPrice</code> -
-                        <a href="#definition-Boolean"><code>Boolean</code></a>
-                      </td>
-                      <td> </td>
+                      <td> Price of the item before discounts, no tax, user's currency </td>
                     </tr>
                     <tr>
                       <td data-property-name="discountedStorePrice"> <code>discountedStorePrice</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
                       </td>
-                      <td> </td>
+                      <td> Price of the item after discounts, no tax, user's currency </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="freeShipping"> <code>freeShipping</code> -
+                        <a href="#definition-Boolean"><code>Boolean</code></a>
+                      </td>
+                      <td> Does the item receive free shipping? Boolean true/false </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="basePrice"> <code>basePrice</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> Price of the item before discounts, no tax, store's base currency </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="discountedTaxInclBasePrice"> <code>discountedTaxInclBasePrice</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> Price of the item after discounts, with tax, store's base currency </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="discountPercent"> <code>discountPercent</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> Percent discount applied </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="storeCurrentCurrency"> <code>storeCurrentCurrency</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> Store currency </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="weight"> <code>weight</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> The item's weight </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="qty"> <code>qty</code> -
+                        <a href="#definition-Int"><code>Int</code></a>
+                      </td>
+                      <td> Quantity of the item in the cart </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="fixedPrice"> <code>fixedPrice</code> -
+                        <a href="#definition-Boolean"><code>Boolean</code></a>
+                      </td>
+                      <td> Fixed price of item if not using shipping rules </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="itemId"> <code>itemId</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> The item's ID </td>
                     </tr>
                     <tr>
                       <td data-property-name="fixedWeight"> <code>fixedWeight</code> -
@@ -1547,82 +1663,52 @@ https://api.shipperhq.com/v2/graphql
                       <td> </td>
                     </tr>
                     <tr>
-                      <td data-property-name="baseCurrency"> <code>baseCurrency</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="taxPercentage"> <code>taxPercentage</code> -
+                      <td data-property-name="taxInclBasePrice"> <code>taxInclBasePrice</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="freeShipping"> <code>freeShipping</code> -
-                        <a href="#definition-Boolean"><code>Boolean</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="basePrice"> <code>basePrice</code> -
-                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="items"> <code>items</code> -
-                        <a href="#definition-ItemInput"><code>[ItemInput]</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="discountPercent"> <code>discountPercent</code> -
-                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="packageCurrency"> <code>packageCurrency</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="discountedBasePrice"> <code>discountedBasePrice</code> -
-                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="discountedTaxInclStorePrice"> <code>discountedTaxInclStorePrice</code> -
-                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="storeBaseCurrency"> <code>storeBaseCurrency</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="discountedTaxInclBasePrice"> <code>discountedTaxInclBasePrice</code> -
-                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
-                      </td>
-                      <td> </td>
+                      <td> Price of the item before discounts, including tax, store's base currency </td>
                     </tr>
                     <tr>
                       <td data-property-name="type"> <code>type</code> -
                         <a href="#definition-ItemType"><code>ItemType</code></a>
                       </td>
-                      <td> </td>
+                      <td> Type of item </td>
                     </tr>
                     <tr>
-                      <td data-property-name="storeCurrentCurrency"> <code>storeCurrentCurrency</code> -
+                      <td data-property-name="taxInclStorePrice"> <code>taxInclStorePrice</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> Price of the item before discounts, including tax, user's currency </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="items"> <code>items</code> -
+                        <a href="#definition-ItemInput"><code>[ItemInput]</code></a>
+                      </td>
+                      <td> Child item details (if any) </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="sku"> <code>sku</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> The item's SKU </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="attributes"> <code>attributes</code> -
+                        <a href="#definition-AttributeInput"><code>[AttributeInput]</code></a>
+                      </td>
+                      <td> Item attributes </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="taxPercentage"> <code>taxPercentage</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> Item tax percentage </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="packageCurrency"> <code>packageCurrency</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> User package currency </td>
                     </tr>
                   </table>
                 </section>
@@ -1633,30 +1719,30 @@ https://api.shipperhq.com/v2/graphql
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"itemId"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"storePrice"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"taxInclStorePrice"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"qty"</span>: <span class="hljs-number">123</span>,
-  <span class="hljs-attr">"taxInclBasePrice"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"sku"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"weight"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"attributes"</span>: [<span class="hljs-string">AttributeInput</span>],
-  <span class="hljs-attr">"fixedPrice"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">"discountedStorePrice"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"fixedWeight"</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-attr">"baseCurrency"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"taxPercentage"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"freeShipping"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">"basePrice"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"items"</span>: [<span class="hljs-string">ItemInput</span>],
-  <span class="hljs-attr">"discountPercent"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"packageCurrency"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"discountedBasePrice"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"baseCurrency"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"discountedTaxInclStorePrice"</span>: <span class="hljs-string">BigDecimal</span>,
   <span class="hljs-attr">"storeBaseCurrency"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"storePrice"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"discountedStorePrice"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"freeShipping"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">"basePrice"</span>: <span class="hljs-string">BigDecimal</span>,
   <span class="hljs-attr">"discountedTaxInclBasePrice"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"discountPercent"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"storeCurrentCurrency"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"weight"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"qty"</span>: <span class="hljs-number">987</span>,
+  <span class="hljs-attr">"fixedPrice"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">"itemId"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"fixedWeight"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"taxInclBasePrice"</span>: <span class="hljs-string">BigDecimal</span>,
   <span class="hljs-attr">"type"</span>: <span class="hljs-string">ItemType</span>,
-  <span class="hljs-attr">"storeCurrentCurrency"</span>: <span class="hljs-string">"abc123"</span>
+  <span class="hljs-attr">"taxInclStorePrice"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"items"</span>: [<span class="hljs-string">ItemInput</span>],
+  <span class="hljs-attr">"sku"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"attributes"</span>: [<span class="hljs-string">AttributeInput</span>],
+  <span class="hljs-attr">"taxPercentage"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"packageCurrency"</span>: <span class="hljs-string">"xyz789"</span>
 }
 </code></pre> </body>
                   </html>
@@ -1727,32 +1813,6 @@ https://api.shipperhq.com/v2/graphql
               </div>
             </div>
           </div>
-          <div id="definition-Map_String_StringScalar" class="definition panel" data-traverse-target="definition-Map_String_StringScalar">
-            <div class="definition-tags">
-              <a class="label" href="#tag-types">Types</a>
-            </div>
-            <h2 class="panel-title">
-              <a name="/definitions/Map_String_StringScalar"></a>
-              <p><code>Map_String_StringScalar</code></p>
-            </h2>
-            <div class="doc-row">
-              <div class="doc-copy">
-                <section class="json-schema-description">
-                  <p>Built-in scalar for map-like structures</p>
-                </section>
-              </div>
-              <div class="doc-examples">
-                <section>
-                  <h5>Example</h5>
-                  <html>
-                  <head></head>
-                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">object</span>
-</code></pre> </body>
-                  </html>
-                </section>
-              </div>
-            </div>
-          </div>
           <div id="definition-Method" class="definition panel" data-traverse-target="definition-Method">
             <div class="definition-tags">
               <a class="label" href="#tag-types">Types</a>
@@ -1763,6 +1823,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Shipping methods and rate information</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -1773,37 +1836,37 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="advancedFees"> <code>advancedFees</code> -
                         <a href="#definition-AdvancedFee"><code>AdvancedFee</code></a>
                       </td>
-                      <td> </td>
+                      <td> Fees and charges included in shipping method </td>
                     </tr>
                     <tr>
                       <td data-property-name="methodDetails"> <code>methodDetails</code> -
                         <a href="#definition-MethodDetail"><code>MethodDetail!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Shipping method information like code, title, total charges </td>
                     </tr>
                     <tr>
                       <td data-property-name="packages"> <code>packages</code> -
                         <a href="#definition-Package"><code>[Package!]!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Packages or boxes included in shipping rate </td>
                     </tr>
                     <tr>
                       <td data-property-name="rateBreakdownList"> <code>rateBreakdownList</code> -
                         <a href="#definition-RateBreakdown"><code>[RateBreakdown]</code></a>
                       </td>
-                      <td> </td>
+                      <td> Breakdown of shipping rates used to make up this shipping method </td>
                     </tr>
                     <tr>
                       <td data-property-name="selectedOptions"> <code>selectedOptions</code> -
                         <a href="#definition-NameValuePair"><code>[NameValuePair]</code></a>
                       </td>
-                      <td> </td>
+                      <td> Selected options included in shipping rate </td>
                     </tr>
                     <tr>
                       <td data-property-name="timeInTransitOptions"> <code>timeInTransitOptions</code> -
                         <a href="#definition-TimeInTransitOption"><code>TimeInTransitOption</code></a>
                       </td>
-                      <td> </td>
+                      <td> Dispatch and delivery date information </td>
                     </tr>
                   </table>
                 </section>
@@ -1837,6 +1900,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Shipping method and rate information</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -1847,43 +1913,43 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="currency"> <code>currency</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Currency code of shipping rate </td>
                     </tr>
                     <tr>
                       <td data-property-name="deliveryMessage"> <code>deliveryMessage</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Delivery date information included in method title - included so developers can conditionally format this part of method title </td>
                     </tr>
                     <tr>
                       <td data-property-name="methodCode"> <code>methodCode</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Unique code of shipping method - intended for internal use </td>
                     </tr>
                     <tr>
                       <td data-property-name="methodDescription"> <code>methodDescription</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Additional information about shipping method - intended for display to end users e.g. tooltip </td>
                     </tr>
                     <tr>
                       <td data-property-name="methodTitle"> <code>methodTitle</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Title of shipping rate - intended for display to end users </td>
                     </tr>
                     <tr>
                       <td data-property-name="negotiatedRate"> <code>negotiatedRate</code> -
                         <a href="#definition-Boolean"><code>Boolean</code></a>
                       </td>
-                      <td> </td>
+                      <td> Indicator whether shipping method is a negotiated rate with carrier </td>
                     </tr>
                     <tr>
                       <td data-property-name="totalCharges"> <code>totalCharges</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Shipping rate including all fees and charges </td>
                     </tr>
                   </table>
                 </section>
@@ -1894,11 +1960,11 @@ https://api.shipperhq.com/v2/graphql
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"deliveryMessage"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"methodCode"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"deliveryMessage"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"methodCode"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"methodDescription"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"methodTitle"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"methodTitle"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"negotiatedRate"</span>: <span class="hljs-literal">false</span>,
   <span class="hljs-attr">"totalCharges"</span>: <span class="hljs-string">BigDecimal</span>
 }
@@ -1918,6 +1984,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>A name-value pair</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -1928,13 +1997,13 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="name"> <code>name</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Name identifying this data point e.g. destination_type </td>
                     </tr>
                     <tr>
                       <td data-property-name="value"> <code>value</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Value of data e.g. RESIDENTIAL </td>
                     </tr>
                   </table>
                 </section>
@@ -1944,7 +2013,7 @@ https://api.shipperhq.com/v2/graphql
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"value"</span>: <span class="hljs-string">"xyz789"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"value"</span>: <span class="hljs-string">"xyz789"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -1968,13 +2037,13 @@ https://api.shipperhq.com/v2/graphql
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td><code>name</code> -
+                      <td><code>value</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
                       <td> </td>
                     </tr>
                     <tr>
-                      <td><code>value</code> -
+                      <td><code>name</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
                       <td> </td>
@@ -1987,7 +2056,7 @@ https://api.shipperhq.com/v2/graphql
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"value"</span>: <span class="hljs-string">"abc123"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"value"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -2004,6 +2073,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Selectable option available for this carrier</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -2014,37 +2086,31 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="code"> <code>code</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Option's code - use this code when passing selected options in rate request </td>
                     </tr>
                     <tr>
                       <td data-property-name="defaultValue"> <code>defaultValue</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Default value for option </td>
                     </tr>
                     <tr>
                       <td data-property-name="displayType"> <code>displayType</code> -
                         <a href="#definition-AvailableOptionType"><code>AvailableOptionType</code></a>
                       </td>
-                      <td> </td>
+                      <td> Indicates how available option should be displayed </td>
                     </tr>
                     <tr>
                       <td data-property-name="name"> <code>name</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Option's name - use this to display option to end user </td>
                     </tr>
                     <tr>
                       <td data-property-name="requestRates"> <code>requestRates</code> -
                         <a href="#definition-Boolean"><code>Boolean</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="values"> <code>values</code> -
-                        <a href="#definition-Map_String_StringScalar"><code>Map_String_StringScalar</code></a>
-                      </td>
-                      <td> </td>
+                      <td> Determines whether a change in option value should cause a new rate request, as the choice may impact shipping methods available or their price </td>
                     </tr>
                   </table>
                 </section>
@@ -2058,9 +2124,8 @@ https://api.shipperhq.com/v2/graphql
   <span class="hljs-attr">"code"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"defaultValue"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"displayType"</span>: <span class="hljs-string">AvailableOptionType</span>,
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"requestRates"</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-attr">"values"</span>: <span class="hljs-string">Map_String_StringScalar</span>
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"requestRates"</span>: <span class="hljs-literal">true</span>
 }
 </code></pre> </body>
                   </html>
@@ -2078,6 +2143,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>An option entry</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -2085,16 +2153,20 @@ https://api.shipperhq.com/v2/graphql
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td><code>value</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td><code>code</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td>
+                        <p>Option code</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>value</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Value of option code</p>
+                      </td>
                     </tr>
                   </table>
                 </section>
@@ -2104,7 +2176,7 @@ https://api.shipperhq.com/v2/graphql
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"value"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"code"</span>: <span class="hljs-string">"xyz789"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"code"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"value"</span>: <span class="hljs-string">"xyz789"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -2121,6 +2193,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Package or box included in shipping rate</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -2131,13 +2206,13 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="items"> <code>items</code> -
                         <a href="#definition-Item"><code>[Item!]!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Information on items in package </td>
                     </tr>
                     <tr>
                       <td data-property-name="packageDetail"> <code>packageDetail</code> -
                         <a href="#definition-PackageDetail"><code>PackageDetail!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Package information like box name, packed dimensions and value </td>
                     </tr>
                   </table>
                 </section>
@@ -2167,6 +2242,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Package information like box name, packed dimensions and value</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -2177,31 +2255,31 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="declaredValue"> <code>declaredValue</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
                       </td>
-                      <td> </td>
+                      <td> Declared value of package </td>
                     </tr>
                     <tr>
                       <td data-property-name="height"> <code>height</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Height of package </td>
                     </tr>
                     <tr>
                       <td data-property-name="length"> <code>length</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Length of package </td>
                     </tr>
                     <tr>
                       <td data-property-name="packageName"> <code>packageName</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Box or package name </td>
                     </tr>
                     <tr>
                       <td data-property-name="packingWeight"> <code>packingWeight</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
                       </td>
-                      <td> </td>
+                      <td> Weight of package including packaging </td>
                     </tr>
                     <tr>
                       <td data-property-name="surchargePrice"> <code>surchargePrice</code> -
@@ -2213,13 +2291,13 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="weight"> <code>weight</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Weight of package </td>
                     </tr>
                     <tr>
                       <td data-property-name="width"> <code>width</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Width of package </td>
                     </tr>
                   </table>
                 </section>
@@ -2255,6 +2333,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Pickup location information and display preferences</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -2265,37 +2346,39 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="googleApiKey"> <code>googleApiKey</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Google API key of merchant, used to display map of pickup location </td>
                     </tr>
                     <tr>
-                      <td data-property-name="pickupCart"> <code>pickupCart</code> -
+                      <td data-property-name="pickupCart" class="swagger-operation-deprecated"> <code>pickupCart</code> -
                         <a href="#definition-Boolean"><code>Boolean</code></a>
                       </td>
-                      <td> </td>
+                      <td>
+                        <span class="properties-deprecation-reason">No longer supported</span>
+                      </td>
                     </tr>
                     <tr>
                       <td data-property-name="pickupLocationDetails"> <code>pickupLocationDetails</code> -
                         <a href="#definition-PickupLocationDetail"><code>[PickupLocationDetail!]!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Details of pickup location like address, hours, location </td>
                     </tr>
                     <tr>
                       <td data-property-name="showAddress"> <code>showAddress</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Indicates whether you should display pickup location's address </td>
                     </tr>
                     <tr>
                       <td data-property-name="showMap"> <code>showMap</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Indicates whether you should display map for this pickup location </td>
                     </tr>
                     <tr>
                       <td data-property-name="showOpeningHours"> <code>showOpeningHours</code> -
                         <a href="#definition-Boolean"><code>Boolean!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Indicates whether you should display opening hours for this pickup location </td>
                     </tr>
                   </table>
                 </section>
@@ -2306,12 +2389,12 @@ https://api.shipperhq.com/v2/graphql
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"googleApiKey"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"googleApiKey"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"pickupCart"</span>: <span class="hljs-literal">false</span>,
   <span class="hljs-attr">"pickupLocationDetails"</span>: [<span class="hljs-string">PickupLocationDetail</span>],
   <span class="hljs-attr">"showAddress"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"showMap"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"showOpeningHours"</span>: <span class="hljs-literal">false</span>
+  <span class="hljs-attr">"showMap"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"showOpeningHours"</span>: <span class="hljs-literal">true</span>
 }
 </code></pre> </body>
                   </html>
@@ -2329,6 +2412,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Pickup location information like address, hours, location</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -2339,163 +2425,165 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="calendarDate"> <code>calendarDate</code> -
                         <a href="#definition-CalendarDate"><code>CalendarDate</code></a>
                       </td>
-                      <td> </td>
+                      <td> Dates and timeslots available for selection with this pickup location </td>
                     </tr>
                     <tr>
                       <td data-property-name="city"> <code>city</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> City of locations address </td>
                     </tr>
                     <tr>
                       <td data-property-name="contactName"> <code>contactName</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Contact person at pickup location </td>
                     </tr>
                     <tr>
                       <td data-property-name="country"> <code>country</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Country of locations address </td>
                     </tr>
                     <tr>
                       <td data-property-name="currentTime"> <code>currentTime</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Current time at pickup location </td>
                     </tr>
                     <tr>
                       <td data-property-name="dispatchDate"> <code>dispatchDate</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Earliest available dispatch date including lead time </td>
                     </tr>
                     <tr>
                       <td data-property-name="distance"> <code>distance</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
                       </td>
-                      <td> </td>
+                      <td> Distance of pickup location to user's delivery address </td>
                     </tr>
                     <tr>
                       <td data-property-name="email"> <code>email</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Email address for pickup location </td>
                     </tr>
                     <tr>
                       <td data-property-name="emailOption"> <code>emailOption</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Pickup location's preference to be notified when order placed for pickup from this location </td>
                     </tr>
                     <tr>
                       <td data-property-name="imageUrl"> <code>imageUrl</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> URL of image showing location map or storefront - not always supported </td>
                     </tr>
                     <tr>
                       <td data-property-name="latitude"> <code>latitude</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
                       </td>
-                      <td> </td>
+                      <td> Location latitude - to display map of location </td>
                     </tr>
                     <tr>
-                      <td data-property-name="locationMap"> <code>locationMap</code> -
+                      <td data-property-name="locationMap" class="swagger-operation-deprecated"> <code>locationMap</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td>
+                        <span class="properties-deprecation-reason">No longer supported</span>
+                      </td>
                     </tr>
                     <tr>
                       <td data-property-name="longitude"> <code>longitude</code> -
                         <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
                       </td>
-                      <td> </td>
+                      <td> Location longitude - to display map of location </td>
                     </tr>
                     <tr>
                       <td data-property-name="nonStandardHours"> <code>nonStandardHours</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Opening hours outside of standard hours </td>
                     </tr>
                     <tr>
                       <td data-property-name="phone"> <code>phone</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Contact phone number of pickup location </td>
                     </tr>
                     <tr>
                       <td data-property-name="pickupDate"> <code>pickupDate</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Earliest available pickup date including lead time </td>
                     </tr>
                     <tr>
                       <td data-property-name="pickupFullName"> <code>pickupFullName</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Name and address of pickup location in a single field </td>
                     </tr>
                     <tr>
                       <td data-property-name="pickupId"> <code>pickupId</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> ShipperHQ's ID for pickup location </td>
                     </tr>
                     <tr>
                       <td data-property-name="pickupName"> <code>pickupName</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Name of pickup location - intended for display to end user </td>
                     </tr>
                     <tr>
                       <td data-property-name="publicId"> <code>publicId</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Location's public ID, often used for post order processing </td>
                     </tr>
                     <tr>
                       <td data-property-name="standardHours"> <code>standardHours</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Standard opening hours for this pickup location </td>
                     </tr>
                     <tr>
                       <td data-property-name="state"> <code>state</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> State of locations address </td>
                     </tr>
                     <tr>
                       <td data-property-name="street1"> <code>street1</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Street line one of locations address </td>
                     </tr>
                     <tr>
                       <td data-property-name="street2"> <code>street2</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Street line two of locations address </td>
                     </tr>
                     <tr>
                       <td data-property-name="walkingDirections"> <code>walkingDirections</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Walking directions from user's location to store - not always supported </td>
                     </tr>
                     <tr>
                       <td data-property-name="websiteUrl"> <code>websiteUrl</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Location's website </td>
                     </tr>
                     <tr>
                       <td data-property-name="zipcode"> <code>zipcode</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Zipcode or postcode of locations address </td>
                     </tr>
                   </table>
                 </section>
@@ -2507,31 +2595,31 @@ https://api.shipperhq.com/v2/graphql
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"calendarDate"</span>: <span class="hljs-string">CalendarDate</span>,
-  <span class="hljs-attr">"city"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"contactName"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"country"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"currentTime"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"city"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"contactName"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"country"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"currentTime"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"dispatchDate"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"distance"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"email"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"emailOption"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"email"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"emailOption"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"imageUrl"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"latitude"</span>: <span class="hljs-string">BigDecimal</span>,
-  <span class="hljs-attr">"locationMap"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"locationMap"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"longitude"</span>: <span class="hljs-string">BigDecimal</span>,
   <span class="hljs-attr">"nonStandardHours"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"pickupDate"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"pickupFullName"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"pickupId"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"pickupName"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"publicId"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"pickupName"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"publicId"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"standardHours"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"state"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"street1"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"state"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"street1"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"street2"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"walkingDirections"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"websiteUrl"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"walkingDirections"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"websiteUrl"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"zipcode"</span>: <span class="hljs-string">"xyz789"</span>
 }
 </code></pre> </body>
@@ -2550,6 +2638,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Breakdown of shipping rates used to make up a shipping method</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -2560,49 +2651,55 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="advancedFees"> <code>advancedFees</code> -
                         <a href="#definition-AdvancedFee"><code>AdvancedFee</code></a>
                       </td>
-                      <td> </td>
+                      <td> Fees and charges included in shipping method </td>
                     </tr>
                     <tr>
                       <td data-property-name="carrierDetail"> <code>carrierDetail</code> -
                         <a href="#definition-CarrierDetail"><code>CarrierDetail</code></a>
                       </td>
-                      <td> </td>
+                      <td> Carrier specific information e.g. code and name </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="isWinningRate"> <code>isWinningRate</code> -
+                        <a href="#definition-Boolean"><code>Boolean</code></a>
+                      </td>
+                      <td> The winning method of the rates being compared via rate shopping rule </td>
                     </tr>
                     <tr>
                       <td data-property-name="methodCode"> <code>methodCode</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Unique code of shipping method - intended for internal use </td>
                     </tr>
                     <tr>
                       <td data-property-name="methodDetails"> <code>methodDetails</code> -
                         <a href="#definition-MethodDetail"><code>MethodDetail!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Shipping method information like code, title, total charges </td>
                     </tr>
                     <tr>
                       <td data-property-name="packages"> <code>packages</code> -
                         <a href="#definition-Package"><code>[Package!]!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Packages or boxes included in shipping rate </td>
                     </tr>
                     <tr>
                       <td data-property-name="shipmentDetail"> <code>shipmentDetail</code> -
                         <a href="#definition-ShipmentDetail"><code>ShipmentDetail</code></a>
                       </td>
-                      <td> </td>
+                      <td> Details of shipment </td>
                     </tr>
                     <tr>
                       <td data-property-name="timeInTransitOptions"> <code>timeInTransitOptions</code> -
                         <a href="#definition-TimeInTransitOption"><code>TimeInTransitOption</code></a>
                       </td>
-                      <td> </td>
+                      <td> Dispatch and delivery date information </td>
                     </tr>
                     <tr>
                       <td data-property-name="winningRate"> <code>winningRate</code> -
                         <a href="#definition-Boolean"><code>Boolean</code></a>
                       </td>
-                      <td> </td>
+                      <td> No longer in use, use isWinningRate </td>
                     </tr>
                   </table>
                 </section>
@@ -2615,12 +2712,13 @@ https://api.shipperhq.com/v2/graphql
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"advancedFees"</span>: <span class="hljs-string">AdvancedFee</span>,
   <span class="hljs-attr">"carrierDetail"</span>: <span class="hljs-string">CarrierDetail</span>,
+  <span class="hljs-attr">"isWinningRate"</span>: <span class="hljs-literal">true</span>,
   <span class="hljs-attr">"methodCode"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"methodDetails"</span>: <span class="hljs-string">MethodDetail</span>,
   <span class="hljs-attr">"packages"</span>: [<span class="hljs-string">Package</span>],
   <span class="hljs-attr">"shipmentDetail"</span>: <span class="hljs-string">ShipmentDetail</span>,
   <span class="hljs-attr">"timeInTransitOptions"</span>: <span class="hljs-string">TimeInTransitOption</span>,
-  <span class="hljs-attr">"winningRate"</span>: <span class="hljs-literal">true</span>
+  <span class="hljs-attr">"winningRate"</span>: <span class="hljs-literal">false</span>
 }
 </code></pre> </body>
                   </html>
@@ -2638,6 +2736,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Carrier and shipping rate information</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -2648,31 +2749,31 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="carrierCode"> <code>carrierCode</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Unique code for this carrier - intended for internal use </td>
                     </tr>
                     <tr>
                       <td data-property-name="carrierTitle"> <code>carrierTitle</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Title of carrier - intended for display to end users </td>
                     </tr>
                     <tr>
                       <td data-property-name="carrierType"> <code>carrierType</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Carrier type e.g. UPS, FedEx, custom </td>
                     </tr>
                     <tr>
                       <td data-property-name="error"> <code>error</code> -
                         <a href="#definition-Error"><code>Error</code></a>
                       </td>
-                      <td> </td>
+                      <td> Error information </td>
                     </tr>
                     <tr>
                       <td data-property-name="shippingRates"> <code>shippingRates</code> -
                         <a href="#definition-BasicShippingRate"><code>[BasicShippingRate!]</code></a>
                       </td>
-                      <td> </td>
+                      <td> Basic shipping rates including carrier and method titles and total shipping charges </td>
                     </tr>
                   </table>
                 </section>
@@ -2684,8 +2785,8 @@ https://api.shipperhq.com/v2/graphql
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"carrierCode"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"carrierTitle"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"carrierType"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"carrierTitle"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"carrierType"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"error"</span>: <span class="hljs-string">Error</span>,
   <span class="hljs-attr">"shippingRates"</span>: [<span class="hljs-string">BasicShippingRate</span>]
 }
@@ -2705,6 +2806,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Details about the order/shipment to be rated</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -2712,40 +2816,52 @@ https://api.shipperhq.com/v2/graphql
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td><code>requestedOptions</code> -
-                        <a href="#definition-RequestedOptionsInput"><code>RequestedOptionsInput</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td><code>destination</code> -
-                        <a href="#definition-DestinationInput"><code>DestinationInput</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td><code>customer</code> -
-                        <a href="#definition-CustomerInput"><code>CustomerInput</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td><code>cart</code> -
-                        <a href="#definition-CartInput"><code>CartInput</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td><code>cartType</code> -
                         <a href="#definition-CartType"><code>CartType</code></a>
                       </td>
-                      <td> </td>
+                      <td>
+                        <p>Checkout type</p>
+                      </td>
                     </tr>
                     <tr>
                       <td><code>siteDetails</code> -
                         <a href="#definition-SiteDetailsInput"><code>SiteDetailsInput</code></a>
                       </td>
-                      <td> </td>
+                      <td>
+                        <p>Information about site/platform</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>cart</code> -
+                        <a href="#definition-CartInput"><code>CartInput</code></a>
+                      </td>
+                      <td>
+                        <p>Cart details</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>destination</code> -
+                        <a href="#definition-DestinationInput"><code>DestinationInput</code></a>
+                      </td>
+                      <td>
+                        <p>Ship to address</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>requestedOptions</code> -
+                        <a href="#definition-RequestedOptionsInput"><code>RequestedOptionsInput</code></a>
+                      </td>
+                      <td>
+                        <p>Selected checkout options</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>customer</code> -
+                        <a href="#definition-CustomerInput"><code>CustomerInput</code></a>
+                      </td>
+                      <td>
+                        <p>Details about the customer/recipient</p>
+                      </td>
                     </tr>
                   </table>
                 </section>
@@ -2756,12 +2872,12 @@ https://api.shipperhq.com/v2/graphql
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"requestedOptions"</span>: <span class="hljs-string">RequestedOptionsInput</span>,
-  <span class="hljs-attr">"destination"</span>: <span class="hljs-string">DestinationInput</span>,
-  <span class="hljs-attr">"customer"</span>: <span class="hljs-string">CustomerInput</span>,
-  <span class="hljs-attr">"cart"</span>: <span class="hljs-string">CartInput</span>,
   <span class="hljs-attr">"cartType"</span>: <span class="hljs-string">CartType</span>,
-  <span class="hljs-attr">"siteDetails"</span>: <span class="hljs-string">SiteDetailsInput</span>
+  <span class="hljs-attr">"siteDetails"</span>: <span class="hljs-string">SiteDetailsInput</span>,
+  <span class="hljs-attr">"cart"</span>: <span class="hljs-string">CartInput</span>,
+  <span class="hljs-attr">"destination"</span>: <span class="hljs-string">DestinationInput</span>,
+  <span class="hljs-attr">"requestedOptions"</span>: <span class="hljs-string">RequestedOptionsInput</span>,
+  <span class="hljs-attr">"customer"</span>: <span class="hljs-string">CustomerInput</span>
 }
 </code></pre> </body>
                   </html>
@@ -2779,6 +2895,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Selected delivery options</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -2786,34 +2905,34 @@ https://api.shipperhq.com/v2/graphql
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="shipmentId"> <code>shipmentId</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="carrierCode"> <code>carrierCode</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Unique carrier ID </td>
                     </tr>
                     <tr>
                       <td data-property-name="options"> <code>options</code> -
                         <a href="#definition-OptionInput"><code>[OptionInput]</code></a>
                       </td>
-                      <td> </td>
+                      <td> Selected checkout options </td>
                     </tr>
                     <tr>
-                      <td data-property-name="selectedDate"> <code>selectedDate</code> -
+                      <td data-property-name="shipmentId"> <code>shipmentId</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Unique shipment ID </td>
                     </tr>
                     <tr>
                       <td data-property-name="selectedPickupId"> <code>selectedPickupId</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> User's selected pickup location ID </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="selectedDate"> <code>selectedDate</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> User's chosen delivery date </td>
                     </tr>
                   </table>
                 </section>
@@ -2824,11 +2943,11 @@ https://api.shipperhq.com/v2/graphql
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"shipmentId"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"carrierCode"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"options"</span>: [<span class="hljs-string">OptionInput</span>],
-  <span class="hljs-attr">"selectedDate"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"selectedPickupId"</span>: <span class="hljs-string">"abc123"</span>
+  <span class="hljs-attr">"shipmentId"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"selectedPickupId"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"selectedDate"</span>: <span class="hljs-string">"xyz789"</span>
 }
 </code></pre> </body>
                   </html>
@@ -2883,6 +3002,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Shipping and packing information for this shipment</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -2893,19 +3015,19 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="carriers"> <code>carriers</code> -
                         <a href="#definition-Carrier"><code>[Carrier!]!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Carrier and rate information for this shipment </td>
                     </tr>
                     <tr>
                       <td data-property-name="groupedItems"> <code>groupedItems</code> -
                         <a href="#definition-GroupedItem"><code>[GroupedItem!]!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Details of items in shipment </td>
                     </tr>
                     <tr>
                       <td data-property-name="shipmentDetail"> <code>shipmentDetail</code> -
                         <a href="#definition-ShipmentDetail"><code>ShipmentDetail!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Unique ID and display name of shipment </td>
                     </tr>
                   </table>
                 </section>
@@ -2936,6 +3058,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Unique ID and display name of shipment</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -2944,21 +3069,21 @@ https://api.shipperhq.com/v2/graphql
                     </tr>
                     <tr>
                       <td data-property-name="description"> <code>description</code> -
-                        <a href="#definition-String"><code>String!</code></a>
+                        <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Further description of shipment - intended for display to end user e.g. tooltip </td>
                     </tr>
                     <tr>
                       <td data-property-name="name"> <code>name</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Display name of shipment </td>
                     </tr>
                     <tr>
                       <td data-property-name="shipmentId"> <code>shipmentId</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Unique id of shipment - used when requesting rates for just this shipment </td>
                     </tr>
                   </table>
                 </section>
@@ -2968,7 +3093,7 @@ https://api.shipperhq.com/v2/graphql
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"description"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"shipmentId"</span>: <span class="hljs-string">"xyz789"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"description"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"shipmentId"</span>: <span class="hljs-string">"abc123"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -2985,6 +3110,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Details about the website/platform</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -2992,34 +3120,44 @@ https://api.shipperhq.com/v2/graphql
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td><code>appVersion</code> -
+                      <td><code>WebsiteUrl</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td>
+                        <p>Website URL the request is sent from</p>
+                      </td>
                     </tr>
                     <tr>
-                      <td><code>websiteUrl</code> -
+                      <td><code>IpAddress</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td>
+                        <p>User&#39;s IP Address</p>
+                      </td>
                     </tr>
                     <tr>
-                      <td><code>ecommerceCart</code> -
+                      <td><code>EcommerceCart</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td>
+                        <p>Ecommerce Platform Name</p>
+                      </td>
                     </tr>
                     <tr>
-                      <td><code>ecommerceVersion</code> -
+                      <td><code>AppVersion</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td>
+                        <p>ShipperHQ Extension Version</p>
+                      </td>
                     </tr>
                     <tr>
-                      <td><code>ipAddress</code> -
+                      <td><code>EcommerceVersion</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td>
+                        <p>Ecommerce Platform&#39;s version</p>
+                      </td>
                     </tr>
                   </table>
                 </section>
@@ -3030,11 +3168,11 @@ https://api.shipperhq.com/v2/graphql
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"appVersion"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"websiteUrl"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"ecommerceCart"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"ecommerceVersion"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"ipAddress"</span>: <span class="hljs-string">"abc123"</span>
+  <span class="hljs-attr">"WebsiteUrl"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"IpAddress"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"EcommerceCart"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"AppVersion"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"EcommerceVersion"</span>: <span class="hljs-string">"xyz789"</span>
 }
 </code></pre> </body>
                   </html>
@@ -3068,6 +3206,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Dispatch and delivery date information</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -3078,13 +3219,13 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="deliveryDate"> <code>deliveryDate</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Delivery date of shipping method </td>
                     </tr>
                     <tr>
                       <td data-property-name="dispatchDate"> <code>dispatchDate</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Dispatch date of shipping method </td>
                     </tr>
                   </table>
                 </section>
@@ -3111,6 +3252,9 @@ https://api.shipperhq.com/v2/graphql
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Time slot information for pickup or delivery</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -3121,19 +3265,19 @@ https://api.shipperhq.com/v2/graphql
                       <td data-property-name="interval"> <code>interval</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Length of each time slot </td>
                     </tr>
                     <tr>
                       <td data-property-name="timeEnd"> <code>timeEnd</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> End time of last time slot available </td>
                     </tr>
                     <tr>
                       <td data-property-name="timeStart"> <code>timeStart</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Start time of first time slot available </td>
                     </tr>
                   </table>
                 </section>
@@ -3143,7 +3287,7 @@ https://api.shipperhq.com/v2/graphql
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"interval"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"timeEnd"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"timeStart"</span>: <span class="hljs-string">"xyz789"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"interval"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"timeEnd"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"timeStart"</span>: <span class="hljs-string">"abc123"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -3192,137 +3336,7 @@ https://api.shipperhq.com/v2/graphql
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"currency"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"volume"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"weight"</span>: <span class="hljs-string">"xyz789"</span>}
-</code></pre> </body>
-                  </html>
-                </section>
-              </div>
-            </div>
-          </div>
-          <div id="definition-UserSettings" class="definition panel" data-traverse-target="definition-UserSettings">
-            <div class="definition-tags">
-              <a class="label" href="#tag-types">Types</a>
-            </div>
-            <h2 class="panel-title">
-              <a name="/definitions/UserSettings"></a>
-              <p><code>UserSettings</code></p>
-            </h2>
-            <div class="doc-row">
-              <div class="doc-copy">
-                <section class="json-schema-properties-blank">
-                  <table>
-                    <tr>
-                      <th>Field Name</th>
-                      <th>Description</th>
-                    </tr>
-                    <tr>
-                      <td data-property-name="calendarDisplay"> <code>calendarDisplay</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="carrierGroupDescription"> <code>carrierGroupDescription</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="cityRequired"> <code>cityRequired</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="dateFormat"> <code>dateFormat</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="googleApiKey"> <code>googleApiKey</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="mergedRateCarrierCode"> <code>mergedRateCarrierCode</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="mergedRateCarrierTitle"> <code>mergedRateCarrierTitle</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="mergedRateMethodCode"> <code>mergedRateMethodCode</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="mergedRateMethodTitle"> <code>mergedRateMethodTitle</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="printNodeApiKey"> <code>printNodeApiKey</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="shippingTooltipText"> <code>shippingTooltipText</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="storepickupShowAddress"> <code>storepickupShowAddress</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="storepickupShowHours"> <code>storepickupShowHours</code> -
-                        <a href="#definition-Boolean"><code>Boolean</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="storepickupShowMap"> <code>storepickupShowMap</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                  </table>
-                </section>
-              </div>
-              <div class="doc-examples">
-                <section>
-                  <h5>Example</h5>
-                  <html>
-                  <head></head>
-                  <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"calendarDisplay"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"carrierGroupDescription"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"cityRequired"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"dateFormat"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"googleApiKey"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"mergedRateCarrierCode"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"mergedRateCarrierTitle"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"mergedRateMethodCode"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"mergedRateMethodTitle"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"printNodeApiKey"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"shippingTooltipText"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"storepickupShowAddress"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"storepickupShowHours"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">"storepickupShowMap"</span>: <span class="hljs-string">"abc123"</span>
-}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"currency"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"volume"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"weight"</span>: <span class="hljs-string">"xyz789"</span>}
 </code></pre> </body>
                   </html>
                 </section>
