@@ -7,8 +7,6 @@ tags: [insight, api, faq]
 ---
 import Error from '../transclusion/error.md' // This is an included file (see below the Error component)
 
-# Shipping Insights FAQ
-
 ## Is the data for past orders available via the Insight API?
 
 No, ShipperHQ does not store shipment data until the [Shipping Insights](https://docs.shipperhq.com/shipping-insights-configuration/) Advanced Feature enabled on a ShipperHQ account. Orders placed before this feature is enabled are not available via the Insight API. Additionally, if the Shipping Insights feature is disabled, no shipment information will be stored until it is reenabled.

@@ -1,9 +1,8 @@
 ---
 sidebar_position: 10
+title: Rate FAQ
 ---
 import Error from '../transclusion/error.md' // This is an included file (see below the Error component)
-
-# Rate FAQ
 
 ## Does the rating API return duties (DDU/DDP) information?
 

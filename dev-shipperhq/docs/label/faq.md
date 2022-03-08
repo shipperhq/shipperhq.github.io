@@ -1,10 +1,8 @@
 ---
 sidebar_position: 4
+title: Label FAQ
 ---
 import Error from '../transclusion/error.md' // This is an included file (see below the Error component)
-
-
-# FAQ
 
 ## Is the Label API available?
 
