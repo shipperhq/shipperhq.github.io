@@ -33,8 +33,7 @@ introspection:
   # URL of the GraphQL endpoint to hit if you want to generate the documentation based on live Introspection Query results
   # NOTE: If not using introspection.url OR servers[], you need to provide x-swaggerUrl
   # to satisfy the URL Swagger requirement.
-  # url: https://api.shipperhq.com/v2/graphql
-  url: http://www.localhost.com:8080/shipperhq-ws/v2/graphql
+  url: https://api.shipperhq.com/v2/graphql
   metadataFile: spectaql-data/rate-service-metadata.json
 
   # If using the "url" option above, any headers (such as Authorization) can be added here. This
