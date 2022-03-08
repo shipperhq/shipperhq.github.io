@@ -34,6 +34,7 @@ introspection:
   # NOTE: If not using introspection.url OR servers[], you need to provide x-swaggerUrl
   # to satisfy the URL Swagger requirement.
   url: https://api.shipperhq.com/v2/graphql
+  metadataFile: spectaql-data/rate-service-metadata.json
 
   # If using the "url" option above, any headers (such as Authorization) can be added here. This
   # can also be added via the CLI options
@@ -77,9 +78,6 @@ introspection:
   # baked it into your Introspection Query results somehow (on the server-side, for example) then you
   # can ignore these options completely.
   #
-
-  # File that contains your metadata data in JS module export, or JSON format
-  metadataFile: spectaql-data/rate-service-metadata.json
 
   # The path to a key from which to read the documentation-related metadata at each level of your metadata file.
   # Defaults to 'documentation', but in case you use a different name, or have a complex/nested metadata structure, you can

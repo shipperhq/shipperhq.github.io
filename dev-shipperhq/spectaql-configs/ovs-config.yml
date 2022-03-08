@@ -34,6 +34,7 @@ introspection:
   # NOTE: If not using introspection.url OR servers[], you need to provide x-swaggerUrl
   # to satisfy the URL Swagger requirement.
   url: https://ovs.shipperhq.com
+  metadataFile:  spectaql-data/ovs-metadata.json
 
   # If using the "url" option above, any headers (such as Authorization) can be added here. This
   # can also be added via the CLI options
