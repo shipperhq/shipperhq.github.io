@@ -1,4 +1,4 @@
-[//]: # (This may be the most platform independent comment)
+[//]: # (This is a file included in other files: all the FAQ of all APIs contain this file)
 
 | Error Code | Type | Error Message |
 |------|-----|-----|

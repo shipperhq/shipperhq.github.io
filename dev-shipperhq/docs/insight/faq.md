@@ -5,7 +5,7 @@ title: Shipping Insights FAQ
 authors: []
 tags: [insight, api, faq]
 ---
-import Error from '../transclusion/error.md' // Assumes an integration is used to compile MDX -> JS.
+import Error from '../transclusion/error.md' // This is an included file (see below the Error component)
 
 # Shipping Insights FAQ
 
