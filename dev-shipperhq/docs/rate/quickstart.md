@@ -12,11 +12,10 @@ This document is intended for technical architects and developers that need to i
 
 Note, this does not document the standard types and fields the API provides. This information is included in the [Insight API](https://dev.shipperhq.com/order-view-service/) documentation or can be obtained via our API playground.
 
-## GraphQL
-We've implemented the Rate API in GraphQL. If you're unfamiliar with GraphQL, Please refer to the [Introduction to GraphQL](https://graphql.org/learn/) article from [GraphQL.org](https://graphql.org) for more information.
+Our Rate API is implemented in GraphQL. See the [SDK Quickstart](../quickstart/) for more information.
 
-
-In order to use the ShipperHQ Rate API you'll need a ShipperHQ account configured with at least one Website, one Origin, and one Carrier. Once you have an account, you'll need to retrieve authentication credentials that will allow you to access the Rate API.
+## Requirements
+In order to use the ShipperHQ Rate API you'll need a ShipperHQ account configured with at least one Website, one Origin, and one Carrier. Once you have an account, you'll need to retrieve authentication credentials as described below that will allow you to access the Rate API.
 
 ## Authentication Process
 To use the ShipperHQ Rate API you need to generate a JWT authentication token. This is a three step process:
