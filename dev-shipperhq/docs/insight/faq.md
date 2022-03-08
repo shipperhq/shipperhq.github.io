@@ -5,6 +5,7 @@ title: Shipping Insights FAQ
 authors: []
 tags: [insight, api, faq]
 ---
+import Error from '../transclusion/error.md' // Assumes an integration is used to compile MDX -> JS.
 
 # Shipping Insights FAQ
 
@@ -25,3 +26,8 @@ Not currently. We return the [Origin](https://docs.shipperhq.com/origin-configur
 ## Is Freight Class available via Insight?
 
 Not currently. [Freight Class](https://docs.shipperhq.com/ltl-freight-carrier-configuration/#Freight_Classes) will be added in an upcoming version of the Insight API.
+
+## Error codes & messages
+[//]: # (This is an imported file - Do not modify directly this section)
+[//]: # (Look for the import statement at the top of the file to have the path of the included file)
+<Error components={props.components} />
