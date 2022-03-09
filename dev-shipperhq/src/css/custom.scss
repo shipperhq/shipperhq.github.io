@@ -18,16 +18,63 @@
   --ifm-color-primary-light: #00AAE5;
   --ifm-color-primary-lighter: #03C6F4;
   --ifm-color-primary-lightest: #E6F7FD;
+  --ifm-color-primary-lightestest: #F2F9FC;
   --ifm-code-font-size: 95%;
   --ifm-heading-color: #384451;
   --ifm-footer-background-color: #384451;
+  --ifm-hero-background-color: #F2F9FC;
 }
 html[data-theme='dark']{
   --ifm-heading-color: white;
+
+  .heroBanner_src-pages-index-module {
+    --ifm-hero-background-color: #384451;
+  }
+  .partner-quote {
+    background: #384451;
+  }
+
 }
+
+.heroBanner_src-pages-index-module {
+  --ifm-hero-background-color: #F2F9FC;
+}
+
+
 .footer--dark {
   background-color: #242526;
 }
+.breadcrumbs {
+  margin: 1rem;
+}
+.markdown {
+  margin: 2rem 1rem;
+
+  img {
+    background: white;
+    border-radius: 6px;
+    padding: 10px 0;
+  }
+}
+.dropdown > .navbar__link:after {
+  //content: 'f078';
+  //font-family: "Font Awesome 5 Pro";
+  //border:none;
+  //position:absolute;
+  //right:0;
+}
+.markdown li {
+  margin-bottom: 12px;
+}
+.table-of-contents {
+  font-size: 1rem;
+}
+.heroBanner_src-pages-index-module h4 {
+  max-width: 775px;
+  font-size: 1.25rem;
+  line-height: 2rem;
+}
+
 .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.1);
   display: block;
@@ -42,9 +89,11 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 h1, h2, h3, h4 {
   font-family: 'Filson Pro', sans-serif;
 }
-
 .reg {
   font-weight: normal;
+}
+.semi {
+  font-weight: 500;
 }
 .bold {
   font-weight: 700;
@@ -73,10 +122,12 @@ h1, h2, h3, h4 {
 
 // Links w/ arrow-right
 a {
+  font-weight: 600;
+
   &.arrow-right {
     font-weight: 800;
     text-decoration: underline;
-    color: var(--ifm-color-primary-darkest);
+    color: var(--ifm-color-primary);
 
     &:after {
       content: '\f061';
@@ -94,7 +145,7 @@ a {
 
   &:hover {
     cursor: pointer;
-    color: var(--ifm-color-primary-dark);
+    color: var(--ifm-color-primary-light);
   }
 }
 

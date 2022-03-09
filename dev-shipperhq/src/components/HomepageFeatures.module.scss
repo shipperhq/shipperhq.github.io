@@ -10,6 +10,7 @@
 
   @media (min-width: 768px){
     flex-direction: row;
+    align-items: center;
   }
 
 }
@@ -20,10 +21,14 @@
 
   @media (min-width: 768px){
     margin-left: 3rem;
+    min-width: 420px;
   }
 }
+.featureImg {
+  margin-bottom: 2rem;
+}
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.featurePng {
+  //height: 200px;
+  //width: 200px;
 }
