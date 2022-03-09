@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'ShipperHQ Developers',
-  tagline: 'Explore the ShipperHQ SDK with API guides and examples for how to create custom integrations with ShipperHQ',
+  tagline: 'Get started exploring our SDK with drop-in components, examples, and playgrounds to help you start building your custom integration with ShipperHQ\n',
   url: 'https://dev.shipperhq.com/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
