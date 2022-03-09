@@ -213,39 +213,20 @@ const config = {
       footer: {
         style: 'dark',
         links: [
-          {
-            title: 'Docs',
-            items: [
               {
-                label: 'SDK Use Cases',
-                to: '/docs/sdk-use-cases',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/shipperhq',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                to: '/blog',
-                label: 'Blog',
+                label: 'ShipperHQ.com',
+                href: 'https://shipperhq.com',
               },
               {
-                to: '/contact',
+                label: 'Help Docs',
+                href: 'https://docs.shipperhq.com',
+              },
+              {
                 label: 'Contact Us',
+                to: '/contact',
               }
-            ],
-          },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} ShipperHQ, Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} ShipperHQ`,
       },
       prism: {
         theme: lightCodeTheme,
