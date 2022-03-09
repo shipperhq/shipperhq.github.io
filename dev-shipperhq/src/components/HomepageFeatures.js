@@ -4,30 +4,29 @@ import styles from './HomepageFeatures.module.scss';
 
 const FeatureList = [
   {
-    title: 'Rate',
+    title: 'Rates',
     subtitle: 'Get shipping rates for your checkout',
-    Png: require('../../static/img/rating-sdk-img.png').default,
+    Png: require('../../static/img/rating-feature.png').default,
     description: (
       <>
-        Integrate Shipping Rates produced by ShipperHQ into your app via the Rating API.
+          Access shipping rate details and query what is most important to you and your business via the Rates API.
       </>
     ),
   },
   {
-    title: 'Shipping Insights',
+    title: 'Insights',
     subtitle: 'Manage and fulfill your orders easily',
-    Png: require('../../static/img/shipping-insights-sdk-img.png').default,
+    Png: require('../../static/img/shippinginsights-feature.png').default,
     description: (
       <>
-        The Insight API allows you to leverage the most advanved ShipperHQ (split shipment, LTL, delivery date, dimensional) with a few lines
-        of code.
+          Connect your checkout with post-order fulfillment with detailed shipping information for each order.
       </>
     ),
   },
   {
-    title: 'Label',
+    title: 'Labels',
     subtitle: 'Purchase and print shipping labels',
-    Png: require('../../static/img/label-sdk-img.png').default,
+    Png: require('../../static/img/labelprinting-feature.png').default,
     description: (
       <>
         Coming soon! Please contact sales@shipperhq.com to get early access (API available in beta).

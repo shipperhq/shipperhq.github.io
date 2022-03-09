@@ -14,7 +14,7 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <h1 className="hero__title mb10">{siteConfig.title}</h1>
+        <h1 className="hero__title mb10 text-3xl">{siteConfig.title}</h1>
         <h4 className="hero__subtitle reg">{siteConfig.tagline}</h4>
         <div className={styles.buttons}>
         </div>
