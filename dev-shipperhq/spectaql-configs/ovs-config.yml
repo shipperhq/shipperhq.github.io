@@ -233,9 +233,9 @@ info:
   #
   ##############################################
 
-  description: Insight API Documentation
+  description: Shipping Insights API Documentation
   #version: unversioned
-  title: ShipperHQ Insight API Static Documentation
+  title: ShipperHQ Shipping Insights API Static Documentation
   # This is non-standard and optional. If omitted, will use "title". Also only relevant
   # when building non-embedded.
   #x-htmlTitle: Your HTML page title here
@@ -251,7 +251,7 @@ info:
   # A non-standard array of items to display in your Introduction Area
   x-introItems:
     # Can be a Title (for the Nav panel) + URL to simply add a link to somewhere
-    - title: Insight API dev portal
+    - title: Shipping Insights API dev portal
       url: /docs/insight/overview
     # Can be a Title (for the Nav panel) + description (for the Content panel)
     - title: ShipperHQ
