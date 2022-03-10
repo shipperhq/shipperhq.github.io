@@ -74,9 +74,13 @@ const config = {
             label: 'Quickstart',
           },
           {
+            to: 'https://graphiql.shipperhq.com/',
+            label: 'API Playground',
+          },
+          {
             type: 'dropdown',
             position: 'left',
-            label: 'Rate',
+            label: 'Rates',
             items: [
               {
                 type: 'doc',
@@ -108,16 +112,12 @@ const config = {
                 label: 'Rates API',
                 target: '_blank'
               },
-              {
-                to: 'https://graphiql.shipperhq.com/',
-                label: 'API Playground',
-              },
             ]
           },
           {
             type: 'dropdown',
             position: 'left',
-            label: 'Shipping Insights',
+            label: 'Insights',
             items: [
               {
                 type: 'doc',
@@ -127,7 +127,7 @@ const config = {
               {
                 type: 'doc',
                 docId: 'insight/how-shipping-insights-works',
-                label: 'How Shipping Insights Work'
+                label: 'How Insights Work'
               },
               {
                 type: 'doc',
@@ -146,19 +146,15 @@ const config = {
               },
               {
                 to: 'order-view-service',
-                label: 'Shipping Insights API',
+                label: 'Insights API',
                 target: '_blank'
-              },
-              {
-                to: 'https://graphiql.shipperhq.com/',
-                label: 'API Playground',
               },
             ]
           },
           {
             type: 'dropdown',
             position: 'left',
-            label: 'Label',
+            label: 'Labels',
             items: [
               {
                 type: 'doc',
@@ -168,7 +164,7 @@ const config = {
               {
                 type: 'doc',
                 docId: 'label/how-label-works',
-                label: 'How Label Works'
+                label: 'How Labels Work'
               },
               {
                 type: 'doc',
@@ -179,10 +175,6 @@ const config = {
                 type: 'doc',
                 docId: 'label/faq',
                 label: 'FAQ'
-              },
-              {
-                to: 'https://graphiql.shipperhq.com/',
-                label: 'API Playground',
               },
             ]
           },
