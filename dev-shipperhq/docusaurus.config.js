@@ -181,11 +181,6 @@ const config = {
                 label: 'FAQ'
               },
               {
-                to: 'label-service',
-                label: 'Label API',
-                target: '_blank'
-              },
-              {
                 to: 'https://graphiql.shipperhq.com/',
                 label: 'API Playground',
               },
