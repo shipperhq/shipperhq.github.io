@@ -1,9 +1,9 @@
 ---
 sidebar_position: 3
 slug: quickstart
-title: Shipping Insights Quickstart
+title: Insights API Quickstart
 authors: []
-tags: [insight, api, introduction]
+tags: [insights, api, introduction]
 ---
 
 This document is intended for technical architects and developers that need to integrate with ShipperHQ’s Shipping Insights API to build their own integration to retrieve shipment details from ShipperHQ.
