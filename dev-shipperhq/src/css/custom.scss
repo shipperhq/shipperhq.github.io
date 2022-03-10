@@ -1,0 +1,318 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+@import url('https://use.typekit.net/ijr7wgn.css');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+@import url('https://kit.fontawesome.com/b5946a4266.js');
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-font-family-base: 'Proxima Nova', sans-serif;
+  --ifm-color-primary: #0391D9;
+  --ifm-color-primary-dark: #037FD0;
+  --ifm-color-primary-darker: #015F99;
+  --ifm-color-primary-darkest: #1C4D76;
+  --ifm-color-primary-light: #00AAE5;
+  --ifm-color-primary-lighter: #03C6F4;
+  --ifm-color-primary-lightest: #E6F7FD;
+  --ifm-color-primary-lightestest: #F2F9FC;
+  --ifm-code-font-size: 95%;
+  --ifm-heading-color: #384451;
+  --ifm-footer-background-color: #384451;
+  --ifm-hero-background-color: #F2F9FC;
+}
+html[data-theme='dark']{
+  --ifm-heading-color: white;
+
+  .heroBanner_src-pages-index-module {
+    --ifm-hero-background-color: #384451;
+  }
+  .partner-quote {
+    background: #384451;
+  }
+
+}
+
+.heroBanner_src-pages-index-module {
+  --ifm-hero-background-color: #F2F9FC;
+}
+
+
+.footer--dark {
+  background-color: #242526;
+}
+.breadcrumbs {
+  margin: 1rem;
+}
+.markdown {
+  margin: 2rem 1rem;
+
+  img {
+    background: white;
+    border-radius: 6px;
+    padding: 10px 0;
+  }
+}
+.dropdown > .navbar__link:after {
+  //content: 'f078';
+  //font-family: "Font Awesome 5 Pro";
+  //border:none;
+  //position:absolute;
+  //right:0;
+}
+.markdown li {
+  margin-bottom: 12px;
+}
+.table-of-contents {
+  font-size: 1rem;
+}
+.heroBanner_src-pages-index-module h4 {
+  max-width: 775px;
+  font-size: 1.25rem;
+  line-height: 2rem;
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Filson Pro', sans-serif;
+}
+.reg {
+  font-weight: normal;
+}
+.semi {
+  font-weight: 500;
+}
+.bold {
+  font-weight: 700;
+}
+
+.mb0 {
+  margin-bottom: 0;
+}
+.mb10 {
+  margin-bottom: 10px;
+}
+.mt0 {
+  margin-top: 0;
+}
+
+.navbar__logo img {
+  height: 112%;
+  margin-top: -8px;
+  margin-right: 10px;
+}
+
+.theme-doc-version-badge {
+  margin-bottom: 20px;
+}
+
+.footer__link-separator {
+  margin: 0 1rem;
+  color: var(--ifm-footer-background-color);
+  border-right: 1px solid #444;
+}
+.footer__copyright {
+  font-size: .75rem;
+}
+// Links w/ arrow-right
+a {
+  font-weight: 600;
+
+  &.arrow-right {
+    font-weight: 800;
+    text-decoration: underline;
+    color: var(--ifm-color-primary);
+
+    &:after {
+      content: '\f061';
+      font-family: 'Font Awesome 5 Pro';
+      font-weight: 900;
+      margin-left: 5px;
+      text-decoration: none;
+      display: inline-block;
+    }
+  }
+  i {
+    margin-right: 5px;
+    text-decoration: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+    color: var(--ifm-color-primary-light);
+  }
+}
+
+
+/////// Freakin' tailwind sizes ////////////
+
+.text-xs {
+  font-size: .75rem;
+  line-height: 1.125rem;
+}
+.text-sm, small {
+  font-size: .875rem;
+  line-height: 1.375rem;
+}
+.text-base {
+  font-size: 1rem;
+  line-height: 1.75rem;
+}
+.text-md {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+//h5
+.text-lg {
+  font-size: 1.25rem;
+  line-height: 1.625rem;
+}
+//h4
+.text-xl {
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+}
+.text-1xl {
+  font-size: 1.875rem;
+  line-height: 2.125rem;
+}
+//h3
+.text-2xl {
+  font-size: 2rem;
+  line-height: 2.375rem;
+}
+.text-3xl {
+  font-size: 2.5rem;
+  line-height: 3.375rem;
+}
+//h2
+.text-4xl {
+  font-size: 2.625rem;
+  line-height: 3.375rem;
+}
+//h1
+.text-5xl {
+  font-size: 3.75rem;
+  line-height: 4.5rem;
+}
+.text-6xl {
+  font-size: 5rem;
+  line-height: 5rem;
+}
+.text-7xl {
+  font-size: 5.125rem;
+  line-height: 5.875rem;
+}
+.text-8xl {
+  font-size: 7.5rem;
+  line-height: 7.5rem;
+}
+.text-9xl {
+  font-size: 10rem;
+  line-height: 10rem;
+}
+
+
+@media (max-width: 992px) {
+
+  .text-xl {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+  .text-1xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+  .text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  //h3
+  .text-2xl {
+    font-size: 1.75rem;
+    line-height: 2.125rem;
+  }
+  .text-3xl {
+    font-size: 2rem;
+    line-height: 2.75rem;
+  }
+  //h2
+  .text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+  }
+  //h1
+  .text-5xl {
+    font-size: 3.125rem;
+    line-height: 3.75rem;
+  }
+  .text-6xl {
+    font-size: 3.875rem;
+    line-height: 4.625rem;
+  }
+  .text-7xl {
+    font-size: 4.125rem;
+    line-height: 4.875rem;
+  }
+  .text-8xl {
+    font-size: 5rem;
+    line-height: 5rem;
+  }
+  .text-9xl {
+    font-size: 7.5rem;
+    line-height: 7.5rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  //h3
+  .text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  .text-3xl {
+    font-size: 1.75rem;
+    line-height: 2.125rem;
+  }
+  //h2
+  .text-4xl {
+    font-size: 2rem;
+    line-height: 2.75rem;
+  }
+  //h1
+  .text-5xl {
+    font-size: 3rem;
+    line-height: 3.625rem;
+  }
+  .text-6xl {
+    font-size: 3.5rem;
+    line-height: 4.125rem;
+  }
+  .text-7xl {
+    font-size: 4.125rem;
+    line-height: 4.875rem;
+  }
+  .text-8xl {
+    font-size: 5rem;
+    line-height: 5rem;
+  }
+  .text-9xl {
+    font-size: 6.25rem;
+    line-height: 6.25rem;
+  }
+}

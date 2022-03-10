@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'ShipperHQ',
-  tagline: 'dev portal',
+  title: 'ShipperHQ Developers',
+  tagline: 'Get started exploring our SDK with drop-in components, examples, and playgrounds to help you start building your custom integration with ShipperHQ\n',
   url: 'https://dev.shipperhq.com/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -41,7 +41,7 @@ const config = {
             'https://github.com/shipperhq/shipperhq.github.io/tree/main/dev-shipperhq',
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/css/custom.scss'),
         },
       }),
     ],
@@ -55,10 +55,10 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Home',
         logo: {
           alt: 'ShipperHQ',
-          src: 'img/shq-mark-3c.svg',
+          src: 'img/shq-developers-logo.svg',
+          srcDark: 'img/shq-developers-logo -dark.svg'
         },
         items: [
           {
@@ -208,39 +208,20 @@ const config = {
       footer: {
         style: 'dark',
         links: [
-          {
-            title: 'Docs',
-            items: [
               {
-                label: 'SDK Use Cases',
-                to: '/docs/sdk-use-cases',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/shipperhq',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                to: '/blog',
-                label: 'Blog',
+                label: 'ShipperHQ.com',
+                href: 'https://shipperhq.com',
               },
               {
-                to: '/contact',
+                label: 'Help Docs',
+                href: 'https://docs.shipperhq.com',
+              },
+              {
                 label: 'Contact Us',
+                to: '/contact',
               }
-            ],
-          },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} ShipperHQ, Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} ShipperHQ`,
       },
       prism: {
         theme: lightCodeTheme,

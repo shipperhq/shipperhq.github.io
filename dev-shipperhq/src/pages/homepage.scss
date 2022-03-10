@@ -1,5 +1,70 @@
-$primary-color: blue;
+.questions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 
-.test {
-  color: $primary-color
+  .q-heading, .q-text {
+    flex:1;
+    margin-right: 2rem;
+  }
+}
+
+.partner-quote {
+  border-radius: 6px;
+  padding: 3rem;
+  background: var(--ifm-color-primary-lightestest);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+.quote-logo {
+  max-width: 200px;
+  margin: 2rem 1rem;
+}
+.quote {
+  position: relative;
+  margin-left: 1rem;
+
+  @media (min-width: 768px) {
+    margin-left: 5rem;
+    margin-right: 1rem;
+  }
+}
+.quote:before {
+  content: '“';
+  font-weight: bold;
+  font-family: serif;
+  font-size: 4rem;
+  position: absolute;
+  left: -3rem;
+  top: -1.5rem;
+  color: var(--ifm-color-primary-light);
+}
+
+.q-heading {
+  margin-right: 3rem;
+  margin-bottom: 2rem;
+}
+
+.q-link, q-heading {
+  flex: 1;
+}
+
+.q-link {
+  display: flex;
+  margin-bottom: .5rem;
+
+  i {
+    color: var(--ifm-color-primary);
+    font-size: 1.5rem;
+    margin-right: 1.2rem;
+    margin-top: 5px;
+  }
 }

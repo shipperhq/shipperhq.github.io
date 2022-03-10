@@ -1,0 +1,35 @@
+.features {
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.featureSect {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4rem;
+
+  @media (min-width: 768px){
+    flex-direction: row;
+    align-items: center;
+  }
+
+}
+
+.featureText {
+  max-width: 480px;
+  margin-left: 0;
+
+  @media (min-width: 768px){
+    margin-left: 3rem;
+    min-width: 420px;
+  }
+}
+.featureImg {
+  max-width: 680px;
+  margin-bottom: 2rem;
+}
+
+.featurePng {
+  //height: 200px;
+  //width: 200px;
+}
