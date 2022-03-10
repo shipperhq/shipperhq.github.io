@@ -11,13 +11,13 @@ tags: [rating, insight, api, introduction]
 
 Merchants integrate with ShipperHQ's rating API to provide shipping rate estimates based on contents of a `virtual cart`. This is done leveraging the [Rate API](/docs/rate/overview).  
 
-Once a customer has finalized their choices at checkout and completes the order, the rating (a quote) needs to be converted into an order so it can stored for use with the [Insight API](overview). Usually, multiple quotes are sent by ShipperHQ (for example in the cart, when the customer changes their address, when they changes delivery options, etc.).
+Once a customer has finalized their choices at checkout and completes the order, the rating (a quote) needs to be converted into an order so it can stored for use with the [Shipping Insights API](overview). Usually, multiple quotes are sent by ShipperHQ (for example in the cart, when the customer changes their address, when they changes delivery options, etc.).
 
-The role of `PlaceOrder` is to convert one of these quotes into a full fledge order so that the complete quote information can be stored on ShipperHQ order database and later on retrieved via the [Insight API](/docs/insight/overview).
+The role of `PlaceOrder` is to convert one of these quotes into a full fledge order so that the complete quote information can be stored on ShipperHQ order database and later on retrieved via the [Shipping Insights API](/docs/insight/overview).
 
 :::tip Most users don't need to use the `PlaceOrder` mutation
 
-If you are using an eCommerce platform supported by ShipperHQ ([Magento/Adobe Commerce](https://docs.shipperhq.com/installing-magento-2-shipperhq-extension/), [BigCommerce](https://docs.shipperhq.com/setup-shipperhq-bigcommerce-store/), [Shopify](https://docs.shipperhq.com/connect-shopify-shipperhq/), [SalesForce B2C Commerce Cloud](https://docs.shipperhq.com/installing-salesforce/), [WooCommerce](https://docs.shipperhq.com/install-woocommerce-plugin/), [Zoey](https://docs.shipperhq.com/install-shipperhq-zoey/) - [complete list here](https://shipperhq.com/pricing)): you do not need to use `PlaceOrder`. In these scenarios, the order creation is done automatically by the platform using ShipperHQ rates and ShipperHQ captures this information automatically so that you can directly use the [Insight API](/docs/insight/overview).
+If you are using an eCommerce platform supported by ShipperHQ ([Magento/Adobe Commerce](https://docs.shipperhq.com/installing-magento-2-shipperhq-extension/), [BigCommerce](https://docs.shipperhq.com/setup-shipperhq-bigcommerce-store/), [Shopify](https://docs.shipperhq.com/connect-shopify-shipperhq/), [SalesForce B2C Commerce Cloud](https://docs.shipperhq.com/installing-salesforce/), [WooCommerce](https://docs.shipperhq.com/install-woocommerce-plugin/), [Zoey](https://docs.shipperhq.com/install-shipperhq-zoey/) - [complete list here](https://shipperhq.com/pricing)): you do not need to use `PlaceOrder`. In these scenarios, the order creation is done automatically by the platform using ShipperHQ rates and ShipperHQ captures this information automatically so that you can directly use the [Shipping Insights API](/docs/insight/overview).
 
 The specific scenarios where you would need to use `PlaceOrder` are detailed below.
 

@@ -10,7 +10,7 @@ The ShipperHQ SDK provides an end to end solution to help merchants, developers,
 While developers can use each API independently, the goal of the ShipperHQ SDK is to make it easy to integrate with the full ShipperHQ workflow following this sequence:
   1. [Rate API](/docs/rate/overview)
   2. [PlaceOrder Mutation](/docs/insight/place-order) (not required for most major eCommerce platforms)
-  3. [Insight API](/docs/insight/overview)
+  3. [Shipping Insights API](/docs/insight/overview)
   4. [Label API](/docs/label/overview) (in beta)
 
 ## Use cases and existing integrations
@@ -24,7 +24,7 @@ Give customer service teams full visibility of the delivery option selected by a
 This would require minimally:
 * [Rate API](/docs/rate/overview) to get rates
 * [PlaceOrder Mutation](/docs/insight/place-order) to capture successful orders placed or updated via the CRM
-* [Insight API](/docs/insight/overview) to display full shipping details
+* [Shipping Insights API](/docs/insight/overview) to display full shipping details
 
 ### ERP integration
 
@@ -35,16 +35,16 @@ This would require minimally:
 2. [PlaceOrder Mutation](/docs/insight/place-order) to capture successful orders
 
 To visualize (or sync) the exact orders (order management):
-* [Insight API](/docs/insight/overview) to fulfill efficiently based on ShipperHQ rate at checkout recommendation
+* [Shipping Insights API](/docs/insight/overview) to fulfill efficiently based on ShipperHQ rate at checkout recommendation
 
 To print the corresponding labels:
 *  [Label API (in beta)](/docs/label/overview)
 
 ### Order Management System integration
 
-ShipperHQ customers uses various order management systems and the Insight API is a key to leverage the detailed shipment information produced by ShipperHQ during rating at time of fulfillment.
+ShipperHQ customers uses various order management systems and the Shipping Insights API is a key to leverage the detailed shipment information produced by ShipperHQ during rating at time of fulfillment.
 
-The [Insight API](/docs/insight/overview) enables order management systems to access:
+The [Shipping Insights API](/docs/insight/overview) enables order management systems to access:
 - Ship-from (Origin) locations for each shipment and item
 - Box/package sizes and types for each shipment
 - Label provider for each shipment
@@ -52,7 +52,7 @@ The [Insight API](/docs/insight/overview) enables order management systems to ac
 - Delivery date & time and expected dispatch date for each shipment
 
 This would require minimally:
-* [Insight API](/docs/insight/overview)
+* [Shipping Insights API](/docs/insight/overview)
 
 ### eCommerce platform integration
 
@@ -61,8 +61,8 @@ While ShipperHQ support the major eCommerce platforms, the [Rate API](/docs/rate
 This would require minimally:
 * [Rate API](/docs/rate/overview)
 
-For full functionality, adding integrations with the [PlaceOrder Mutation](/docs/insight/place-order) and [Insight API](/docs/insight/overview) would allow display of rich shipment information within the eCommerce platform admin.
+For full functionality, adding integrations with the [PlaceOrder Mutation](/docs/insight/place-order) and [Shipping Insights API](/docs/insight/overview) would allow display of rich shipment information within the eCommerce platform admin.
 
 ### Headless commerce
 
-No need for an eCommerfce platform. With the ShipperHQ SDK you can build your own experience using whichever tools and technologies that you select. The [Rate API](/docs/rate/overview) will enable you to focus on the user experience while all the business logic is configured in ShipperHQ. The [Insight API](/docs/insight/overview) will allow you to place orders and retrieve all the fulfillment information required to complete this order.
+No need for an eCommerfce platform. With the ShipperHQ SDK you can build your own experience using whichever tools and technologies that you select. The [Rate API](/docs/rate/overview) will enable you to focus on the user experience while all the business logic is configured in ShipperHQ. The [Shipping Insights API](/docs/insight/overview) will allow you to place orders and retrieve all the fulfillment information required to complete this order.
