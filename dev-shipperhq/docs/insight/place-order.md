@@ -2,7 +2,7 @@
 slug: place-order
 title: PlaceOrder Mutation
 authors: []
-tags: [rating, insight, api, introduction]
+tags: [rates, insights, api, introduction]
 ---
 
 # Overview
