@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://dev.shipperhq.com/blog</id>
-    <title>ShipperHQ Developers Blog</title>
+    <title>Welcome Developers Blog</title>
     <updated>2022-02-18T16:00:56.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://dev.shipperhq.com/blog"/>
-    <subtitle>ShipperHQ Developers Blog</subtitle>
+    <subtitle>Welcome Developers Blog</subtitle>
     <icon>https://dev.shipperhq.com/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Authentication and access]]></title>
