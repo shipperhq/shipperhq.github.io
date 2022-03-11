@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  "title": "Welcome Developers",
-  "tagline": "Get started exploring our SDK with API examples and playgrounds to help you start building your custom integration with ShipperHQ",
+  title: "Welcome Developers",
+  tagline: "Get started exploring our SDK with API examples and playgrounds to help you start building your custom integration with ShipperHQ",
   url: 'https://dev.shipperhq.com/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -57,8 +57,8 @@ const config = {
       navbar: {
         logo: {
           alt: 'ShipperHQ',
-          "src": "img/shq-devplatform-logo.svg",
-          "srcDark": "img/shq-devplatform-logo-dark.svg"
+          src: "img/shq-devplatform-logo.svg",
+          srcDark: "img/shq-devplatform-logo-dark.svg"
         },
         items: [
           {
