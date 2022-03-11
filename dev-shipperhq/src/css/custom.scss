@@ -27,19 +27,11 @@
 html[data-theme='dark']{
   --ifm-heading-color: white;
 
-  .heroBanner_src-pages-index-module {
-    --ifm-hero-background-color: #384451;
-  }
   .partner-quote {
     background: #384451;
   }
 
 }
-
-.heroBanner_src-pages-index-module {
-  --ifm-hero-background-color: #F2F9FC;
-}
-
 
 .footer--dark {
   background-color: #242526;
@@ -68,11 +60,6 @@ html[data-theme='dark']{
 }
 .table-of-contents {
   font-size: 1rem;
-}
-.heroBanner_src-pages-index-module h4 {
-  max-width: 775px;
-  font-size: 1.25rem;
-  line-height: 2rem;
 }
 
 .docusaurus-highlight-code-line {

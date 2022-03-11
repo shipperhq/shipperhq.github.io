@@ -7,7 +7,7 @@ const FeatureList = [
     title: 'Rates',
     subtitle: 'Get shipping rates for your checkout',
     docsLink: "/docs/rate/overview",
-    Png: require('../../static/img/rating-feature.png').default,
+    Png: require('../../static/img/rating-feature-portal.png').default,
     description: (
       <>
           Access shipping rate details and query what is most important to you and your business via the Rates API.
@@ -18,7 +18,7 @@ const FeatureList = [
     title: 'Insights',
     subtitle: 'Manage and fulfill your orders easily',
     docsLink: "/docs/insight/overview",
-    Png: require('../../static/img/shippinginsights-feature.png').default,
+    Png: require('../../static/img/insights-feature-portal.png').default,
     description: (
       <>
           Connect your checkout with post-order fulfillment with detailed shipping information for each order.
@@ -29,7 +29,7 @@ const FeatureList = [
     title: 'Labels',
     subtitle: 'Purchase and print shipping labels',
     docsLink: "/docs/label/overview",
-    Png: require('../../static/img/labelprinting-feature.png').default,
+    Png: require('../../static/img/label-feature-comingsoon.png').default,
     description: (
       <>
         Coming soon! Please contact sales@shipperhq.com to get early access (API available in beta).
