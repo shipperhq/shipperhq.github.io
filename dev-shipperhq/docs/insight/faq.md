@@ -22,7 +22,7 @@ Each Order Number (used in the `orderNumber` field) must be unique to a specific
 
 Not currently. We return the [Origin](https://docs.shipperhq.com/origin-configuration/) name (which is a unique identifier) but do not return the full ship-from address for that Origin. The ship-from address used will match the address configured on the Origin at the time the shipping quote was requested.
 
-## Is Freight Class available via Insight?
+## Is Freight Class available via the Insights API?
 
 Not currently. [Freight Class](https://docs.shipperhq.com/ltl-freight-carrier-configuration/#Freight_Classes) will be added in an upcoming version of the Insights API.
 
