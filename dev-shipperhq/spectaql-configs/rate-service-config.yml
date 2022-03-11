@@ -230,17 +230,17 @@ info:
   #
   ##############################################
 
-  description: Rate API Documentation
+  description: ShipperHQ Rates API Reference Documentation
   #version: unversioned
-  title: ShipperHQ Rate API Static Documentation
+  title: ShipperHQ Rates API Reference
   # This is non-standard and optional. If omitted, will use "title". Also only relevant
   # when building non-embedded.
   #x-htmlTitle: Your HTML page title here
   termsOfService: 'https://shipperhq.com/useragreement'
   contact:
-    name: ShipperHQ Support
-    email: support@shipperhq.com
-    url: https://shipperhq.com/support
+    name: ShipperHQ Dev Support
+    #email: support@shipperhq.com
+    url: https://dev.shipperhq.com/contact
   #license:
   #  name: ShipperHQ User Agreement
   #  url: '''
@@ -248,7 +248,7 @@ info:
   # A non-standard array of items to display in your Introduction Area
   x-introItems:
     # Can be a Title (for the Nav panel) + URL to simply add a link to somewhere
-    - title: Rate API dev portal
+    - title: Rates API Guide
       url: /docs/rate/overview
     # Can be a Title (for the Nav panel) + description (for the Content panel)
     - title: ShipperHQ
