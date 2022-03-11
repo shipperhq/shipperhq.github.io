@@ -251,7 +251,7 @@ info:
   # A non-standard array of items to display in your Introduction Area
   x-introItems:
     # Can be a Title (for the Nav panel) + URL to simply add a link to somewhere
-    - title: Insights API guide
+    - title: Insights API Guide
       url: /docs/insight/overview
     # Can be a Title (for the Nav panel) + description (for the Content panel)
     - title: ShipperHQ

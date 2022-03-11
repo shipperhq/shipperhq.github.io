@@ -234,7 +234,7 @@ info:
 
   description: ShipperHQ Labels API Reference Documentation
   #version: unversioned
-  title: ShipperHQ Labels API Reference 
+  title: ShipperHQ Labels API Reference
   # This is non-standard and optional. If omitted, will use "title". Also only relevant
   # when building non-embedded.
   #x-htmlTitle: Your HTML page title here
@@ -250,7 +250,7 @@ info:
   # A non-standard array of items to display in your Introduction Area
   x-introItems:
     # Can be a Title (for the Nav panel) + URL to simply add a link to somewhere
-    - title: Labels API guide
+    - title: Labels API Guide
       url: /docs/label/overview
     # Can be a Title (for the Nav panel) + description (for the Content panel)
     - title: ShipperHQ
