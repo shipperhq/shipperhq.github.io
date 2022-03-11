@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Welcome Developers",
-  tagline: "Get started exploring our SDK with API examples and playgrounds to help you start building your custom integration with ShipperHQ",
+  title: "ShipperHQ Developer Platform",
+  tagline: "Exploring our SDK with API examples and playgrounds to help you start building your custom integration with ShipperHQ",
   url: 'https://dev.shipperhq.com/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -26,7 +26,6 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/shipperhq/shipperhq.github.io/tree/main/dev-shipperhq',
           lastVersion: 'current',
           versions: {
             current: {
@@ -37,8 +36,6 @@ const config = {
         },
         blog: {
           showReadingTime: true,
-          editUrl:
-            'https://github.com/shipperhq/shipperhq.github.io/tree/main/dev-shipperhq',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),
@@ -99,17 +96,12 @@ const config = {
               },
               {
                 type: 'doc',
-                docId: 'insight/place-order',
-                label: 'Place Order'
-              },
-              {
-                type: 'doc',
                 docId: 'rate/faq',
                 label: 'FAQ'
               },
               {
                 to: 'rate-service',
-                label: 'Rates API',
+                label: 'Rates API Reference',
                 target: '_blank',
                 className: 'external-nav-link'
               },
@@ -137,17 +129,17 @@ const config = {
               },
               {
                 type: 'doc',
-                docId: 'insight/place-order',
-                label: 'Place Order'
-              },
-              {
-                type: 'doc',
                 docId: 'insight/faq',
                 label: 'FAQ'
               },
               {
+                type: 'doc',
+                docId: 'insight/place-order',
+                label: 'Place Order'
+              },
+              {
                 to: 'order-view-service',
-                label: 'Insights API',
+                label: 'Insights API Reference',
                 target: '_blank',
                 className: 'external-nav-link'
               },

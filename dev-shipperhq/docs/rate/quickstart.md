@@ -1,24 +1,21 @@
 ---
 sidebar_position: 2
 slug: quickstart
-title: Rating Quickstart
-authors: []
-tags: [rating, api, introduction, quickstart]
+title: Quickstart
+tags: [rates, api, guide, quickstart]
 ---
 
+This document is intended for technical architects and developers that need to integrate with ShipperHQ’s Insights API to build their own integration to retrieve shipment details from ShipperHQ.
 
-# Quickstart
-This document is intended for technical architects and developers that need to integrate with ShipperHQ’s Shipping Insights API to build their own integration to retrieve shipment details from ShipperHQ.
+Note, this does not document the standard types and fields the API provides. This information is included in the [Rates API Reference](https://dev.shipperhq.com/rate-service/) documentation or can be obtained via our [API playground](https://graphiql.shipperhq.com/).
 
-Note, this does not document the standard types and fields the API provides. This information is included in the [Shipping Insights API](https://dev.shipperhq.com/order-view-service/) documentation or can be obtained via our API playground.
-
-Our Rate API is implemented in GraphQL. See the [SDK Quickstart](../quickstart/) for more information.
+Our Rates API is implemented in GraphQL. See the [SDK Quickstart](../quickstart.md) for more information.
 
 ## Requirements
-In order to use the ShipperHQ Rate API you'll need a ShipperHQ account configured with at least one Website, one Origin, and one Carrier. Once you have an account, you'll need to retrieve authentication credentials as described below that will allow you to access the Rate API.
+In order to use the ShipperHQ Rates API you'll need a ShipperHQ account configured with at least one Website, one Origin, and one Carrier. Once you have an account, you'll need to retrieve authentication credentials as described below that will allow you to access the Rates API.
 
 ## Authentication Process
-To use the ShipperHQ Rate API you need to generate a JWT authentication token. This is a three step process:
+To use the ShipperHQ Rates API you need to generate a JWT authentication token. This is a three step process:
 1. Get your ShipperHQ API Key
 2. Get your Authentication Code
 3. Generate a JWT access token (valid for 30 days)
@@ -31,7 +28,7 @@ You can think of a Website as a sale channel. For instance an online store in th
 
 Because ShipperHQ supports multiple Websites, each Website can have its own Shipping rules. Each Website will, as a consequence, generate different type of rates for the same virtual cart and customer choices.
 
-To reflect this level of functionality, authorization and access to the Rate API is specific to a Website: you need a different set of credentials for each ShipperHQ Website.
+To reflect this level of functionality, authorization and access to the Rates API is specific to a Website: you need a different set of credentials for each ShipperHQ Website.
 
 [More information about Websites in ShipperHQ](https://docs.shipperhq.com/adding-websites-in-shipperhq/)
 
@@ -56,7 +53,7 @@ On these platforms, you can generate a new Authentication Code within the Shippe
 
 :::caution Generating a new Authentication Code will break existing integrations with that Website!
 
-Generating a new Authentication Code invalidates the previous Authentication Codes for that Website. This will break any integrations using that Authentication Code. Our recommendation is to create a new Website when creating a new integration so that you can retrieve a new API Key and Authentication Code without impacting your existing Website integration. Please [contact support](https://dev.shipperhq.com/contact) to double-check and avoid any service disruption for existing Websites.
+Generating a new Authentication Code invalidates the previous Authentication Codes for that Website. This will break any integrations using that Authentication Code. Our recommendation is to create a new Website when creating a new integration so that you can retrieve a new API Key and Authentication Code without impacting your existing Website integration. Please [contact support](/contact) to double-check and avoid any service disruption for existing Websites.
 
 :::
 
@@ -64,15 +61,15 @@ Generating a new Authentication Code invalidates the previous Authentication Cod
 
 For these platforms, the Authentication Code is automatically generated and exchanged between the eCommerce platform and ShipperHQ.
 
-Please [contact support](https://dev.shipperhq.com/contact) and make sure to specify the URL of the Website for which you would like to get the Authentication Code.
+Please [contact support](/contact) and make sure to specify the URL of the Website for which you would like to get the Authentication Code.
 
 #### For existing (in production or in development) ShipperHQ Websites
 
-Please [contact support](https://dev.shipperhq.com/contact) and make sure to specify the URL of the Website for which you would like to get the Authentication Code.
+Please [contact support](/contact) and make sure to specify the URL of the Website for which you would like to get the Authentication Code.
 
 ### Generating your JWT Authentication Token
 
-Once you have your ShipperHQ API Key and Authentication Code, you can generate the JWT token used to access the ShipperHQ Rate API. These tokens expire after 30 days.
+Once you have your ShipperHQ API Key and Authentication Code, you can generate the JWT token used to access the ShipperHQ Rates API. These tokens expire after 30 days.
 
 The ShipperHQ GraphQL Playground can be used to create an Authentication Token for testing. You will need to use this same query in your integration to create secret tokens when required.
 
@@ -96,7 +93,7 @@ mutation CreateSecretToken {
 
 :::tip ShipperHQ uses JWT tokens with a 30 days expiration date
 
-The response contains the token you use to make requests to the ShipperHQ Rate API. This token expires every 30 days. You can request a new token up to an hour before your current token expiration date and time. The token is a [JWT token](https://jwt.io/) and they have an expiration timestamp encoded inside: no need to remember the expiration date. We recommend using your favorite [JWT](https://jwt.io/) parsing library to extract the expiration date from the token, so you will know the exact second the token expires.
+The response contains the token you use to make requests to the ShipperHQ Rates API. This token expires every 30 days. You can request a new token up to an hour before your current token expiration date and time. The token is a [JWT token](https://jwt.io/) and they have an expiration timestamp encoded inside: no need to remember the expiration date. We recommend using your favorite [JWT](https://jwt.io/) parsing library to extract the expiration date from the token, so you will know the exact second the token expires.
 
 :::
 
@@ -110,7 +107,7 @@ The response contains the token you use to make requests to the ShipperHQ Rate A
 
 
 ### API Rate Limits
-- **Request Limits:**  Rate API queries are subject to the request limits of your ShipperHQ account. Please view your request limits on ShipperHQ’s pricing page.
+- **Request Limits:**  Rates API queries are subject to the request limits of your ShipperHQ account. Please view your request limits on ShipperHQ’s pricing page.
 - **Monitoring Request limits:** You can view your usage within the Analytics tab of your ShipperHQ dashboard.
 
 ### Request Headers
@@ -123,7 +120,7 @@ Any query or request must include the following headers:
 | `X-ShipperHQ-Session` | This is a unique identifier for a cart/order. Use any unique alphanumeric string. |
 
 ### Request Definitions
-The ShipperHQ rating API includes the following three queries.
+The ShipperHQ Rates API includes the following three queries.
 
 | Query                      | Description         |
 | ---------------------------|---------------------|
@@ -135,7 +132,7 @@ The ShipperHQ rating API includes the following three queries.
 ### Item Attributes
 Item attributes in the request allow you to include item-specific values like a shipping group or an origin. They may be required if you are using any type of features such as [Shipping Groups](https://docs.shipperhq.com/shipping-group-configuration/), [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/), [Multi-Origin](https://docs.shipperhq.com/setup-multiorigin-dropshipping/), etc.
 
-These attributes and their values are sent in a set of name/value pairs in the `attributes` field of an `item` on a Rate API request. The most common attributes are listed below.
+These attributes and their values are sent in a set of name/value pairs in the `attributes` field of an `item` on a Rates API request. The most common attributes are listed below.
 
 :::info Values are case sensitive
 All item attribute values are case sensitive and must match the corresponding item configured in the ShipperHQ dashboard including any spaces.
@@ -185,7 +182,7 @@ A delimiter is required between multiple values for item attributes. The default
 
 Requested Options allow you to indicate specific services or properties for the entire shipment such as "Liftgate Required" or "Residential Delivery". These are most commonly used for LTL Freight carriers or small package carriers that offer specific delivery methods for residential delivery.
 
-These attributes and their values are sent in a set of name/value pairs in the `requestedOptions` field on a Rate API request. The most common attributes are listed below.
+These attributes and their values are sent in a set of name/value pairs in the `requestedOptions` field on a Rates API request. The most common attributes are listed below.
 
 | Requested Options  | 	Data Type| 	Description |
 |--------------------|-----------|--------------|
@@ -217,7 +214,7 @@ requestedOptions: {
 
 ###  Basic `retrieveShippingQuote` Example
 
-This is an MVP example that returns the most critical information. It does not include multi-origin or any other advanced functionality but does include the `shipperhq_shipping_group` item attribute. See the Detailed Rate API Example portion of this document for a more detailed example.
+This is an MVP example that returns the most critical information. It does not include multi-origin or any other advanced functionality but does include the `shipperhq_shipping_group` item attribute. See the Detailed Rates API Example portion of this document for a more detailed example.
 
 #### Rate Request
 
@@ -646,6 +643,6 @@ When ShipperHQ encounters an error processing your request, an `error` object wi
            ]
 ```
 
-### Possible `errorCode` and `internalErrorMessages` Values
+### Possible `errorCode` values
 
-Please visit our [FAQ section](http://localhost:3000/docs/rate/faq#what-are-the-error-codes-and-their-definition) for a detailed list of all our error codes.
+Please visit our [FAQ section](faq.md#what-are-possible-error-codes-and-messages) for a detailed list of all `errorCode` values and associated `internalErrorMessage` values.

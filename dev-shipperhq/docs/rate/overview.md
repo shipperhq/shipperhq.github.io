@@ -1,9 +1,9 @@
 ---
 sidebar_position: 1
-title: Rating Overview
+slug: overview
+title: Overview
+tags: [rates, api, guide, overview]
 ---
-
-# Overview
 
 ## What are rates?
 
@@ -11,7 +11,7 @@ Shipping rates are an essential part of commerce and represent what options are 
 
 These shipping options, the amounts charged for them, and a set of properties that describe them are called "rates" in ShipperHQ. At a minimum, information used to request rates will include a ship-to location (shipping address) and at least one item (a product) that's being shipped. The information returned includes, at a minimum, a ship-from location (Origin), the shipping option name, and a cost.
 
-Depending on the use case and how you implement the Rate API, you may provide additional information like ship-from address, LTL freight accessorials, selected delivery date, product Shipping Groups, dimensions, etc. and receive additional details like expected packacking, per-fulfillment-location rates and items, dispatch dates, and more.
+Depending on the use case and how you implement the Rate API, you may provide additional information like ship-from address, LTL freight accessorials, selected delivery date, product Shipping Groups, dimensions, etc. and receive additional details like expected packaging, per-fulfillment-location rates and items, dispatch dates, and more.
 
 ## Use cases
 Some scenarios in which ShipperHQ's Rate API is frequently used are:

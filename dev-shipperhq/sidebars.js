@@ -21,7 +21,7 @@ module.exports = {
   Rating: [
     {
       type: 'category',
-      label: 'Rates',
+      label: 'Rates API Guide',
       collapsible: false,
       items: [
         {
@@ -32,14 +32,14 @@ module.exports = {
     },
     {
       type: 'link',
-      label: 'Rates API',
+      label: 'Rates API Reference',
       href: 'https://dev.shipperhq.com/rate-service/'
     }
   ],
   ShippingInsights: [
     {
       type: 'category',
-      label: 'Insights',
+      label: 'Insights API Guide',
       collapsible: false,
       items: [
         {
@@ -50,14 +50,14 @@ module.exports = {
     },
     {
       type: 'link',
-      label: 'Insights API',
+      label: 'Insights API Reference',
       href: 'https://dev.shipperhq.com/order-view-service/'
     }
   ],
   Label: [
     {
       type: 'category',
-      label: 'Labels',
+      label: 'Labels API Guide',
       collapsible: false,
       items: [
         {

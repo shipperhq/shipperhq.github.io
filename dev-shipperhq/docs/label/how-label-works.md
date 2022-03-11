@@ -1,10 +1,11 @@
 ---
 sidebar_position: 2
+slug: how-label-works
+title: How Labels Work
+tags: [labels, api, guide, overview]
 ---
-
-# How Label Work
 
 ## Early Access Program
 
-This API is beta, and ShipperHQ is looking for early access partners.
-Please contact [support](mailto:support@shipperhq.com) to manifest your interest.
+The ShipperHQ Labels API is currently in closed Beta. ShipperHQ is looking for early access partners interested in participating in this program.
+Please [contact us](/contact) if interested.

@@ -1,9 +1,9 @@
 ---
 sidebar_position: 2
+slug: how-rates-work
 title: How Rates Work
+tags: [rates, api, guide]
 ---
-
-# How Rates Work
 
 ## High-level overview
 

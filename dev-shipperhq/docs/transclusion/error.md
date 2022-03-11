@@ -1,5 +1,16 @@
 [//]: # (This is a file included in other files: all the FAQ of all APIs contain this file)
 
+If ShipperHQ encounters an error processing a Rate API request or if the ShipperHQ account is configured to prevent shipping in a given scenario, the Rate API will return an `error` object with an `errorCode` and associated `internalErrorMessage`. Possible errors are described below.
+
+These errors can be categorized into several types:
+- **Auth:** Indicate issues with the credentials used. Ensure your credentials are accurate and not expired, that your ShipperHQ account is active, and that the Environment Scope in use is correct.
+- **General:** Indicate that ShipperHQ was unable to successfully process the request. If you encounter this type of error, confirm that your request is valid first and if so contact [ShipperHQ support](/contact).
+- **Request:** Indicate an issue with the format of an API request or the data it contains. Corrected by ensuring the request is formatted correctly and verifying the data in your request is accurate. For example, that the correct country or state/province/region codes are being used.
+- **Account:** Indicate an issue with the ShipperHQ account configuration. For example, that the Origin being used has an invalid address. Corrected by making the required adjustments to your ShipperHQ account.
+- **Carrier:** Indicate that ShipperHQ was unable to return results from a specific carrier. This may be intentional (e.g. error `304` indicates that the carrier is configured in ShipperHQ to explicitly not be allowed for a certain country) or unintentional (e.g. errors `305`, `306`, and `307` indicate that the request did not include information which is required by that carrier to return results). These errors may also mean that the carrier's API was unavailable when the request was attempted.
+
+### Error codes & messages
+
 | Error Code | Type | Error Message |
 |------|-----|-----|
 |1|General| Request Error. There was an error processing your request.|
