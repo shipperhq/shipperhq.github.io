@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ShipperHQ Insight API Static Documentation</title>
+    <title>ShipperHQ Shipping Insights API Static Documentation</title>
     <link rel="stylesheet" href="stylesheets/spectaql.min.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
         <nav id="nav" role="navigation">
           <h5>Introduction</h5>
           <a href="#introduction">Welcome</a>
-          <a data-traverse-ignore="" href="/docs/insight/overview">Insight API dev portal</a>
+          <a data-traverse-ignore="" href="/docs/insight/overview">Shipping Insights API dev portal</a>
           <a href="#intro-item-1">ShipperHQ</a>
           <h5>Operations</h5>
           <a href="#operation-vieworder-Queries"> viewOrder </a>
@@ -30,18 +30,15 @@
           <a href="#definition-CalendarDate"> CalendarDate </a>
           <a href="#definition-Carrier"> Carrier </a>
           <a href="#definition-CarrierDetail"> CarrierDetail </a>
-          <a href="#definition-DateTime"> DateTime </a>
           <a href="#definition-DeliveryDateRange"> DeliveryDateRange </a>
           <a href="#definition-Float"> Float </a>
           <a href="#definition-GroupedItem"> GroupedItem </a>
           <a href="#definition-ID"> ID </a>
           <a href="#definition-Int"> Int </a>
           <a href="#definition-Item"> Item </a>
-          <a href="#definition-ItemOrderByInput"> ItemOrderByInput </a>
-          <a href="#definition-ItemType"> ItemType </a>
+          <a href="#definition-LabelType"> LabelType </a>
           <a href="#definition-Method"> Method </a>
           <a href="#definition-MethodDetail"> MethodDetail </a>
-          <a href="#definition-Node"> Node </a>
           <a href="#definition-Order"> Order </a>
           <a href="#definition-OrderDetail"> OrderDetail </a>
           <a href="#definition-Package"> Package </a>
@@ -63,11 +60,11 @@
         </button>
         <div class="example-box doc-content"></div>
         <article id="content">
-          <h1 class="doc-title">ShipperHQ Insight API Static Documentation</h1>
+          <h1 class="doc-title">ShipperHQ Shipping Insights API Static Documentation</h1>
           <div id="introduction" data-traverse-target="introduction">
             <div class="doc-row">
               <div class="doc-copy">
-                <p>Insight API Documentation</p>
+                <p>Shipping Insights API Documentation</p>
               </div>
               <div class="doc-examples">
                 <section>
@@ -102,7 +99,7 @@ https://ovs.shipperhq.com/
             <h2 class="operation-name "> <code>viewOrder</code> </h2>
             <div class="doc-row">
               <div class="doc-copy">
-                <section class="swagger-operation-description operation-description"> Fetch Order Details </section>
+                <section class="swagger-operation-description operation-description"> Retrieve shipment information for an order </section>
               </div>
             </div>
             <div class="doc-row">
@@ -135,12 +132,10 @@ https://ovs.shipperhq.com/
                   <head></head>
                   <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> viewOrder<span class="hljs-tag">(<span class="hljs-code">$orderNumber</span>:<span class="hljs-type"> String!</span>)</span> <span class="hljs-tag">{
   <span class="hljs-symbol">viewOrder<span class="hljs-tag">(orderNumber: <span class="hljs-code">$orderNumber</span>)</span> <span class="hljs-tag">{
-    <span class="hljs-symbol">id</span>
-    <span class="hljs-symbol">orderNumber</span>
-    <span class="hljs-symbol">orderNumberText</span>
-    <span class="hljs-symbol">apiKey</span>
     <span class="hljs-symbol">createdAt</span>
-    <span class="hljs-symbol">updatedAt</span>
+    <span class="hljs-symbol">orderNumber</span>
+    <span class="hljs-symbol">apiKey</span>
+    <span class="hljs-symbol">orderNumberText</span>
     <span class="hljs-symbol">isActive</span>
     <span class="hljs-symbol">orderDetail <span class="hljs-tag">{
       <span class="hljs-type">...OrderDetailFragment</span>
@@ -158,7 +153,7 @@ https://ovs.shipperhq.com/
                   <h5>Variables</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"orderNumber"</span>: <span class="hljs-string">"abc123"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"orderNumber"</span>: <span class="hljs-string">"xyz789"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -175,13 +170,11 @@ https://ovs.shipperhq.com/
   <span class="hljs-attr">"data"</span>: {
     <span class="hljs-attr">"viewOrder"</span>: [
       {
-        <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-        <span class="hljs-attr">"orderNumber"</span>: <span class="hljs-string">"abc123"</span>,
-        <span class="hljs-attr">"orderNumberText"</span>: <span class="hljs-string">"abc123"</span>,
-        <span class="hljs-attr">"apiKey"</span>: <span class="hljs-string">"abc123"</span>,
-        <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>,
-        <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">DateTime</span>,
-        <span class="hljs-attr">"isActive"</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"abc123"</span>,
+        <span class="hljs-attr">"orderNumber"</span>: <span class="hljs-string">"xyz789"</span>,
+        <span class="hljs-attr">"apiKey"</span>: <span class="hljs-string">"xyz789"</span>,
+        <span class="hljs-attr">"orderNumberText"</span>: <span class="hljs-string">"xyz789"</span>,
+        <span class="hljs-attr">"isActive"</span>: <span class="hljs-literal">true</span>,
         <span class="hljs-attr">"orderDetail"</span>: <span class="hljs-string">OrderDetail</span>,
         <span class="hljs-attr">"shipments"</span>: [<span class="hljs-string">Shipment</span>],
         <span class="hljs-attr">"recipient"</span>: <span class="hljs-string">Address</span>
@@ -204,6 +197,9 @@ https://ovs.shipperhq.com/
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Shipping address information for the order</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -211,94 +207,70 @@ https://ovs.shipperhq.com/
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="createdAt"> <code>createdAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="updatedAt"> <code>updatedAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="country"> <code>country</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Country code of shipping address, in ISO alpha-2 format </td>
                     </tr>
                     <tr>
                       <td data-property-name="region"> <code>region</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Region, state or locality of shipping address </td>
                     </tr>
                     <tr>
                       <td data-property-name="city"> <code>city</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> City or town of shipping address </td>
                     </tr>
                     <tr>
                       <td data-property-name="street"> <code>street</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Street address </td>
                     </tr>
                     <tr>
                       <td data-property-name="street2"> <code>street2</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Second line of street address </td>
                     </tr>
                     <tr>
                       <td data-property-name="zipcode"> <code>zipcode</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Zipcode or post code of shipping address </td>
                     </tr>
                     <tr>
                       <td data-property-name="firstName"> <code>firstName</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Recipient's first name </td>
                     </tr>
                     <tr>
                       <td data-property-name="lastName"> <code>lastName</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Recipient's last name </td>
                     </tr>
                     <tr>
                       <td data-property-name="email"> <code>email</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Contact email of recipient </td>
                     </tr>
                     <tr>
                       <td data-property-name="company"> <code>company</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Company name of shipping address </td>
                     </tr>
                     <tr>
                       <td data-property-name="telephone"> <code>telephone</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="order"> <code>order</code> -
-                        <a href="#definition-Order"><code>Order</code></a>
-                      </td>
-                      <td> </td>
+                      <td> Contact telephone number of recipient </td>
                     </tr>
                   </table>
                 </section>
@@ -309,21 +281,17 @@ https://ovs.shipperhq.com/
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"country"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"country"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"region"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"city"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"street"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"city"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"street"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"street2"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"zipcode"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"email"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"email"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"company"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"telephone"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"order"</span>: <span class="hljs-string">Order</span>
+  <span class="hljs-attr">"telephone"</span>: <span class="hljs-string">"xyz789"</span>
 }
 </code></pre> </body>
                   </html>
@@ -341,6 +309,9 @@ https://ovs.shipperhq.com/
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Fees and charges included in shipping method</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -348,76 +319,46 @@ https://ovs.shipperhq.com/
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="createdAt"> <code>createdAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="updatedAt"> <code>updatedAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="handlingFee"> <code>handlingFee</code> -
                         <a href="#definition-Float"><code>Float!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Handling fees applied to the shipping rate </td>
                     </tr>
                     <tr>
                       <td data-property-name="shippingPrice"> <code>shippingPrice</code> -
                         <a href="#definition-Float"><code>Float!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Shipping rate without any handling fees or taxes applied </td>
                     </tr>
                     <tr>
                       <td data-property-name="totalCharges"> <code>totalCharges</code> -
                         <a href="#definition-Float"><code>Float!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Total price of shipping rate including any fees </td>
                     </tr>
                     <tr>
                       <td data-property-name="cost"> <code>cost</code> -
                         <a href="#definition-Float"><code>Float</code></a>
                       </td>
-                      <td> </td>
+                      <td> Base shipping rate before any rules or fees were applied </td>
                     </tr>
                     <tr>
                       <td data-property-name="customDuties"> <code>customDuties</code> -
                         <a href="#definition-Float"><code>Float</code></a>
                       </td>
-                      <td> </td>
+                      <td> Duties and taxes on shipping rate </td>
                     </tr>
                     <tr>
                       <td data-property-name="flatRulesApplied"> <code>flatRulesApplied</code> -
-                        <a href="#definition-String"><code>[String!]!</code></a>
+                        <a href="#definition-String"><code>[String!]</code></a>
                       </td>
-                      <td> </td>
+                      <td> List of shipping rules that set the shipping rate </td>
                     </tr>
                     <tr>
                       <td data-property-name="changeRulesApplied"> <code>changeRulesApplied</code> -
-                        <a href="#definition-String"><code>[String!]!</code></a>
+                        <a href="#definition-String"><code>[String!]</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="method"> <code>method</code> -
-                        <a href="#definition-Method"><code>Method</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="rateBreakdown"> <code>rateBreakdown</code> -
-                        <a href="#definition-RateBreakdown"><code>RateBreakdown</code></a>
-                      </td>
-                      <td> </td>
+                      <td> List of shipping rules that surcharged or discounted the shipping rate </td>
                     </tr>
                   </table>
                 </section>
@@ -428,18 +369,13 @@ https://ovs.shipperhq.com/
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"handlingFee"</span>: <span class="hljs-number">123.45</span>,
-  <span class="hljs-attr">"shippingPrice"</span>: <span class="hljs-number">987.65</span>,
-  <span class="hljs-attr">"totalCharges"</span>: <span class="hljs-number">987.65</span>,
+  <span class="hljs-attr">"handlingFee"</span>: <span class="hljs-number">987.65</span>,
+  <span class="hljs-attr">"shippingPrice"</span>: <span class="hljs-number">123.45</span>,
+  <span class="hljs-attr">"totalCharges"</span>: <span class="hljs-number">123.45</span>,
   <span class="hljs-attr">"cost"</span>: <span class="hljs-number">987.65</span>,
   <span class="hljs-attr">"customDuties"</span>: <span class="hljs-number">123.45</span>,
-  <span class="hljs-attr">"flatRulesApplied"</span>: [<span class="hljs-string">"abc123"</span>],
-  <span class="hljs-attr">"changeRulesApplied"</span>: [<span class="hljs-string">"xyz789"</span>],
-  <span class="hljs-attr">"method"</span>: <span class="hljs-string">Method</span>,
-  <span class="hljs-attr">"rateBreakdown"</span>: <span class="hljs-string">RateBreakdown</span>
+  <span class="hljs-attr">"flatRulesApplied"</span>: [<span class="hljs-string">"xyz789"</span>],
+  <span class="hljs-attr">"changeRulesApplied"</span>: [<span class="hljs-string">"xyz789"</span>]
 }
 </code></pre> </body>
                   </html>
@@ -483,6 +419,9 @@ https://ovs.shipperhq.com/
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Delivery date and time slot selected by the customer, only applicable with calendar based shipping rates</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -490,136 +429,22 @@ https://ovs.shipperhq.com/
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="createdAt"> <code>createdAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="updatedAt"> <code>updatedAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="deliveryDateRanges"> <code>deliveryDateRanges</code> -
-                        <a href="#definition-DeliveryDateRange"><code>[DeliveryDateRange!]</code></a>
+                        <a href="#definition-DeliveryDateRange"><code>[DeliveryDateRange!]!</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td colspan="2" class="no-top-border">
-                        <div class="field-arguments">
-                          <p class="field-arguments-header"> Arguments </p>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>where</code> -
-                              <a href="#definition-DeliveryDateRangeWhereInput"><code>DeliveryDateRangeWhereInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>orderBy</code> -
-                              <a href="#definition-DeliveryDateRangeOrderByInput"><code>DeliveryDateRangeOrderByInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>skip</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>after</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>before</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>first</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>last</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                        </div>
-                      </td>
+                      <td> Internal use only </td>
                     </tr>
                     <tr>
                       <td data-property-name="availableDeliveryDates"> <code>availableDeliveryDates</code> -
-                        <a href="#definition-String"><code>[String!]!</code></a>
+                        <a href="#definition-String"><code>[String!]</code></a>
                       </td>
-                      <td> </td>
+                      <td> Selected delivery date or pickup date </td>
                     </tr>
                     <tr>
                       <td data-property-name="timeSlots"> <code>timeSlots</code> -
-                        <a href="#definition-TimeSlot"><code>[TimeSlot!]</code></a>
+                        <a href="#definition-TimeSlot"><code>[TimeSlot!]!</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td colspan="2" class="no-top-border">
-                        <div class="field-arguments">
-                          <p class="field-arguments-header"> Arguments </p>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>where</code> -
-                              <a href="#definition-TimeSlotWhereInput"><code>TimeSlotWhereInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>orderBy</code> -
-                              <a href="#definition-TimeSlotOrderByInput"><code>TimeSlotOrderByInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>skip</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>after</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>before</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>first</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>last</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="carrier"> <code>carrier</code> -
-                        <a href="#definition-Carrier"><code>Carrier</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="pickupLocationDetail"> <code>pickupLocationDetail</code> -
-                        <a href="#definition-PickupLocationDetail"><code>PickupLocationDetail</code></a>
-                      </td>
-                      <td> </td>
+                      <td> Selected time slot for pickup or delivery </td>
                     </tr>
                   </table>
                 </section>
@@ -630,14 +455,9 @@ https://ovs.shipperhq.com/
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">DateTime</span>,
   <span class="hljs-attr">"deliveryDateRanges"</span>: [<span class="hljs-string">DeliveryDateRange</span>],
-  <span class="hljs-attr">"availableDeliveryDates"</span>: [<span class="hljs-string">"abc123"</span>],
-  <span class="hljs-attr">"timeSlots"</span>: [<span class="hljs-string">TimeSlot</span>],
-  <span class="hljs-attr">"carrier"</span>: <span class="hljs-string">Carrier</span>,
-  <span class="hljs-attr">"pickupLocationDetail"</span>: <span class="hljs-string">PickupLocationDetail</span>
+  <span class="hljs-attr">"availableDeliveryDates"</span>: [<span class="hljs-string">"xyz789"</span>],
+  <span class="hljs-attr">"timeSlots"</span>: [<span class="hljs-string">TimeSlot</span>]
 }
 </code></pre> </body>
                   </html>
@@ -655,6 +475,9 @@ https://ovs.shipperhq.com/
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Carrier and shipping method information for the shipment</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -662,160 +485,46 @@ https://ovs.shipperhq.com/
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="createdAt"> <code>createdAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="updatedAt"> <code>updatedAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="carrierDetail"> <code>carrierDetail</code> -
                         <a href="#definition-CarrierDetail"><code>CarrierDetail!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Carrier specific information e.g. code and name </td>
                     </tr>
                     <tr>
                       <td data-property-name="methods"> <code>methods</code> -
-                        <a href="#definition-Method"><code>[Method!]</code></a>
+                        <a href="#definition-Method"><code>[Method!]!</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td colspan="2" class="no-top-border">
-                        <div class="field-arguments">
-                          <p class="field-arguments-header"> Arguments </p>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>where</code> -
-                              <a href="#definition-MethodWhereInput"><code>MethodWhereInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>orderBy</code> -
-                              <a href="#definition-MethodOrderByInput"><code>MethodOrderByInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>skip</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>after</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>before</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>first</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>last</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                        </div>
-                      </td>
+                      <td> Shipping method and shipping rate information </td>
                     </tr>
                     <tr>
                       <td data-property-name="sortOrder"> <code>sortOrder</code> -
                         <a href="#definition-Int"><code>Int</code></a>
                       </td>
-                      <td> </td>
+                      <td> Internal use only </td>
                     </tr>
                     <tr>
                       <td data-property-name="dateFormat"> <code>dateFormat</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Merchants preferred date format, in ISO 8601 Date and time format </td>
                     </tr>
                     <tr>
                       <td data-property-name="calendarDate"> <code>calendarDate</code> -
                         <a href="#definition-CalendarDate"><code>CalendarDate</code></a>
                       </td>
-                      <td> </td>
+                      <td> Delivery date and time slot selected by the customer, only applicable with calendar based shipping rates </td>
                     </tr>
                     <tr>
                       <td data-property-name="packages"> <code>packages</code> -
-                        <a href="#definition-Package"><code>[Package!]</code></a>
+                        <a href="#definition-Package"><code>[Package!]!</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td colspan="2" class="no-top-border">
-                        <div class="field-arguments">
-                          <p class="field-arguments-header"> Arguments </p>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>where</code> -
-                              <a href="#definition-PackageWhereInput"><code>PackageWhereInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>orderBy</code> -
-                              <a href="#definition-PackageOrderByInput"><code>PackageOrderByInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>skip</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>after</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>before</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>first</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>last</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                        </div>
-                      </td>
+                      <td> List of packages in this shipment, calculated based on carrier settings and items in the request </td>
                     </tr>
                     <tr>
                       <td data-property-name="pickupDetail"> <code>pickupDetail</code> -
                         <a href="#definition-PickupDetail"><code>PickupDetail</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="preventRulesApplied"> <code>preventRulesApplied</code> -
-                        <a href="#definition-String"><code>[String!]!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="shipment"> <code>shipment</code> -
-                        <a href="#definition-Shipment"><code>Shipment</code></a>
-                      </td>
-                      <td> </td>
+                      <td> Selected pickup location details, for In Store Pickup carriers only </td>
                     </tr>
                   </table>
                 </section>
@@ -826,18 +535,13 @@ https://ovs.shipperhq.com/
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">DateTime</span>,
   <span class="hljs-attr">"carrierDetail"</span>: <span class="hljs-string">CarrierDetail</span>,
   <span class="hljs-attr">"methods"</span>: [<span class="hljs-string">Method</span>],
   <span class="hljs-attr">"sortOrder"</span>: <span class="hljs-number">987</span>,
-  <span class="hljs-attr">"dateFormat"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"dateFormat"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"calendarDate"</span>: <span class="hljs-string">CalendarDate</span>,
   <span class="hljs-attr">"packages"</span>: [<span class="hljs-string">Package</span>],
-  <span class="hljs-attr">"pickupDetail"</span>: <span class="hljs-string">PickupDetail</span>,
-  <span class="hljs-attr">"preventRulesApplied"</span>: [<span class="hljs-string">"abc123"</span>],
-  <span class="hljs-attr">"shipment"</span>: <span class="hljs-string">Shipment</span>
+  <span class="hljs-attr">"pickupDetail"</span>: <span class="hljs-string">PickupDetail</span>
 }
 </code></pre> </body>
                   </html>
@@ -855,6 +559,9 @@ https://ovs.shipperhq.com/
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Carrier specific information e.g. code and name</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -862,64 +569,28 @@ https://ovs.shipperhq.com/
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="createdAt"> <code>createdAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="updatedAt"> <code>updatedAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="carrierCode"> <code>carrierCode</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Unique code for this carrier - intended for internal use </td>
                     </tr>
                     <tr>
                       <td data-property-name="carrierTitle"> <code>carrierTitle</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Title of carrier - intended for display to end users </td>
                     </tr>
                     <tr>
                       <td data-property-name="carrierType"> <code>carrierType</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Type of carrier e.g. UPS, FedEx, custom </td>
                     </tr>
                     <tr>
                       <td data-property-name="deliveryDateMessage"> <code>deliveryDateMessage</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="carrier"> <code>carrier</code> -
-                        <a href="#definition-Carrier"><code>Carrier</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="rateBreakdown"> <code>rateBreakdown</code> -
-                        <a href="#definition-RateBreakdown"><code>RateBreakdown</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="customDescription"> <code>customDescription</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
+                      <td> Internal use only </td>
                     </tr>
                   </table>
                 </section>
@@ -930,39 +601,11 @@ https://ovs.shipperhq.com/
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">DateTime</span>,
   <span class="hljs-attr">"carrierCode"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"carrierTitle"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"carrierType"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"deliveryDateMessage"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"carrier"</span>: <span class="hljs-string">Carrier</span>,
-  <span class="hljs-attr">"rateBreakdown"</span>: <span class="hljs-string">RateBreakdown</span>,
-  <span class="hljs-attr">"customDescription"</span>: <span class="hljs-string">"abc123"</span>
+  <span class="hljs-attr">"carrierTitle"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"carrierType"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"deliveryDateMessage"</span>: <span class="hljs-string">"xyz789"</span>
 }
-</code></pre> </body>
-                  </html>
-                </section>
-              </div>
-            </div>
-          </div>
-          <div id="definition-DateTime" class="definition panel" data-traverse-target="definition-DateTime">
-            <div class="definition-tags">
-              <a class="label" href="#tag-types">Types</a>
-            </div>
-            <h2 class="panel-title">
-              <a name="/definitions/DateTime"></a>
-              <p><code>DateTime</code></p>
-            </h2>
-            <div class="doc-row">
-              <div class="doc-copy"> </div>
-              <div class="doc-examples">
-                <section>
-                  <h5>Example</h5>
-                  <html>
-                  <head></head>
-                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">object</span>
 </code></pre> </body>
                   </html>
                 </section>
@@ -979,29 +622,14 @@ https://ovs.shipperhq.com/
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Internal use only</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
                       <th>Field Name</th>
                       <th>Description</th>
-                    </tr>
-                    <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="createdAt"> <code>createdAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="updatedAt"> <code>updatedAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
                     </tr>
                     <tr>
                       <td data-property-name="fromDate"> <code>fromDate</code> -
@@ -1015,12 +643,6 @@ https://ovs.shipperhq.com/
                       </td>
                       <td> </td>
                     </tr>
-                    <tr>
-                      <td data-property-name="calendarDate"> <code>calendarDate</code> -
-                        <a href="#definition-CalendarDate"><code>CalendarDate</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
                   </table>
                 </section>
               </div>
@@ -1029,14 +651,7 @@ https://ovs.shipperhq.com/
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"fromDate"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"toDate"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"calendarDate"</span>: <span class="hljs-string">CalendarDate</span>
-}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"fromDate"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"toDate"</span>: <span class="hljs-string">"xyz789"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -1063,7 +678,7 @@ https://ovs.shipperhq.com/
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">987.65</span>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">123.45</span>
 </code></pre> </body>
                   </html>
                 </section>
@@ -1080,6 +695,9 @@ https://ovs.shipperhq.com/
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Details of items in shipment</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -1087,70 +705,46 @@ https://ovs.shipperhq.com/
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="createdAt"> <code>createdAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="updatedAt"> <code>updatedAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="itemId"> <code>itemId</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Unique item ID </td>
                     </tr>
                     <tr>
                       <td data-property-name="sku"> <code>sku</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Item's SKU </td>
                     </tr>
                     <tr>
                       <td data-property-name="qty"> <code>qty</code> -
                         <a href="#definition-Int"><code>Int</code></a>
                       </td>
-                      <td> </td>
+                      <td> Item qty </td>
                     </tr>
                     <tr>
                       <td data-property-name="name"> <code>name</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Item's name </td>
                     </tr>
                     <tr>
                       <td data-property-name="hs_code"> <code>hs_code</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> HS Code - used in customs and duties calculations </td>
                     </tr>
                     <tr>
                       <td data-property-name="origin_country"> <code>origin_country</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Item's country of origin or manufacture </td>
                     </tr>
                     <tr>
                       <td data-property-name="declared_value"> <code>declared_value</code> -
                         <a href="#definition-Float"><code>Float</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="shipment"> <code>shipment</code> -
-                        <a href="#definition-Shipment"><code>Shipment</code></a>
-                      </td>
-                      <td> </td>
+                      <td> Item's declared value </td>
                     </tr>
                   </table>
                 </section>
@@ -1161,17 +755,13 @@ https://ovs.shipperhq.com/
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">DateTime</span>,
   <span class="hljs-attr">"itemId"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"sku"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"qty"</span>: <span class="hljs-number">123</span>,
+  <span class="hljs-attr">"sku"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"qty"</span>: <span class="hljs-number">987</span>,
   <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"hs_code"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"hs_code"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"origin_country"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"declared_value"</span>: <span class="hljs-number">123.45</span>,
-  <span class="hljs-attr">"shipment"</span>: <span class="hljs-string">Shipment</span>
+  <span class="hljs-attr">"declared_value"</span>: <span class="hljs-number">987.65</span>
 }
 </code></pre> </body>
                   </html>
@@ -1224,7 +814,7 @@ https://ovs.shipperhq.com/
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">987</span>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">123</span>
 </code></pre> </body>
                   </html>
                 </section>
@@ -1241,6 +831,9 @@ https://ovs.shipperhq.com/
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Details of item in package</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -1248,46 +841,22 @@ https://ovs.shipperhq.com/
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="createdAt"> <code>createdAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="updatedAt"> <code>updatedAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="sku"> <code>sku</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Item's SKU </td>
                     </tr>
                     <tr>
                       <td data-property-name="qtyPacked"> <code>qtyPacked</code> -
                         <a href="#definition-Float"><code>Float!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Quantity of items in package </td>
                     </tr>
                     <tr>
                       <td data-property-name="weightPacked"> <code>weightPacked</code> -
                         <a href="#definition-Float"><code>Float!</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="package"> <code>package</code> -
-                        <a href="#definition-Package"><code>Package</code></a>
-                      </td>
-                      <td> </td>
+                      <td> Weight of items in package </td>
                     </tr>
                   </table>
                 </section>
@@ -1297,28 +866,20 @@ https://ovs.shipperhq.com/
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"sku"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"qtyPacked"</span>: <span class="hljs-number">123.45</span>,
-  <span class="hljs-attr">"weightPacked"</span>: <span class="hljs-number">123.45</span>,
-  <span class="hljs-attr">"package"</span>: <span class="hljs-string">Package</span>
-}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"sku"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"qtyPacked"</span>: <span class="hljs-number">123.45</span>, <span class="hljs-attr">"weightPacked"</span>: <span class="hljs-number">987.65</span>}
 </code></pre> </body>
                   </html>
                 </section>
               </div>
             </div>
           </div>
-          <div id="definition-ItemOrderByInput" class="definition panel" data-traverse-target="definition-ItemOrderByInput">
+          <div id="definition-LabelType" class="definition panel" data-traverse-target="definition-LabelType">
             <div class="definition-tags">
               <a class="label" href="#tag-types">Types</a>
             </div>
             <h2 class="panel-title">
-              <a name="/definitions/ItemOrderByInput"></a>
-              <p><code>ItemOrderByInput</code></p>
+              <a name="/definitions/LabelType"></a>
+              <p><code>LabelType</code></p>
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
@@ -1330,136 +891,31 @@ https://ovs.shipperhq.com/
                     </tr>
                     <tr>
                       <td>
-                        <p><code>id_ASC</code></p>
+                        <p><code>PRIMARY</code></p>
                       </td>
                       <td> </td>
                     </tr>
                     <tr>
                       <td>
-                        <p><code>id_DESC</code></p>
+                        <p><code>CUSTOMS</code></p>
                       </td>
                       <td> </td>
                     </tr>
                     <tr>
                       <td>
-                        <p><code>createdAt_ASC</code></p>
+                        <p><code>FORM</code></p>
                       </td>
                       <td> </td>
                     </tr>
                     <tr>
                       <td>
-                        <p><code>createdAt_DESC</code></p>
+                        <p><code>AGREEMENT</code></p>
                       </td>
                       <td> </td>
                     </tr>
                     <tr>
                       <td>
-                        <p><code>updatedAt_ASC</code></p>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p><code>updatedAt_DESC</code></p>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p><code>sku_ASC</code></p>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p><code>sku_DESC</code></p>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p><code>qtyPacked_ASC</code></p>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p><code>qtyPacked_DESC</code></p>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p><code>weightPacked_ASC</code></p>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p><code>weightPacked_DESC</code></p>
-                      </td>
-                      <td> </td>
-                    </tr>
-                  </table>
-                </section>
-              </div>
-            </div>
-          </div>
-          <div id="definition-ItemType" class="definition panel" data-traverse-target="definition-ItemType">
-            <div class="definition-tags">
-              <a class="label" href="#tag-types">Types</a>
-            </div>
-            <h2 class="panel-title">
-              <a name="/definitions/ItemType"></a>
-              <p><code>ItemType</code></p>
-            </h2>
-            <div class="doc-row">
-              <div class="doc-copy">
-                <section class="json-schema-properties-blank">
-                  <table>
-                    <tr>
-                      <th>Enum Value</th>
-                      <th>Description</th>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p><code>BUNDLE</code></p>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p><code>VIRTUAL</code></p>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p><code>CONFIGURABLE</code></p>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p><code>SIMPLE</code></p>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p><code>GIFTCARD</code></p>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p><code>DOWNLOADABLE</code></p>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p><code>GROUPED</code></p>
+                        <p><code>RETURN</code></p>
                       </td>
                       <td> </td>
                     </tr>
@@ -1478,6 +934,9 @@ https://ovs.shipperhq.com/
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Shipping methods and rate information</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -1485,190 +944,40 @@ https://ovs.shipperhq.com/
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="createdAt"> <code>createdAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="updatedAt"> <code>updatedAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="methodDetails"> <code>methodDetails</code> -
                         <a href="#definition-MethodDetail"><code>MethodDetail!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Shipping method information like code, title, total charges </td>
                     </tr>
                     <tr>
                       <td data-property-name="timeInTransitOptions"> <code>timeInTransitOptions</code> -
                         <a href="#definition-TimeInTransitOptions"><code>TimeInTransitOptions</code></a>
                       </td>
-                      <td> </td>
+                      <td> Dispatch and delivery date of the shipping method </td>
                     </tr>
                     <tr>
                       <td data-property-name="rateBreakdownList"> <code>rateBreakdownList</code> -
-                        <a href="#definition-RateBreakdown"><code>[RateBreakdown!]</code></a>
+                        <a href="#definition-RateBreakdown"><code>[RateBreakdown!]!</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td colspan="2" class="no-top-border">
-                        <div class="field-arguments">
-                          <p class="field-arguments-header"> Arguments </p>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>where</code> -
-                              <a href="#definition-RateBreakdownWhereInput"><code>RateBreakdownWhereInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>orderBy</code> -
-                              <a href="#definition-RateBreakdownOrderByInput"><code>RateBreakdownOrderByInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>skip</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>after</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>before</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>first</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>last</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                        </div>
-                      </td>
+                      <td> Breakdown of shipping rates used to make up this shipping method, for example with merged rates </td>
                     </tr>
                     <tr>
                       <td data-property-name="advancedFees"> <code>advancedFees</code> -
                         <a href="#definition-AdvancedFees"><code>AdvancedFees</code></a>
                       </td>
-                      <td> </td>
+                      <td> Fees and charges included in shipping method </td>
                     </tr>
                     <tr>
                       <td data-property-name="packages"> <code>packages</code> -
-                        <a href="#definition-Package"><code>[Package!]</code></a>
+                        <a href="#definition-Package"><code>[Package!]!</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td colspan="2" class="no-top-border">
-                        <div class="field-arguments">
-                          <p class="field-arguments-header"> Arguments </p>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>where</code> -
-                              <a href="#definition-PackageWhereInput"><code>PackageWhereInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>orderBy</code> -
-                              <a href="#definition-PackageOrderByInput"><code>PackageOrderByInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>skip</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>after</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>before</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>first</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>last</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                        </div>
-                      </td>
+                      <td> Packages or boxes included in shipping rate </td>
                     </tr>
                     <tr>
                       <td data-property-name="selectedOptions"> <code>selectedOptions</code> -
-                        <a href="#definition-SelectedOption"><code>[SelectedOption!]</code></a>
+                        <a href="#definition-SelectedOption"><code>[SelectedOption!]!</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td colspan="2" class="no-top-border">
-                        <div class="field-arguments">
-                          <p class="field-arguments-header"> Arguments </p>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>where</code> -
-                              <a href="#definition-SelectedOptionWhereInput"><code>SelectedOptionWhereInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>orderBy</code> -
-                              <a href="#definition-SelectedOptionOrderByInput"><code>SelectedOptionOrderByInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>skip</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>after</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>before</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>first</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>last</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="carrier"> <code>carrier</code> -
-                        <a href="#definition-Carrier"><code>Carrier</code></a>
-                      </td>
-                      <td> </td>
+                      <td> Delivery options included in shipping rate, e.g. liftgate, residential delivery </td>
                     </tr>
                   </table>
                 </section>
@@ -1679,16 +988,12 @@ https://ovs.shipperhq.com/
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">DateTime</span>,
   <span class="hljs-attr">"methodDetails"</span>: <span class="hljs-string">MethodDetail</span>,
   <span class="hljs-attr">"timeInTransitOptions"</span>: <span class="hljs-string">TimeInTransitOptions</span>,
   <span class="hljs-attr">"rateBreakdownList"</span>: [<span class="hljs-string">RateBreakdown</span>],
   <span class="hljs-attr">"advancedFees"</span>: <span class="hljs-string">AdvancedFees</span>,
   <span class="hljs-attr">"packages"</span>: [<span class="hljs-string">Package</span>],
-  <span class="hljs-attr">"selectedOptions"</span>: [<span class="hljs-string">SelectedOption</span>],
-  <span class="hljs-attr">"carrier"</span>: <span class="hljs-string">Carrier</span>
+  <span class="hljs-attr">"selectedOptions"</span>: [<span class="hljs-string">SelectedOption</span>]
 }
 </code></pre> </body>
                   </html>
@@ -1706,6 +1011,9 @@ https://ovs.shipperhq.com/
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Shipping method information like code, title, total charges</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -1713,76 +1021,40 @@ https://ovs.shipperhq.com/
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="createdAt"> <code>createdAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="updatedAt"> <code>updatedAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="methodCode"> <code>methodCode</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Unique code of shipping method - intended for internal use </td>
                     </tr>
                     <tr>
                       <td data-property-name="methodTitle"> <code>methodTitle</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Title of shipping rate - intended for display to end users </td>
                     </tr>
                     <tr>
                       <td data-property-name="totalCharges"> <code>totalCharges</code> -
                         <a href="#definition-Float"><code>Float!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Shipping rate including all fees and charges </td>
                     </tr>
                     <tr>
                       <td data-property-name="currency"> <code>currency</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Currency code of shipping rate </td>
                     </tr>
                     <tr>
                       <td data-property-name="negotiatedRate"> <code>negotiatedRate</code> -
                         <a href="#definition-Boolean"><code>Boolean</code></a>
                       </td>
-                      <td> </td>
+                      <td> Indicator whether shipping method is a negotiated rate with carrier </td>
                     </tr>
                     <tr>
                       <td data-property-name="deliveryMessage"> <code>deliveryMessage</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="method"> <code>method</code> -
-                        <a href="#definition-Method"><code>Method</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="rateBreakdown"> <code>rateBreakdown</code> -
-                        <a href="#definition-RateBreakdown"><code>RateBreakdown</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="methodDescription"> <code>methodDescription</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
+                      <td> Delivery date information included in method title - included so developers can conditionally format this part of method title </td>
                     </tr>
                   </table>
                 </section>
@@ -1793,59 +1065,13 @@ https://ovs.shipperhq.com/
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"methodCode"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"methodTitle"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"totalCharges"</span>: <span class="hljs-number">987.65</span>,
-  <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"methodCode"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"methodTitle"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"totalCharges"</span>: <span class="hljs-number">123.45</span>,
+  <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"negotiatedRate"</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-attr">"deliveryMessage"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"method"</span>: <span class="hljs-string">Method</span>,
-  <span class="hljs-attr">"rateBreakdown"</span>: <span class="hljs-string">RateBreakdown</span>,
-  <span class="hljs-attr">"methodDescription"</span>: <span class="hljs-string">"xyz789"</span>
+  <span class="hljs-attr">"deliveryMessage"</span>: <span class="hljs-string">"abc123"</span>
 }
-</code></pre> </body>
-                  </html>
-                </section>
-              </div>
-            </div>
-          </div>
-          <div id="definition-Node" class="definition panel" data-traverse-target="definition-Node">
-            <div class="definition-tags">
-              <a class="label" href="#tag-types">Types</a>
-            </div>
-            <h2 class="panel-title">
-              <a name="/definitions/Node"></a>
-              <p><code>Node</code></p>
-            </h2>
-            <div class="doc-row">
-              <div class="doc-copy">
-                <section class="json-schema-description">
-                  <p>An object with an ID</p>
-                </section>
-                <section class="json-schema-properties-blank">
-                  <table>
-                    <tr>
-                      <th>Field Name</th>
-                      <th>Description</th>
-                    </tr>
-                    <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> The id of the object. </td>
-                    </tr>
-                  </table>
-                </section>
-              </div>
-              <div class="doc-examples">
-                <section>
-                  <h5>Example</h5>
-                  <html>
-                  <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -1862,6 +1088,9 @@ https://ovs.shipperhq.com/
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Information stored for a single order</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -1869,106 +1098,52 @@ https://ovs.shipperhq.com/
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="orderNumber"> <code>orderNumber</code> -
-                        <a href="#definition-String"><code>String!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="orderNumberText"> <code>orderNumberText</code> -
+                      <td data-property-name="createdAt"> <code>createdAt</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
                       <td> </td>
                     </tr>
                     <tr>
+                      <td data-property-name="orderNumber"> <code>orderNumber</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> Unique number or id for this order </td>
+                    </tr>
+                    <tr>
                       <td data-property-name="apiKey"> <code>apiKey</code> -
-                        <a href="#definition-String"><code>String!</code></a>
+                        <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Internal use only </td>
                     </tr>
                     <tr>
-                      <td data-property-name="createdAt"> <code>createdAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
+                      <td data-property-name="orderNumberText"> <code>orderNumberText</code> -
+                        <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="updatedAt"> <code>updatedAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
+                      <td> Public facing order number, only populated if different to orderNumber </td>
                     </tr>
                     <tr>
                       <td data-property-name="isActive"> <code>isActive</code> -
-                        <a href="#definition-Boolean"><code>Boolean!</code></a>
+                        <a href="#definition-Boolean"><code>Boolean</code></a>
                       </td>
-                      <td> </td>
+                      <td> Internal use only </td>
                     </tr>
                     <tr>
                       <td data-property-name="orderDetail"> <code>orderDetail</code> -
-                        <a href="#definition-OrderDetail"><code>OrderDetail!</code></a>
+                        <a href="#definition-OrderDetail"><code>OrderDetail</code></a>
                       </td>
-                      <td> </td>
+                      <td> Summary of shipping information for the entire order </td>
                     </tr>
                     <tr>
                       <td data-property-name="shipments"> <code>shipments</code> -
-                        <a href="#definition-Shipment"><code>[Shipment!]</code></a>
+                        <a href="#definition-Shipment"><code>[Shipment]</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td colspan="2" class="no-top-border">
-                        <div class="field-arguments">
-                          <p class="field-arguments-header"> Arguments </p>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>where</code> -
-                              <a href="#definition-ShipmentWhereInput"><code>ShipmentWhereInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>orderBy</code> -
-                              <a href="#definition-ShipmentOrderByInput"><code>ShipmentOrderByInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>skip</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>after</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>before</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>first</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>last</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                        </div>
-                      </td>
+                      <td> Shipping and packing information for each shipment in the order </td>
                     </tr>
                     <tr>
                       <td data-property-name="recipient"> <code>recipient</code> -
                         <a href="#definition-Address"><code>Address</code></a>
                       </td>
-                      <td> </td>
+                      <td> Shipping address information for the order </td>
                     </tr>
                   </table>
                 </section>
@@ -1979,12 +1154,10 @@ https://ovs.shipperhq.com/
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"orderNumber"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"orderNumberText"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"apiKey"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">DateTime</span>,
+  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"orderNumber"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"apiKey"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"orderNumberText"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"isActive"</span>: <span class="hljs-literal">false</span>,
   <span class="hljs-attr">"orderDetail"</span>: <span class="hljs-string">OrderDetail</span>,
   <span class="hljs-attr">"shipments"</span>: [<span class="hljs-string">Shipment</span>],
@@ -2006,6 +1179,9 @@ https://ovs.shipperhq.com/
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Summary of shipping information for the entire order</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -2013,70 +1189,40 @@ https://ovs.shipperhq.com/
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="createdAt"> <code>createdAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="updatedAt"> <code>updatedAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="carrierCode"> <code>carrierCode</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Unique code for carrier - intended for internal use </td>
                     </tr>
                     <tr>
                       <td data-property-name="carrierTitle"> <code>carrierTitle</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Title of carrier - intended for display to end users </td>
                     </tr>
                     <tr>
                       <td data-property-name="methodCode"> <code>methodCode</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Unique code of shipping method - intended for internal use </td>
                     </tr>
                     <tr>
                       <td data-property-name="methodTitle"> <code>methodTitle</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Title of shipping method - intended for display to end users </td>
                     </tr>
                     <tr>
                       <td data-property-name="totalCharges"> <code>totalCharges</code> -
                         <a href="#definition-Float"><code>Float!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Shipping charges including all fees </td>
                     </tr>
                     <tr>
                       <td data-property-name="transactionId"> <code>transactionId</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="currency"> <code>currency</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="order"> <code>order</code> -
-                        <a href="#definition-Order"><code>Order</code></a>
-                      </td>
-                      <td> </td>
+                      <td> ShipperHQ's transction ID </td>
                     </tr>
                   </table>
                 </section>
@@ -2087,17 +1233,12 @@ https://ovs.shipperhq.com/
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">DateTime</span>,
   <span class="hljs-attr">"carrierCode"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"carrierTitle"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"methodCode"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"methodTitle"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"totalCharges"</span>: <span class="hljs-number">987.65</span>,
-  <span class="hljs-attr">"transactionId"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"order"</span>: <span class="hljs-string">Order</span>
+  <span class="hljs-attr">"methodTitle"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"totalCharges"</span>: <span class="hljs-number">123.45</span>,
+  <span class="hljs-attr">"transactionId"</span>: <span class="hljs-string">"abc123"</span>
 }
 </code></pre> </body>
                   </html>
@@ -2115,6 +1256,9 @@ https://ovs.shipperhq.com/
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Package or box included in shipping rate</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -2122,94 +1266,16 @@ https://ovs.shipperhq.com/
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="createdAt"> <code>createdAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="updatedAt"> <code>updatedAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="packageDetail"> <code>packageDetail</code> -
                         <a href="#definition-PackageDetail"><code>PackageDetail!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Package information like box name, packed dimensions and value </td>
                     </tr>
                     <tr>
                       <td data-property-name="items"> <code>items</code> -
-                        <a href="#definition-Item"><code>[Item!]</code></a>
+                        <a href="#definition-Item"><code>[Item!]!</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td colspan="2" class="no-top-border">
-                        <div class="field-arguments">
-                          <p class="field-arguments-header"> Arguments </p>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>where</code> -
-                              <a href="#definition-ItemWhereInput"><code>ItemWhereInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>orderBy</code> -
-                              <a href="#definition-ItemOrderByInput"><code>ItemOrderByInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>skip</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>after</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>before</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>first</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>last</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="carrier"> <code>carrier</code> -
-                        <a href="#definition-Carrier"><code>Carrier</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="method"> <code>method</code> -
-                        <a href="#definition-Method"><code>Method</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="rateBreakdown"> <code>rateBreakdown</code> -
-                        <a href="#definition-RateBreakdown"><code>RateBreakdown</code></a>
-                      </td>
-                      <td> </td>
+                      <td> Information on items in package </td>
                     </tr>
                   </table>
                 </section>
@@ -2220,14 +1286,8 @@ https://ovs.shipperhq.com/
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">DateTime</span>,
   <span class="hljs-attr">"packageDetail"</span>: <span class="hljs-string">PackageDetail</span>,
-  <span class="hljs-attr">"items"</span>: [<span class="hljs-string">Item</span>],
-  <span class="hljs-attr">"carrier"</span>: <span class="hljs-string">Carrier</span>,
-  <span class="hljs-attr">"method"</span>: <span class="hljs-string">Method</span>,
-  <span class="hljs-attr">"rateBreakdown"</span>: <span class="hljs-string">RateBreakdown</span>
+  <span class="hljs-attr">"items"</span>: [<span class="hljs-string">Item</span>]
 }
 </code></pre> </body>
                   </html>
@@ -2245,6 +1305,9 @@ https://ovs.shipperhq.com/
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Package information like box name, packed dimensions and value</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -2252,52 +1315,34 @@ https://ovs.shipperhq.com/
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="createdAt"> <code>createdAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="updatedAt"> <code>updatedAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="declaredValue"> <code>declaredValue</code> -
                         <a href="#definition-Float"><code>Float</code></a>
                       </td>
-                      <td> </td>
+                      <td> Declared value of package </td>
                     </tr>
                     <tr>
                       <td data-property-name="height"> <code>height</code> -
                         <a href="#definition-Float"><code>Float!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Height of package </td>
                     </tr>
                     <tr>
                       <td data-property-name="length"> <code>length</code> -
                         <a href="#definition-Float"><code>Float!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Length of package </td>
                     </tr>
                     <tr>
                       <td data-property-name="packageName"> <code>packageName</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Box or package name </td>
                     </tr>
                     <tr>
                       <td data-property-name="packingWeight"> <code>packingWeight</code> -
                         <a href="#definition-Float"><code>Float</code></a>
                       </td>
-                      <td> </td>
+                      <td> Weight of package including packaging </td>
                     </tr>
                     <tr>
                       <td data-property-name="surchargePrice"> <code>surchargePrice</code> -
@@ -2309,19 +1354,13 @@ https://ovs.shipperhq.com/
                       <td data-property-name="weight"> <code>weight</code> -
                         <a href="#definition-Float"><code>Float!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Weight of package </td>
                     </tr>
                     <tr>
                       <td data-property-name="width"> <code>width</code> -
                         <a href="#definition-Float"><code>Float!</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="package"> <code>package</code> -
-                        <a href="#definition-Package"><code>Package</code></a>
-                      </td>
-                      <td> </td>
+                      <td> Width of package </td>
                     </tr>
                   </table>
                 </section>
@@ -2332,18 +1371,14 @@ https://ovs.shipperhq.com/
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"declaredValue"</span>: <span class="hljs-number">123.45</span>,
+  <span class="hljs-attr">"declaredValue"</span>: <span class="hljs-number">987.65</span>,
   <span class="hljs-attr">"height"</span>: <span class="hljs-number">123.45</span>,
   <span class="hljs-attr">"length"</span>: <span class="hljs-number">123.45</span>,
-  <span class="hljs-attr">"packageName"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"packageName"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"packingWeight"</span>: <span class="hljs-number">987.65</span>,
   <span class="hljs-attr">"surchargePrice"</span>: <span class="hljs-number">123.45</span>,
   <span class="hljs-attr">"weight"</span>: <span class="hljs-number">987.65</span>,
-  <span class="hljs-attr">"width"</span>: <span class="hljs-number">123.45</span>,
-  <span class="hljs-attr">"package"</span>: <span class="hljs-string">Package</span>
+  <span class="hljs-attr">"width"</span>: <span class="hljs-number">987.65</span>
 }
 </code></pre> </body>
                   </html>
@@ -2361,6 +1396,9 @@ https://ovs.shipperhq.com/
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Selected pickup location information and display preferences</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -2368,106 +1406,40 @@ https://ovs.shipperhq.com/
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="createdAt"> <code>createdAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="updatedAt"> <code>updatedAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="pickupLocationDetails"> <code>pickupLocationDetails</code> -
-                        <a href="#definition-PickupLocationDetail"><code>[PickupLocationDetail!]</code></a>
+                        <a href="#definition-PickupLocationDetail"><code>[PickupLocationDetail!]!</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td colspan="2" class="no-top-border">
-                        <div class="field-arguments">
-                          <p class="field-arguments-header"> Arguments </p>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>where</code> -
-                              <a href="#definition-PickupLocationDetailWhereInput"><code>PickupLocationDetailWhereInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>orderBy</code> -
-                              <a href="#definition-PickupLocationDetailOrderByInput"><code>PickupLocationDetailOrderByInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>skip</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>after</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>before</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>first</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>last</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                        </div>
-                      </td>
+                      <td> Details of pickup location like address, hours, location </td>
                     </tr>
                     <tr>
                       <td data-property-name="pickupCart"> <code>pickupCart</code> -
                         <a href="#definition-Boolean"><code>Boolean</code></a>
                       </td>
-                      <td> </td>
+                      <td> Deprecated: No longer supported </td>
                     </tr>
                     <tr>
                       <td data-property-name="googleApiKey"> <code>googleApiKey</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Google API key of merchant, use to display map of pickup location </td>
                     </tr>
                     <tr>
                       <td data-property-name="showOpeningHours"> <code>showOpeningHours</code> -
                         <a href="#definition-Boolean"><code>Boolean</code></a>
                       </td>
-                      <td> </td>
+                      <td> Indicates whether you should display opening hours for this pickup location </td>
                     </tr>
                     <tr>
                       <td data-property-name="showMap"> <code>showMap</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Indicates whether you should display map for this pickup location </td>
                     </tr>
                     <tr>
                       <td data-property-name="showAddress"> <code>showAddress</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="carrier"> <code>carrier</code> -
-                        <a href="#definition-Carrier"><code>Carrier</code></a>
-                      </td>
-                      <td> </td>
+                      <td> Indicates whether you should display pickup location's address </td>
                     </tr>
                   </table>
                 </section>
@@ -2478,16 +1450,12 @@ https://ovs.shipperhq.com/
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">DateTime</span>,
   <span class="hljs-attr">"pickupLocationDetails"</span>: [<span class="hljs-string">PickupLocationDetail</span>],
-  <span class="hljs-attr">"pickupCart"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">"googleApiKey"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"showOpeningHours"</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-attr">"showMap"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"showAddress"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"carrier"</span>: <span class="hljs-string">Carrier</span>
+  <span class="hljs-attr">"pickupCart"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">"googleApiKey"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"showOpeningHours"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"showMap"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"showAddress"</span>: <span class="hljs-string">"xyz789"</span>
 }
 </code></pre> </body>
                   </html>
@@ -2505,6 +1473,9 @@ https://ovs.shipperhq.com/
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Details of selected pickup location like address, hours, location</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -2512,190 +1483,166 @@ https://ovs.shipperhq.com/
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="createdAt"> <code>createdAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="updatedAt"> <code>updatedAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="pickupId"> <code>pickupId</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> ShipperHQ's ID for pickup location </td>
                     </tr>
                     <tr>
                       <td data-property-name="pickupName"> <code>pickupName</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Name of pickup location - intended for display to end user </td>
                     </tr>
                     <tr>
                       <td data-property-name="latitude"> <code>latitude</code> -
                         <a href="#definition-Float"><code>Float</code></a>
                       </td>
-                      <td> </td>
+                      <td> Location latitude - to display map of location </td>
                     </tr>
                     <tr>
                       <td data-property-name="longitude"> <code>longitude</code> -
                         <a href="#definition-Float"><code>Float</code></a>
                       </td>
-                      <td> </td>
+                      <td> Location longitude - to display map of location </td>
                     </tr>
                     <tr>
                       <td data-property-name="street1"> <code>street1</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Street line one of location's address </td>
                     </tr>
                     <tr>
                       <td data-property-name="street2"> <code>street2</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Street line two of location's address </td>
                     </tr>
                     <tr>
                       <td data-property-name="city"> <code>city</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> City of location's address </td>
                     </tr>
                     <tr>
                       <td data-property-name="state"> <code>state</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Region or state of location's address </td>
                     </tr>
                     <tr>
                       <td data-property-name="country"> <code>country</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Country of location's address, in ISO alpha-2 format </td>
                     </tr>
                     <tr>
                       <td data-property-name="zipcode"> <code>zipcode</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Zipcode or post code of location's address </td>
                     </tr>
                     <tr>
                       <td data-property-name="phone"> <code>phone</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Contact phone number of pickup location </td>
                     </tr>
                     <tr>
                       <td data-property-name="distance"> <code>distance</code> -
                         <a href="#definition-Float"><code>Float</code></a>
                       </td>
-                      <td> </td>
+                      <td> Distance of pickup location to user's delivery address </td>
                     </tr>
                     <tr>
                       <td data-property-name="currentTime"> <code>currentTime</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Current time at pickup location </td>
                     </tr>
                     <tr>
                       <td data-property-name="pickupDate"> <code>pickupDate</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Earliest available pickup date including lead time </td>
                     </tr>
                     <tr>
                       <td data-property-name="dispatchDate"> <code>dispatchDate</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Earliest available dispatch date including lead time </td>
                     </tr>
                     <tr>
                       <td data-property-name="locationMap"> <code>locationMap</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Deprecated: No longer supported </td>
                     </tr>
                     <tr>
                       <td data-property-name="calendarDate"> <code>calendarDate</code> -
                         <a href="#definition-CalendarDate"><code>CalendarDate</code></a>
                       </td>
-                      <td> </td>
+                      <td> Delivery date and time slot selected by the customer, only applicable with calendar based shipping rates </td>
                     </tr>
                     <tr>
                       <td data-property-name="standardHours"> <code>standardHours</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Standard opening hours for this pickup location </td>
                     </tr>
                     <tr>
                       <td data-property-name="publicId"> <code>publicId</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Location's public ID, often used for post order processing </td>
                     </tr>
                     <tr>
                       <td data-property-name="nonStandardHours"> <code>nonStandardHours</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Opening hours outside of standard hours </td>
                     </tr>
                     <tr>
                       <td data-property-name="email"> <code>email</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Email address for pickup location </td>
                     </tr>
                     <tr>
                       <td data-property-name="contactName"> <code>contactName</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Contact person at pickup location </td>
                     </tr>
                     <tr>
                       <td data-property-name="imageUrl"> <code>imageUrl</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> URL of image showing location map or storefront - not always supported </td>
                     </tr>
                     <tr>
                       <td data-property-name="walkingDirections"> <code>walkingDirections</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Walking directions from user's location to store - not always supported </td>
                     </tr>
                     <tr>
                       <td data-property-name="websiteUrl"> <code>websiteUrl</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Location's website </td>
                     </tr>
                     <tr>
                       <td data-property-name="pickupFullName"> <code>pickupFullName</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Name and address of pickup location in a single field </td>
                     </tr>
                     <tr>
                       <td data-property-name="emailOption"> <code>emailOption</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="pickupDetail"> <code>pickupDetail</code> -
-                        <a href="#definition-PickupDetail"><code>PickupDetail</code></a>
-                      </td>
-                      <td> </td>
+                      <td> Internal use only </td>
                     </tr>
                   </table>
                 </section>
@@ -2706,23 +1653,20 @@ https://ovs.shipperhq.com/
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">DateTime</span>,
   <span class="hljs-attr">"pickupId"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"pickupName"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"pickupName"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"latitude"</span>: <span class="hljs-number">123.45</span>,
   <span class="hljs-attr">"longitude"</span>: <span class="hljs-number">123.45</span>,
-  <span class="hljs-attr">"street1"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"street1"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"street2"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"city"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"city"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"state"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"country"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"country"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"zipcode"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"distance"</span>: <span class="hljs-number">987.65</span>,
-  <span class="hljs-attr">"currentTime"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"pickupDate"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"currentTime"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"pickupDate"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"dispatchDate"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"locationMap"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"calendarDate"</span>: <span class="hljs-string">CalendarDate</span>,
@@ -2731,12 +1675,11 @@ https://ovs.shipperhq.com/
   <span class="hljs-attr">"nonStandardHours"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"email"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"contactName"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"imageUrl"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"walkingDirections"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"websiteUrl"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"pickupFullName"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"emailOption"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"pickupDetail"</span>: <span class="hljs-string">PickupDetail</span>
+  <span class="hljs-attr">"imageUrl"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"walkingDirections"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"websiteUrl"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"pickupFullName"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"emailOption"</span>: <span class="hljs-string">"abc123"</span>
 }
 </code></pre> </body>
                   </html>
@@ -2754,6 +1697,9 @@ https://ovs.shipperhq.com/
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Breakdown of individual shipping rates used to make up a shipping method, for example with merged rates or rate shopping</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -2761,118 +1707,46 @@ https://ovs.shipperhq.com/
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="createdAt"> <code>createdAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="updatedAt"> <code>updatedAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="shipmentDetail"> <code>shipmentDetail</code> -
                         <a href="#definition-ShipmentDetail"><code>ShipmentDetail!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Details of shipment </td>
                     </tr>
                     <tr>
                       <td data-property-name="carrierDetail"> <code>carrierDetail</code> -
                         <a href="#definition-CarrierDetail"><code>CarrierDetail!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Carrier specific information e.g. code and name </td>
                     </tr>
                     <tr>
                       <td data-property-name="methodCode"> <code>methodCode</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Unique code of shipping method - intended for internal use </td>
                     </tr>
                     <tr>
                       <td data-property-name="methodDetails"> <code>methodDetails</code> -
                         <a href="#definition-MethodDetail"><code>MethodDetail!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Shipping method information like code, title, total charges </td>
                     </tr>
                     <tr>
                       <td data-property-name="timeInTransitOptions"> <code>timeInTransitOptions</code> -
                         <a href="#definition-TimeInTransitOptions"><code>TimeInTransitOptions</code></a>
                       </td>
-                      <td> </td>
+                      <td> Dispatch and delivery date information </td>
                     </tr>
                     <tr>
                       <td data-property-name="advancedFees"> <code>advancedFees</code> -
                         <a href="#definition-AdvancedFees"><code>AdvancedFees</code></a>
                       </td>
-                      <td> </td>
+                      <td> Fees and charges included in shipping method </td>
                     </tr>
                     <tr>
                       <td data-property-name="packages"> <code>packages</code> -
-                        <a href="#definition-Package"><code>[Package!]</code></a>
+                        <a href="#definition-Package"><code>[Package!]!</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td colspan="2" class="no-top-border">
-                        <div class="field-arguments">
-                          <p class="field-arguments-header"> Arguments </p>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>where</code> -
-                              <a href="#definition-PackageWhereInput"><code>PackageWhereInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>orderBy</code> -
-                              <a href="#definition-PackageOrderByInput"><code>PackageOrderByInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>skip</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>after</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>before</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>first</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>last</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="method"> <code>method</code> -
-                        <a href="#definition-Method"><code>Method</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="isWinningRate"> <code>isWinningRate</code> -
-                        <a href="#definition-Boolean"><code>Boolean</code></a>
-                      </td>
-                      <td> </td>
+                      <td> Packages or boxes included in shipping rate </td>
                     </tr>
                   </table>
                 </section>
@@ -2883,18 +1757,13 @@ https://ovs.shipperhq.com/
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">DateTime</span>,
   <span class="hljs-attr">"shipmentDetail"</span>: <span class="hljs-string">ShipmentDetail</span>,
   <span class="hljs-attr">"carrierDetail"</span>: <span class="hljs-string">CarrierDetail</span>,
   <span class="hljs-attr">"methodCode"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"methodDetails"</span>: <span class="hljs-string">MethodDetail</span>,
   <span class="hljs-attr">"timeInTransitOptions"</span>: <span class="hljs-string">TimeInTransitOptions</span>,
   <span class="hljs-attr">"advancedFees"</span>: <span class="hljs-string">AdvancedFees</span>,
-  <span class="hljs-attr">"packages"</span>: [<span class="hljs-string">Package</span>],
-  <span class="hljs-attr">"method"</span>: <span class="hljs-string">Method</span>,
-  <span class="hljs-attr">"isWinningRate"</span>: <span class="hljs-literal">false</span>
+  <span class="hljs-attr">"packages"</span>: [<span class="hljs-string">Package</span>]
 }
 </code></pre> </body>
                   </html>
@@ -2912,6 +1781,9 @@ https://ovs.shipperhq.com/
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Delivery options included in shipping rate, e.g. liftgate, residential delivery</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -2919,40 +1791,16 @@ https://ovs.shipperhq.com/
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="createdAt"> <code>createdAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="updatedAt"> <code>updatedAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="name"> <code>name</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Name of option </td>
                     </tr>
                     <tr>
                       <td data-property-name="value"> <code>value</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="method"> <code>method</code> -
-                        <a href="#definition-Method"><code>Method</code></a>
-                      </td>
-                      <td> </td>
+                      <td> Value selected </td>
                     </tr>
                   </table>
                 </section>
@@ -2962,14 +1810,7 @@ https://ovs.shipperhq.com/
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"value"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"method"</span>: <span class="hljs-string">Method</span>
-}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"value"</span>: <span class="hljs-string">"abc123"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -2986,6 +1827,9 @@ https://ovs.shipperhq.com/
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Shipping and packing information for this shipment</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -2993,130 +1837,22 @@ https://ovs.shipperhq.com/
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="createdAt"> <code>createdAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="updatedAt"> <code>updatedAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="shipmentDetail"> <code>shipmentDetail</code> -
                         <a href="#definition-ShipmentDetail"><code>ShipmentDetail!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Unique ID and display name of shipment </td>
                     </tr>
                     <tr>
                       <td data-property-name="carriers"> <code>carriers</code> -
-                        <a href="#definition-Carrier"><code>[Carrier!]</code></a>
+                        <a href="#definition-Carrier"><code>[Carrier!]!</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td colspan="2" class="no-top-border">
-                        <div class="field-arguments">
-                          <p class="field-arguments-header"> Arguments </p>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>where</code> -
-                              <a href="#definition-CarrierWhereInput"><code>CarrierWhereInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>orderBy</code> -
-                              <a href="#definition-CarrierOrderByInput"><code>CarrierOrderByInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>skip</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>after</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>before</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>first</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>last</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                        </div>
-                      </td>
+                      <td> Carrier and shipping method information for the shipment </td>
                     </tr>
                     <tr>
                       <td data-property-name="groupedItems"> <code>groupedItems</code> -
-                        <a href="#definition-GroupedItem"><code>[GroupedItem!]</code></a>
+                        <a href="#definition-GroupedItem"><code>[GroupedItem!]!</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td colspan="2" class="no-top-border">
-                        <div class="field-arguments">
-                          <p class="field-arguments-header"> Arguments </p>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>where</code> -
-                              <a href="#definition-GroupedItemWhereInput"><code>GroupedItemWhereInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>orderBy</code> -
-                              <a href="#definition-GroupedItemOrderByInput"><code>GroupedItemOrderByInput</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>skip</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>after</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>before</code> -
-                              <a href="#definition-String"><code>String</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>first</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                          <div class="field-argument">
-                            <p class="field-argument-name"><code>last</code> -
-                              <a href="#definition-Int"><code>Int</code></a>
-                            </p>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="order"> <code>order</code> -
-                        <a href="#definition-Order"><code>Order</code></a>
-                      </td>
-                      <td> </td>
+                      <td> Details of items in shipment </td>
                     </tr>
                   </table>
                 </section>
@@ -3127,13 +1863,9 @@ https://ovs.shipperhq.com/
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">DateTime</span>,
   <span class="hljs-attr">"shipmentDetail"</span>: <span class="hljs-string">ShipmentDetail</span>,
   <span class="hljs-attr">"carriers"</span>: [<span class="hljs-string">Carrier</span>],
-  <span class="hljs-attr">"groupedItems"</span>: [<span class="hljs-string">GroupedItem</span>],
-  <span class="hljs-attr">"order"</span>: <span class="hljs-string">Order</span>
+  <span class="hljs-attr">"groupedItems"</span>: [<span class="hljs-string">GroupedItem</span>]
 }
 </code></pre> </body>
                   </html>
@@ -3151,6 +1883,9 @@ https://ovs.shipperhq.com/
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Unique ID and display name of shipment</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -3158,52 +1893,22 @@ https://ovs.shipperhq.com/
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="createdAt"> <code>createdAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="updatedAt"> <code>updatedAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="shipmentId"> <code>shipmentId</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Unique id of shipment </td>
                     </tr>
                     <tr>
                       <td data-property-name="name"> <code>name</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Display name of shipment </td>
                     </tr>
                     <tr>
                       <td data-property-name="description"> <code>description</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="rateBreakdown"> <code>rateBreakdown</code> -
-                        <a href="#definition-RateBreakdown"><code>RateBreakdown</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="shipment"> <code>shipment</code> -
-                        <a href="#definition-Shipment"><code>Shipment</code></a>
-                      </td>
-                      <td> </td>
+                      <td> Further description of shipment - intended for display to end user e.g. tooltip </td>
                     </tr>
                   </table>
                 </section>
@@ -3213,16 +1918,7 @@ https://ovs.shipperhq.com/
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"shipmentId"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"rateBreakdown"</span>: <span class="hljs-string">RateBreakdown</span>,
-  <span class="hljs-attr">"shipment"</span>: <span class="hljs-string">Shipment</span>
-}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"shipmentId"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"description"</span>: <span class="hljs-string">"abc123"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -3255,6 +1951,9 @@ https://ovs.shipperhq.com/
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Dispatch and delivery date information</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -3262,34 +1961,16 @@ https://ovs.shipperhq.com/
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="dispatchDate"> <code>dispatchDate</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
+                      <td> Dispatch date of shipping method </td>
                     </tr>
                     <tr>
                       <td data-property-name="deliveryDate"> <code>deliveryDate</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="method"> <code>method</code> -
-                        <a href="#definition-Method"><code>Method</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="rateBreakdown"> <code>rateBreakdown</code> -
-                        <a href="#definition-RateBreakdown"><code>RateBreakdown</code></a>
-                      </td>
-                      <td> </td>
+                      <td> Delivery date of shipping method </td>
                     </tr>
                   </table>
                 </section>
@@ -3299,13 +1980,7 @@ https://ovs.shipperhq.com/
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"dispatchDate"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"deliveryDate"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"method"</span>: <span class="hljs-string">Method</span>,
-  <span class="hljs-attr">"rateBreakdown"</span>: <span class="hljs-string">RateBreakdown</span>
-}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"dispatchDate"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"deliveryDate"</span>: <span class="hljs-string">"abc123"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -3322,6 +1997,9 @@ https://ovs.shipperhq.com/
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Time slot information for pickup or delivery</p>
+                </section>
                 <section class="json-schema-properties-blank">
                   <table>
                     <tr>
@@ -3329,46 +2007,22 @@ https://ovs.shipperhq.com/
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="createdAt"> <code>createdAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="updatedAt"> <code>updatedAt</code> -
-                        <a href="#definition-DateTime"><code>DateTime!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="timeStart"> <code>timeStart</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Start time of selected time slot </td>
                     </tr>
                     <tr>
                       <td data-property-name="timeEnd"> <code>timeEnd</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
+                      <td> End time of selected time slot </td>
                     </tr>
                     <tr>
                       <td data-property-name="interval"> <code>interval</code> -
                         <a href="#definition-String"><code>String!</code></a>
                       </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="calendarDate"> <code>calendarDate</code> -
-                        <a href="#definition-CalendarDate"><code>CalendarDate</code></a>
-                      </td>
-                      <td> </td>
+                      <td> Length of time slot, in minutes </td>
                     </tr>
                   </table>
                 </section>
@@ -3378,15 +2032,7 @@ https://ovs.shipperhq.com/
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"timeStart"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"timeEnd"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"interval"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"calendarDate"</span>: <span class="hljs-string">CalendarDate</span>
-}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"timeStart"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"timeEnd"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"interval"</span>: <span class="hljs-string">"xyz789"</span>}
 </code></pre> </body>
                   </html>
                 </section>

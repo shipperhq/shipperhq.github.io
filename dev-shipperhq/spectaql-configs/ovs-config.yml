@@ -33,7 +33,8 @@ introspection:
   # URL of the GraphQL endpoint to hit if you want to generate the documentation based on live Introspection Query results
   # NOTE: If not using introspection.url OR servers[], you need to provide x-swaggerUrl
   # to satisfy the URL Swagger requirement.
-  url: https://ovs.shipperhq.com
+  #url: https://ovs.shipperhq.com
+  url: http://localhost:4060
   metadataFile:  spectaql-data/ovs-metadata.json
 
   # If using the "url" option above, any headers (such as Authorization) can be added here. This
