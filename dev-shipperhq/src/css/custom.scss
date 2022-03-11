@@ -143,6 +143,15 @@ a {
   }
 }
 
+.external-nav-link {
+  &:after {
+    content: url(../../static/img/arrow-up-right-from-square-solid.svg);
+    margin-left: 0.3rem;
+    position: relative;
+    top: 1px;
+  }
+}
+
 
 /////// Freakin' tailwind sizes ////////////
 

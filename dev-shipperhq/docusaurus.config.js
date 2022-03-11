@@ -74,7 +74,7 @@ const config = {
             label: 'Quickstart',
           },
           {
-            to: 'https://graphiql.shipperhq.com/',
+            href: 'https://graphiql.shipperhq.com/',
             label: 'API Playground',
           },
           {
@@ -110,7 +110,8 @@ const config = {
               {
                 to: 'rate-service',
                 label: 'Rates API',
-                target: '_blank'
+                target: '_blank',
+                className: 'external-nav-link'
               },
             ]
           },
@@ -147,7 +148,8 @@ const config = {
               {
                 to: 'order-view-service',
                 label: 'Insights API',
-                target: '_blank'
+                target: '_blank',
+                className: 'external-nav-link'
               },
             ]
           },
