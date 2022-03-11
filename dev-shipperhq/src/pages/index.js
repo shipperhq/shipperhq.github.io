@@ -61,11 +61,11 @@ export default function Home() {
               <div className="q-links">
                   <div className="q-link">
                       <i className="fas fa-medal"></i>
-                      <p><b>Already a partner?</b> Existing partners can engage with our APIs using a dev account. <Link to="">Learn more</Link></p>
+                      <p><b>Already a partner?</b> Existing partners can engage with our APIs using a dev account. <Link to="/contact">Contact us</Link></p>
                   </div>
                   <div className="q-link">
                       <i className="fas fa-handshake"></i>
-                      <p><b>Become a partner.</b> To engage with our APIs, partners will need a client on the platform. <Link to="">Learn more</Link></p>
+                      <p><b>Become a partner.</b> To engage with our APIs, partners will need a client on the platform. <Link to="/contact">Contact us</Link></p>
                   </div>
               </div>
           </div>
