@@ -8,6 +8,19 @@
   padding: 4rem 0;
   position: relative;
   overflow: hidden;
+  --ifm-hero-background-color: #F2F9FC;
+
+  h4 {
+    max-width: 775px;
+    font-size: 1.25rem;
+    line-height: 2rem;
+  }
+}
+
+[data-theme='dark'] {
+  .heroBanner {
+    --ifm-hero-background-color: #384451;
+  }
 }
 
 @media screen and (max-width: 966px) {
