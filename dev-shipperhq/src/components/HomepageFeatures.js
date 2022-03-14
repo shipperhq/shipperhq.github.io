@@ -5,12 +5,12 @@ import Link from '@docusaurus/Link';
 const FeatureList = [
   {
     title: 'Rates',
-    subtitle: 'Get shipping rates for your checkout',
+    subtitle: 'Get shipping rates for your application',
     docsLink: "/docs/rate/overview",
     Png: require('../../static/img/rating-feature-portal.png').default,
     description: (
       <>
-          Access shipping rate details and query what is most important to you and your business via the Rates API.
+          Get live shipping rates using complex business logic with a simple query via the Rates API.
       </>
     ),
   },
@@ -21,7 +21,7 @@ const FeatureList = [
     Png: require('../../static/img/insights-feature-portal.png').default,
     description: (
       <>
-          Connect your checkout with post-order fulfillment with detailed shipping information for each order.
+          Leverage ShipperHQ's orders database to fulfill orders more efficiently via the Insights API.
       </>
     ),
   },
@@ -32,7 +32,7 @@ const FeatureList = [
     Png: require('../../static/img/label-feature-comingsoon.png').default,
     description: (
       <>
-        Coming soon! Please contact sales@shipperhq.com to get early access (API available in beta).
+        Coming soon! Please <Link to="https://dev.shipperhq.com/contact">contact-us</Link> if you want to print Shipping Labels in your application! (Labels API available in beta).
       </>
     ),
   },
@@ -52,8 +52,7 @@ function Feature({Png, title, subtitle, description, docsLink}) {
               <h2 className="text-2xl mb10">{title}</h2>
               <h3 className="semi">{subtitle}</h3>
               <p className="text-md">{description}</p>
-              <p className="text-md mb10"><Link to={docsLink} className="arrow-right">Go to Documentation</Link></p>
-              <p className="text-md"><Link to="https://graphiql.shipperhq.com/" className="arrow-right">Playground</Link></p>
+              <p className="text-md mb10"><Link to={docsLink} className="arrow-right">Go to API Guide</Link></p>
             </div>
           </div>
 

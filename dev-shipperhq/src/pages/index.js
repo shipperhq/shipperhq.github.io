@@ -38,34 +38,23 @@ export default function Home() {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
-        <div className="container">
-            <div className="partner-quote">
-                <img src={partnerLogo} className="quote-logo"/>
-                <div className="quote">
-                    <p className="text-lg quote-body">ShipperHQ’s development team deﬁnes the standard for how to provide an amazing level of support. When it comes to any custom shipping requirements - they are the go-to solution for anything shipping related.</p>
-                    <p className="quote-author mb0">
-                        <b>Emily Wilhoit</b><br/>
-                        VP of Strategic Partnerships
-                    </p>
-                </div>
-            </div>
-        </div>
+        
         <div className="container">
           <div className="questions">
 
               <div className="q-heading">
                   <h3 className="text-2xl">Questions?</h3>
-                  <p className="mb20">Have a question about ShipperHQ? Find the answers you need from our robust <Link to="https://docs.shipperhq.com">Help Docs knowlege base</Link>, or reach out directly.</p>
-                  <p><Link to="/contact" className="arrow-right">Contact Us</Link></p>
+                  <p className="mb20"> We would love to hear from you: Please <Link to="/contact">Contact Us</Link></p>
+                  <p>If you need help configuring ShipperHQ, please visit our <Link to="https://docs.shipperhq.com/" className="arrow-right"> ShipperHQ Help Docs</Link></p>
               </div>
               <div className="q-links">
                   <div className="q-link">
                       <i className="fas fa-medal"></i>
-                      <p><b>Already a partner?</b> Existing partners can engage with our APIs using a dev account. <Link to="/contact">Contact us</Link></p>
+                      <p><b>Already a partner?</b> Existing partners can engage with our APIs using a devevelopment account. Please reach out to your account manager or <Link to="/contact">Contact us</Link></p>
                   </div>
                   <div className="q-link">
                       <i className="fas fa-handshake"></i>
-                      <p><b>Become a partner.</b> To engage with our APIs, partners will need a client on the platform. <Link to="/contact">Contact us</Link></p>
+                      <p><b>Become a partner?</b> If you would like to be featured on ShipperHQ Marketplace and provide an application that can easily be installed by merchants: <Link to="/contact">Contact us</Link></p>
                   </div>
               </div>
           </div>
