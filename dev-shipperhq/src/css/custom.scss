@@ -145,10 +145,13 @@ a {
 
 .external-nav-link {
   &:after {
-    content: url(../../static/img/arrow-up-right-from-square-solid.svg);
-    margin-left: 0.3rem;
-    position: relative;
-    top: 1px;
+    content: '\f08e';
+    font-family: 'Font Awesome 5 Pro';
+    margin-left: 5px;
+
+    [data-theme='dark'] {
+      color: #fff;
+    }
   }
 }
 
