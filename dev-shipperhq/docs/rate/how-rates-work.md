@@ -12,13 +12,13 @@ tags: [rates, api, guide]
 
 ## Typical workflow
 
-In order to generate a shipping quote that contains, usually, multiple rates the typical workflow would be to:
+To generate a shipping quote that contains, usually, multiple rates, the typical workflow would be to:
 
-1. Submit a request that includes the contents of the cart (e.g. item’s weight, value and quantity) as well as destination address information
-1. The request can include any other shipping options required like liftgate, residential address or specific delivery dates for this order
+1. Submit a request that includes the contents of the cart (e.g., item’s weight, value, and quantity) as well as destination address information
+1. The request can include any other shipping options required like liftgate, residential address, or specific delivery dates for this order
 1. Our API will return shipping rates for the cart using the carriers and rules configured in ShipperHQ
 
-Depending on whether you choose to request simple rates or full shipping rates, we can return basic rate information or full details of carriers, shipments, dates and shipping options available.
+Depending on whether you choose to request simple rates or full shipping rates, we can return basic rate information or full details of carriers, shipments, dates, and shipping options available.
 
 
 ## What is best: a single rate request or multiple rate requests?

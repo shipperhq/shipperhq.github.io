@@ -9,9 +9,9 @@ tags: [labels, insights, api, guide]
 
 Merchants integrate with ShipperHQ's Rates API to provide shipping rate estimates based on contents of a `virtual cart`. This is done leveraging the [Rates API](../rate/overview.md).  
 
-Once a customer has finalized their choices at checkout and completes the order, the rating (a quote) needs to be converted into an order so it can stored for use with the [Insights API](overview.md). Usually, multiple quotes are sent by ShipperHQ (for example in the cart, when the customer changes their address, when they changes delivery options, etc.).
+Once a customer has finalized their choices at checkout and completes the order, the rating (a quote) needs to be converted into an order so it can stored for use with the [Insights API](overview.md). Usually, multiple quotes are sent by ShipperHQ (for example, in the cart, when the customer changes their address, when they changes delivery options, etc.).
 
-The role of `PlaceOrder` is to convert one of these quotes into a full fledge order so that the complete quote information can be stored on ShipperHQ order database and later on retrieved via the [Insights API](overview.md).
+The role of `PlaceOrder` is to convert one of these quotes into a full-fledge order. Then, the complete quote information can be stored on ShipperHQ order database and later on retrieved via the [Insights API](overview.md).
 
 :::tip Most users don't need to use the `PlaceOrder` mutation
 
@@ -25,8 +25,8 @@ The specific scenarios where you would need to use `PlaceOrder` are detailed bel
 
 You need to use the `PlaceOrder` mutation if:
 * you use a platform that does not have a native ShipperHQ integration ([supported platform list here](https://shipperhq.com/pricing))
-* you want to capture orders outside of the platform (e.g. going headless, building a mobile app, etc.)
-* you want to implement a different order capture mechanism on a supported platform (from your CRM, an ERP) leveraging the [Rates API](../rate/overview.md)
+* you want to capture orders outside the platform (e.g., going headless, building a mobile app, etc.)
+* you want to implement a different order capture mechanism on a supported platform (from your CRM, from an ERP) leveraging the [Rates API](../rate/overview.md)
 
 To successfully call `PlaceOrder`, you need to generate rates via the [Rates API](../rate/overview.md) first.
 

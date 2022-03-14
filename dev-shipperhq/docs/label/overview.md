@@ -13,5 +13,5 @@ The Labels API enables you to produce shipping labels for shipments directly wit
 
 ## Early Access Program
 
-The ShipperHQ Labels API is currently in closed Beta. ShipperHQ is looking for early access partners interested in participating in this program.
+The ShipperHQ Labels API is currently in closed Beta. Therefore, ShipperHQ is looking for early access partners interested in participating in this program.
 Please [contact us](/contact) if interested.

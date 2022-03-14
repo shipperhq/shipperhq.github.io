@@ -8,7 +8,7 @@ import Error from '../transclusion/error.md' // This is an included file (see be
 
 ## Is the Labels API available?
 
-The ShipperHQ Labels API is currently in closed Beta. ShipperHQ is looking for early access partners interested in participating in this program.
+The ShipperHQ Labels API is currently in closed Beta. Therefore, ShipperHQ is looking for early access partners interested in participating in this program.
 Please [contact us](/contact) if interested.
 
 ## What are possible error codes and messages?

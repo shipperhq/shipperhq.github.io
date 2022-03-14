@@ -6,7 +6,7 @@ authors: []
 tags: [insights, api, guide, quickstart]
 ---
 
-This document is intended for technical architects and developers that need to integrate with ShipperHQ’s Insights API to build their own integration to retrieve shipment details from ShipperHQ.
+This document is for technical architects and developers that need to integrate with ShipperHQ’s Insights API to build their own integration to retrieve shipment details from ShipperHQ.
 
 Note, this does not document the standard types and fields the API provides. This information is included in the [Insights API Reference](https://dev.shipperhq.com/order-view-service/) documentation or can be obtained via our [API playground](https://graphiql.shipperhq.com/).
 
@@ -59,8 +59,11 @@ The following headers are required for every Insights API call.
 The [Date & Time](https://docs.shipperhq.com/delivery-datecalendar-configuration/) Advanced Feature allows merchants to give their customers accurate delivery dates, times in transit, or even a date picker on supported eCommerce platforms. In order to determine the correct delivery date to display, ShipperHQ also generates a Dispatch Date (the date on which the package is expected to be picked up by the carrier) based on the merchant's ShipperHQ configuration. For merchants who use Date & Time, it's useful to have the Insights API return the Dispatch and Delivery dates.
 
 **Fields**
-- `viewOrder` . `shipments` . `carriers` . `methods` . `timeInTransitOptions` . **`dispatchDate`**
-- `viewOrder` . `shipments` . `carriers` . `methods` . `timeInTransitOptions` . **`deliveryDate`**
+```json title="Fields for Date & Time"
+// The fields that contain the Date & Time information
+viewOrder.shipments.carriers.methods.timeInTransitOptions.dispatchDate
+viewOrder.shipments.carriers.methods.timeInTransitOptions.deliveryDate
+```
 
 #### Dimensional Packing
 The [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/) will determine the best package or packages to use for each shipment based on the merchant's ShipperHQ configuration. When Dimensional Packing is used, the Insights API can return the packages, details about each package, and item assignments for each.
@@ -70,15 +73,18 @@ This information will be returned as one or more `packages` objects each contain
 **Fields**
 
 Details about the package:
-- `viewOrder` . `shipments` . `carriers` . `packages` . `packageDetail` . **`height`**
-- `viewOrder` . `shipments` . `carriers` . `packages` . `packageDetail` . **`length`**
-- `viewOrder` . `shipments` . `carriers` . `packages` . `packageDetail` . **`width`**
-- `viewOrder` . `shipments` . `carriers` . `packages` . `packageDetail` . **`weight`**
-- `viewOrder` . `shipments` . `carriers` . `packages` . `packageDetail` . **`packageName`**
+```json title="Fields for Dimensional Packing"
+// The packageDetail object
+viewOrder.shipments.carriers.packages.packageDetail.height
+viewOrder.shipments.carriers.packages.packageDetail.length
+viewOrder.shipments.carriers.packages.packageDetail.width
+viewOrder.shipments.carriers.packages.packageDetail.weight
+viewOrder.shipments.carriers.packages.packageDetail.packageName
 
-The items packed into the package:
-- `viewOrder` . `shipments` . `carriers` . `packages` . `items` . [] . **`sku`**
-- `viewOrder` . `shipments` . `carriers` . `packages` . `items` . [] . **`qtyPacked`**
+// The item packed into the package
+viewOrder.shipments.carriers.packages.packageDetail.sku
+viewOrder.shipments.carriers.packages.packageDetail.qtyPacked
+```
 
 Other related fields are available and can be found in the [Insights API Reference](https://dev.shipperhq.com/order-view-service/) documentation.
 
@@ -88,8 +94,10 @@ With the [Multi-Origin Shipping](https://docs.shipperhq.com/setup-multiorigin-dr
 When an order contains shipments from multiple Origins, the Insights API will return multiple `shipments` objects. Each shipment has its own unique ID and contains the details about that shipment and the carriers used for that shipment. No special Insights API request is required to return multiple shipments but there are some fields which are useful in this scenario.
 
 **Fields**
-
-- `viewOrder` . `shipments` . `shipmentDetail` . **`name`**
+```json title="Field for Multi-Origin Shipping"
+// Unique name of the origin as configured in ShipperHQ
+viewOrder.shipments.shipmentDetail.name
+```
 
 The `name` field returns the unique name of the Origin configured in ShipperHQ.
 
