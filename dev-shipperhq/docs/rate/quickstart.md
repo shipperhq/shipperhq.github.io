@@ -5,7 +5,7 @@ title: Quickstart
 tags: [rates, api, guide, quickstart]
 ---
 
-This document is intended for technical architects and developers that need to integrate with ShipperHQ’s Insights API to build their own integration to retrieve shipment details from ShipperHQ.
+This document is intended for technical architects and developers that need to integrate with ShipperHQ’s Rates API to build their own integration to retrieve shipment details from ShipperHQ.
 
 Note, this does not document the standard types and fields the API provides. This information is included in the [Rates API Reference](https://dev.shipperhq.com/rate-service/) documentation or can be obtained via our [API playground](https://graphiql.shipperhq.com/).
 
