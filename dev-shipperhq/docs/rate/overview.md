@@ -7,11 +7,11 @@ title: Rating Overview
 
 ## What are rates?
 
-Shipping rates are an essential part of commerce and represent what options are given to customers to receive their order (e.g. delivery, pickup, etc.) and how much the customer is charged. Rates may include a variety of fulfillment methods like small parcel, freight (LTL/FTL), in-store pickup, curb-side pickup, or local delivery. Along with each of these is an associated cost, the shipping rate which might be zero, that the customer pays for that service.
+Shipping rates are an essential part of commerce and represent what options are given to customers to receive their order (e.g. delivery, pickup, etc.) and how much the customer is charged. Rates may include a variety of fulfillment methods like small parcel, freight (LTL/FTL), in-store pickup, curb-side pickup, or local delivery. Along with each of these is an associated price, the shipping rate which might be zero, that the customer pays for that service.
 
-These shipping options, the amounts charged for them, and a set of properties that describe them are called "rates" in ShipperHQ. At a minimum, information used to request rates will include a ship-to location (shipping address) and at least one item (a product) that's being shipped. The information returned includes, at a minimum, a ship-from location (Origin), the shipping option name, and a cost.
+These shipping options, the amounts charged for them, and a set of properties that describe them are called "rates" in ShipperHQ. At a minimum, information used to request rates will include a ship-to location (shipping address) and at least one item (a product) that's being shipped. The information returned includes, at a minimum, the shipping option name, and a price.
 
-Depending on the use case and how you implement the Rate API, you may provide additional information like ship-from address, LTL freight accessorials, selected delivery date, product Shipping Groups, dimensions, etc. and receive additional details like expected packacking, per-fulfillment-location rates and items, dispatch dates, and more.
+Depending on the use case and how you implement the Rates API, you may provide additional information like ship-from address, LTL freight accessorials, selected delivery date, product Shipping Groups, dimensions, etc. and receive additional details like expected packacking, per-fulfillment-location rates and items, dispatch dates, and more.
 
 ## Use cases
 Some scenarios in which ShipperHQ's Rate API is frequently used are:

@@ -8,9 +8,9 @@ tags: [rating, api, introduction, quickstart]
 
 
 # Quickstart
-This document is intended for technical architects and developers that need to integrate with ShipperHQ’s Shipping Insights API to build their own integration to retrieve shipment details from ShipperHQ.
+This document is intended for technical architects and developers that need to integrate with ShipperHQ’s Rates API to build their own integration to retrieve shipment details from ShipperHQ.
 
-Note, this does not document the standard types and fields the API provides. This information is included in the [Shipping Insights API](https://dev.shipperhq.com/order-view-service/) documentation or can be obtained via our API playground.
+Note, this does not document the standard types and fields the API provides. This information is included in the [Shipping Insights API](https://dev.shipperhq.com/rate-service/) documentation or can be obtained via our API playground.
 
 Our Rate API is implemented in GraphQL. See the [SDK Quickstart](../quickstart/) for more information.
 
