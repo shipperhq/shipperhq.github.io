@@ -1,4 +1,7 @@
-# SDK Use Cases
+---
+sidebar_position: 1
+title: SDK Use Cases
+---
 
 ## Overview
 
@@ -8,61 +11,76 @@ The ShipperHQ SDK provides an end to end solution to help merchants, developers,
 ![High Level ShipperHQ processes and API](./sdk-main-processes-and-api.jpg)
 
 While developers can use each API independently, the goal of the ShipperHQ SDK is to make it easy to integrate with the full ShipperHQ workflow following this sequence:
-  1. [Rate API](/docs/rate/overview)
-  2. [PlaceOrder Mutation](/docs/insight/place-order) (not required for most major eCommerce platforms)
-  3. [Shipping Insights API](/docs/insight/overview)
-  4. [Label API](/docs/label/overview) (in beta)
+  1. [Rates API](rate/overview.md)
+  2. [PlaceOrder Mutation](insight/place-order.md) (not required for most major integrations)
+  3. [Insights API](insight/overview.md)
+  4. [Labels API](label/overview.md) (in beta)
 
-## Use cases and existing integrations
+## Use cases
 
-To illustrate what can be achieved with ShipperHQ SDK, here are some example of integrations that have been successfully built using the SDK.
+To illustrate what can be achieved with ShipperHQ SDK, here are some examples of use cases that have been implemented using ShipperHQ's APIs.
 
 ### CRM integration
 
-Give customer service teams full visibility of the delivery option selected by a customer when they place an order. And, give the team shipping rates and options that respect complex business logic configured in ShipperHQ when placing or adjusting orders on behalf of customers. Shiping quotes can be live and accurate instead of estimated plus the sales person can see additional information like expected delivery date (if configured in ShipperHQ).
+Give customer service teams full visibility of the delivery option selected by a customer when they place an order. And, give the team shipping rates and options that respect complex business logic configured in ShipperHQ when placing or adjusting orders on behalf of customers. Shipping quotes can be live and accurate instead of estimated plus the sales person can see additional information like expected delivery date (if configured in ShipperHQ).
 
-This would require minimally:
-* [Rate API](/docs/rate/overview) to get rates
-* [PlaceOrder Mutation](/docs/insight/place-order) to capture successful orders placed or updated via the CRM
-* [Shipping Insights API](/docs/insight/overview) to display full shipping details
+:::note Relevant APIs
+
+* [Rates API](rate/overview.md) to get shipping options and rates
+* [PlaceOrder Mutation](insight/place-order.md) to capture successful orders placed or updated via the CRM
+* [Insights API](insight/overview.md) to display full shipping details
+
+:::
 
 ### ERP integration
 
-When creating draft-orders or manual orders, rates can be retrieved from ShipperHQ so that the order shipping costs can be accurately set. It enables multi-channel orders (online, offline, direct sale, etc.) to use the exact same logic, or variations of it, for shipping & delivery rates. The shipping rates returned by ShipperHQ can be overriden in your ERP following your own business rules and authorization system. Usually the ERP inform the rate engine of the various `shipping-groups` for the products, present origin-locations with inventory and more to leverage key ShipperHQ functionalities like multi-origin or multi-shipment fulfillment as well as differentiate small-packages vs freight orders.
+When creating draft-orders or manual orders, rates can be retrieved from ShipperHQ so that the order shipping costs can be accurately set. It enables multi-channel orders (online, offline, direct sale, etc.) to use the exact same logic, or variations of it, for shipping & delivery rates. The shipping rates returned by ShipperHQ can be overridden in your ERP following your own business rules and authorization system. Usually the ERP inform the rate engine of the various `shipping-groups` for the products, present origin-locations with inventory and more to leverage key ShipperHQ functionalities like multi-origin or multi-shipment fulfillment as well as differentiate small-packages vs freight orders.
 
-This would require minimally:
-1. [Rate API](/docs/rate/overview) to get rates
-2. [PlaceOrder Mutation](/docs/insight/place-order) to capture successful orders
+:::note Relevant APIs
 
-To visualize (or sync) the exact orders (order management):
-* [Shipping Insights API](/docs/insight/overview) to fulfill efficiently based on ShipperHQ rate at checkout recommendation
+* [Rates API](rate/overview.md) to get rates
+* [PlaceOrder Mutation](insight/place-order.md) to capture successful orders
 
-To print the corresponding labels:
-*  [Label API (in beta)](/docs/label/overview)
+*Optionally*
+* [Insights API](insight/overview.md) to fulfill efficiently based on the recommended shipment details from ShipperHQ
+* [Labels API](label/overview.md) (in beta) to print shipping labels
+
+:::
 
 ### Order Management System integration
 
-ShipperHQ customers uses various order management systems and the Shipping Insights API is a key to leverage the detailed shipment information produced by ShipperHQ during rating at time of fulfillment.
+ShipperHQ customers uses various order management systems and the Insights API is a key to leverage the detailed shipment information produced by ShipperHQ during rating at time of fulfillment.
 
-The [Shipping Insights API](/docs/insight/overview) enables order management systems to access:
-- Ship-from (Origin) locations for each shipment and item
-- Box/package sizes and types for each shipment
-- Label provider for each shipment
-- Service class for each shipment
-- Delivery date & time and expected dispatch date for each shipment
+The [Insights API](insight/overview.md) enables order management systems to access information like ship-from locations (Origins), package sizes and types, label providers, service classes, and delivery and dispatch dates.
 
-This would require minimally:
-* [Shipping Insights API](/docs/insight/overview)
+:::note Relevant API
+
+* [Insights API](insight/overview.md) to retrieve shipment information from ShipperHQ
+
+:::
 
 ### eCommerce platform integration
 
-While ShipperHQ support the major eCommerce platforms, the [Rate API](/docs/rate/overview) means developers can integrate ShipperHQ to provide rates at checkout in any eCommerce platform. This means being able to leverage the rich functionality of ShipperHQ's rules engine and advanced functions. For this use case, the [Rate API](/docs/rate/overview) can be called at any point where shipping rates are needed such as product pages, carts, and checkout.
+While ShipperHQ support the major eCommerce platforms, the [Rates API](rate/overview.md) means developers can integrate ShipperHQ to provide rates at checkout in any eCommerce platform. This means being able to leverage the rich functionality of ShipperHQ's rules engine and advanced functions. For this use case, the [Rates API](rate/overview.md) can be called at any point where shipping rates are needed such as product pages, carts, and checkout.
 
-This would require minimally:
-* [Rate API](/docs/rate/overview)
+:::note Relevant APIs
 
-For full functionality, adding integrations with the [PlaceOrder Mutation](/docs/insight/place-order) and [Shipping Insights API](/docs/insight/overview) would allow display of rich shipment information within the eCommerce platform admin.
+* [Rates API](rate/overview.md) to get shipping options and rates
+
+*Optionally*
+* [PlaceOrder Mutation](insight/place-order.md) to store ShipperHQ shipment information against orders
+* [Insights API](insight/overview.md) to retrieve rich shipment information for display within the eCommerce platform admin
+
+:::
 
 ### Headless commerce
 
-No need for an eCommerfce platform. With the ShipperHQ SDK you can build your own experience using whichever tools and technologies that you select. The [Rate API](/docs/rate/overview) will enable you to focus on the user experience while all the business logic is configured in ShipperHQ. The [Shipping Insights API](/docs/insight/overview) will allow you to place orders and retrieve all the fulfillment information required to complete this order.
+No need for an eCommerce platform. With the ShipperHQ SDK you can build your own experience using whichever tools and technologies that you select. The [Rates API](rate/overview.md) will enable you to focus on the user experience while all the business logic is configured in ShipperHQ. The [Insights API](insight/overview.md) will allow you to place orders and retrieve all the fulfillment information required to complete this order.
+
+:::note Relevant APIs
+
+* [Rates API](rate/overview.md) to get shipping options and rates
+* [PlaceOrder Mutation](insight/place-order.md) to store ShipperHQ shipment information against orders
+* [Insights API](insight/overview.md) to retrieve shipment information
+
+:::

@@ -1,9 +1,9 @@
 ---
 sidebar_position: 1
-title: Rating Overview
+slug: overview
+title: Overview
+tags: [rates, api, guide, overview]
 ---
-
-# Overview
 
 ## What are rates?
 

@@ -1,10 +1,11 @@
 ---
 sidebar_position: 3
+slug: quickstart
+title: Quickstart
+tags: [labels, api, guide, faq]
 ---
-
-# Label API Quickstart
 
 ## Early Access Program
 
-This API is beta, and ShipperHQ is looking for early access partners.
-Please contact [support](mailto:support@shipperhq.com) to manifest your interest.
+The ShipperHQ Labels API is currently in closed Beta. ShipperHQ is looking for early access partners interested in participating in this program.
+Please [contact us](/contact) if interested.
