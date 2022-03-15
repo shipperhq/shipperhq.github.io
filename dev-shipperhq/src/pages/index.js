@@ -47,16 +47,6 @@ export default function Home() {
                   <p className="mb20"> We would love to hear from you: Please <Link to="/contact">Contact Us</Link></p>
                   <p>If you need help configuring ShipperHQ, please visit our <Link to="https://docs.shipperhq.com/" className="arrow-right"> ShipperHQ Help Docs</Link></p>
               </div>
-              <div className="q-links">
-                  <div className="q-link">
-                      <i className="fas fa-medal"></i>
-                      <p><b>Already a partner?</b> Existing partners can engage with our APIs using a devevelopment account. Please reach out to your account manager or <Link to="/contact">Contact us</Link></p>
-                  </div>
-                  <div className="q-link">
-                      <i className="fas fa-handshake"></i>
-                      <p><b>Become a partner?</b> If you would like to be featured on ShipperHQ Marketplace and provide an application that can easily be installed by merchants: <Link to="/contact">Contact us</Link></p>
-                  </div>
-              </div>
           </div>
         </div>
       </main>
