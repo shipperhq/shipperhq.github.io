@@ -58,8 +58,11 @@ The following headers are required for every Insights API call.
 #### Date & Time
 The [Date & Time](https://docs.shipperhq.com/delivery-datecalendar-configuration/) Advanced Feature allows merchants to give their customers accurate delivery dates, times in transit, or even a date picker on supported eCommerce platforms. In order to determine the correct delivery date to display, ShipperHQ also generates a Dispatch Date (the date on which the package is expected to be picked up by the carrier) based on the merchant's ShipperHQ configuration. For merchants who use Date & Time, it's useful to have the Insights API return the Dispatch and Delivery dates.
 
-**Fields**
-```json title="Fields for Date & Time"
+**Fields for Date & Time**
+
+You can retrieve the dispatch date as well as the delivery promise via the `timeInTransitOptions` object:
+
+```json
 // The fields that contain the Date & Time information
 viewOrder.shipments.carriers.methods.timeInTransitOptions.dispatchDate
 viewOrder.shipments.carriers.methods.timeInTransitOptions.deliveryDate
@@ -70,10 +73,10 @@ The [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimens
 
 This information will be returned as one or more `packages` objects each containing `packageDetail` and `items` objects. The `packageName` field of the `packageDetail` object will be the name defined in ShipperHQ for that package. The `items` object may contain one or more items and indicate the `sku` of each as well as the quantity of that SKU packed in this package.
 
-**Fields**
+**Fields for Dimensional Packing**
 
-Details about the package:
-```json title="Fields for Dimensional Packing"
+You can retrieve the package information via the `packageDetail` object including the item(s) in each package:
+```json 
 // The packageDetail object
 viewOrder.shipments.carriers.packages.packageDetail.height
 viewOrder.shipments.carriers.packages.packageDetail.length
