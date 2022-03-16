@@ -81,22 +81,22 @@ const config = {
             items: [
               {
                 type: 'doc',
-                docId: 'rate/overview',
+                docId: 'rates/overview',
                 label: 'Overview'
               },
               {
                 type: 'doc',
-                docId: 'rate/how-rates-work',
+                docId: 'rates/how-rates-work',
                 label: 'How Rates Work'
               },
               {
                 type: 'doc',
-                docId: 'rate/quickstart',
+                docId: 'rates/quickstart',
                 label: 'Quickstart'
               },
               {
                 type: 'doc',
-                docId: 'rate/faq',
+                docId: 'rates/faq',
                 label: 'FAQ'
               },
               {
@@ -114,27 +114,27 @@ const config = {
             items: [
               {
                 type: 'doc',
-                docId: 'insight/overview',
+                docId: 'insights/overview',
                 label: 'Overview'
               },
               {
                 type: 'doc',
-                docId: 'insight/how-shipping-insights-works',
+                docId: 'insights/how-shipping-insights-works',
                 label: 'How Insights Work'
               },
               {
                 type: 'doc',
-                docId: 'insight/quickstart',
+                docId: 'insights/quickstart',
                 label: 'Quickstart'
               },
               {
                 type: 'doc',
-                docId: 'insight/faq',
+                docId: 'insights/faq',
                 label: 'FAQ'
               },
               {
                 type: 'doc',
-                docId: 'insight/place-order',
+                docId: 'insights/place-order',
                 label: 'Place Order'
               },
               {
@@ -152,22 +152,22 @@ const config = {
             items: [
               {
                 type: 'doc',
-                docId: 'label/overview',
+                docId: 'labels/overview',
                 label: 'Overview'
               },
               {
                 type: 'doc',
-                docId: 'label/how-label-works',
+                docId: 'labels/how-label-works',
                 label: 'How Labels Work'
               },
               {
                 type: 'doc',
-                docId: 'label/quickstart',
+                docId: 'labels/quickstart',
                 label: 'Quickstart'
               },
               {
                 type: 'doc',
-                docId: 'label/faq',
+                docId: 'labels/faq',
                 label: 'FAQ'
               },
             ]

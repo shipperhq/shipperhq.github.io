@@ -6,7 +6,7 @@ const FeatureList = [
   {
     title: 'Rates',
     subtitle: 'Get shipping rates for your application',
-    docsLink: "/docs/rate/overview",
+    docsLink: "/docs/rates/overview",
     Png: require('../../static/img/rating-feature-portal.png').default,
     description: (
       <>
@@ -17,7 +17,7 @@ const FeatureList = [
   {
     title: 'Insights',
     subtitle: 'Manage and fulfill your orders easily',
-    docsLink: "/docs/insight/overview",
+    docsLink: "/docs/insights/overview",
     Png: require('../../static/img/insights-feature-portal.png').default,
     description: (
       <>
@@ -28,7 +28,7 @@ const FeatureList = [
   {
     title: 'Labels',
     subtitle: 'Purchase and print shipping labels',
-    docsLink: "/docs/label/overview",
+    docsLink: "/docs/labels/overview",
     Png: require('../../static/img/label-feature-comingsoon.png').default,
     description: (
       <>
