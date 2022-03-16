@@ -8,7 +8,7 @@ tags: [insights, api, guide, quickstart]
 
 This document is for technical architects and developers that need to integrate with ShipperHQ’s Insights API to build their own integration to retrieve shipment details from ShipperHQ.
 
-Note, this does not document the standard types and fields the API provides. This information is included in the [Insights API Reference](https://dev.shipperhq.com/order-view-service/) documentation or can be obtained via our [API playground](https://graphiql.shipperhq.com/).
+Note, this does not document the standard types and fields the API provides. This information is included in the [Insights API Reference](https://dev.shipperhq.com/insights-service/) documentation or can be obtained via our [API playground](https://graphiql.shipperhq.com/).
 
 As with all our APIs, our Insights API is implemented with GraphQL. If you're unfamiliar with GraphQL, see our [SDK Quickstart](../quickstart.md).
 
@@ -89,7 +89,7 @@ viewOrder.shipments.carriers.packages.packageDetail.sku
 viewOrder.shipments.carriers.packages.packageDetail.qtyPacked
 ```
 
-Other related fields are available and can be found in the [Insights API Reference](https://dev.shipperhq.com/order-view-service/) documentation.
+Other related fields are available and can be found in the [Insights API Reference](https://dev.shipperhq.com/insights-service/) documentation.
 
 #### Multi-Origin Shipping
 With the [Multi-Origin Shipping](https://docs.shipperhq.com/setup-multiorigin-dropshipping/) Advanced Feature enabled, merchants are able to configure multiple ship-from locations ([Origins](https://docs.shipperhq.com/origin-configuration/)) in their ShipperHQ account. They can then assign specific products to specific Origins or use their ShipperHQ configuration to configure ShipperHQ to select Origins automatically.
@@ -104,7 +104,7 @@ viewOrder.shipments.shipmentDetail.name
 
 The `name` field returns the unique name of the Origin configured in ShipperHQ.
 
-Other related fields are available and can be found in the [Insights API Reference](https://dev.shipperhq.com/order-view-service/) documentation.
+Other related fields are available and can be found in the [Insights API Reference](https://dev.shipperhq.com/insights-service/) documentation.
 
 ## Testing
 To test the Insights API you will need to already have either:

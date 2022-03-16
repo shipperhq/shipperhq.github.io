@@ -100,7 +100,7 @@ const config = {
                 label: 'FAQ'
               },
               {
-                to: 'rate-service',
+                to: 'rates-service',
                 label: 'Rates API Reference',
                 target: '_blank',
                 className: 'external-nav-link'
@@ -138,7 +138,7 @@ const config = {
                 label: 'Place Order'
               },
               {
-                to: 'order-view-service',
+                to: 'insights-service',
                 label: 'Insights API Reference',
                 target: '_blank',
                 className: 'external-nav-link'

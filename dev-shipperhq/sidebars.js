@@ -33,7 +33,7 @@ module.exports = {
     {
       type: 'link',
       label: 'Rates API Reference',
-      href: 'https://dev.shipperhq.com/rate-service/'
+      href: 'https://dev.shipperhq.com/rates-service/'
     }
   ],
   ShippingInsights: [
@@ -51,7 +51,7 @@ module.exports = {
     {
       type: 'link',
       label: 'Insights API Reference',
-      href: 'https://dev.shipperhq.com/order-view-service/'
+      href: 'https://dev.shipperhq.com/insights-service/'
     }
   ],
   Label: [
