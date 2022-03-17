@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "ShipperHQ Developer Platform",
-  tagline: "Exploring our SDK with API examples and playgrounds to help you start building your custom integration with ShipperHQ",
+  tagline: "Explore our SDK with API reference, examples, and a playground to help you start building your custom integration with ShipperHQ",
   url: 'https://dev.shipperhq.com/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -119,7 +119,7 @@ const config = {
               },
               {
                 type: 'doc',
-                docId: 'insights/how-shipping-insights-works',
+                docId: 'insights/how-insights-work',
                 label: 'How Insights Work'
               },
               {
@@ -157,7 +157,7 @@ const config = {
               },
               {
                 type: 'doc',
-                docId: 'labels/how-label-works',
+                docId: 'labels/how-labels-work',
                 label: 'How Labels Work'
               },
               {

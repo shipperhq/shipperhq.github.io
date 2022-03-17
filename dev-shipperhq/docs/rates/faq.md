@@ -2,7 +2,7 @@
 sidebar_position: 10
 slug: faq
 title: FAQ
-tags: [rates, api, faq]
+tags: [rates, api, guide, faq]
 ---
 import Error from '../transclusion/error.md' // This is an included file (see below the Error component)
 

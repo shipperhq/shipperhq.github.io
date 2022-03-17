@@ -15,7 +15,7 @@ The role of `PlaceOrder` is to convert one of these quotes into a full-fledge or
 
 :::tip Most users don't need to use the `PlaceOrder` mutation
 
-If you are using an eCommerce platform supported by ShipperHQ ([Magento/Adobe Commerce](https://docs.shipperhq.com/installing-magento-2-shipperhq-extension/), [BigCommerce](https://docs.shipperhq.com/setup-shipperhq-bigcommerce-store/) or [Shopify](https://docs.shipperhq.com/connect-shopify-shipperhq/)): you do not need to use `PlaceOrder`. In these scenarios, the order creation is done automatically by the platform using ShipperHQ rates and ShipperHQ captures this information automatically so that you can directly use the [Shipping Insights API](/docs/insights/overview). If you are using a native ShipperHQ integration on any other platform, please [contact us](https://dev.shipperhq.com/contact) to register your interest for Shipping Insights on your eCommerce platform. 
+If you are using an eCommerce platform supported by ShipperHQ ([Magento/Adobe Commerce](https://docs.shipperhq.com/installing-magento-2-shipperhq-extension/), [BigCommerce](https://docs.shipperhq.com/setup-shipperhq-bigcommerce-store/) or [Shopify](https://docs.shipperhq.com/connect-shopify-shipperhq/)): you do not need to use `PlaceOrder`. In these scenarios, the order creation is done automatically by the platform using ShipperHQ rates and ShipperHQ captures this information automatically so that you can directly use the [Insights API](/docs/insights/overview). If you are using a native ShipperHQ integration on any other platform, please [contact us](https://dev.shipperhq.com/contact) to register your interest for Shipping Insights on your eCommerce platform.
 
 The specific scenarios where you would need to use `PlaceOrder` are detailed below.
 
@@ -33,7 +33,7 @@ To successfully call `PlaceOrder`, you need to generate rates via the [Rates API
 ## Endpoint
 | Protocol                      | Method | Body Encoding | Endpoint URL        |
 | ---------------------------|---------------------|---------------------|---------------------|
-| `HTTPS` | `POST` | `application/JSON` |  https://postapi.shipperhq.com/v3/graphql/label |
+| `HTTPS` | `POST` | `application/JSON` |  `https://postapi.shipperhq.com/v3/graphql/label` |
 
 ## Request Headers
 | Header                      | Description         |

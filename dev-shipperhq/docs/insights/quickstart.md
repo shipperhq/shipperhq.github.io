@@ -15,8 +15,8 @@ As with all our APIs, our Insights API is implemented with GraphQL. If you're un
 ## Requirements
 * ShipperHQ account with the [Shipping Insights](https://docs.shipperhq.com/shipping-insights-configuration/) Advanced Feature enabled
 * An eCommerce platform or custom integration supporting the [`PlaceOrder`](place-order.md) mutation of the [Labels API](../labels/overview.md), either:
-* ShipperHQ’s native [Magento 2](https://docs.shipperhq.com/installing-magento-2-shipperhq-extension/), [BigCommerce](https://docs.shipperhq.com/setup-shipperhq-bigcommerce-store/), or [Shopify](https://docs.shipperhq.com/connect-shopify-shipperhq/) app installed on the eCommerce platform
-* A custom integration implementing both our [Rates API](../rates/overview.md) and the [`PlaceOrder`](place-order.md) mutation of our [Labels API](../labels/overview.md)
+  * ShipperHQ’s native [Magento 2](https://docs.shipperhq.com/installing-magento-2-shipperhq-extension/), [BigCommerce](https://docs.shipperhq.com/setup-shipperhq-bigcommerce-store/), or [Shopify](https://docs.shipperhq.com/connect-shopify-shipperhq/) app installed on the eCommerce platform
+  * A custom integration implementing both our [Rates API](../rates/overview.md) and the [`PlaceOrder`](place-order.md) mutation of our [Labels API](../labels/overview.md)
 
 ## Authentication
 The Insights API is accessed using a unique Access Token generated in a ShipperHQ account. Each access token is unique per [Website](https://docs.shipperhq.com/adding-websites-in-shipperhq/) for multi-site ShipperHQ accounts.
@@ -43,7 +43,7 @@ Generating a new Access Token invalidates any previously generated Access Tokens
 ### Endpoint
 | Protocol                      | Method | Body Encoding | Endpoint URL         |
 | ---------------------------|---------------------|---------------------|---------------------|
-| `HTTPS` | `POST` | `application/JSON` |  https://ovs.shipperhq.com |
+| `HTTPS` | `POST` | `application/JSON` |  `https://ovs.shipperhq.com` |
 
 ### Request Headers
 The following headers are required for every Insights API call.
@@ -63,9 +63,23 @@ The [Date & Time](https://docs.shipperhq.com/delivery-datecalendar-configuration
 You can retrieve the dispatch date as well as the delivery promise via the `timeInTransitOptions` object:
 
 ```json
-// The fields that contain the Date & Time information
-viewOrder.shipments.carriers.methods.timeInTransitOptions.dispatchDate
-viewOrder.shipments.carriers.methods.timeInTransitOptions.deliveryDate
+query Order {
+  viewOrder(orderNumber: "...") {
+    # ...
+    shipments {
+      carriers {
+        methods {
+          // highlight-start
+          timeInTransitOptions{
+            deliveryDate
+            dispatchDate
+          }
+          // highlight-end
+        }
+      }
+    }
+  }
+}
 ```
 
 #### Dimensional Packing
@@ -76,35 +90,67 @@ This information will be returned as one or more `packages` objects each contain
 **Fields for Dimensional Packing**
 
 You can retrieve the package information via the `packageDetail` object including the item(s) in each package:
-```json 
-// The packageDetail object
-viewOrder.shipments.carriers.packages.packageDetail.height
-viewOrder.shipments.carriers.packages.packageDetail.length
-viewOrder.shipments.carriers.packages.packageDetail.width
-viewOrder.shipments.carriers.packages.packageDetail.weight
-viewOrder.shipments.carriers.packages.packageDetail.packageName
 
-// The item packed into the package
-viewOrder.shipments.carriers.packages.packageDetail.sku
-viewOrder.shipments.carriers.packages.packageDetail.qtyPacked
+```graphql
+query Order {
+  viewOrder(orderNumber: "...") {
+    # ...
+    shipments {
+      carriers {
+        // highlight-start
+        packages {
+          packageDetail {
+            height
+            length
+            width
+            weight
+            packageName
+            # ...
+          }
+        }
+        items {
+          sku
+          qtyPacked
+          # ...
+        }
+        // highlight-end
+      }
+    }
+  }
+}
 ```
 
+:::note
 Other related fields are available and can be found in the [Insights API Reference](https://dev.shipperhq.com/insights-service/) documentation.
+:::
 
 #### Multi-Origin Shipping
 With the [Multi-Origin Shipping](https://docs.shipperhq.com/setup-multiorigin-dropshipping/) Advanced Feature enabled, merchants are able to configure multiple ship-from locations ([Origins](https://docs.shipperhq.com/origin-configuration/)) in their ShipperHQ account. They can then assign specific products to specific Origins or use their ShipperHQ configuration to configure ShipperHQ to select Origins automatically.
 
 When an order contains shipments from multiple Origins, the Insights API will return multiple `shipments` objects. Each shipment has its own unique ID and contains the details about that shipment and the carriers used for that shipment. No special Insights API request is required to return multiple shipments but there are some fields which are useful in this scenario.
 
-**Fields**
-```json title="Field for Multi-Origin Shipping"
-// Unique name of the origin as configured in ShipperHQ
-viewOrder.shipments.shipmentDetail.name
+**Fields for Multi-Origin**
+
+The unique name of the origin as configured in ShipperHQ is returned as the value of the `name` field of `shipmentDetail`.
+
+```graphql
+query Order {
+  viewOrder(orderNumber: "...") {
+    # ...
+    shipments {
+      shipmentDetail {
+        // highlight-start
+        name
+        // highlight-end
+        # ...
+      }
+    }
+  }
+}
 ```
-
-The `name` field returns the unique name of the Origin configured in ShipperHQ.
-
+:::note
 Other related fields are available and can be found in the [Insights API Reference](https://dev.shipperhq.com/insights-service/) documentation.
+:::
 
 ## Testing
 To test the Insights API you will need to already have either:
@@ -392,8 +438,10 @@ query Order {
 ## Errors
 Most errors are returned as an `errors` object. These will include a `message` property which will indicate the specific error.
 
-**No order found**
+#### No order found
+
 When an order can not be found that matches the `orderNumber` provided an empty `viewOrder` object will be returned.
 
-**Authentication issues**
+#### Authentication issues
+
 If the Access Token provided is invalid or the ShipperHQ account it belongs to is disabled, the error message `Access Denied` will be returned.

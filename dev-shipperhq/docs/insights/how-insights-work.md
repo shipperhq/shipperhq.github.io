@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-slug: how-insights-api-works
+slug: how-insights-work
 title: How Insights Work
 authors: []
 tags: [insights, api, guide]

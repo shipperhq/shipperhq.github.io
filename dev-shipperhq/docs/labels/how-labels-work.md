@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-slug: how-label-works
+slug: how-labels-work
 title: How Labels Work
 tags: [labels, api, guide, overview]
 ---
