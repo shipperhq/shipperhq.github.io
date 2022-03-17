@@ -126,7 +126,6 @@ The ShipperHQ Rates API includes the following three queries.
 | ---------------------------|---------------------|
 |`retrieveShippingQuote`     |	Retrieve basic shipping rates including carrier and method titles and total shipping charges. |
 |`retrieveFullShippingQuote`	| Retrieve detailed shipping rate information for each shipment, including origin or warehouse information, carrier and method information, freight options available, available dates, in-store pickup information, and more.|
-|`retrieveUserSettings`|	Retrieve ShipperHQ account settings like locale and currency.|
 
 
 ### Item Attributes
