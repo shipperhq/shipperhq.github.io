@@ -22,7 +22,7 @@ Via the Insights API, you can query the following information:
 * **Packing details**: The packages used by ShipperHQ in rating and the item assignments per package
 * **Customer-selected checkout options**: Including LTL Freight accessorials, In-Store Pickup locations, and more
 
-Specific fields and attributes can be found in the [Insights API Reference](https://dev.shipperhq.com/order-view-service/).
+Specific fields and attributes can be found in the [Insights API Reference](https://dev.shipperhq.com/insights-service/).
 
 ## Availability
 

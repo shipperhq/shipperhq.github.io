@@ -2,7 +2,7 @@
 sidebar_position: 1
 slug: overview
 title: Overview
-tags: [labels, api, overview]
+tags: [labels, api, guide, overview]
 ---
 
 The Labels API enables you to produce shipping labels for shipments directly within your application.

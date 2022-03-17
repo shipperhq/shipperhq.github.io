@@ -251,7 +251,7 @@ info:
   x-introItems:
     # Can be a Title (for the Nav panel) + URL to simply add a link to somewhere
     - title: Labels API Guide
-      url: /docs/label/overview
+      url: /docs/labels/overview
     # Can be a Title (for the Nav panel) + description (for the Content panel)
     - title: ShipperHQ
       description: https://www.shipperhq.com/
