@@ -7,7 +7,7 @@ tags: [rates, api, guide, quickstart]
 
 This document is for technical architects and developers that need to integrate with ShipperHQ’s Rates API to build their own integration to retrieve shipment details from ShipperHQ.
 
-Note, this does not document the standard types and fields the API provides. This information is included in the [Rates API Reference](https://dev.shipperhq.com/rate-service/) documentation or can be obtained via our [API playground](https://graphiql.shipperhq.com/).
+Note, this does not document the standard types and fields the API provides. This information is included in the [Rates API Reference](https://dev.shipperhq.com/rates-service/) documentation or can be obtained via our [API playground](https://graphiql.shipperhq.com/).
 
 Our Rates API is implemented in GraphQL. See the [SDK Quickstart](../quickstart.md) for more information.
 
@@ -71,13 +71,13 @@ Please [contact support](/contact) and make sure to specify the URL of the Websi
 
 Once you have your ShipperHQ API Key and Authentication Code, you can generate the JWT token used to access the ShipperHQ Rates API. These tokens expire after 30 days.
 
-The ShipperHQ GraphQL Playground can be used to create an Authentication Token for testing. You will need to use this same query in your integration to create secret tokens when required.
+The ShipperHQ API Playground can be used to create an Authentication Token for testing. You will need to use this same query in your integration to create secret tokens when required.
 
-1. Navigate to the ShipperHQ GraphQL Playground.
-2. Click Add New in the top left corner.
-3. Set the URL to https://rms.shipperhq.com.
-4. Click the Reload Docs button.
-5. Send a createSecretToken mutation with your API Key and Authentication Code.
+1. Navigate to the ShipperHQ [API Playground](https://graphiql.shipperhq.com/)
+2. Click Add New in the top left corner
+3. Set the URL to `https://rms.shipperhq.com`
+4. Click the Reload Docs button
+5. Send a createSecretToken mutation with your API Key and Authentication Code
 
 ```json title="Create a secret token"
 mutation CreateSecretToken {
@@ -103,7 +103,7 @@ The response contains the token you use to make requests to the ShipperHQ Rates 
 
 | Protocol                    | Method | Body Encoding         | Endpoint URL         |
 | ---------------------------|---------------------|---------------------|---------------------|
-| `HTTPS` | `POST` | `application/JSON` |  https://api.shipperhq.com/v2/graphql |
+| `HTTPS` | `POST` | `application/JSON` |  `https://api.shipperhq.com/v2/graphql` |
 
 
 ### API Rate Limits
@@ -153,7 +153,9 @@ A delimiter is required between multiple values for item attributes. The default
 
 :::
 
-```json title="Attribute example"
+#### Attributes Example
+
+```json title=
     "attributes" : [ {
         "name" : "shipperhq_shipping_group",
         "value" : "FLAT59,FREE"
@@ -190,14 +192,16 @@ These attributes and their values are sent in a set of name/value pairs in the `
 |`notify_required`  |	Boolean	   | This requests an appointment delivery or notice of delivery. |
 | `inside_delivery` |	Boolean	   | This requests delivery inside the destination. |
 |`limited_delivery` |	Boolean    | 	This specifies limited access at the destination address. |
-|`destination_type` |	Enum |	This specifies if a destination is a residential (`residential`) or business (`commercial`) address. |
+|`destination_type` |	Enum |	Specifies if a destination is a residential (`residential`) or business (`commercial`) address. |
 
 :::info Values are case sensitive
 All Requested Option attribute values are case sensitive.
 
 :::
 
-```json title="Available options"
+#### Available Options Example
+
+```json title=
 requestedOptions: {
    options: [
    {
@@ -212,21 +216,15 @@ requestedOptions: {
 
 ## Examples
 
-###  Basic `retrieveShippingQuote` Example
+###  `retrieveShippingQuote`
 
 This is an MVP example that returns the most critical information. It does not include multi-origin or any other advanced functionality but does include the `shipperhq_shipping_group` item attribute. See the Detailed Rates API Example portion of this document for a more detailed example.
 
-#### Rate Request
+#### Basic Quote Example Request
 
-```json title="Example to fetch a basic quote"
-#
-# Fetches a basic quote
-#
-# If there are multiple shipments/warehouses they will be simplified
-# into a single "merged" carrier. This makes this call suitable for use in
-# platforms that expect a single shipping method per order
-#
+If there are multiple shipments/warehouses they will be simplified into a single "merged" carrier. This makes this call suitable for use in platforms that expect a single shipping method per order.
 
+```json title=
 query retrieveShippingQuote {
    retrieveShippingQuote(ratingInfo: {
     cart: {
@@ -289,13 +287,12 @@ query retrieveShippingQuote {
 }
 ```
 
-#### Rate Response
-```json title="Example of a rate response"
-Example: Rate Response
+#### Rate Response Example
+```json title=
 {
   "data": {
     "retrieveShippingQuote": {
-     "transactionId": "SHQ_20210916_1239_MacBook_Pro_2_21508121",
+     "transactionId": "SHQ_20210916_1239_21508121",
             "carriers": [
                 {
                     "carrierCode": "shqcustom1",
@@ -344,17 +341,16 @@ Example: Rate Response
 }
 ```
 
-### Detailed `retrieveFullShippingQuote` Example
+### `retrieveFullShippingQuote`
 Use this API request to retrieve detailed shipping rate information including packages, detailed information on shipping rates, date information, rates for each shipment in a multi-origin request.
 
 Some example queries are below. For each of these queries, you can submit the `ratingInfo` variable.
 
 #### Example Variables
-```json title="Example for variables"
-#
-# These must be included in the variables section of your GraphQL client. This example is # a basic ratingInfo object showing item attributes
-#
 
+These must be included in the variables section of your GraphQL client. This example is a basic `ratingInfo` object showing item attributes
+
+```json title=
 {
   "ratingInfo": {
     "cart": {
@@ -405,22 +401,16 @@ Some example queries are below. For each of these queries, you can submit the `r
 }
 ```
 
-### Additional Example Queries
+### Additional Examples
 
 In this section, let's explore typical queries that may be useful on a regular basis.
 
 #### Example: Retrieve shipping quote with scheduling option
+This query fetches a more detailed copy of the shipping rates. It will show the full rate breakdown. Not all fields are included in this example, use the docs to see all available fields.
 
-```json title="Query example: Retrieve shipping quote with scheduling"
-#
-# Fetches a detailed quote with calendar details included
-#
-# This query fetches a more detailed copy of the shipping rates
-# it will show the full rate breakdown. Not all fields are included in this
-# example, use the docs to see all available fields.
-#
-# This example uses calendar functionality. You will need to have that enabled on # your account in order to see results with date information
+This example uses calendar functionality. You will need to have that enabled on your ShipperHQ account in order to see results with date information
 
+```json title=
 query RetrieveFullShippingQuote($ratingInfo: RatingInfoInput!) {
   retrieveFullShippingQuote(ratingInfo: $ratingInfo) {
     transactionId
@@ -443,10 +433,12 @@ query RetrieveFullShippingQuote($ratingInfo: RatingInfoInput!) {
             totalCharges
           }
         }
+        // highlight-start
         calendarDate {
           availableDeliveryDates
         }
         dateFormat
+        // highlight-end
         error {
           errorCode
           internalErrorMessage
@@ -469,13 +461,9 @@ query RetrieveFullShippingQuote($ratingInfo: RatingInfoInput!) {
 ```
 #### Example: Rate request for LTL carriers
 
-```json title="Query example: rate request for LTL carriers"
-#
-# Typical request you might use if using LTL carriers - notice the availableOptions
-#
-#
-# This example uses Freight LTL functionality. You will need to have the Freight # LTL feature enabled on your account and freight carriers set up in order to see # results with availableOptions information
+Typical request you might use if using LTL carriers - notice the `availableOptions`. This example uses Freight LTL functionality. You will need to have the Freight LTL feature enabled on your ShipperHQ account and freight carriers set up in order to see results with `availableOptions` information
 
+```json title=
 query RetrieveFullShippingQuote($ratingInfo: RatingInfoInput!) {
   retrieveFullShippingQuote(ratingInfo: $ratingInfo) {
     transactionId
@@ -498,6 +486,7 @@ query RetrieveFullShippingQuote($ratingInfo: RatingInfoInput!) {
             totalCharges
           }
         }
+        // highlight-start
         availableOptions {
           destinationType
           insideDelivery
@@ -505,6 +494,7 @@ query RetrieveFullShippingQuote($ratingInfo: RatingInfoInput!) {
           limitedDelivery
           notifyRequired
         }
+        //highlight-end
         error {
           errorCode
           internalErrorMessage
@@ -522,18 +512,13 @@ query RetrieveFullShippingQuote($ratingInfo: RatingInfoInput!) {
   }
 }
 ```
-#### Example: Rate breakdown for multiple shipment or multiple origins
+#### Example: Rate breakdown for multiple shipments or origins
 
-```json title="Query example: Rates breakdown for multiple shipment or multiple origins"
-#
-# Fetches shipping rates and breakdown of rates for multiple shipments/warehouses
-#
-# This query will fetch the merged shipping rate as well as a detailed  
-# breakdown of the shipping rates and packing information.
-#
-# This example uses multi origin functionality. You will need the Multi Origin # # advanced feature enabled, and your request should include multiple items
-# shipping from separate origins or warehouses
+Fetches shipping rates and breakdown of rates for multiple shipments/warehouses. This query will fetch the merged shipping rate as well as a detailed breakdown of the shipping rates and packing information.
 
+This example uses multi origin functionality. You will need the Multi Origin advanced feature enabled on your ShipperHQ account, and your request should include multiple items shipping from separate origins or warehouses.
+
+```json title=
 query RetrieveFullShippingQuote($ratingInfo: RatingInfoInput!) {
   retrieveFullShippingQuote(ratingInfo: $ratingInfo) {
     transactionId
@@ -632,17 +617,18 @@ When ShipperHQ encounters an error processing your request, an `error` object wi
 
 ### Error Example
 
-```json title="Example query: Errors"
+```json title=
 "errors": [
-               {
-                   "errorCode": 403,
-                   "internalErrorMessage": "No applicable carriers have been found for this origin.",
-                   "externalErrorMessage": "This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact_us.",
-                   "priority": 999
-               }
-           ]
+    {
+      "errorCode": 403,
+      "internalErrorMessage": "No applicable carriers have been found for this origin.",
+      "externalErrorMessage": "This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact_us.",
+      "priority": 999
+    }
+  ]
 ```
 
-### Possible `errorCode` values
+:::tip Possible `errorCode` Values
 
-Please visit our [FAQ section](faq.md#what-are-possible-error-codes-and-messages) for a detailed list of all `errorCode` values and associated `internalErrorMessage` values.
+A detailed list of `errorCode` values and associated `internalMessage` values can be found on the [ Rates API FAQ](faq.md#what-are-possible-error-codes-and-messages).
+:::

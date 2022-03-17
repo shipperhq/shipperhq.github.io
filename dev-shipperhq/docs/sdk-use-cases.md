@@ -11,10 +11,10 @@ The ShipperHQ SDK provides an end to end solution to help merchants, developers,
 ![High Level ShipperHQ processes and API](./sdk-main-processes-and-api.jpg)
 
 While developers can use each API independently, the goal of the ShipperHQ SDK is to make it easy to integrate with the full ShipperHQ workflow following this sequence:
-  1. [Rates API](rate/overview.md)
-  2. [PlaceOrder Mutation](insight/place-order.md) (not required for most major integrations)
-  3. [Insights API](insight/overview.md)
-  4. [Labels API](label/overview.md) (in beta)
+  1. [Rates API](rates/overview.md)
+  2. [PlaceOrder Mutation](insights/place-order.md) (not required for most major integrations)
+  3. [Insights API](insights/overview.md)
+  4. [Labels API](labels/overview.md) (in beta)
 
 ## Use cases
 
@@ -26,9 +26,9 @@ Give customer service teams full visibility of the delivery option selected by a
 
 :::note Relevant APIs
 
-* [Rates API](rate/overview.md) to get shipping options and rates
-* [PlaceOrder Mutation](insight/place-order.md) to capture successful orders placed or updated via the CRM
-* [Insights API](insight/overview.md) to display full shipping details
+* [Rates API](rates/overview.md) to get shipping options and rates
+* [PlaceOrder Mutation](insights/place-order.md) to capture successful orders placed or updated via the CRM
+* [Insights API](insights/overview.md) to display full shipping details
 
 :::
 
@@ -38,12 +38,12 @@ When creating draft-orders or manual orders, rates can be retrieved from Shipper
 
 :::note Relevant APIs
 
-* [Rates API](rate/overview.md) to get rates
-* [PlaceOrder Mutation](insight/place-order.md) to capture successful orders
+* [Rates API](rates/overview.md) to get rates
+* [PlaceOrder Mutation](insights/place-order.md) to capture successful orders
 
 *Optionally*
-* [Insights API](insight/overview.md) to fulfill efficiently based on the recommended shipment details from ShipperHQ
-* [Labels API](label/overview.md) (in beta) to print shipping labels
+* [Insights API](insights/overview.md) to fulfill efficiently based on the recommended shipment details from ShipperHQ
+* [Labels API](labels/overview.md) (in beta) to print shipping labels
 
 :::
 
@@ -51,36 +51,36 @@ When creating draft-orders or manual orders, rates can be retrieved from Shipper
 
 ShipperHQ customers uses various order management systems and the Insights API is a key to leverage the detailed shipment information produced by ShipperHQ during rating at time of fulfillment.
 
-The [Insights API](insight/overview.md) enables order management systems to access information like ship-from locations (Origins), package sizes and types, label providers, service classes, and delivery and dispatch dates.
+The [Insights API](insights/overview.md) enables order management systems to access information like ship-from locations (Origins), package sizes and types, label providers, service classes, and delivery and dispatch dates.
 
 :::note Relevant API
 
-* [Insights API](insight/overview.md) to retrieve shipment information from ShipperHQ
+* [Insights API](insights/overview.md) to retrieve shipment information from ShipperHQ
 
 :::
 
 ### eCommerce platform integration
 
-While ShipperHQ support the major eCommerce platforms, the [Rates API](rate/overview.md) means developers can integrate ShipperHQ to provide rates at checkout in any eCommerce platform. This means being able to leverage the rich functionality of ShipperHQ's rules engine and advanced functions. For this use case, the [Rates API](rate/overview.md) can be called at any point where shipping rates are needed such as product pages, carts, and checkout.
+While ShipperHQ support the major eCommerce platforms, the [Rates API](rates/overview.md) means developers can integrate ShipperHQ to provide rates at checkout in any eCommerce platform. This means being able to leverage the rich functionality of ShipperHQ's rules engine and advanced functions. For this use case, the [Rates API](rates/overview.md) can be called at any point where shipping rates are needed such as product pages, carts, and checkout.
 
 :::note Relevant APIs
 
-* [Rates API](rate/overview.md) to get shipping options and rates
+* [Rates API](rates/overview.md) to get shipping options and rates
 
 *Optionally*
-* [PlaceOrder Mutation](insight/place-order.md) to store ShipperHQ shipment information against orders
-* [Insights API](insight/overview.md) to retrieve rich shipment information for display within the eCommerce platform admin
+* [PlaceOrder Mutation](insights/place-order.md) to store ShipperHQ shipment information against orders
+* [Insights API](insights/overview.md) to retrieve rich shipment information for display within the eCommerce platform admin
 
 :::
 
 ### Headless commerce
 
-No need for an eCommerce platform. With the ShipperHQ SDK you can build your own experience using whichever tools and technologies that you select. The [Rates API](rate/overview.md) will enable you to focus on the user experience while all the business logic is configured in ShipperHQ. The [Insights API](insight/overview.md) will allow you to place orders and retrieve all the fulfillment information required to complete this order.
+No need for an eCommerce platform. With the ShipperHQ SDK you can build your own experience using whichever tools and technologies that you select. The [Rates API](rates/overview.md) will enable you to focus on the user experience while all the business logic is configured in ShipperHQ. The [Insights API](insights/overview.md) will allow you to place orders and retrieve all the fulfillment information required to complete this order.
 
 :::note Relevant APIs
 
-* [Rates API](rate/overview.md) to get shipping options and rates
-* [PlaceOrder Mutation](insight/place-order.md) to store ShipperHQ shipment information against orders
-* [Insights API](insight/overview.md) to retrieve shipment information
+* [Rates API](rates/overview.md) to get shipping options and rates
+* [PlaceOrder Mutation](insights/place-order.md) to store ShipperHQ shipment information against orders
+* [Insights API](insights/overview.md) to retrieve shipment information
 
 :::

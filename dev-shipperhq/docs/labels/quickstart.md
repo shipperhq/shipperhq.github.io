@@ -2,7 +2,7 @@
 sidebar_position: 3
 slug: quickstart
 title: Quickstart
-tags: [labels, api, guide, faq]
+tags: [labels, api, guide, quickstart]
 ---
 
 ## Early Access Program

@@ -2,13 +2,13 @@
 sidebar_position: 10
 slug: faq
 title: FAQ
-tags: [rates, api, faq]
+tags: [rates, api, guide, faq]
 ---
 import Error from '../transclusion/error.md' // This is an included file (see below the Error component)
 
 ## Does the rating API return duties (DDU/DDP) information?
 
-When using either the ShipperHQ [Landed Cost Engine](https://docs.shipperhq.com/landed-cost-engine-configuration/) feature or a specific carrier or 3PL which returns duties & taxes, the amount of duties and taxes is returned in the Rate API via the [`advancedFee`](https://dev.shipperhq.com/rate-service/#definition-AdvancedFee) attribute and its `customDuties` field.
+When using either the ShipperHQ [Landed Cost Engine](https://docs.shipperhq.com/landed-cost-engine-configuration/) feature or a specific carrier or 3PL which returns duties & taxes, the amount of duties and taxes is returned in the Rate API via the [`advancedFee`](https://dev.shipperhq.com/rates-service/#definition-AdvancedFee) attribute and its `customDuties` field.
 
 ## What are possible error codes and messages?
 [//]: # (ERROR CODES LIST)
