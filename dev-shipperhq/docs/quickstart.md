@@ -4,16 +4,16 @@ title: Quickstart
 ---
 
 ## Introduction
-The goal of the ShipperHQ SDK is to give you the information you need to use the ShipperHQ APIs. Each API has its overview, usage guide, quickstart guide, FAQ, and detailed API reference manual. On these, you'll find detailed information related to each specific API. Below you'll find general information that applies to the Developer Platform.
+The goal of the ShipperHQ SDK is to give you the information you need to use the ShipperHQ APIs. Each API has its own overview, usage guide, quickstart guide, FAQ, and API reference. On these, you'll find detailed information related to each specific API. Below you'll find general information that applies to the ShipperHQ Developer Platform as a whole.
 
 ## ShipperHQ Test Accounts
 
 In order to use ShipperHQ, you'll need to have a ShipperHQ account. Some functionality may also require that your account is on a certain ShipperHQ plan. You can create a ShipperHQ account at [ShipperHQ.com](https://shipperhq.com) which will start with a 15-day free trial.
 
 
-## Developer support
+## Developer Support
 
-To support your integration with ShipperHQ, please use our [dev support](https://dev.shipperhq.com/contact) page. Our dev support team aims to help you integrate with ShipperHQ as fast as possible with minimal hickups. Keep in mind that we are ShipperHQ expert and not expert into your own area of expertise: please share context with us including what you want to achieve and why.
+To support your integration with ShipperHQ, please use our [Dev Support](/contact) contact form. Our dev support team aims to help you integrate with ShipperHQ as fast as possible with minimal hiccups. Keep in mind that we are ShipperHQ experts, not necessarily experts into your own area of expertise: please share context with us including what you want to achieve and why.
 
 ## GraphQL
 Our APIs are implemented in GraphQL, an API query language. Compared to other API approaches like SOAP or standard REST, GraphQL makes it easier to request exactly the information you need from our API. This avoids the clutter and extra weight of unnecessary fields in requests and responses.
@@ -33,4 +33,3 @@ The API Playground gives you an easy way to test different ShipperHQ APIs withou
 - Click the Docs button
 - Click the Reload Docs icon
 - Click the Query link to view a list of available queries and the arguments and fields you can include in your request
-

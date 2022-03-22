@@ -13,7 +13,7 @@ Please [contact us](/contact) if interested.
 
 :::note
 
-This API usage will not be free: a cost/label is incurred for each label. We are still figuring out the exact pricing but this API usage is not covered by the current monthly API call limits.
+Usage of the Labels API will not be free and its use is not covered by a base ShipperHQ subscription. A cost per label will be incurred when creating labels via this API. Exact pricing will be announced in future.
 
 :::
 
