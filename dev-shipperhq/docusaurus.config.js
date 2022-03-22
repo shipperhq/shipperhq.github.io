@@ -174,7 +174,7 @@ const config = {
           },
           {
             to: '/contact',
-            label: 'Contact Us',
+            label: 'Dev Support',
             position: 'right'
           }
           // {to: '/blog', label: 'Blog', position: 'left'},
@@ -203,7 +203,7 @@ const config = {
                 href: 'https://docs.shipperhq.com',
               },
               {
-                label: 'Contact Us',
+                label: 'Dev Support',
                 to: '/contact',
               }
         ],

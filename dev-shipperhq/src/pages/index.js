@@ -38,14 +38,14 @@ export default function Home() {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
-        
+
         <div className="container">
           <div className="questions">
 
               <div className="q-heading">
-                  <h3 className="text-2xl">Questions?</h3>
-                  <p className="mb20"> We would love to hear from you: Please <Link to="/contact">Contact Us</Link></p>
-                  <p>If you need help configuring ShipperHQ, please visit our <Link to="https://docs.shipperhq.com/" className="arrow-right"> ShipperHQ Help Docs</Link></p>
+                  <h3 className="text-2xl">Need specialized developer support?</h3>
+                  <p className="mb20"> We would love to hear from you: Please use our <Link to="/contact">Dev Support</Link> contact form.</p>
+                  <p>If you need help configuring ShipperHQ, please visit our <Link to="https://docs.shipperhq.com/" className="arrow-right">ShipperHQ Help Docs</Link></p>
               </div>
           </div>
         </div>
