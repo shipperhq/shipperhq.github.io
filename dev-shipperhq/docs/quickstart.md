@@ -4,7 +4,16 @@ title: Quickstart
 ---
 
 ## Introduction
-The goal of the ShipperHQ SDK is to give you the information you need to make use of the ShipperHQ APIs. Each API has its own overview, usage guide, quickstart guide, and FAQ along with detailed API reference documentation. On these you'll find detailed information related to each specific API. Below you'll find general information that applies to all of our APIs.
+The goal of the ShipperHQ SDK is to give you the information you need to use the ShipperHQ APIs. Each API has its overview, usage guide, quickstart guide, FAQ, and detailed API reference manual. On these, you'll find detailed information related to each specific API. Below you'll find general information that applies to the Developer Platform.
+
+## ShipperHQ Test Accounts
+
+In order to use ShipperHQ, you'll need to have a ShipperHQ account. Some functionality may also require that your account is on a certain ShipperHQ plan. You can create a ShipperHQ account at [ShipperHQ.com](https://shipperhq.com) which will start with a 15-day free trial.
+
+
+## Developer support
+
+To support your integration with ShipperHQ, please use our [dev support](https://dev.shipperhq.com/contact) page. Our dev support team aims to help you integrate with ShipperHQ as fast as possible with minimal hickups. Keep in mind that we are ShipperHQ expert and not expert into your own area of expertise: please share context with us including what you want to achieve and why.
 
 ## GraphQL
 Our APIs are implemented in GraphQL, an API query language. Compared to other API approaches like SOAP or standard REST, GraphQL makes it easier to request exactly the information you need from our API. This avoids the clutter and extra weight of unnecessary fields in requests and responses.
@@ -25,8 +34,3 @@ The API Playground gives you an easy way to test different ShipperHQ APIs withou
 - Click the Reload Docs icon
 - Click the Query link to view a list of available queries and the arguments and fields you can include in your request
 
-## ShipperHQ Test Accounts
-
-In order to use ShipperHQ, you'll need to have a ShipperHQ account. Some functionality may also require that your account is on a certain ShipperHQ plan. You can create a ShipperHQ account at [ShipperHQ.com](https://shipperhq.com) which will start with a 15-day free trial.
-
-For ShipperHQ partners, we can convert your account to a sandbox account if you contact your ShipperHQ partner manager directly or [contact our support team](https://dev.shipperhq.com/contact). with the login email or website URL of your ShipperHQ account. Note that partner sandbox accounts can not be converted to production accounts. If you're not currently a partner and are interested in joining, submit a request on our [Partner Program](https://shipperhq.com/partnerprogram) page.
