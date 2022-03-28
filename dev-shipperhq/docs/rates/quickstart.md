@@ -139,13 +139,22 @@ All item attribute values are case sensitive and must match the corresponding it
 For example, if the name of an Origin in ShipperHQ is "New York", none of "NEW YORK", "new york", or "NewYork" would match.
 
 :::
-| Attribute Name | 	Description |
-| -------------- | ------------ |
-|`shipperhq_shipping_group` | 	Assigns an item to one or more [Shipping Groups](https://docs.shipperhq.com/shipping-group-configuration/). |
-|`shipperhq_warehouse`|	Used with ShipperHQ's [Multi-Origin](https://docs.shipperhq.com/setup-multiorigin-dropshipping/) functionality to specify the [Origin](https://docs.shipperhq.com/origin-configuration/) or Origins which can fulfill the item. |
-|`shipperhq_dim_group` |	Assigns an item to a [Packing Rule](https://docs.shipperhq.com/dimensional-rules-setup/) used in [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/). Only required when Dimensional Rules are used to pack specific items differently than general packing rules. |
-|`ship_length`, `ship_width`, `ship_height`|	Used with [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/) to specify the product's dimensions for packing. If used, all 3 fields are required. |
-|`ship_separately`|	Used with [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/) to identify items which are [packed separately](https://docs.shipperhq.com/pack-separately/) to other items. |
+| Attribute Name | Data Type  | 	Description |
+| -------------- | ------------ | ------------ |
+| `shipperhq_shipping_group` | String | 	Assigns an item to one or more [Shipping Groups](https://docs.shipperhq.com/shipping-group-configuration/). |
+| `shipperhq_warehouse` |	String |	Used with ShipperHQ's [Multi-Origin](https://docs.shipperhq.com/setup-multiorigin-dropshipping/) functionality to specify the [Origin](https://docs.shipperhq.com/origin-configuration/) or Origins which can fulfill the item. |
+| `shipperhq_dim_group` |	String |	Assigns an item to a [Packing Rule](https://docs.shipperhq.com/dimensional-rules-setup/) used in [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/). Only required when Dimensional Rules are used to pack specific items differently than general packing rules. |
+| `ship_length` <br /> `ship_width` <br /> `ship_height` |	Float |	Used with [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/) to specify the product's dimensions for packing. If used, all 3 fields are required. |
+| `freight_class` |	Float | Sets the [freight class](https://docs.shipperhq.com/ltl-freight-carrier-configuration/#Freight_Classes) of the item. Freight classes can also be [set on Shipping Groups](https://docs.shipperhq.com/define-freight-class-using-shipping-groups/) if this attribute is not used. |
+| `shipperhq_hs_code` | String | Used with ShipperHQ's [Landed Cost Engine](https://docs.shipperhq.com/landed-cost-engine-configuration/) functionality and shipping providers which return cross-border duties & taxes to set the HS Code of the item. |
+| `shipperhq_location` | String | Used with ShipperHQ's [In-Store Pickup](https://docs.shipperhq.com/store-pick-up-configuration/) functionality to specific the [Location](https://docs.shipperhq.com/store-pick-up-configuration/#Set_Up_Pickup_Locations) or Locations where the item is available for pickup. Not necessary if all items are available from all locations. |
+| `ship_separately` |	Boolean |	Used with [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/) to identify items which are [packed separately](https://docs.shipperhq.com/pack-separately/) to other items. |
+| `shipperhq_master_boxes` | String | Used with [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/) to assign products to [Master Packing Boxes](https://docs.shipperhq.com/using-master-packing-boxes/). |
+| `shipperhq_shipping_fee` |	Float | Defines a fixed [shipping fee](https://docs.shipperhq.com/using-shipping-fees-set-product/) for this product. Can be used in various ways with Shipping Rules. |
+| `shipperhq_availability_date`| Date | Used with ShipperHQ's [Date & Time](https://docs.shipperhq.com/delivery-datecalendar-configuration/) functionality to tell ShipperHQ the date on which this product [will be available](https://docs.shipperhq.com/next-available-date-products-magento/) (e.g. backorder, preorder). |
+| `shipperhq_declared_value` |	Float | Sets the [declared value](https://docs.shipperhq.com/set-declared-value/) of the item for use in insurance or duties & tax calculation. |
+| `must_ship_freight` |	Boolean | Tells ShipperHQ this item [must ship](https://docs.shipperhq.com/set-items-must-ship-freight/) via a freight carrier. |
+| `shipperhq_poss_boxes` | String | Used with ShipperHQ's [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/) functionality to [set the boxes](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/#Packing_Boxes) which this item may pack into. Not necessary if using [Dimensional Rules](https://docs.shipperhq.com/dimensional-rules-setup/) to set item box assigments. |
 
 :::tip Delimiting multiple values
 A delimiter is required between multiple values for item attributes. The default delimiter is a comma (`,`) followed by an optional space (`, `). A hash sign (`#`) is also accepted but requires that the `appVersion` in the `siteDetails` of your request is set to `2.0.0`.
@@ -185,7 +194,7 @@ Requested Options allow you to indicate specific services or properties for the 
 
 These attributes and their values are sent in a set of name/value pairs in the `requestedOptions` field on a Rates API request. The most common attributes are listed below.
 
-| Requested Options  | 	Data Type| 	Description |
+| Requested Options  | 	Data Type | 	Description |
 |--------------------|-----------|--------------|
 |`liftgate_required` |	Boolean	 | This specifies liftgate is required at the destination.  |
 |`notify_required`  |	Boolean	   | This requests an appointment delivery or notice of delivery. |
@@ -212,6 +221,43 @@ requestedOptions: {
        value: "residential"
    }]}   
 ```
+
+### Product Types
+
+ShipperHQ accepts multiple product types which are handled differently. These are indicated in the [`type`](https://dev.shipperhq.com/rates-service/#definition-ItemType) property of [`item`](https://dev.shipperhq.com/rates-service/#definition-ItemInput) objects. See below for available product types and how they're handled.
+
+The most common product type is `SIMPLE`. This applies to the majority of individual, shippable products.
+
+The `DOWNLOADABLE`, `GIFTCARD`, and `VIRTUAL` types represent products that are not shipped. They may impact the shipping rate returned depending on the configuration of the ShipperHQ account (e.g. if Gift Cards contribute to an order's eligibility for free shipping) so should be included in rate requests.
+
+Other types represent groups of items purchased together. These are the `BUNDLE`, `GROUPED`, and `CONFIGURABLE` types. For these items, we expect the `item` to contain additional items in its `items` property. These are the "Child" items of this "Parent" item. Depending on the configuration of the ShipperHQ account, shipping rates may be calculated based solely on the Parent products or on the Child products.
+
+## Minimum Integration Requirements
+
+While very few elements are required for a successful API call to the Rates API (noted in the [Rates API Reference](https://dev.shipperhq.com/rates-service/)), there are certain elements that are required in order to support certain features and functionality of ShipperHQ. Because of this, if you intend to make your integration of ShipperHQ's Rates API available to multiple clients we require support for certain elements. Meeting these requirements means your integration will support all of the most commonly used ShipperHQ features and functionality.
+
+:::note
+
+We don't require single-purpose, custom integrations to meet these requirements. However, we do strongly recommend that all integrations of the ShipperHQ Rates API do so in order to support the breadth of ShipperHQ's capabilities and to future-proof the integration against shipping needs that may change in the future.
+:::
+
+### General Requirements
+
+The integration should:
+- Use the `retrieveFullShippingQuote` query in any checkout/transactional workflows (`retrieveShippingQuote` may be used for informational shipping quotes e.g. shipping estimates presented on a Cart or Product page)
+- Provide clients with a UI for entering their ShipperHQ Account-specific API credentials and use those credentials in all API calls to ShipperHQ
+- Send a unique value in the `X-ShipperHQ-Session` request header
+
+### Required `ratingInfo` Values
+The [`ratingInfo`](https://dev.shipperhq.com/rates-service/#definition-RatingInfoInput) used on the request should include:
+- `cartType`: The appropriate Cart Type for each rate quote. E.g. `CART` for shipping estimate in a shopping cart, `STD` for checkout, etc.
+
+#### Required `siteDetails` Values
+
+The [`siteDetails`](https://dev.shipperhq.com/rates-service/#definition-SiteDetailsInput) used on the request should include:
+  - `ecommerceCart`: The name of the integrated platform (e.g. "Magento" or "XYZ CRM"). Contact [dev support](/contact) if unsure.
+  - `appVersion`: The version of your integration with ShipperHQ (e.g. your first release may be "1.0.0" but updated to "1.0.1" at a later date)
+  - `ecommerceVersion`: The version number of the platform on which the integration sits (e.g. for a Magento extension, this would indicate the version of Magento on which the extension is installed)
 
 ## Examples
 
