@@ -7,6 +7,12 @@ title: SDK Use Cases
 
 The ShipperHQ SDK provides an end to end solution to help merchants, developers, and partners integrate with ShipperHQ for purposes and in places not currently available through the native ShipperHQ and eCommerce platform experience. This means being able to take advantage of ShipperHQ's advanced shipping functionality wherever it's needed without having to build a fully custom solution.
 
+:::info Existing Integrations
+Our APIs are primarily intended for developers looking to integrate ShipperHQ with a platform where no integration yet exists. ShipperHQ has integrations with a number of major eCommerce platforms that don't require any custom integration or code. We recommend using our existing integrations whenever possible since these are maintained directly by our team.
+
+[Supported eCommerce platforms <i class="fa fa-arrow-right"></i>](https://shipperhq.com/marketplace#solutions_integrator)
+:::
+
 ### High-level Workflow
 ![High Level ShipperHQ processes and API](./sdk-main-processes-and-api.jpg)
 

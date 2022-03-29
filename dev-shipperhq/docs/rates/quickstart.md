@@ -127,6 +127,21 @@ The ShipperHQ Rates API includes the following three queries.
 |`retrieveShippingQuote`     |	Retrieve basic shipping rates including carrier and method titles and total shipping charges. |
 |`retrieveFullShippingQuote`	| Retrieve detailed shipping rate information for each shipment, including origin or warehouse information, carrier and method information, freight options available, available dates, in-store pickup information, and more.|
 
+### Ship-To Address
+
+The address to which the order will be shipped is defined in the [`destinationInput`](https://dev.shipperhq.com/rates-service/#definition-DestinationInput) type. While `destinationInput` is always required, the specific fields required depend on several factors. A limited set of fields can be used in cases where a low-accuracy shipping estimate is required (e.g. on shopping cart or product pages).
+
+| Option Name | Data Type  | 	Description |
+| -------------- | ------------ | ------------ |
+| `selectedOptions` | Name/Value | Optional. Name/value pair used to set specific attributes of the destination. [See below](https://dev.shipperhq.com/docs/rates/quickstart#selectedoptions) for available options. |
+| `city` | String | Optional for most scenarios. Defines the ship-to city. Required for certain carriers including [DHL Express](https://docs.shipperhq.com/dhl-carrier-setup/) and most [LTL Freight](https://docs.shipperhq.com/ltl-freight-carrier-configuration/) carriers (e.g. [YRC Freight](https://docs.shipperhq.com/set-yrc-freight-credentials/), [FedEx Freight](https://docs.shipperhq.com/fedex-freight-carrier-setup/)). |
+
+#### `SelectedOptions`
+Possible values of the `selectedOptions` field are:
+
+| Option Name | Data Type  | 	Description |
+| -------------- | ------------ | ------------ |
+| `destination_type` | Enum | The type of address given. Values can be `residential` or `commercial`. Address type may be set explicitly here or can be determined automatically by ShipperHQ's [Address Validation](https://docs.shipperhq.com/address-validation/#Dynamic_Address_Type_Lookup) functionality. |
 
 ### Item Attributes
 Item attributes in the request allow you to include item-specific values like a shipping group or an origin. They may be required if you are using any type of features such as [Shipping Groups](https://docs.shipperhq.com/shipping-group-configuration/), [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/), [Multi-Origin](https://docs.shipperhq.com/setup-multiorigin-dropshipping/), etc.
@@ -150,7 +165,6 @@ For example, if the name of an Origin in ShipperHQ is "New York", none of "NEW Y
 | `shipperhq_location` | String | Used with ShipperHQ's [In-Store Pickup](https://docs.shipperhq.com/store-pick-up-configuration/) functionality to specific the [Location](https://docs.shipperhq.com/store-pick-up-configuration/#Set_Up_Pickup_Locations) or Locations where the item is available for pickup. Not necessary if all items are available from all locations. |
 | `ship_separately` |	Boolean |	Used with [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/) to identify items which are [packed separately](https://docs.shipperhq.com/pack-separately/) to other items. |
 | `shipperhq_master_boxes` | String | Used with [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/) to assign products to [Master Packing Boxes](https://docs.shipperhq.com/using-master-packing-boxes/). |
-| `shipperhq_shipping_fee` |	Float | Defines a fixed [shipping fee](https://docs.shipperhq.com/using-shipping-fees-set-product/) for this product. Can be used in various ways with Shipping Rules. |
 | `shipperhq_availability_date`| Date | Used with ShipperHQ's [Date & Time](https://docs.shipperhq.com/delivery-datecalendar-configuration/) functionality to tell ShipperHQ the date on which this product [will be available](https://docs.shipperhq.com/next-available-date-products-magento/) (e.g. backorder, preorder). |
 | `shipperhq_declared_value` |	Float | Sets the [declared value](https://docs.shipperhq.com/set-declared-value/) of the item for use in insurance or duties & tax calculation. |
 | `must_ship_freight` |	Boolean | Tells ShipperHQ this item [must ship](https://docs.shipperhq.com/set-items-must-ship-freight/) via a freight carrier. |
@@ -202,11 +216,6 @@ These attributes and their values are sent in a set of name/value pairs in the `
 |`limited_delivery` |	Boolean    | 	This specifies limited access at the destination address. |
 |`destination_type` |	Enum |	Specifies if a destination is a residential (`residential`) or business (`commercial`) address. |
 
-:::info Values are case sensitive
-All Requested Option attribute values are case sensitive.
-
-:::
-
 #### Available Options Example
 
 ```json title=
@@ -228,16 +237,23 @@ ShipperHQ accepts multiple product types which are handled differently. These ar
 
 The most common product type is `SIMPLE`. This applies to the majority of individual, shippable products.
 
-The `DOWNLOADABLE`, `GIFTCARD`, and `VIRTUAL` types represent products that are not shipped. They may impact the shipping rate returned depending on the configuration of the ShipperHQ account (e.g. if Gift Cards contribute to an order's eligibility for free shipping) so should be included in rate requests.
+The `DOWNLOADABLE`, `GIFTCARD`, and `VIRTUAL` types represent products that are not shipped. They may impact the shipping rate returned depending on the configuration of the ShipperHQ account (e.g. if Gift Cards contribute to an order's eligibility for free shipping) so should be included in rate requests. Weights are not required for these items.
 
 Other types represent groups of items purchased together. These are the `BUNDLE`, `GROUPED`, and `CONFIGURABLE` types. For these items, we expect the `item` to contain additional items in its `items` property. These are the "Child" items of this "Parent" item. Depending on the configuration of the ShipperHQ account, shipping rates may be calculated based solely on the Parent products or on the Child products.
 
-## Minimum Integration Requirements
+[//]: # (TODO: Add example of BUNDLE item with children)
 
-While very few elements are required for a successful API call to the Rates API (noted in the [Rates API Reference](https://dev.shipperhq.com/rates-service/)), there are certain elements that are required in order to support certain features and functionality of ShipperHQ. Because of this, if you intend to make your integration of ShipperHQ's Rates API available to multiple clients we require support for certain elements. Meeting these requirements means your integration will support all of the most commonly used ShipperHQ features and functionality.
+## Integration Requirements
+
+While very few elements are required for a successful API call to the Rates API (see the [Rates API Reference](https://dev.shipperhq.com/rates-service/)), there are certain elements that are required in order to support certain features and functionality of ShipperHQ. Because of this, if you intend to make your integration of ShipperHQ's Rates API available to multiple clients we require support for certain elements. Meeting these requirements means your integration will support all of the most commonly used ShipperHQ features and functionality.
+
+Some requirements are dependent on the capabilities of the platform into which ShipperHQ is being integrated. For example, if the platform doesn't support [Customer Groups](https://docs.shipperhq.com/set-up-customer-groups-shipperhq/), that field is not required. These exceptions are noted below.
+
+:::info
+While we have endeavored to provide a complete list of requirements for a baseline integration of ShipperHQ, individual use cases may differ. Therefore, we always recommend contacting [dev support](/contact) prior to building a new integration.
+:::
 
 :::note
-
 We don't require single-purpose, custom integrations to meet these requirements. However, we do strongly recommend that all integrations of the ShipperHQ Rates API do so in order to support the breadth of ShipperHQ's capabilities and to future-proof the integration against shipping needs that may change in the future.
 :::
 
@@ -246,18 +262,56 @@ We don't require single-purpose, custom integrations to meet these requirements.
 The integration should:
 - Use the `retrieveFullShippingQuote` query in any checkout/transactional workflows (`retrieveShippingQuote` may be used for informational shipping quotes e.g. shipping estimates presented on a Cart or Product page)
 - Provide clients with a UI for entering their ShipperHQ Account-specific API credentials and use those credentials in all API calls to ShipperHQ
-- Send a unique value in the `X-ShipperHQ-Session` request header
+- Send a unique value in the `X-ShipperHQ-Session` request header for each shipping quote request
 
-### Required `ratingInfo` Values
-The [`ratingInfo`](https://dev.shipperhq.com/rates-service/#definition-RatingInfoInput) used on the request should include:
-- `cartType`: The appropriate Cart Type for each rate quote. E.g. `CART` for shipping estimate in a shopping cart, `STD` for checkout, etc.
+### Request Requirements
 
-#### Required `siteDetails` Values
+In addition to the general integration requirements, there are specific elements that should be included in an integration:
 
-The [`siteDetails`](https://dev.shipperhq.com/rates-service/#definition-SiteDetailsInput) used on the request should include:
+- [`cartType`](https://dev.shipperhq.com/rates-service/#definition-CartType): The appropriate Cart Type for each rate quote should be set. E.g. `CART` for shipping estimate in a shopping cart, `STD` for checkout, etc.
+- [`siteDetailsInput`](https://dev.shipperhq.com/rates-service/#definition-SiteDetailsInput):
   - `ecommerceCart`: The name of the integrated platform (e.g. "Magento" or "XYZ CRM"). Contact [dev support](/contact) if unsure.
   - `appVersion`: The version of your integration with ShipperHQ (e.g. your first release may be "1.0.0" but updated to "1.0.1" at a later date)
   - `ecommerceVersion`: The version number of the platform on which the integration sits (e.g. for a Magento extension, this would indicate the version of Magento on which the extension is installed)
+- [`cartInput`](https://dev.shipperhq.com/rates-service/#definition-CartInput):
+  - `freeShipping`: Indicates that free shipping applies to the entire cart. Should be used if the integrated platform supports order-level free shipping and set to `true` when the cart is eligible for free shipping.
+- [`items`](https://dev.shipperhq.com/rates-service/#definition-ItemInput):
+  - `type`: Generally set to `SIMPLE` but if the integrated platform supports item bundles, the `BUNDLE` type should be used and child `items` included under those products. If the integrated platform supports `VIRTUAL` or `GIFTCARD` products, the appropriate `type` should be used.
+  - `items`: If the integrated platform supports item bundles, the `BUNDLE` `type` should be used and the child items should be included in the `items` property.
+  - `attributes`: The following minimum product attributes should be supported. See the [Item Attributes](#item-attributes) section for details on these attributes and for other attributes that may be supported if useful for your integration.
+    - `shipperhq_shipping_group`
+    - `shipperhq_warehouse`
+    - `shipperhq_dim_group`
+    - `ship_length`, `ship_width`, `ship_height`
+    - `freight_class`
+    - `shipperhq_hs_code`
+- [`customerInput`](https://dev.shipperhq.com/rates-service/#definition-CustomerInput):
+  - `customerGroup`: If the integrated platform supports assigning [Customer Groups](https://docs.shipperhq.com/set-up-customer-groups-shipperhq/), the group name should be included.
+
+### Response Requirements
+
+When ShipperHQ returns a response, the following provides the minimum information that should be displayed to the end user:
+- `methodTitle` and `totalCharges` returned in [`methodDetail`](https://dev.shipperhq.com/rates-service/#definition-MethodDetail)
+- `carrierTitle` returned in [`carrierDetail`](https://dev.shipperhq.com/rates-service/#definition-CarrierDetail)
+- `deliveryDate` to end users if returned in [`timeInTransitOption`](https://dev.shipperhq.com/rates-service/#definition-TimeInTransitOption)
+- Appropriately handle multiple [`shipments`](https://dev.shipperhq.com/rates-service/#definition-Shipment) when implementing [`fullShippingQuote`](https://dev.shipperhq.com/rates-service/#definition-FullShippingQuote)
+- Appropriately handle responses according to the [`units`](https://dev.shipperhq.com/rates-service/#definition-Units) returned by ShipperHQ
+
+When an end user has selected a shipping method and completed the order, the `methodTitle`, `carrierTitle`, and (if applicable) `deliveryDate` chosen by the customer should be stored along with the order. Additionally, the following should be stored within the integrated system along with the order:
+- `carrierCode` returned in [`carrierDetail`](https://dev.shipperhq.com/rates-service/#definition-CarrierDetail) for carrier of the method selected by the customer
+- `methodCode` returned in [`methodDetail`](https://dev.shipperhq.com/rates-service/#definition-MethodDetail) for the method selected by the customer
+- `transactionId` returned in the [`fullShippingQuote`](https://dev.shipperhq.com/rates-service/#definition-FullShippingQuote) or [`basicShippingQuote`](https://dev.shipperhq.com/rates-service/#definition-BasicShippingQuote) response. This uniquely identifies the response and is useful in troubleshooting. Optionally, the entirety of the rate request and response may be stored.
+
+#### Error Handling
+The ShipperHQ Rates API may return errors in an [`error`](https://dev.shipperhq.com/rates-service/#definition-Error) object in several cases:
+- If ShipperHQ encounters a general error processing a request (e.g. credentials issues, malformed request, etc.) an [error message](faq#what-are-possible-error-codes-and-messages) will be returned indicating the type of error encountered. In this case, your integration should appropriately display a user-friendly message. The values of the `errorCode` and `internalErrorMessage` are not intended to be displayed to end-users but are useful to log for troubleshooting.
+- If a specific Carrier or service is unavailable, ShipperHQ will return an [`error`](https://dev.shipperhq.com/rates-service/#definition-Error) within the [`carrier`](https://dev.shipperhq.com/rates-service/#definition-Carrier). This type of error may indicate that ShipperHQ was unable to return options for this carrier due to a problem (e.g. carrier API timeout), that the ShipperHQ configuration was intentionally set to prevent this carrier from returning any options, or configured to intentionally prevent this carrier from returning specific options for this order. These [`error`](https://dev.shipperhq.com/rates-service/#definition-Error) objects will include an `errorCode` and `internalErrorMessage` which should not be displayed to the end user but may also include an `externalErrorMessage` which may be displayed to the end user. Your integration should support displaying these messages.
+
+See the [Errors](#errors) section of this doc for further details and for possible error codes and messages see the [Rates API FAQ](faq#what-are-possible-error-codes-and-messages).
+
+### Additional Guidance
+
+While the [Rates API Reference](https://dev.shipperhq.com/rates-service/) contains all available fields, not all possible attributes are described in the current version of this guide. Some less-common attributes are not yet described. Contact [dev support](/contact) if you need assistance with any specific scenario or for additional guidance on best practices for your specific use case.
 
 ## Examples
 

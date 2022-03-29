@@ -53,7 +53,7 @@ The following headers are required for every Insights API call.
 | `X-ShipperHQ-Access-Token` | The Access Token retrieved from the ShipperHQ dashboard |
 | `X-ShipperHQ-Scope` | The configuration [Scope](https://docs.shipperhq.com/using-scopes-shipperhq/) for this ShipperHQ [Website](https://docs.shipperhq.com/adding-websites-in-shipperhq/) (accepts `LIVE`, `TEST`, `DEVELOPMENT`, or `INTEGRATION`). If unsure or if the ShipperHQ account does not support multiple scopes, use `LIVE`. |
 
-### Useful fields for certain features
+### Useful fields by feature
 
 #### Date & Time
 The [Date & Time](https://docs.shipperhq.com/delivery-datecalendar-configuration/) Advanced Feature allows merchants to give their customers accurate delivery dates, times in transit, or even a date picker on supported eCommerce platforms. In order to determine the correct delivery date to display, ShipperHQ also generates a Dispatch Date (the date on which the package is expected to be picked up by the carrier) based on the merchant's ShipperHQ configuration. For merchants who use Date & Time, it's useful to have the Insights API return the Dispatch and Delivery dates.
@@ -151,6 +151,161 @@ query Order {
 :::note
 Other related fields are available and can be found in the [Insights API Reference](https://dev.shipperhq.com/insights-service/) documentation.
 :::
+
+### Requested Options
+
+Requested Options indicate specific services or properties for the entire shipment such as "Liftgate Required" or "Residential Delivery". These are most commonly used for LTL Freight carriers or small package carriers that offer specific delivery methods for residential delivery.
+
+These attributes and their values are returned in a set of name/value pairs in the [`selectedOption`](https://dev.shipperhq.com/insights-service/#definition-SelectedOption) field on a Insights API response. The most common attributes are listed below.
+
+| Requested Options  | 	Data Type | 	Description |
+|--------------------|-----------|--------------|
+|`liftgate_required` |	Boolean	 | This specifies liftgate is required at the destination.  |
+|`notify_required`  |	Boolean	   | This requests an appointment delivery or notice of delivery. |
+| `inside_delivery` |	Boolean	   | This requests delivery inside the destination. |
+|`limited_delivery` |	Boolean    | 	This specifies limited access at the destination address. |
+|`destination_type` |	Enum |	Specifies if a destination is a residential (`residential`) or business (`commercial`) address. |
+
+## Integration Requirements
+
+Our Insights API can return a variety of useful information (see the [Insights API Reference](https://dev.shipperhq.com/insights-service/) for full details) and you can request as little or as much as needed. However, there are certain elements that are important when a ShipperHQ account is using certain functionality. Because of this, if you intend to make your integration of ShipperHQ's Insights API available to multiple clients we require support for certain elements. Meeting these requirements means your integration will support all of the most commonly used ShipperHQ features and functionality.
+
+The following sections describe the fields that can be returned by the Insights API which integrations should support retrieving and processing.
+
+:::info
+While we have endeavored to provide a complete list of requirements for a baseline integration of ShipperHQ, individual use cases may differ. Therefore, we always recommend contacting [dev support](/contact) prior to building a new integration.
+:::
+
+:::note
+We don't require single-purpose, custom integrations to meet these requirements. However, we do strongly recommend that all integrations of the ShipperHQ Insights API do so in order to support the breadth of ShipperHQ's capabilities and to future-proof the integration against shipping needs that may change in the future.
+:::
+
+### General Requirements
+
+The integration should:
+- Provide clients with a UI for entering their ShipperHQ Account-specific API credentials and use those credentials in all API calls to ShipperHQ
+
+### Required `order` Values
+The request should include the following elements of the [`order`](https://dev.shipperhq.com/insights-service/#definition-Order) type
+- `orderNumber`:
+- `orderNumberText`:
+
+#### Required `orderDetail` Values
+
+The request should include the following elements of the [`orderDetail`](https://dev.shipperhq.com/insights-service/#definition-OrderDetail) type:
+  - `carrierCode`:
+  - `carrierTitle`:
+  - `methodCode`:
+  - `methodTitle`:
+  - `totalCharges`:
+  - `transactionId`:
+
+#### Required `shipments` Values
+
+The integration should support the following elements of the [`shipments`](https://dev.shipperhq.com/insights-service/#definition-Shipment) type:
+
+**Required `shipmentDetail` Values**
+The integration should support the following elements of the [`shipmentDetail`](https://dev.shipperhq.com/insights-service/#definition-ShipmentDetail) type:
+- `name`:
+
+**Required `carriers` Values**
+The integration should support the following elements of the [`carrier`](https://dev.shipperhq.com/insights-service/#definition-Carrier) type:
+- `dateFormat`:
+
+*Required `carrierDetail` Values*
+
+The integration should support the following elements of the [`carrierDetail`](https://dev.shipperhq.com/insights-service/#definition-CarrierDetail) type:
+- `carrierCode`:
+- `carrierTitle`:
+- `carrierType`:
+
+*Required `methods` Values*
+The integration should support the following elements of the [`method`](https://dev.shipperhq.com/insights-service/#definition-Method) type.
+
+Required `methodDetails` Values
+
+The integration should support the following elements of the [`methodDetail`](https://dev.shipperhq.com/insights-service/#definition-MethodDetail) type.
+- `methodCode`:
+- `methodTitle`:
+- `totalCharges`:
+- `currency`:
+- `negotiatedRate`:
+
+Required `timeInTransitOptions` Values
+
+The integration should support the following elements of the [`timeInTransitOptions`](https://dev.shipperhq.com/insights-service/#definition-TimeInTransitOptions) type.
+- `dispatchDate`:
+- `deliveryDate`:
+
+Required `rateBreakdownList` Values
+
+The integration should support the [`rateBreakdown`](https://dev.shipperhq.com/insights-service/#definition-RateBreakdown) type.
+
+Required `advancedFees` Values
+
+The integration should support the following elements of the [`advancedFees`](https://dev.shipperhq.com/insights-service/#definition-AdvancedFees) type.
+- `handlingFee`:
+- `shippingPrice`:
+- `totalCharges`:
+- `cost`:
+- `customDuties`:
+- `deliveryDate`:
+- `deliveryDate`:
+
+Required `packages` Values
+
+The integration should support the [`package`](https://dev.shipperhq.com/insights-service/#definition-Package) type including:
+- These attributes of the [`packageDetail`](https://dev.shipperhq.com/insights-service/#definition-PackageDetail) type:
+  - `declaredValue`:
+  - `height`:
+  - `length`:
+  - `width`:
+  - `packageName`:
+  - `packingWeight`:
+  - `weight`:
+- These attributes of the [`item`](https://dev.shipperhq.com/insights-service/#definition-Item) type:
+  - `sku`:
+  - `qtyPacked`:
+  - `weightPacked`:
+
+Required `selectedOptions` Values
+
+The integration should support all possible values of the [`selectedOption`](https://dev.shipperhq.com/insights-service/#definition-SelectedOption) type.
+
+*Required `calendarDate` Values*
+- `availableDeliveryDates`:
+- `timeSlots`:
+
+*Required `packages` Values*
+See above
+
+*Required `pickupDetail` Values*
+
+The integration should support the [`pickupDetail`](https://dev.shipperhq.com/insights-service/#definition-PickupDetail) type including:
+- These attributes of the [`pickupLocationDetail`](https://dev.shipperhq.com/insights-service/#definition-PickupLocationDetail) type:
+  - `pickupName`:
+  - `publicId`:
+
+**Required `groupedItems` Values**
+
+The integration should support the following elements of the [`groupedItem`](https://dev.shipperhq.com/insights-service/#definition-GroupedItem) type:
+- `sku`:
+- `qty`:
+- `name`:
+
+#### Required `recipient` Values
+The integration should support the [`address`](https://dev.shipperhq.com/rates-service/#definition-Address)type including:
+- `country`:
+- `region`:
+- `city`:
+- `street`:
+- `street2`:
+- `zipcode`:
+- `company`:
+
+### Additional Guidance
+
+While the [Rates API Reference](https://dev.shipperhq.com/rates-service/) contains all available fields, not all possible attributes are described in the current version of this guide. Some less-common attributes are not yet described. Contact [dev support](/contact) if you need assistance with any specific scenario or for additional guidance on best practices for your specific use case.
 
 ## Testing
 To test the Insights API you will need to already have either:
