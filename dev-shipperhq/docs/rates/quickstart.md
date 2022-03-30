@@ -129,19 +129,41 @@ The ShipperHQ Rates API includes the following three queries.
 
 ### Ship-To Address
 
-The address to which the order will be shipped is defined in the [`destinationInput`](https://dev.shipperhq.com/rates-service/#definition-DestinationInput) type. While `destinationInput` is always required, the specific fields required depend on several factors. A limited set of fields can be used in cases where a low-accuracy shipping estimate is required (e.g. on shopping cart or product pages).
+The address to which the order will be shipped is defined in the [`destinationInput`](https://dev.shipperhq.com/rates-service/#definition-DestinationInput) type. While `destinationInput` should always be included, the specific fields required depend on several factors. A limited set of fields (e.g. `region`, `zipcode`, `country`) can be used in cases where a low-accuracy shipping estimate is required (e.g. on shopping cart or product pages).
 
 | Option Name | Data Type  | 	Description |
 | -------------- | ------------ | ------------ |
-| `selectedOptions` | Name/Value | Optional. Name/value pair used to set specific attributes of the destination. [See below](https://dev.shipperhq.com/docs/rates/quickstart#selectedoptions) for available options. |
-| `city` | String | Optional for most scenarios. Defines the ship-to city. Required for certain carriers including [DHL Express](https://docs.shipperhq.com/dhl-carrier-setup/) and most [LTL Freight](https://docs.shipperhq.com/ltl-freight-carrier-configuration/) carriers (e.g. [YRC Freight](https://docs.shipperhq.com/set-yrc-freight-credentials/), [FedEx Freight](https://docs.shipperhq.com/fedex-freight-carrier-setup/)). |
+| `selectedOptions` | Name/Value | Optional. Name/value pair used to set specific attributes of the destination. [See below](#selected-options) for available options. |
+| `street` |String | Optional but recommended for accuracy particularly in a checkout scenario. Can be excluded when requesting an informational estimate (e.g. cart or product pages). |
+| `street2` | String | Optional but recommended for accuracy particularly in a checkout scenario if provided by the end user. |
+| `city` | String | Optional for most scenarios. Required for certain carriers including [DHL Express](https://docs.shipperhq.com/dhl-carrier-setup/) and most [LTL Freight](https://docs.shipperhq.com/ltl-freight-carrier-configuration/) carriers (e.g. [YRC Freight](https://docs.shipperhq.com/set-yrc-freight-credentials/), [FedEx Freight](https://docs.shipperhq.com/fedex-freight-carrier-setup/)). |
+| `region` | String | Optional but recommended for certain countries (e.g. US, Canada, Australia, etc.). Required by certain carriers to return live rates. Expected values vary by country but most are standard 2-character region codes. |
+| `zipcode` | String | Optional but recommended for many countries (e.g. US, Canada, Australia, UK, etc.). Required by most carriers to return live rates for these countries. |
+| `country` | String | Required for nearly all scenarios. Expected value is an ISO alpha-2 country code. |
 
-#### `SelectedOptions`
+#### Selected Options
 Possible values of the `selectedOptions` field are:
 
 | Option Name | Data Type  | 	Description |
 | -------------- | ------------ | ------------ |
 | `destination_type` | Enum | The type of address given. Values can be `residential` or `commercial`. Address type may be set explicitly here or can be determined automatically by ShipperHQ's [Address Validation](https://docs.shipperhq.com/address-validation/#Dynamic_Address_Type_Lookup) functionality. |
+
+#### `destination` Example
+
+```json
+"destination": {
+    "street": "4801 Southwest Pkwy",
+    "street2": "Bldg 2, Ste 240",
+    "city": "Austin",
+    "region": "TX",
+    "zipcode": "78738",
+    "country": "US",
+    "selectedOptions": [ {
+        "name" : "destination_type",
+        "value" : "commercial"
+      } ]
+}
+```
 
 ### Item Attributes
 Item attributes in the request allow you to include item-specific values like a shipping group or an origin. They may be required if you are using any type of features such as [Shipping Groups](https://docs.shipperhq.com/shipping-group-configuration/), [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/), [Multi-Origin](https://docs.shipperhq.com/setup-multiorigin-dropshipping/), etc.
@@ -178,28 +200,28 @@ A delimiter is required between multiple values for item attributes. The default
 #### Attributes Example
 
 ```json title=
-    "attributes" : [ {
-        "name" : "shipperhq_shipping_group",
-        "value" : "FLAT59,FREE"
-      }, {
-        "name" : "ship_width",
-        "value" : "2.0000"
-      }, {
-        "name" : "ship_length",
-        "value" : "2.0000"
-      }, {
-        "name" : "ship_height",
-        "value" : "36.0000"
-      }, {
-        "name" : "shipperhq_dim_group",
-        "value" : "RULE1,RULE2"
-      }, {
-        "name" : "shipperhq_hs_code",
-        "value" : "123456"
-      }, {
-        "name" : "shipperhq_warehouse",
-        "value" : "ORIGIN1,ORIGIN2"
-      } ],
+"attributes" : [ {
+    "name" : "shipperhq_shipping_group",
+    "value" : "FLAT59,FREE"
+  }, {
+    "name" : "ship_width",
+    "value" : "2.0000"
+  }, {
+    "name" : "ship_length",
+    "value" : "2.0000"
+  }, {
+    "name" : "ship_height",
+    "value" : "36.0000"
+  }, {
+    "name" : "shipperhq_dim_group",
+    "value" : "RULE1,RULE2"
+  }, {
+    "name" : "shipperhq_hs_code",
+    "value" : "123456"
+  }, {
+    "name" : "shipperhq_warehouse",
+    "value" : "ORIGIN1,ORIGIN2"
+  } ],
 ```
 
 ### Requested Options
