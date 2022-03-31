@@ -178,7 +178,7 @@ For example, if the name of an Origin in ShipperHQ is "New York", none of "NEW Y
 :::
 | Attribute Name | Data Type  | 	Description |
 | -------------- | ------------ | ------------ |
-| `shipperhq_shipping_group` | String | 	Assigns an item to one or more [Shipping Groups](https://docs.shipperhq.com/shipping-group-configuration/). |
+| `shipperhq_shipping_group` | String | Assigns an item to one or more [Shipping Groups](https://docs.shipperhq.com/shipping-group-configuration/). |
 | `shipperhq_warehouse` |	String |	Used with ShipperHQ's [Multi-Origin](https://docs.shipperhq.com/setup-multiorigin-dropshipping/) functionality to specify the [Origin](https://docs.shipperhq.com/origin-configuration/) or Origins which can fulfill the item. |
 | `shipperhq_dim_group` |	String |	Assigns an item to a [Packing Rule](https://docs.shipperhq.com/dimensional-rules-setup/) used in [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/). Only required when Dimensional Rules are used to pack specific items differently than general packing rules. |
 | `ship_length` <br /> `ship_width` <br /> `ship_height` |	Float |	Used with [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/) to specify the product's dimensions for packing. If used, all 3 fields are required. |
@@ -290,39 +290,33 @@ The integration should:
 
 In addition to the general integration requirements, there are specific elements that should be included in an integration:
 
-- [`cartType`](https://dev.shipperhq.com/rates-service/#definition-CartType): The appropriate Cart Type for each rate quote should be set. E.g. `CART` for shipping estimate in a shopping cart, `STD` for checkout, etc.
-- [`siteDetailsInput`](https://dev.shipperhq.com/rates-service/#definition-SiteDetailsInput):
-  - `ecommerceCart`: The name of the integrated platform (e.g. "Magento" or "XYZ CRM"). Contact [dev support](/contact) if unsure.
-  - `appVersion`: The version of your integration with ShipperHQ (e.g. your first release may be "1.0.0" but updated to "1.0.1" at a later date)
-  - `ecommerceVersion`: The version number of the platform on which the integration sits (e.g. for a Magento extension, this would indicate the version of Magento on which the extension is installed)
-- [`cartInput`](https://dev.shipperhq.com/rates-service/#definition-CartInput):
-  - `freeShipping`: Indicates that free shipping applies to the entire cart. Should be used if the integrated platform supports order-level free shipping and set to `true` when the cart is eligible for free shipping.
-- [`items`](https://dev.shipperhq.com/rates-service/#definition-ItemInput):
-  - `type`: Generally set to `SIMPLE` but if the integrated platform supports item bundles, the `BUNDLE` type should be used and child `items` included under those products. If the integrated platform supports `VIRTUAL` or `GIFTCARD` products, the appropriate `type` should be used.
-  - `items`: If the integrated platform supports item bundles, the `BUNDLE` `type` should be used and the child items should be included in the `items` property.
-  - `attributes`: The following minimum product attributes should be supported. See the [Item Attributes](#item-attributes) section for details on these attributes and for other attributes that may be supported if useful for your integration.
-    - `shipperhq_shipping_group`
-    - `shipperhq_warehouse`
-    - `shipperhq_dim_group`
-    - `ship_length`, `ship_width`, `ship_height`
-    - `freight_class`
-    - `shipperhq_hs_code`
-- [`customerInput`](https://dev.shipperhq.com/rates-service/#definition-CustomerInput):
-  - `customerGroup`: If the integrated platform supports assigning [Customer Groups](https://docs.shipperhq.com/set-up-customer-groups-shipperhq/), the group name should be included.
+| Element | Notes |
+| ----- | ----- |
+| [`cartType`](https://dev.shipperhq.com/rates-service/#definition-CartType) | The appropriate Cart Type for each rate quote should be set. E.g. `CART` for shipping estimate in a shopping cart, `STD` for checkout, etc. |
+| [`siteDetailsInput`](https://dev.shipperhq.com/rates-service/#definition-SiteDetailsInput) | <table><tr><td>`ecommerceCart`</td><td>The name of the integrated platform (e.g. "Magento" or "XYZ CRM"). Contact [dev support](/contact) if unsure.</td></tr><tr><td>`appVersion`</td><td>The version of your integration with ShipperHQ (e.g. your first release may be "1.0.0" but updated to "1.0.1" at a later date)</td></tr><tr><td>`ecommerceVersion`</td><td>The version number of the platform on which the integration sits (e.g. for a Magento extension, this would indicate the version of Magento on which the extension is installed)</td></tr></table> |
+| [`cartInput`](https://dev.shipperhq.com/rates-service/#definition-CartInput) | The `freeShipping` elements indicates that free shipping applies to the entire cart. Should be used if the integrated platform supports order-level free shipping and set to `true` when the cart is eligible for free shipping. |
+| [`items`](https://dev.shipperhq.com/rates-service/#definition-ItemInput) | <table><tr><td>`type`</td><td>Generally set to `SIMPLE` but if the integrated platform supports item bundles, the `BUNDLE` type should be used and child `items` included under those products. If the integrated platform supports `VIRTUAL` or `GIFTCARD` products, the appropriate `type` should be used.</td></tr><tr><td>`items`</td><td>If the integrated platform supports item bundles, the `BUNDLE` `type` should be used and the child items should be included in the `items` property. For `SIMPLE` products this element is not required.</td></tr><tr><td>`attributes`</td><td>The following minimum product attributes should be supported: <ul><li>`shipperhq_shipping_group`</li><li>`shipperhq_warehouse`</li><li>`shipperhq_dim_group`</li><li>`ship_length`, `ship_width`, `ship_height`</li><li>`freight_class`</li><li>`shipperhq_hs_code`</li></ul> See the [Item Attributes](#item-attributes) section of this doc for details on these attributes and for other attributes that may be supported if useful for your integration.</td></tr></table> |
+| [`customerInput`](https://dev.shipperhq.com/rates-service/#definition-CustomerInput) | If the integrated platform supports assigning [Customer Groups](https://docs.shipperhq.com/set-up-customer-groups-shipperhq/), the group name should be included in the `customerGroup` element. |
 
 ### Response Requirements
 
 When ShipperHQ returns a response, the following provides the minimum information that should be displayed to the end user:
-- `methodTitle` and `totalCharges` returned in [`methodDetail`](https://dev.shipperhq.com/rates-service/#definition-MethodDetail)
-- `carrierTitle` returned in [`carrierDetail`](https://dev.shipperhq.com/rates-service/#definition-CarrierDetail)
-- `deliveryDate` to end users if returned in [`timeInTransitOption`](https://dev.shipperhq.com/rates-service/#definition-TimeInTransitOption)
-- Appropriately handle multiple [`shipments`](https://dev.shipperhq.com/rates-service/#definition-Shipment) when implementing [`fullShippingQuote`](https://dev.shipperhq.com/rates-service/#definition-FullShippingQuote)
-- Appropriately handle responses according to the [`units`](https://dev.shipperhq.com/rates-service/#definition-Units) returned by ShipperHQ
+
+| Parent Element | Required |
+| ----- | ----- |
+| [`methodDetail`](https://dev.shipperhq.com/rates-service/#definition-MethodDetail) | `methodTitle` and `totalCharges` |
+| [`carrierDetail`](https://dev.shipperhq.com/rates-service/#definition-CarrierDetail) | `carrierTitle` |
+| [`timeInTransitOption`](https://dev.shipperhq.com/rates-service/#definition-TimeInTransitOption) | `deliveryDate` (if included in response) |
+| [`shipments`](https://dev.shipperhq.com/rates-service/#definition-Shipment) | Appropriately handle multiple `shipment` elements |
+| [`units`](https://dev.shipperhq.com/rates-service/#definition-Units) | Appropriately handle responses according to the `units` returned by ShipperHQ |
 
 When an end user has selected a shipping method and completed the order, the `methodTitle`, `carrierTitle`, and (if applicable) `deliveryDate` chosen by the customer should be stored along with the order. Additionally, the following should be stored within the integrated system along with the order:
-- `carrierCode` returned in [`carrierDetail`](https://dev.shipperhq.com/rates-service/#definition-CarrierDetail) for carrier of the method selected by the customer
-- `methodCode` returned in [`methodDetail`](https://dev.shipperhq.com/rates-service/#definition-MethodDetail) for the method selected by the customer
-- `transactionId` returned in the [`fullShippingQuote`](https://dev.shipperhq.com/rates-service/#definition-FullShippingQuote) or [`basicShippingQuote`](https://dev.shipperhq.com/rates-service/#definition-BasicShippingQuote) response. This uniquely identifies the response and is useful in troubleshooting. Optionally, the entirety of the rate request and response may be stored.
+
+| Parent Element | Required |
+| ----- | ----- |
+| [`carrierDetail`](https://dev.shipperhq.com/rates-service/#definition-CarrierDetail) | `carrierCode` for the carrier of the method selected by the customer |
+| [`methodDetail`](https://dev.shipperhq.com/rates-service/#definition-MethodDetail) | `methodCode` for the method selected by the customer |
+| [`fullShippingQuote`](https://dev.shipperhq.com/rates-service/#definition-FullShippingQuote)<br />or<br />[`basicShippingQuote`](https://dev.shipperhq.com/rates-service/#definition-BasicShippingQuote) | The `transactionId` uniquely identifies the response and is useful in troubleshooting, it should be stored. Optionally, the entirety of the rate request and response may be stored. |
 
 #### Error Handling
 The ShipperHQ Rates API may return errors in an [`error`](https://dev.shipperhq.com/rates-service/#definition-Error) object in several cases:

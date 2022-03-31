@@ -10,7 +10,7 @@ The ShipperHQ SDK provides an end to end solution to help merchants, developers,
 :::info Existing Integrations
 Our APIs are primarily intended for developers looking to integrate ShipperHQ with a platform where no integration yet exists. ShipperHQ has integrations with a number of major eCommerce platforms that don't require any custom integration or code. We recommend using our existing integrations whenever possible since these are maintained directly by our team.
 
-[Supported eCommerce platforms <i class="fa fa-arrow-right"></i>](https://shipperhq.com/marketplace#solutions_integrator)
+[Supported eCommerce platforms <i class="fa fa-arrow-right"></i>](https://shipperhq.com/marketplace#platforms)
 :::
 
 ### High-level Workflow
