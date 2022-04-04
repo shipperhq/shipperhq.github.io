@@ -53,6 +53,10 @@ The following headers are required for every Insights API call.
 | `X-ShipperHQ-Access-Token` | The Access Token retrieved from the ShipperHQ dashboard |
 | `X-ShipperHQ-Scope` | The configuration [Scope](https://docs.shipperhq.com/using-scopes-shipperhq/) for this ShipperHQ [Website](https://docs.shipperhq.com/adding-websites-in-shipperhq/) (accepts `LIVE`, `TEST`, `DEVELOPMENT`, or `INTEGRATION`). If unsure or if the ShipperHQ account does not support multiple scopes, use `LIVE`. |
 
+
+### `orderNumber`
+The `orderNumber` argument of the `viewOrder` call is used to look up a unique order with the Insights API. If you are using the native ShipperHQ apps/plugins/extensions for supported eCommerce platforms ([complete list here](https://shipperhq.com/pricing)), the `orderNumber` will be the Order Number set by your eCommerce platform. If you are instead using the [`PlaceOrder`](place-order.md) mutation of the [Labels API](../labels/overview.md), `orderNumber` will be the value you set as the Order Number in your `PlaceOrder` call.
+
 ### Useful fields by feature
 
 #### Date & Time
@@ -185,127 +189,58 @@ We don't require single-purpose, custom integrations to meet these requirements.
 The integration should:
 - Provide clients with a UI for entering their ShipperHQ Account-specific API credentials and use those credentials in all API calls to ShipperHQ
 
-### Required `order` Values
-The request should include the following elements of the [`order`](https://dev.shipperhq.com/insights-service/#definition-Order) type
-- `orderNumber`:
-- `orderNumberText`:
+### Request Requirements
 
-#### Required `orderDetail` Values
+Each request to `viewOrder` requires that the `orderNumber` argument is included. See the [`orderView`](#orderview) section of this guide for more information.
 
-The request should include the following elements of the [`orderDetail`](https://dev.shipperhq.com/insights-service/#definition-OrderDetail) type:
-  - `carrierCode`:
-  - `carrierTitle`:
-  - `methodCode`:
-  - `methodTitle`:
-  - `totalCharges`:
-  - `transactionId`:
+### Response Handling
 
-#### Required `shipments` Values
+Since each ShipperHQ account may be configured with different features and functionality, it's important to support a fairly broad set of response elements in any integration. These are discussed below.
 
-The integration should support the following elements of the [`shipments`](https://dev.shipperhq.com/insights-service/#definition-Shipment) type:
+#### Handling Multiples
 
-**Required `shipmentDetail` Values**
-The integration should support the following elements of the [`shipmentDetail`](https://dev.shipperhq.com/insights-service/#definition-ShipmentDetail) type:
-- `name`:
+Certain elements may contain multiple child elements. The integration should be able to handle multiples of these elements appropriately:
 
-**Required `carriers` Values**
-The integration should support the following elements of the [`carrier`](https://dev.shipperhq.com/insights-service/#definition-Carrier) type:
-- `dateFormat`:
+| Parent Element | Element | Description |
+| ----- | ----- | ----- |
+| [`order`](https://dev.shipperhq.com/insights-service/#definition-Order) | [`shipments`](https://dev.shipperhq.com/insights-service/#definition-Shipment) | Each order may contain one or more shipments. For example, when using [Multi-Origin Shipping](https://docs.shipperhq.com/setup-multiorigin-dropshipping/), a single order may contain items being fulfilled from different distribution facilities. Or, if certain items in the order must ship via an LTL freight carrier but others must ship via an express service, the ShipperHQ account may be configured to split these into separate shipments from the same Origin.<br />Each shipment will have its own set of details include the carrier, method, and rates used for that shipment. |
+| [`shipment`](https://dev.shipperhq.com/insights-service/#definition-Shipment) | [`groupedItems`](https://dev.shipperhq.com/insights-service/#definition-GroupedItem) | Each shipment may contain one or more items. **Note:** these may be packed into one or more `packages` (see below). |
+| [`rateBreakdown`](https://dev.shipperhq.com/insights-service/#definition-RateBreakdown) | [`packages`](https://dev.shipperhq.com/insights-service/#definition-Package) | One or more packages may be used in rating a method. |
+| [`package`](https://dev.shipperhq.com/insights-service/#definition-Package) | [`items`](http://localhost:3000/insights-service/#definition-Item) | Each package may contain one or more items. |
 
-*Required `carrierDetail` Values*
+#### Specific Elements and Properties
+The integration should appropriately handle at minimum the following elements and properties:
 
-The integration should support the following elements of the [`carrierDetail`](https://dev.shipperhq.com/insights-service/#definition-CarrierDetail) type:
-- `carrierCode`:
-- `carrierTitle`:
-- `carrierType`:
+| Parent Element | Properties |
+| ----- | ----- |
+| [`order`](https://dev.shipperhq.com/insights-service/#definition-Order) | <table><tr><td>`orderNumber`</td><td></td></tr><tr><td>`orderNumberText`</td><td></td></tr></table> |
+| [`orderDetail`](https://dev.shipperhq.com/insights-service/#definition-OrderDetail) | <table><tr><td>`carrierCode`</td><td></td></tr><tr><td>`carrierTitle`</td><td></td></tr><tr><td>`methodCode`</td><td></td></tr><tr><td>`methodTitle`</td><td></td></tr><tr><td>`totalCharges`</td><td></td></tr><tr><td>`transactionId`</td><td></td></tr></table> |
+| [`shipmentDetail`](https://dev.shipperhq.com/insights-service/#definition-ShipmentDetail) | <table><tr><td>`name`</td><td></td></tr></table> |
+| [`carrier`](https://dev.shipperhq.com/insights-service/#definition-Carrier) | <table><tr><td>`dateFormat`</td><td></td></tr></table> |
+| [`carrierDetail`](https://dev.shipperhq.com/insights-service/#definition-CarrierDetail) | <table><tr><td>`carrierCode`</td><td></td></tr><tr><td>`carrierTitle`</td><td></td></tr><tr><td>`carrierType`</td><td></td></tr></table> |
+| [`methodDetail`](https://dev.shipperhq.com/insights-service/#definition-MethodDetail) | <table><tr><td>`methodCode`</td><td></td></tr><tr><td>`methodTitle`</td><td></td></tr><tr><td>`totalCharges`</td><td></td></tr><tr><td>`currency`</td><td></td></tr><tr><td>`negotiatedRate`</td><td></td></tr></table> |
+| [`timeInTransitOptions`](https://dev.shipperhq.com/insights-service/#definition-TimeInTransitOptions) | <table><tr><td>`dispatchDate`</td><td></td></tr><tr><td>`deliveryDate`</td><td></td></tr></table> |
+| [`advancedFees`](https://dev.shipperhq.com/insights-service/#definition-AdvancedFees) | <table><tr><td>`handlingFee`</td><td></td></tr><tr><td>`shippingPrice`</td><td></td></tr><tr><td>`totalCharges`</td><td></td></tr><tr><td>`cost`</td><td></td></tr><tr><td>`customDuties`</td><td></td></tr><tr><td>`deliveryDate`</td><td></td></tr><tr><td>`deliveryDate`</td><td></td></tr></table> |
+| [`packageDetail`](https://dev.shipperhq.com/insights-service/#definition-PackageDetail) | <table><tr><td>`declaredValue`</td><td></td></tr><tr><td>`height`<br />`length`<br />`width`</td><td></td></tr><tr><td>`packageName`</td><td></td></tr><tr><td>`packingWeight`</td><td></td></tr><tr><td>`weight`</td><td></td></tr></table> |
+| [`item`](https://dev.shipperhq.com/insights-service/#definition-Item) | <table><tr><td>`sku`</td><td></td></tr><tr><td>`qtyPacked`</td><td></td></tr><tr><td>`weightPacked`</td><td></td></tr></table> |
+| [`selectedOption`](https://dev.shipperhq.com/insights-service/#definition-SelectedOption) |  |
+| `calendarDate` | <table><tr><td>`availableDeliveryDates`</td><td></td></tr><tr><td>`timeSlots`</td><td></td></tr></table> |
+| `packages` |  |
+| [`pickupLocationDetail`](https://dev.shipperhq.com/insights-service/#definition-PickupLocationDetail) | <table><tr><td>`pickupName`</td><td></td></tr><tr><td>`publicId`</td><td></td></tr></table> |
+| [`groupedItem`](https://dev.shipperhq.com/insights-service/#definition-GroupedItem) | <table><tr><td>`sku`</td><td></td></tr><tr><td>`qty`</td><td></td></tr><tr><td>`name`</td><td></td></tr></table> |
+| [`address`](https://dev.shipperhq.com/insights-service/#definition-Address) | <table><tr><td>`country`</td><td></td></tr><tr><td>`region`</td><td></td></tr><tr><td>`city`</td><td></td></tr><tr><td>`street`</td><td></td></tr><tr><td>`street2`</td><td></td></tr><tr><td>`zipcode`</td><td></td></tr><tr><td>`company`</td><td></td></tr></table> |
+| [`fullShippingQuote`](https://dev.shipperhq.com/insights-service/#definition-FullShippingQuote)<br />or<br />[`basicShippingQuote`](https://dev.shipperhq.com/rates-service/#definition-BasicShippingQuote) | The `transactionId` uniquely identifies the response and is useful in troubleshooting, it should be stored. Optionally, the entirety of the rate request and response may be stored. |
 
-*Required `methods` Values*
-The integration should support the following elements of the [`method`](https://dev.shipperhq.com/insights-service/#definition-Method) type.
+#### Error Handling
+The ShipperHQ Rates API may return errors in an [`error`](https://dev.shipperhq.com/insights-service/#definition-Error) object in several cases:
+- If ShipperHQ encounters a general error processing a request (e.g. credentials issues, malformed request, etc.) an [error message](faq#what-are-possible-error-codes-and-messages) will be returned indicating the type of error encountered. In this case, your integration should appropriately display a user-friendly message. The values of the `errorCode` and `internalErrorMessage` are not intended to be displayed to end-users but are useful to log for troubleshooting.
+- If a specific Carrier or service is unavailable, ShipperHQ will return an [`error`](https://dev.shipperhq.com/insights-service/#definition-Error) within the [`carrier`](https://dev.shipperhq.com/insights-service/#definition-Carrier). This type of error may indicate that ShipperHQ was unable to return options for this carrier due to a problem (e.g. carrier API timeout), that the ShipperHQ configuration was intentionally set to prevent this carrier from returning any options, or configured to intentionally prevent this carrier from returning specific options for this order. These [`error`](https://dev.shipperhq.com/rates-service/#definition-Error) objects will include an `errorCode` and `internalErrorMessage` which should not be displayed to the end user but may also include an `externalErrorMessage` which may be displayed to the end user. Your integration should support displaying these messages.
 
-Required `methodDetails` Values
-
-The integration should support the following elements of the [`methodDetail`](https://dev.shipperhq.com/insights-service/#definition-MethodDetail) type.
-- `methodCode`:
-- `methodTitle`:
-- `totalCharges`:
-- `currency`:
-- `negotiatedRate`:
-
-Required `timeInTransitOptions` Values
-
-The integration should support the following elements of the [`timeInTransitOptions`](https://dev.shipperhq.com/insights-service/#definition-TimeInTransitOptions) type.
-- `dispatchDate`:
-- `deliveryDate`:
-
-Required `rateBreakdownList` Values
-
-The integration should support the [`rateBreakdown`](https://dev.shipperhq.com/insights-service/#definition-RateBreakdown) type.
-
-Required `advancedFees` Values
-
-The integration should support the following elements of the [`advancedFees`](https://dev.shipperhq.com/insights-service/#definition-AdvancedFees) type.
-- `handlingFee`:
-- `shippingPrice`:
-- `totalCharges`:
-- `cost`:
-- `customDuties`:
-- `deliveryDate`:
-- `deliveryDate`:
-
-Required `packages` Values
-
-The integration should support the [`package`](https://dev.shipperhq.com/insights-service/#definition-Package) type including:
-- These attributes of the [`packageDetail`](https://dev.shipperhq.com/insights-service/#definition-PackageDetail) type:
-  - `declaredValue`:
-  - `height`:
-  - `length`:
-  - `width`:
-  - `packageName`:
-  - `packingWeight`:
-  - `weight`:
-- These attributes of the [`item`](https://dev.shipperhq.com/insights-service/#definition-Item) type:
-  - `sku`:
-  - `qtyPacked`:
-  - `weightPacked`:
-
-Required `selectedOptions` Values
-
-The integration should support all possible values of the [`selectedOption`](https://dev.shipperhq.com/insights-service/#definition-SelectedOption) type.
-
-*Required `calendarDate` Values*
-- `availableDeliveryDates`:
-- `timeSlots`:
-
-*Required `packages` Values*
-See above
-
-*Required `pickupDetail` Values*
-
-The integration should support the [`pickupDetail`](https://dev.shipperhq.com/insights-service/#definition-PickupDetail) type including:
-- These attributes of the [`pickupLocationDetail`](https://dev.shipperhq.com/insights-service/#definition-PickupLocationDetail) type:
-  - `pickupName`:
-  - `publicId`:
-
-**Required `groupedItems` Values**
-
-The integration should support the following elements of the [`groupedItem`](https://dev.shipperhq.com/insights-service/#definition-GroupedItem) type:
-- `sku`:
-- `qty`:
-- `name`:
-
-#### Required `recipient` Values
-The integration should support the [`address`](https://dev.shipperhq.com/rates-service/#definition-Address)type including:
-- `country`:
-- `region`:
-- `city`:
-- `street`:
-- `street2`:
-- `zipcode`:
-- `company`:
+See the [Errors](#errors) section of this doc for further details and for possible error codes and messages see the [Rates API FAQ](faq#what-are-possible-error-codes-and-messages).
 
 ### Additional Guidance
 
-While the [Rates API Reference](https://dev.shipperhq.com/rates-service/) contains all available fields, not all possible attributes are described in the current version of this guide. Some less-common attributes are not yet described. Contact [dev support](/contact) if you need assistance with any specific scenario or for additional guidance on best practices for your specific use case.
+While the [Insights API Reference](https://dev.shipperhq.com/insights-service/) contains all available fields, not all possible attributes are described in the current version of this guide. Some less-common attributes are not yet described. Contact [dev support](/contact) if you need assistance with any specific scenario or for additional guidance on best practices for your specific use case.
 
 ## Testing
 To test the Insights API you will need to already have either:
