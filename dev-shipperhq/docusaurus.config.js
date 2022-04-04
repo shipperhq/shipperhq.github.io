@@ -133,11 +133,6 @@ const config = {
                 label: 'FAQ'
               },
               {
-                type: 'doc',
-                docId: 'insights/place-order',
-                label: 'Place Order'
-              },
-              {
                 to: 'insights-service',
                 label: 'Insights API Reference',
                 target: '_blank',
@@ -167,8 +162,19 @@ const config = {
               },
               {
                 type: 'doc',
+                docId: 'labels/place-order',
+                label: 'Place Order'
+              },
+              {
+                type: 'doc',
                 docId: 'labels/faq',
                 label: 'FAQ'
+              },
+              {
+                to: 'labels-service',
+                label: 'Labels API Reference',
+                target: '_blank',
+                className: 'external-nav-link'
               },
             ]
           },

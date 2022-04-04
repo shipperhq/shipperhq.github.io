@@ -14,9 +14,9 @@ As with all our APIs, our Insights API is implemented with GraphQL. If you're un
 
 ## Requirements
 * ShipperHQ account with the [Shipping Insights](https://docs.shipperhq.com/shipping-insights-configuration/) Advanced Feature enabled
-* An eCommerce platform or custom integration supporting the [`PlaceOrder`](place-order.md) mutation of the [Labels API](../labels/overview.md), either:
+* An eCommerce platform or custom integration supporting the [`PlaceOrder`](../labels/place-order.md) mutation of the [Labels API](../labels/overview.md), either:
   * ShipperHQ’s native [Magento 2](https://docs.shipperhq.com/installing-magento-2-shipperhq-extension/), [BigCommerce](https://docs.shipperhq.com/setup-shipperhq-bigcommerce-store/), or [Shopify](https://docs.shipperhq.com/connect-shopify-shipperhq/) app installed on the eCommerce platform
-  * A custom integration implementing both our [Rates API](../rates/overview.md) and the [`PlaceOrder`](place-order.md) mutation of our [Labels API](../labels/overview.md)
+  * A custom integration implementing both our [Rates API](../rates/overview.md) and the [`PlaceOrder`](../labels/place-order.md) mutation of our [Labels API](../labels/overview.md)
 
 ## Authentication
 The Insights API is accessed using a unique Access Token generated in a ShipperHQ account. Each access token is unique per [Website](https://docs.shipperhq.com/adding-websites-in-shipperhq/) for multi-site ShipperHQ accounts.
@@ -155,7 +155,7 @@ Other related fields are available and can be found in the [Insights API Referen
 ## Testing
 To test the Insights API you will need to already have either:
 1. ShipperHQ's native integration installed and enabled on [Magento 2](https://docs.shipperhq.com/installing-magento-2-shipperhq-extension/), [BigCommerce](https://docs.shipperhq.com/setup-shipperhq-bigcommerce-store/), or [Shopify](https://docs.shipperhq.com/connect-shopify-shipperhq/)
-2. A custom integration of the ShipperHQ [Rates API](../rates/overview.md) and the [`PlaceOrder`](place-order.md) mutation of the [Labels API](../labels/overview.md).
+2. A custom integration of the ShipperHQ [Rates API](../rates/overview.md) and the [`PlaceOrder`](../labels/place-order.md) mutation of the [Labels API](../labels/overview.md).
 
 ### Enable & Retrieve Access Token
 Within the ShipperHQ account you wish to use, enable the Shipping Insights Advanced Feature from the Advanced Features section of the dashboard. Then, retrieve the Shipping Insights Access Token from the Website on that account.

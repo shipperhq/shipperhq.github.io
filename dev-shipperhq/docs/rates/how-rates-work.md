@@ -7,7 +7,7 @@ tags: [rates, api, guide]
 
 ## High-level overview
 
-![Rate API Overview](./rating-api-overview.png)
+![Rates API Overview](./rating-api-overview.png)
 
 
 ## Typical workflow
@@ -34,7 +34,7 @@ Here a some pointers that could help you better understand your needs:
 
 ## Key queries used for rate requests
 
-The Rate API is a read-only API. It consists of three queries:
+The Rates API is a read-only API. It consists of three queries:
 
 | Query                      | Description         |
 | ---------------------------|---------------------|
