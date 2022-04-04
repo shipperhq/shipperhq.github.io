@@ -191,7 +191,7 @@ The integration should:
 
 ### Request Requirements
 
-Each request to `viewOrder` requires that the `orderNumber` argument is included. See the [`orderView`](#orderview) section of this guide for more information.
+Each request to `viewOrder` requires that the `orderNumber` argument is included. See the [`orderNumber`](#ordernumber) section of this guide for more information.
 
 ### Response Handling
 
@@ -206,7 +206,7 @@ Certain elements may contain multiple child elements. The integration should be 
 | [`order`](https://dev.shipperhq.com/insights-service/#definition-Order) | [`shipments`](https://dev.shipperhq.com/insights-service/#definition-Shipment) | Each order may contain one or more shipments. For example, when using [Multi-Origin Shipping](https://docs.shipperhq.com/setup-multiorigin-dropshipping/), a single order may contain items being fulfilled from different distribution facilities. Or, if certain items in the order must ship via an LTL freight carrier but others must ship via an express service, the ShipperHQ account may be configured to split these into separate shipments from the same Origin.<br />Each shipment will have its own set of details include the carrier, method, and rates used for that shipment. |
 | [`shipment`](https://dev.shipperhq.com/insights-service/#definition-Shipment) | [`groupedItems`](https://dev.shipperhq.com/insights-service/#definition-GroupedItem) | Each shipment may contain one or more items. **Note:** these may be packed into one or more `packages` (see below). |
 | [`rateBreakdown`](https://dev.shipperhq.com/insights-service/#definition-RateBreakdown) | [`packages`](https://dev.shipperhq.com/insights-service/#definition-Package) | One or more packages may be used in rating a method. |
-| [`package`](https://dev.shipperhq.com/insights-service/#definition-Package) | [`items`](http://localhost:3000/insights-service/#definition-Item) | Each package may contain one or more items. |
+| [`package`](https://dev.shipperhq.com/insights-service/#definition-Package) | [`items`](https://dev.shipperhq.com/insights-service/#definition-Item) | Each package may contain one or more items. |
 
 #### Specific Elements and Properties
 The integration should appropriately handle at minimum the following elements and properties:
