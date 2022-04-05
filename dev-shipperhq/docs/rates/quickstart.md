@@ -5,6 +5,7 @@ title: Quickstart
 tags: [rates, api, guide, quickstart]
 ---
 import JWTAuth from '@site/docs/transclusion/_jwtauth.md' // This is an included file (see below the Error component)
+import APIPlayground from '@site/docs/transclusion/_apiplayground.md' // This is an included file (see below the Error component)
 
 This document is for technical architects and developers that need to integrate with ShipperHQ’s Rates API to build their own integration to retrieve shipment details from ShipperHQ.
 
@@ -19,7 +20,7 @@ In order to use the ShipperHQ Rates API you'll need a ShipperHQ account configur
 [//]: # (JWT Authentication)
 [//]: # (This is an imported file - Do not modify directly this section)
 [//]: # (Look for the import statement at the top of the file to have the path of the included file)
-<JWTAuth doc="Labels" />
+<JWTAuth doc="Rates" />
 
 ## API Details
 
@@ -136,6 +137,14 @@ requestedOptions: {
        value: "residential"
    }]}   
 ```
+
+## Testing
+
+### Test with the API Playground
+[//]: # (API Playground)
+[//]: # (This is an imported file - Do not modify directly this section)
+[//]: # (Look for the import statement at the top of the file to have the path of the included file)
+<APIPlayground doc="Rates" />
 
 ## Examples
 

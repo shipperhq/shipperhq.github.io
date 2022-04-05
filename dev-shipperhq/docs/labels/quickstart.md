@@ -5,6 +5,7 @@ title: Quickstart
 tags: [labels, api, guide, quickstart]
 ---
 import JWTAuth from '@site/docs/transclusion/_jwtauth.md' // This is an included file (see below the Error component)
+import APIPlayground from '@site/docs/transclusion/_apiplayground.md' // This is an included file (see below the Error component)
 
 This document is for technical architects and developers that need to integrate with ShipperHQ’s Labels API to build their own integration to generate and print shipping labels.
 
@@ -314,11 +315,10 @@ Within the ShipperHQ account you wish to use, enable the Labels Advanced Feature
 Place an order on your eCommerce or custom platform. Note the Order Number since this will be used to retrieve Shipping Insights information.
 
 ### Test with the API Playground
-- Navigate to the ShipperHQ [API Playground](https://graphiql.shipperhq.com/)
-- In a new playground tab, enter the Labels API Endpoint URL into the URL bar
-- Click the Docs button
-- Click the Reload Docs icon
-- Click the Query link to view a list of available queries and the arguments and fields you can include in your request
+[//]: # (API Playground)
+[//]: # (This is an imported file - Do not modify directly this section)
+[//]: # (Look for the import statement at the top of the file to have the path of the included file)
+<APIPlayground doc="Labels" />
 
 ## Examples
 
