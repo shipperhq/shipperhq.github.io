@@ -4,6 +4,7 @@ slug: quickstart
 title: Quickstart
 tags: [rates, api, guide, quickstart]
 ---
+import JWTAuth from '@site/docs/transclusion/_jwtauth.md' // This is an included file (see below the Error component)
 
 This document is for technical architects and developers that need to integrate with ShipperHQ’s Rates API to build their own integration to retrieve shipment details from ShipperHQ.
 
@@ -14,88 +15,11 @@ Our Rates API is implemented in GraphQL. See the [SDK Quickstart](../quickstart.
 ## Requirements
 In order to use the ShipperHQ Rates API you'll need a ShipperHQ account configured with at least one Website, one Origin, and one Carrier. Once you have an account, you'll need to retrieve authentication credentials as described below that will allow you to access the Rates API.
 
-## Authentication Process
-To use the ShipperHQ Rates API you need to generate a JWT authentication token. This is a three step process:
-1. Get your ShipperHQ API Key
-2. Get your Authentication Code
-3. Generate a JWT access token (valid for 30 days)
-
-### Access Scope
-
-Before we dig into the specifics, it is important to define the access scope for the API Key, the Authentication Code and the JWT Access Token. Each of these elements are specific to a single ShipperHQ Website.
-
-You can think of a Website as a sale channel. For instance an online store in the US (production), an online store in Canada (production), a development store, or a CRM sales channel (offline sales).
-
-Because ShipperHQ supports multiple Websites, each Website can have its own Shipping rules. Each Website will, as a consequence, generate different type of rates for the same virtual cart and customer choices.
-
-To reflect this level of functionality, authorization and access to the Rates API is specific to a Website: you need a different set of credentials for each ShipperHQ Website.
-
-[More information about Websites in ShipperHQ](https://docs.shipperhq.com/adding-websites-in-shipperhq/)
-
-### How to get your API Key
-
-The API key is accessible on all platforms via the ShipperHQ dashboard.
-
-To get the API key:
-1. Log into ShipperHQ and go to the [Websites](https://shipperhq.com/ratesmgr/websites) section of the dashboard.
-2. Select the Website you want to get the key from
-3. Select the `API key` and copy it to your application
-
-### How to get your Authentication Code
-
-#### For new ShipperHQ deployment on manually connected platforms (Magento/Adobe Commerce, Zoey, WooCommerce, etc.)
-On these platforms, you can generate a new Authentication Code within the ShipperHQ dashboard.
-
-1. Visit the Websites section of the dashboard
-2. Click on the relevant Website
-3. Click on "Generate new Authentication Code"
-4. Copy the code: It will not be shown again for this Website.
-
-:::caution Generating a new Authentication Code will break existing integrations with that Website!
-
-Generating a new Authentication Code invalidates the previous Authentication Codes for that Website. This will break any integrations using that Authentication Code. Our recommendation is to create a new Website when creating a new integration so that you can retrieve a new API Key and Authentication Code without impacting your existing Website integration. Please [contact support](/contact) to double-check and avoid any service disruption for existing Websites.
-
-:::
-
-#### For Single Sign On platforms: BigCommerce and Shopify
-
-For these platforms, the Authentication Code is automatically generated and exchanged between the eCommerce platform and ShipperHQ.
-
-Please [contact support](/contact) and make sure to specify the URL of the Website for which you would like to get the Authentication Code.
-
-#### For existing (in production or in development) ShipperHQ Websites
-
-Please [contact support](/contact) and make sure to specify the URL of the Website for which you would like to get the Authentication Code.
-
-### Generating your JWT Authentication Token
-
-Once you have your ShipperHQ API Key and Authentication Code, you can generate the JWT token used to access the ShipperHQ Rates API. These tokens expire after 30 days.
-
-The ShipperHQ API Playground can be used to create an Authentication Token for testing. You will need to use this same query in your integration to create secret tokens when required.
-
-1. Navigate to the ShipperHQ [API Playground](https://graphiql.shipperhq.com/)
-2. Click Add New in the top left corner
-3. Set the URL to `https://rms.shipperhq.com`
-4. Click the Reload Docs button
-5. Send a createSecretToken mutation with your API Key and Authentication Code
-
-```json title="Create a secret token"
-mutation CreateSecretToken {
-   createSecretToken(
-      api_key: "your_api_key",
-      auth_code: "your_auth_code"
-      )
-      {
-        token
-      }
-}
-```
-
-:::tip ShipperHQ uses JWT tokens with a 30 days expiration date
-
-The response contains the token you use to make requests to the ShipperHQ Rates API. This token expires every 30 days. You can request a new token up to an hour before your current token expiration date and time. The token is a [JWT token](https://jwt.io/) and they have an expiration timestamp encoded inside: no need to remember the expiration date. We recommend using your favorite [JWT](https://jwt.io/) parsing library to extract the expiration date from the token, so you will know the exact second the token expires.
-
-:::
+## Authentication
+[//]: # (JWT Authentication)
+[//]: # (This is an imported file - Do not modify directly this section)
+[//]: # (Look for the import statement at the top of the file to have the path of the included file)
+<JWTAuth doc="Labels" />
 
 ## API Details
 

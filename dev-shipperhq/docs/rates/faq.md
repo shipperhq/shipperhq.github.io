@@ -4,7 +4,7 @@ slug: faq
 title: FAQ
 tags: [rates, api, guide, faq]
 ---
-import Error from '../transclusion/error.md' // This is an included file (see below the Error component)
+import Error from '@site/docs/transclusion/_error.md' // This is an included file (see below the Error component)
 
 ## Does the rating API return duties (DDU/DDP) information?
 

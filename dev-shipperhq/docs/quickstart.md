@@ -24,6 +24,10 @@ If you're unfamiliar with GraphQL, Please refer to the [Introduction to GraphQL]
 - **Flexibility:** GraphQL gives users the ability to access the details used to obtain the shipping rate and query what is most important to you and your business. As such, you can query 5 pieces of information or every possible field as you see fit.
 - **Customization:** GraphQL gives users the ability to build their own integration into ShipperHQ to rate shipments, retrieve shipment details, produce labels, and more.
 
+## Authentication
+
+ShipperHQ's APIs use two types of authentication: 
+
 ## API Playground
 The API Playground gives you an easy way to test different ShipperHQ APIs without having to write any code. You'll need the Endpoint URL for the API you're looking to experiment with as well as the authorization credentials for that API. See each API's Quickstart page for the Endpoint URL and required credentials for that API.
 

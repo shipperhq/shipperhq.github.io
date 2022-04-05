@@ -4,6 +4,7 @@ slug: quickstart
 title: Quickstart
 tags: [labels, api, guide, quickstart]
 ---
+import JWTAuth from '@site/docs/transclusion/_jwtauth.md' // This is an included file (see below the Error component)
 
 This document is for technical architects and developers that need to integrate with ShipperHQ’s Labels API to build their own integration to generate and print shipping labels.
 
@@ -25,130 +26,183 @@ Please [contact us](/contact) if interested.
   * A custom integration implementing both our [Rates API](../rates/overview.md) and the [`PlaceOrder`](../labels/place-order.md) mutation of our [Labels API](../labels/overview.md)
 * An account with at least one of the [carriers supported](#supported-carriers) by the ShipperHQ Labels API connected to your ShipperHQ account
 
-## Recommended Workflow
-
-While the ShipperHQ APIs can be used in various ways, our recommended workflow for label printing is described below.
-
-### 1. Rate Order
-
-
-### 2. View Order
-
-
-### 3. List Printers
-
-
-### 4. Create Label
-
-
-### 5. Print Label
-
-
-### Optionally
-
-
-#### Cancel Label
-
-
-#### Create Return Label
-
-
-## Authentication Process
-To use the ShipperHQ Labels API you need to generate a JWT authentication token. This is a three step process:
-1. Get your ShipperHQ API Key
-2. Get your Authentication Code
-3. Generate a JWT access token (valid for 30 days)
-
-### Access Scope
-
-Before we dig into the specifics, it is important to define the access scope for the API Key, the Authentication Code and the JWT Access Token. Each of these elements are specific to a single ShipperHQ Website.
-
-You can think of a Website as a sale channel. For instance an online store in the US (production), an online store in Canada (production), a development store, or a CRM sales channel (offline sales).
-
-Because ShipperHQ supports multiple Websites, each Website can have its own Shipping rules. Each Website will, as a consequence, generate different type of rates for the same virtual cart and customer choices.
-
-To reflect this level of functionality, authorization and access to the Rates API is specific to a Website: you need a different set of credentials for each ShipperHQ Website.
-
-[More information about Websites in ShipperHQ](https://docs.shipperhq.com/adding-websites-in-shipperhq/)
-
-### How to get your API Key
-
-The API key is accessible on all platforms via the ShipperHQ dashboard.
-
-To get the API key:
-1. Log into ShipperHQ and go to the [Websites](https://shipperhq.com/ratesmgr/websites) section of the dashboard.
-2. Select the Website you want to get the key from
-3. Select the `API key` and copy it to your application
-
-### How to get your Authentication Code
-
-#### For new ShipperHQ deployments on manually connected platforms (Magento/Adobe Commerce, Zoey, WooCommerce, etc.)
-On these platforms, you can generate a new Authentication Code within the ShipperHQ dashboard.
-
-1. Visit the Websites section of the dashboard
-2. Click on the relevant Website
-3. Click on "Generate new Authentication Code"
-4. Copy the code: It will not be shown again for this Website.
-
-:::caution Generating a new Authentication Code will break existing integrations with that Website!
-
-Generating a new Authentication Code invalidates the previous Authentication Codes for that Website. This will break any integrations using that Authentication Code. Our recommendation is to create a new Website when creating a new integration so that you can retrieve a new API Key and Authentication Code without impacting your existing Website integration. Please [contact support](/contact) to double-check and avoid any service disruption for existing Websites.
-
-:::
-
-#### For Single Sign On platforms: BigCommerce and Shopify
-
-For these platforms, the Authentication Code is automatically generated and exchanged between the eCommerce platform and ShipperHQ.
-
-Please [contact support](/contact) and make sure to specify the URL of the Website for which you would like to get the Authentication Code.
-
-#### For existing (in production or in development) ShipperHQ Websites
-
-Please [contact support](/contact) and make sure to specify the URL of the Website for which you would like to get the Authentication Code.
-
-### Generating your JWT Authentication Token
-
-Once you have your ShipperHQ API Key and Authentication Code, you can generate the JWT token used to access the ShipperHQ Rates API. These tokens expire after 30 days.
-
-The ShipperHQ API Playground can be used to create an Authentication Token for testing. You will need to use this same query in your integration to create secret tokens when required.
-
-1. Navigate to the ShipperHQ [API Playground](https://graphiql.shipperhq.com/)
-2. Click Add New in the top left corner
-3. Set the URL to `https://rms.shipperhq.com`
-4. Click the Reload Docs button
-5. Send a createSecretToken mutation with your API Key and Authentication Code
-
-```json title="Create a secret token"
-mutation CreateSecretToken {
-   createSecretToken(
-      api_key: "your_api_key",
-      auth_code: "your_auth_code"
-      )
-      {
-        token
-      }
-}
-```
-
-:::tip ShipperHQ uses JWT tokens with a 30 days expiration date
-
-The response contains the token you use to make requests to the ShipperHQ Rates API. This token expires every 30 days. You can request a new token up to an hour before your current token expiration date and time. The token is a [JWT token](https://jwt.io/) and they have an expiration timestamp encoded inside: no need to remember the expiration date. We recommend using your favorite [JWT](https://jwt.io/) parsing library to extract the expiration date from the token, so you will know the exact second the token expires.
-
-:::
+## Authentication
+[//]: # (JWT Authentication)
+[//]: # (This is an imported file - Do not modify directly this section)
+[//]: # (Look for the import statement at the top of the file to have the path of the included file)
+<JWTAuth doc="Labels" />
 
 ## API Details
 
 ### Endpoint
 | Protocol                      | Method | Body Encoding | Endpoint URL        |
 | ---------------------------|---------------------|---------------------|---------------------|
-| `HTTPS` | `POST` | `application/JSON` |  `https://postapi.shipperhq.com/v3/graphql/label` |
+| `HTTPS` | `POST` | `application/JSON` |  `https://rms.shipperhq.com/` |
 
 ### Request Headers
 | Header                      | Description         |
 | ---------------------------|---------------------|
-| `X-ShipperHQ-Secret-Token` | The secret token that you have generated to use the [Rates API](/docs/rates/overview) |
-| `X-ShipperHQ-Scope` | The configuration [Scope](https://docs.shipperhq.com/using-scopes-shipperhq/) for this ShipperHQ [Website](https://docs.shipperhq.com/adding-websites-in-shipperhq/) (accepts `LIVE`, `TEST`, `DEVELOPMENT`, or `INTEGRATION`). If unsure or if the ShipperHQ account does not support multiple scopes, use `LIVE`. |
-| `X-ShipperHQ-Session` |  This identifies the quote that you want to convert to an order. You have to use the exact same value as the [Rates API](/docs/rates/overview) request used to generate this quote. |
+| `X-ShipperHQ-Secret-Token` | The secret token that you have generated to use the [Rates API](/docs/rates/overview.md) |
+
+### Core Elements
+
+There are several elements which are key to accurately creating Labels with ShipperHQ.
+
+| Parent Element | Element(s)                   | Notes         |
+| ---------------------------| ---------------------------|---------------------|
+| `data` | `orderNumber` | The order number for the shipment as returned by the [Insights API](../insights/overview.md). |
+| `data` | `carrierCode` | The unique code for the carrier to print a label with.  |
+| `recipient` | `street`<br />`street2`<br />`city`<br />`region`<br />`zipcode`<br />`country` | The recipient (ship-to) address.  |
+| `sender` | `originName` | The unique identifier (name) of the Origin configured in ShipperHQ. |
+| `pieces` | `referenceId` | The unique identifier for the package. |
+| `pieces` | `length`<br />`width`<br />`height`<br />`weight` | Package dimensions and weight are required for most shipments. |
+| `shipmentDetail` | `shipmentId` | The unique identifier for the shipment as returned by the [Insights API](../insights/overview.md). |
+| `shipmentDetail` | `shippingMethodCode` | The unique code for the shipping method to print a label with. |
+
+### Ship-to Addresses
+
+The ship-to address for the package is defined in the `recipient` element of the `labelInput`.
+
+| Element                      | Notes         |
+| ---------------------------|---------------------|
+| `givenName`<br />`familyName`<br />`companyName` | Indentifies the recipient name(s) you wish to include on the label. |
+| `street`<br />`street2`<br />`city`<br />`region`<br />`zipcode`<br />`country` | Address information for the ship-to location.  |
+| `accessorials` | LTL Freight accessorials applying to this ship-to location. |
+| `selectedOptions` | A name-value set of address options. |
+
+### Packages
+
+Each shipment may contain one or more packages. These are defined in the `pieces` element.
+
+| Element                      | Notes         |
+| ---------------------------|---------------------|
+| `referenceId` | Unique identifier for the package as returned by ShipperHQ. |
+| `declaredValue` | Optional. Declared value of the items in the package. Used for insurance and duties & tax calculations.  |
+| `length`<br />`width`<br />`height` | Package dimensions.  |
+| `requestedServices` | A name-value set of additional services to be applied to this package. |
+
+#### `requestedServices`
+
+| Name                      | Values         |
+| ---------------------------|---------------------|
+| `SIGNATURE_OPTION` | <table><tr><th>FedEx Desc.</th><th>FedEx Value</th><th>UPS Desc.</th><th>UPS Value</th></tr><tr><td>Service Default</td><td>`SERVICE_DEFAULT`</td><td></td><td></td></tr><tr><td>No Signature Required</td><td>`NO_SIGNATURE_REQUIRED`</td><td>None</td><td>`null`</td></tr><tr><td>Indirect Signature Required</td><td>`INDIRECT`</td><td>Delivery Confirmation</td><td>`1`</td></tr><tr><td>Direct Signature Required</td><td>`DIRECT`</td><td>Signature Required</td><td>`2`</td></tr><tr><td>Adult Signature Required</td><td>`ADULT`</td><td>Adult Signature Required</td><td>`3`</td></tr></table> <br />**Note**: Default signature required options can be set on the carrier in the ShipperHQ dashboard. Use the `SIGNATURE_OPTION` option in `requestedServices` to override the default. |
+
+### Carriers and Methods
+
+The Labels API references `carrierId` and `methodCode` as identifiers for the specific carrier and method, respectively, you're generated a label for.
+
+A `carrierId` is a unique identifier for a specific instance of a [carrier](https://docs.shipperhq.com/carrier-configuration/) in ShipperHQ. On the "Advanced" tab for each carrier you'll find its ID. Note that it is possible to have multiple instances of the same carrier configured on a ShipperHQ account therefore it's important to ensure you're using the corrected `carrierID`.
+
+A `methodCode` is a unique identifier for a specific service offered by a carrier. See the [Labels FAQ](faq#what-are-possible-shippingmethodcode-values) for a list of possible method codes.
+
+:::tip Choosing a carrier and method
+While you can use any valid `carrierId` and `methodCode` when requesting a label, not all carriers or methods are available for all shipments. Therefore, it's generally best practice to use the `carrierId` and `methodCode` returned by ShipperHQ. You can use the [Insights API](../insights/overview.md) to retrieve this information.
+:::
+
+### Label Formats, Types, and Stock
+
+| Type                      | Carriers | Description         |
+| ---------------------------|---------------------|---------------------|
+| `IMAGE` |  | Base 64-encoded PNG image file |
+| `ZPL` | UPS, FedEx | Zebra printer format file |
+| `PNG` | UPS, FedEx | PNG image file |
+| `EPL` | FedEx | Epson printer format file |
+| `EPL2` | UPS | Epson printer format file |
+| `GIF` | UPS | GIF image file |
+| `SPL` | UPS | Standard printer spool file |
+| `PDF` | FedEx | GIF image file |
+
+| Format                    | Carriers | Description         |
+| ------------------------|---|---------------------|
+| `COMMON2D` | FedEx | Common 2D |
+| `ERROR` | FedEx  | Error |
+| `LABEL_DATA_ONLY` | FedEx  | Label Data Only |
+| `MAILROOM` | FedEx  | Mailroom |
+| `NO_LABEL` | FedEx  | No Label |
+| `PRE_COMMON_2_D` | FedEx  | Pre Common 2D |
+
+| Stock                      | Carriers | Printer Type         | Description         |
+| ---------------------------|---------------------------|---------------------|---------------------|
+| `PAPER_4X6` | FedEx, UPS | Laser | Standard 4x6 inch paper. |
+| `PAPER_4X6.75` | FedEx | Laser | Standard 4x6.75 inch paper. |
+| `PAPER_4X8` | FedEx, UPS | Laser | Standard 4x8 inch paper. |
+| `PAPER_4X9` | FedEx | Laser | Standard 4x9 inch paper. |
+| `PAPER_7X4.75` | FedEx | Laser | Standard 7x4.75 inch paper. |
+| `PAPER_8.5X11_BOTTOM_HALF_LABEL` | FedEx | Laser | 8.5x11 inch paper with included label on bottom half |
+| `PAPER_8.5X11_TOP_HALF_LABEL` | FedEx | Laser | 8.5x11 inch paper with included label on top half |
+| `PAPER_LETTER` | FedEx | Laser | Standard letter sized paper |
+| `STOCK_4X6` | FedEx | Thermal | 4x6 inch thermal label stock |
+| `STOCK_4X6.75` | FedEx | Thermal | 4x6.75 inch thermal label stock |
+| `STOCK_4X6.75_LEADING_DOC_TAB` | FedEx | Thermal | 4x6.75 inch thermal label stock with doc tab on leading edge |
+| `STOCK_4X6.75_TRAILING_DOC_TAB` | FedEx | Thermal | 4x6.75 inch thermal label stock with doc tab on trailing edge |
+| `STOCK_4X8` | FedEx | Thermal | 4x8 inch thermal label stock |
+| `STOCK_4X9` | FedEx | Thermal | 4x9 inch thermal label stock |
+| `STOCK_4X9_LEADING_DOC_TAB` | FedEx | Thermal | 4x9 inch thermal label stock with doc tab on leading edge |
+| `STOCK_4X9_TRAILING_DOC_TAB` | FedEx | Thermal | 4x9 inch thermal label stock with doc tab on trailing edge |
+
+## API Usage
+
+### Creating Labels
+
+#### Recommended `data` Elements
+| Element                      | Notes         |
+| ---------------------------|---------------------|
+| `orderNumber` | References the order number for which you want to produce a label. |
+| `carrierCode` | The carrier code of the carrier for which you want to produce a label. |
+| `recipient` | The recipient address and additional information. |
+| `sender` | The Origin from which the shipment will be shipped. |
+| `pieces` | The Packages in the order. |
+| `shipmentDetail` | Specific details about the shipment. |
+
+#### Recommended Response Elements
+
+| Element                      | Notes         |
+| ---------------------------|---------------------|
+| `trackingId` | The tracking number for the package. |
+| `labelImage` | Optional. Returns the label image if not printing directly. |
+| `labelUrl` | Optional. Returns a URL from which the label can be downloaded if not printing directly. |
+
+### Printing Labels
+
+#### Working with Printers
+
+ShipperHQ uses PrintNode to support direct printing to both laser and thermal label printers. Printers must be configured and PrintNode connected to your ShipperHQ account in order to print labels directly. See our [Printer Setup](https://docs.shipperhq.com/generate-shipping-labels/#Printer_Setup) doc for instructions.
+
+:::info
+If you do not wish to use ShipperHQ's PrintNode integration, the `createLabel` call can return label images which you can print yourself.
+:::
+
+**`listPrinters`**
+
+Making a `listPrinters` call will return your configured printers and can return the following information:
+
+| Element                      | Notes         |
+| ---------------------------|---------------------|
+| `id` | The unique ID of each printer. |
+| `name` | The assigned name of each printer. |
+
+The `id` of the printer is used in `printLabel` calls.
+
+#### Recommended Request Elements
+
+| Element                      | Notes         |
+| ---------------------------|---------------------|
+| `orderNumber` | References the order number for the package the label of which you wish to print. |
+| `packageId` | The unique identifier of the package for the label you want to print. |
+| `printer` | The unique ID of the printer you wish to use. |
+
+#### Response
+
+Will return a success message if successfully printed or an error message if not.
+
+### Cancelling Labels
+
+
+### Other Uses
+
+
+#### Returns Labels
+
 
 ## Supported Carriers
 
