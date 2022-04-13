@@ -1,0 +1,2836 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShipperHQ Labels API Reference</title>
+    <link rel="stylesheet" href="stylesheets/spectaql.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="javascripts/spectaql.min.js"></script>
+  </head>
+  <body id="spectacle">
+    <div id="page" class="drawer-layout drawer-slide-right-large">
+      <div id="sidebar">
+        <button id="close-button" class="close-button" aria-label="Close menu" type="button" data-drawer-close>
+          <span aria-hidden="true">×</span>
+        </button>
+        <nav id="nav" role="navigation">
+          <h5>Introduction</h5>
+          <a href="#introduction">Welcome</a>
+          <a data-traverse-ignore="" href="/docs/labels/overview">Labels API Guide</a>
+          <a href="#intro-item-1">ShipperHQ</a>
+          <h5>Operations</h5>
+          <a href="#operation-cancellabel-Queries"> cancelLabel </a>
+          <a href="#operation-createlabel-Queries"> createLabel </a>
+          <a href="#operation-createmanifest-Queries"> createManifest </a>
+          <a href="#operation-placeorder-Queries"> placeOrder </a>
+          <h5>Types</h5>
+          <a href="#definition-AddressInput"> AddressInput </a>
+          <a href="#definition-BigDecimal"> BigDecimal </a>
+          <a href="#definition-Boolean"> Boolean </a>
+          <a href="#definition-CancelLabelInfoInput"> CancelLabelInfoInput </a>
+          <a href="#definition-CancelLabelOutput"> CancelLabelOutput </a>
+          <a href="#definition-CarrierInput"> CarrierInput </a>
+          <a href="#definition-CustomsDetailInput"> CustomsDetailInput </a>
+          <a href="#definition-Date"> Date </a>
+          <a href="#definition-Error"> Error </a>
+          <a href="#definition-Event"> Event </a>
+          <a href="#definition-Float"> Float </a>
+          <a href="#definition-Int"> Int </a>
+          <a href="#definition-Label"> Label </a>
+          <a href="#definition-LabelInfoInput"> LabelInfoInput </a>
+          <a href="#definition-LabelOutput"> LabelOutput </a>
+          <a href="#definition-LabelPieceInput"> LabelPieceInput </a>
+          <a href="#definition-LabelType"> LabelType </a>
+          <a href="#definition-Manifest"> Manifest </a>
+          <a href="#definition-ManifestInfoInput"> ManifestInfoInput </a>
+          <a href="#definition-ManifestOutput"> ManifestOutput </a>
+          <a href="#definition-ManifestPieceInput"> ManifestPieceInput </a>
+          <a href="#definition-ManifestSenderInput"> ManifestSenderInput </a>
+          <a href="#definition-NameValuePairInput"> NameValuePairInput </a>
+          <a href="#definition-PlaceOrderInfoInput"> PlaceOrderInfoInput </a>
+          <a href="#definition-PlaceOrderOutput"> PlaceOrderOutput </a>
+          <a href="#definition-PostageCost"> PostageCost </a>
+          <a href="#definition-RecipientInput"> RecipientInput </a>
+          <a href="#definition-ResponseSummary"> ResponseSummary </a>
+          <a href="#definition-SelectedOptionsInput"> SelectedOptionsInput </a>
+          <a href="#definition-SenderInput"> SenderInput </a>
+          <a href="#definition-ServiceInput"> ServiceInput </a>
+          <a href="#definition-ShipmentDetailInput"> ShipmentDetailInput </a>
+          <a href="#definition-ShipmentInput"> ShipmentInput </a>
+          <a href="#definition-SiteDetailsInput"> SiteDetailsInput </a>
+          <a href="#definition-String"> String </a>
+        </nav>
+      </div>
+      <div id="docs" class="row collapse expanded drawer" data-drawer>
+        <button class="floating-menu-icon" type="button" data-drawer-slide="right">
+          <span class="hamburger"></span>
+        </button>
+        <div class="example-box doc-content"></div>
+        <article id="content">
+          <h1 class="doc-title">ShipperHQ Labels API Reference</h1>
+          <div id="introduction" data-traverse-target="introduction">
+            <div class="doc-row">
+              <div class="doc-copy">
+                <p>ShipperHQ Labels API Reference Documentation</p>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Contact</h5>
+                  <p> ShipperHQ Dev Support
+                    <br/> </p>
+                  <p>Terms of Service:
+                    <a href="https://shipperhq.com/useragreement">https://shipperhq.com/useragreement</a>
+                  </p>
+                  <h5>API Endpoints</h5> <pre><code>Production Server:
+https://postapi.shipperhq.com/v3/graphql/label
+</code></pre> </section>
+              </div>
+            </div>
+            <div id="intro-item-1" data-traverse-target="intro-item-1">
+              <div class="doc-row">
+                <h5 class="doc-intro-item">ShipperHQ</h5>
+                <div class="doc-copy">
+                  <p>
+                    <a href="https://www.shipperhq.com/">https://www.shipperhq.com/</a>
+                  </p>
+                </div>
+                <div class="doc-examples"> </div>
+              </div>
+            </div>
+          </div>
+          <h1>Queries</h1>
+          <span id="path-cancellabel"></span>
+          <div id="operation-cancellabel-Queries" class="operation panel" data-traverse-target="operation-cancellabel-Queries">
+            <h2 class="operation-name "> <code>cancelLabel</code> </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body"> </section>
+                <section class="swagger-responses"> Returns a
+                  <a href="#definition-CancelLabelOutput"><code>CancelLabelOutput</code></a>
+                </section>
+                <br>
+                <section class="swagger-request-params">
+                  <table>
+                    <tr>
+                      <th>Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>cancelLabelInfo</code> -
+                        <a href="#definition-CancelLabelInfoInput"><code>CancelLabelInfoInput</code></a>
+                      </td>
+                      <td> Cancellation of shipment </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h4>Example</h4>
+                  <h5>Query</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> cancelLabel<span class="hljs-tag">(<span class="hljs-code">$cancelLabelInfo</span>:<span class="hljs-type"> CancelLabelInfoInput)</span> {
+  cancelLabel(cancelLabelInfo: <span class="hljs-code">$cancelLabelInfo</span>)</span> <span class="hljs-tag">{
+    <span class="hljs-symbol">responseSummary <span class="hljs-tag">{
+      <span class="hljs-type">...ResponseSummaryFragment</span>
+    }</span></span>
+    <span class="hljs-symbol">transactionId</span>
+    <span class="hljs-symbol">errors <span class="hljs-tag">{
+      <span class="hljs-type">...ErrorFragment</span>
+    }</span></span>
+  }</span></span>
+}
+</code></pre> </body>
+                  </html>
+                  <h5>Variables</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"cancelLabelInfo"</span>: <span class="hljs-string">CancelLabelInfoInput</span>}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy"> </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Response </h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"cancelLabel"</span>: {
+      <span class="hljs-attr">"responseSummary"</span>: <span class="hljs-string">ResponseSummary</span>,
+      <span class="hljs-attr">"transactionId"</span>: <span class="hljs-string">"abc123"</span>,
+      <span class="hljs-attr">"errors"</span>: [<span class="hljs-string">Error</span>]
+    }
+  }
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <span id="path-createlabel"></span>
+          <div id="operation-createlabel-Queries" class="operation panel" data-traverse-target="operation-createlabel-Queries">
+            <h2 class="operation-name "> <code>createLabel</code> </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body"> </section>
+                <section class="swagger-responses"> Returns a
+                  <a href="#definition-LabelOutput"><code>LabelOutput</code></a>
+                </section>
+                <br>
+                <section class="swagger-request-params">
+                  <table>
+                    <tr>
+                      <th>Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>labelInfo</code> -
+                        <a href="#definition-LabelInfoInput"><code>LabelInfoInput</code></a>
+                      </td>
+                      <td> Label Information </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h4>Example</h4>
+                  <h5>Query</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> createLabel<span class="hljs-tag">(<span class="hljs-code">$labelInfo</span>:<span class="hljs-type"> LabelInfoInput)</span> {
+  createLabel(labelInfo: <span class="hljs-code">$labelInfo</span>)</span> <span class="hljs-tag">{
+    <span class="hljs-symbol">transactionId</span>
+    <span class="hljs-symbol">errors <span class="hljs-tag">{
+      <span class="hljs-type">...ErrorFragment</span>
+    }</span></span>
+    <span class="hljs-symbol">labels <span class="hljs-tag">{
+      <span class="hljs-type">...LabelFragment</span>
+    }</span></span>
+  }</span></span>
+}
+</code></pre> </body>
+                  </html>
+                  <h5>Variables</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"labelInfo"</span>: <span class="hljs-string">LabelInfoInput</span>}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy"> </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Response </h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"createLabel"</span>: {
+      <span class="hljs-attr">"transactionId"</span>: <span class="hljs-string">"xyz789"</span>,
+      <span class="hljs-attr">"errors"</span>: [<span class="hljs-string">Error</span>],
+      <span class="hljs-attr">"labels"</span>: [<span class="hljs-string">Label</span>]
+    }
+  }
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <span id="path-createmanifest"></span>
+          <div id="operation-createmanifest-Queries" class="operation panel" data-traverse-target="operation-createmanifest-Queries">
+            <h2 class="operation-name "> <code>createManifest</code> </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body"> </section>
+                <section class="swagger-responses"> Returns a
+                  <a href="#definition-ManifestOutput"><code>ManifestOutput</code></a>
+                </section>
+                <br>
+                <section class="swagger-request-params">
+                  <table>
+                    <tr>
+                      <th>Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>manifestInfo</code> -
+                        <a href="#definition-ManifestInfoInput"><code>ManifestInfoInput</code></a>
+                      </td>
+                      <td> Manifest Information </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h4>Example</h4>
+                  <h5>Query</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> createManifest<span class="hljs-tag">(<span class="hljs-code">$manifestInfo</span>:<span class="hljs-type"> ManifestInfoInput)</span> {
+  createManifest(manifestInfo: <span class="hljs-code">$manifestInfo</span>)</span> <span class="hljs-tag">{
+    <span class="hljs-symbol">manifests <span class="hljs-tag">{
+      <span class="hljs-type">...ManifestFragment</span>
+    }</span></span>
+    <span class="hljs-symbol">responseSummary <span class="hljs-tag">{
+      <span class="hljs-type">...ResponseSummaryFragment</span>
+    }</span></span>
+    <span class="hljs-symbol">errors <span class="hljs-tag">{
+      <span class="hljs-type">...ErrorFragment</span>
+    }</span></span>
+  }</span></span>
+}
+</code></pre> </body>
+                  </html>
+                  <h5>Variables</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"manifestInfo"</span>: <span class="hljs-string">ManifestInfoInput</span>}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy"> </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Response </h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"createManifest"</span>: {
+      <span class="hljs-attr">"manifests"</span>: [<span class="hljs-string">Manifest</span>],
+      <span class="hljs-attr">"responseSummary"</span>: <span class="hljs-string">ResponseSummary</span>,
+      <span class="hljs-attr">"errors"</span>: [<span class="hljs-string">Error</span>]
+    }
+  }
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <span id="path-placeorder"></span>
+          <div id="operation-placeorder-Queries" class="operation panel" data-traverse-target="operation-placeorder-Queries">
+            <h2 class="operation-name "> <code>placeOrder</code> </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body"> </section>
+                <section class="swagger-responses"> Returns a
+                  <a href="#definition-PlaceOrderOutput"><code>PlaceOrderOutput</code></a>
+                </section>
+                <br>
+                <section class="swagger-request-params">
+                  <table>
+                    <tr>
+                      <th>Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>placeOrderInfo</code> -
+                        <a href="#definition-PlaceOrderInfoInput"><code>PlaceOrderInfoInput</code></a>
+                      </td>
+                      <td> Order Info To Place </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h4>Example</h4>
+                  <h5>Query</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> placeOrder<span class="hljs-tag">(<span class="hljs-code">$placeOrderInfo</span>:<span class="hljs-type"> PlaceOrderInfoInput)</span> {
+  placeOrder(placeOrderInfo: <span class="hljs-code">$placeOrderInfo</span>)</span> <span class="hljs-tag">{
+    <span class="hljs-symbol">responseSummary <span class="hljs-tag">{
+      <span class="hljs-type">...ResponseSummaryFragment</span>
+    }</span></span>
+    <span class="hljs-symbol">errors <span class="hljs-tag">{
+      <span class="hljs-type">...ErrorFragment</span>
+    }</span></span>
+    <span class="hljs-symbol">transactionId</span>
+  }</span></span>
+}
+</code></pre> </body>
+                  </html>
+                  <h5>Variables</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"placeOrderInfo"</span>: <span class="hljs-string">PlaceOrderInfoInput</span>}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy"> </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Response </h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"placeOrder"</span>: {
+      <span class="hljs-attr">"responseSummary"</span>: <span class="hljs-string">ResponseSummary</span>,
+      <span class="hljs-attr">"errors"</span>: [<span class="hljs-string">Error</span>],
+      <span class="hljs-attr">"transactionId"</span>: <span class="hljs-string">"abc123"</span>
+    }
+  }
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <span id="tag-types"></span>
+          <h1>Types</h1>
+          <div id="definition-AddressInput" class="definition panel" data-traverse-target="definition-AddressInput">
+            <h2 class="panel-title">
+              <a name="/definitions/AddressInput"></a>
+              <p><code>AddressInput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Address of an originating or receiving location</p>
+                </section>
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Input Field</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>telNo</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Telephone number of a contact at this location, if applicable. eg &#39;(+44) 00000 000000&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>country</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>ISO 2 character country code for this location. eg &#39;US&#39;, &#39;MX&#39;, &#39;UK&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>zipcode</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>5 digit zipcode (US) or post code if applicable. eg &#39;78748&#39;, &#39;SS8 9DE&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>destinationType</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Deprecated. Use selectedOptions instead.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>city</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>City name. eg &#39;Columbus&#39;, &#39;Ontario&#39;, &#39;Perth&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>selectedOptions</code> -
+                        <a href="#definition-SelectedOptionsInput"><code>SelectedOptionsInput</code></a>
+                      </td>
+                      <td>
+                        <p>Optional properties or shipping accessorials that apply to this location. List of Name/Value pairs.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>accessorials</code> -
+                        <a href="#definition-SelectedOptionsInput"><code>SelectedOptionsInput</code></a>
+                      </td>
+                      <td>
+                        <p>Deprecated. Use selectedOptions instead</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>street2</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Second line of street address if applicable. eg &#39;Building 5 Suite 210&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>givenName</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Given name of a contact at this location, if applicable. eg &#39;Karen&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>street</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>First line of the street address. eg &#39;123 Main Street&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>region</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>2 or 3 character region code if applicable. eg &#39;AK&#39;, &#39;BC&#39;, &#39;NSW&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>email</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Email address of a contact at this location, if applicable. eg &#39;
+                          <a href="mailto:&#x68;&#x65;&#x6c;&#x6c;&#111;&#x40;&#101;&#x78;&#x61;&#x6d;&#112;&#108;&#x65;&#x2e;&#99;&#111;&#x6d;">&#x68;&#x65;&#x6c;&#x6c;&#111;&#x40;&#101;&#x78;&#x61;&#x6d;&#112;&#108;&#x65;&#x2e;&#99;&#111;&#x6d;</a>&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>companyName</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Business name of this location, if applicable. eg &#39;Zowta, LLC&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>familyName</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Family name of a contact at this location, if applicable. eg &#39;Baker&#39;</p>
+                      </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"telNo"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"country"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"zipcode"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"destinationType"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"city"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"selectedOptions"</span>: <span class="hljs-string">SelectedOptionsInput</span>,
+  <span class="hljs-attr">"accessorials"</span>: <span class="hljs-string">SelectedOptionsInput</span>,
+  <span class="hljs-attr">"street2"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"givenName"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"street"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"region"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"email"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"companyName"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"familyName"</span>: <span class="hljs-string">"xyz789"</span>
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-BigDecimal" class="definition panel" data-traverse-target="definition-BigDecimal">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/BigDecimal"></a>
+              <p><code>BigDecimal</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Built-in java.math.BigDecimal</p>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">object</span>
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-Boolean" class="definition panel" data-traverse-target="definition-Boolean">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/Boolean"></a>
+              <p><code>Boolean</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Built-in Boolean</p>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-literal">false</span></span>
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-CancelLabelInfoInput" class="definition panel" data-traverse-target="definition-CancelLabelInfoInput">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/CancelLabelInfoInput"></a>
+              <p><code>CancelLabelInfoInput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Input details required for label cancellation</p>
+                </section>
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Input Field</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>trackingId</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Used to identify a specific package within a shipment (optional)</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>shipmentId</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Used to identify the entire shipment (Must be present to close shipment)</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>siteDetails</code> -
+                        <a href="#definition-SiteDetailsInput"><code>SiteDetailsInput</code></a>
+                      </td>
+                      <td>
+                        <p>Details about the site/platform originating this request</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>carrier</code> -
+                        <a href="#definition-CarrierInput"><code>CarrierInput</code></a>
+                      </td>
+                      <td>
+                        <p>Details about shipping carrier</p>
+                      </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"trackingId"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"shipmentId"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"siteDetails"</span>: <span class="hljs-string">SiteDetailsInput</span>,
+  <span class="hljs-attr">"carrier"</span>: <span class="hljs-string">CarrierInput</span>
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-CancelLabelOutput" class="definition panel" data-traverse-target="definition-CancelLabelOutput">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/CancelLabelOutput"></a>
+              <p><code>CancelLabelOutput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Response status of cancellation of shipment</p>
+                </section>
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Field Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td data-property-name="responseSummary"> <code>responseSummary</code> -
+                        <a href="#definition-ResponseSummary"><code>ResponseSummary</code></a>
+                      </td>
+                      <td> Contains the status indicator of cancellation 1 = success </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="transactionId"> <code>transactionId</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> Generated by ShipperHQ for identifying request </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="errors"> <code>errors</code> -
+                        <a href="#definition-Error"><code>[Error]</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"responseSummary"</span>: <span class="hljs-string">ResponseSummary</span>,
+  <span class="hljs-attr">"transactionId"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"errors"</span>: [<span class="hljs-string">Error</span>]
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-CarrierInput" class="definition panel" data-traverse-target="definition-CarrierInput">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/CarrierInput"></a>
+              <p><code>CarrierInput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Describes the desired carrier for this shipment</p>
+                </section>
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Input Field</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>carrierType</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>The carrier type code for the selected carrier. Can be retrieved from the shipping rate response. Case sensitive. eg &#39;fedEx&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>carrierCode</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>The carrier code for the selected carrier. Can be retrieved from the shipping rate response or from your ShipperHQ account. Case sensitive. eg &#39;shqups1&#39;</p>
+                      </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"carrierType"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"carrierCode"</span>: <span class="hljs-string">"xyz789"</span>}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-CustomsDetailInput" class="definition panel" data-traverse-target="definition-CustomsDetailInput">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/CustomsDetailInput"></a>
+              <p><code>CustomsDetailInput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>The details of the package in the shipment, used for intl shipments</p>
+                </section>
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Input Field</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>hsCode</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Deprecated: Not Currently in use</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>itemDescription</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Description of items, if empty a general description is sent</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>weight</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td>
+                        <p>Weight of package</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>qty</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td>
+                        <p>The packaged quantity</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>sku</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>SKU of item in package</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>countryOfOrigin</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Uppercase ISO 2 country code for origin of shipment</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>descriptionForExport</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Brief description of reason for package export. Nothing will result in unknown reason</p>
+                      </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"hsCode"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"itemDescription"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"weight"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"qty"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"sku"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"countryOfOrigin"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"descriptionForExport"</span>: <span class="hljs-string">"xyz789"</span>
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-Date" class="definition panel" data-traverse-target="definition-Date">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/Date"></a>
+              <p><code>Date</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Built-in scalar representing an instant in time</p>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">2021-10-13T04:36:14.135Z</span>
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-Error" class="definition panel" data-traverse-target="definition-Error">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/Error"></a>
+              <p><code>Error</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Error information</p>
+                </section>
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Field Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td data-property-name="internalErrorMessage"> <code>internalErrorMessage</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> Error message intended for internal application use </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="errorCode"> <code>errorCode</code> -
+                        <a href="#definition-Int"><code>Int!</code></a>
+                      </td>
+                      <td> ShipperHQ Error Code </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="priority"> <code>priority</code> -
+                        <a href="#definition-Int"><code>Int</code></a>
+                      </td>
+                      <td> Relative error priority </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="externalErrorMessage"> <code>externalErrorMessage</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> Error message intended for display to end user </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"internalErrorMessage"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"errorCode"</span>: <span class="hljs-number">123</span>,
+  <span class="hljs-attr">"priority"</span>: <span class="hljs-number">123</span>,
+  <span class="hljs-attr">"externalErrorMessage"</span>: <span class="hljs-string">"abc123"</span>
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-Event" class="definition panel" data-traverse-target="definition-Event">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/Event"></a>
+              <p><code>Event</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Field Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td data-property-name="date"> <code>date</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="country"> <code>country</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="postalCode"> <code>postalCode</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="description"> <code>description</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="timeZone"> <code>timeZone</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="location"> <code>location</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="id"> <code>id</code> -
+                        <a href="#definition-Int"><code>Int</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="time"> <code>time</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"date"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"country"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"postalCode"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"timeZone"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"location"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"id"</span>: <span class="hljs-number">123</span>,
+  <span class="hljs-attr">"time"</span>: <span class="hljs-string">"abc123"</span>
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-Float" class="definition panel" data-traverse-target="definition-Float">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/Float"></a>
+              <p><code>Float</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Built-in Float</p>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">987.65</span>
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-Int" class="definition panel" data-traverse-target="definition-Int">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/Int"></a>
+              <p><code>Int</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Built-in Int</p>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">987</span>
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-Label" class="definition panel" data-traverse-target="definition-Label">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/Label"></a>
+              <p><code>Label</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Label Details</p>
+                </section>
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Field Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td data-property-name="labelImage"> <code>labelImage</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> Image of the label specified in type PDF/PNG/etc... base64 encoded string </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="copies"> <code>copies</code> -
+                        <a href="#definition-Int"><code>Int</code></a>
+                      </td>
+                      <td> Number of copies needed to print for the label </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="shipmentId"> <code>shipmentId</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> Used to identify shipment. Can also be used for cancelling services </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="postageCost"> <code>postageCost</code> -
+                        <a href="#definition-PostageCost"><code>PostageCost</code></a>
+                      </td>
+                      <td> The cost of having mail delivered. Not always retreieved from service </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="labelType"> <code>labelType</code> -
+                        <a href="#definition-LabelType"><code>LabelType</code></a>
+                      </td>
+                      <td> Used to specify what kind of label. PRIMARY, CUSTOMS, FORM, etc... </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="labelUrl"> <code>labelUrl</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> Used for providing url to see label and see online </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="trackingId"> <code>trackingId</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> Used for tracking status of shipment </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"labelImage"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"copies"</span>: <span class="hljs-number">987</span>,
+  <span class="hljs-attr">"shipmentId"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"postageCost"</span>: <span class="hljs-string">PostageCost</span>,
+  <span class="hljs-attr">"labelType"</span>: <span class="hljs-string">LabelType</span>,
+  <span class="hljs-attr">"labelUrl"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"trackingId"</span>: <span class="hljs-string">"abc123"</span>
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-LabelInfoInput" class="definition panel" data-traverse-target="definition-LabelInfoInput">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/LabelInfoInput"></a>
+              <p><code>LabelInfoInput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Input details required for label generation</p>
+                </section>
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Field Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td data-property-name="sender"> <code>sender</code> -
+                        <a href="#definition-SenderInput"><code>SenderInput</code></a>
+                      </td>
+                      <td> Details about fulfillment center </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="recipient"> <code>recipient</code> -
+                        <a href="#definition-RecipientInput"><code>RecipientInput</code></a>
+                      </td>
+                      <td> Details about shipment recipient </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="siteDetails"> <code>siteDetails</code> -
+                        <a href="#definition-SiteDetailsInput"><code>SiteDetailsInput</code></a>
+                      </td>
+                      <td> Details about the site/platform originating this request </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="shipments"> <code>shipments</code> -
+                        <a href="#definition-ShipmentInput"><code>[ShipmentInput]</code></a>
+                      </td>
+                      <td> Details about packages in the shipment </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="carrier"> <code>carrier</code> -
+                        <a href="#definition-CarrierInput"><code>CarrierInput</code></a>
+                      </td>
+                      <td> Details about shipping carrier </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"sender"</span>: <span class="hljs-string">SenderInput</span>,
+  <span class="hljs-attr">"recipient"</span>: <span class="hljs-string">RecipientInput</span>,
+  <span class="hljs-attr">"siteDetails"</span>: <span class="hljs-string">SiteDetailsInput</span>,
+  <span class="hljs-attr">"shipments"</span>: [<span class="hljs-string">ShipmentInput</span>],
+  <span class="hljs-attr">"carrier"</span>: <span class="hljs-string">CarrierInput</span>
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-LabelOutput" class="definition panel" data-traverse-target="definition-LabelOutput">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/LabelOutput"></a>
+              <p><code>LabelOutput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Output details from the label provider</p>
+                </section>
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Field Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td data-property-name="transactionId"> <code>transactionId</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> Generated by ShipperHQ for identifying request </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="errors"> <code>errors</code> -
+                        <a href="#definition-Error"><code>[Error]</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="labels"> <code>labels</code> -
+                        <a href="#definition-Label"><code>[Label]</code></a>
+                      </td>
+                      <td> Label info returned from the carrier service </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"transactionId"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"errors"</span>: [<span class="hljs-string">Error</span>],
+  <span class="hljs-attr">"labels"</span>: [<span class="hljs-string">Label</span>]
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-LabelPieceInput" class="definition panel" data-traverse-target="definition-LabelPieceInput">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/LabelPieceInput"></a>
+              <p><code>LabelPieceInput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>The details of the package in the shipment</p>
+                </section>
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Field Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td data-property-name="declaredValue"> <code>declaredValue</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> Declared value of package </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="insuredValue"> <code>insuredValue</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> Insured value of package </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="freightClass"> <code>freightClass</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> Freight class of the package. Currently only for use on UPS Ground w/ Freight </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="requestedServices"> <code>requestedServices</code> -
+                        <a href="#definition-ServiceInput"><code>[ServiceInput]</code></a>
+                      </td>
+                      <td> Request service of package, meant to override dashboard configuration, name/value pair </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="id"> <code>id</code> -
+                        <a href="#definition-Int"><code>Int</code></a>
+                      </td>
+                      <td> Deprecated: Not currently used </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="length"> <code>length</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> Length of package </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="width"> <code>width</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> Width of package </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="height"> <code>height</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> Height of package </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="customsDetails"> <code>customsDetails</code> -
+                        <a href="#definition-CustomsDetailInput"><code>CustomsDetailInput</code></a>
+                      </td>
+                      <td> Additional information used for international shipments </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="referenceId"> <code>referenceId</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> Used to provide a specific id to reference package on shipment </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="containerType"> <code>containerType</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> Deprecated: Not currently in use </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="weight"> <code>weight</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> Weight of package </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"declaredValue"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"insuredValue"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"freightClass"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"requestedServices"</span>: [<span class="hljs-string">ServiceInput</span>],
+  <span class="hljs-attr">"id"</span>: <span class="hljs-number">987</span>,
+  <span class="hljs-attr">"length"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"width"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"height"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"customsDetails"</span>: <span class="hljs-string">CustomsDetailInput</span>,
+  <span class="hljs-attr">"referenceId"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"containerType"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"weight"</span>: <span class="hljs-string">BigDecimal</span>
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-LabelType" class="definition panel" data-traverse-target="definition-LabelType">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/LabelType"></a>
+              <p><code>LabelType</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Enum Value</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>PRIMARY</code></p>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>CUSTOMS</code></p>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>FORM</code></p>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>AGREEMENT</code></p>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>RETURN</code></p>
+                      </td>
+                      <td> </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-Manifest" class="definition panel" data-traverse-target="definition-Manifest">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/Manifest"></a>
+              <p><code>Manifest</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Field Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td data-property-name="manifestImage"> <code>manifestImage</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="manifestId"> <code>manifestId</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="manifestUrl"> <code>manifestUrl</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"manifestImage"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"manifestId"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"manifestUrl"</span>: <span class="hljs-string">"abc123"</span>}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-ManifestInfoInput" class="definition panel" data-traverse-target="definition-ManifestInfoInput">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/ManifestInfoInput"></a>
+              <p><code>ManifestInfoInput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Field Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td data-property-name="siteDetails"> <code>siteDetails</code> -
+                        <a href="#definition-SiteDetailsInput"><code>SiteDetailsInput</code></a>
+                      </td>
+                      <td> Details about the site/platform originating this request </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="pieces"> <code>pieces</code> -
+                        <a href="#definition-ManifestPieceInput"><code>[ManifestPieceInput]</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="sender"> <code>sender</code> -
+                        <a href="#definition-ManifestSenderInput"><code>ManifestSenderInput</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="carrier"> <code>carrier</code> -
+                        <a href="#definition-CarrierInput"><code>CarrierInput</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"siteDetails"</span>: <span class="hljs-string">SiteDetailsInput</span>,
+  <span class="hljs-attr">"pieces"</span>: [<span class="hljs-string">ManifestPieceInput</span>],
+  <span class="hljs-attr">"sender"</span>: <span class="hljs-string">ManifestSenderInput</span>,
+  <span class="hljs-attr">"carrier"</span>: <span class="hljs-string">CarrierInput</span>
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-ManifestOutput" class="definition panel" data-traverse-target="definition-ManifestOutput">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/ManifestOutput"></a>
+              <p><code>ManifestOutput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Field Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td data-property-name="manifests"> <code>manifests</code> -
+                        <a href="#definition-Manifest"><code>[Manifest]</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="responseSummary"> <code>responseSummary</code> -
+                        <a href="#definition-ResponseSummary"><code>ResponseSummary</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="errors"> <code>errors</code> -
+                        <a href="#definition-Error"><code>[Error]</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"manifests"</span>: [<span class="hljs-string">Manifest</span>],
+  <span class="hljs-attr">"responseSummary"</span>: <span class="hljs-string">ResponseSummary</span>,
+  <span class="hljs-attr">"errors"</span>: [<span class="hljs-string">Error</span>]
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-ManifestPieceInput" class="definition panel" data-traverse-target="definition-ManifestPieceInput">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/ManifestPieceInput"></a>
+              <p><code>ManifestPieceInput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Input Field</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>carrierCode</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td><code>carrierType</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td><code>shippingMethodCode</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td><code>labelId</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td><code>referenceId</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"carrierCode"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"carrierType"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"shippingMethodCode"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"labelId"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"referenceId"</span>: <span class="hljs-string">"abc123"</span>
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-ManifestSenderInput" class="definition panel" data-traverse-target="definition-ManifestSenderInput">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/ManifestSenderInput"></a>
+              <p><code>ManifestSenderInput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Input Field</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>originName</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"originName"</span>: <span class="hljs-string">"xyz789"</span>}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-NameValuePairInput" class="definition panel" data-traverse-target="definition-NameValuePairInput">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/NameValuePairInput"></a>
+              <p><code>NameValuePairInput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>A Name/Value pair</p>
+                </section>
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Input Field</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>value</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Data value stored at this name. eg &#39;RESIDENTIAL&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>name</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Name identifying this data point. eg &#39;destination_type&#39;</p>
+                      </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"value"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-PlaceOrderInfoInput" class="definition panel" data-traverse-target="definition-PlaceOrderInfoInput">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/PlaceOrderInfoInput"></a>
+              <p><code>PlaceOrderInfoInput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Input Field</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>orderNumber</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td><code>recipient</code> -
+                        <a href="#definition-AddressInput"><code>AddressInput</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td><code>methodCode</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td><code>siteDetails</code> -
+                        <a href="#definition-SiteDetailsInput"><code>SiteDetailsInput</code></a>
+                      </td>
+                      <td>
+                        <p>Details about the site/platform originating this request</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>carrierCode</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td><code>transId</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td><code>totalCharges</code> -
+                        <a href="#definition-Float"><code>Float</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"orderNumber"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"recipient"</span>: <span class="hljs-string">AddressInput</span>,
+  <span class="hljs-attr">"methodCode"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"siteDetails"</span>: <span class="hljs-string">SiteDetailsInput</span>,
+  <span class="hljs-attr">"carrierCode"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"transId"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"totalCharges"</span>: <span class="hljs-number">123.45</span>
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-PlaceOrderOutput" class="definition panel" data-traverse-target="definition-PlaceOrderOutput">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/PlaceOrderOutput"></a>
+              <p><code>PlaceOrderOutput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Field Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td data-property-name="responseSummary"> <code>responseSummary</code> -
+                        <a href="#definition-ResponseSummary"><code>ResponseSummary</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="errors"> <code>errors</code> -
+                        <a href="#definition-Error"><code>[Error]</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="transactionId"> <code>transactionId</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"responseSummary"</span>: <span class="hljs-string">ResponseSummary</span>,
+  <span class="hljs-attr">"errors"</span>: [<span class="hljs-string">Error</span>],
+  <span class="hljs-attr">"transactionId"</span>: <span class="hljs-string">"abc123"</span>
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-PostageCost" class="definition panel" data-traverse-target="definition-PostageCost">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/PostageCost"></a>
+              <p><code>PostageCost</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Field Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td data-property-name="insurance"> <code>insurance</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="total"> <code>total</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="tax"> <code>tax</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="shipping"> <code>shipping</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="duties"> <code>duties</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"insurance"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"total"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"tax"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"shipping"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"duties"</span>: <span class="hljs-string">BigDecimal</span>
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-RecipientInput" class="definition panel" data-traverse-target="definition-RecipientInput">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/RecipientInput"></a>
+              <p><code>RecipientInput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Describes the recipient details shipment is going to</p>
+                </section>
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Input Field</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>selectedOptions</code> -
+                        <a href="#definition-SelectedOptionsInput"><code>SelectedOptionsInput</code></a>
+                      </td>
+                      <td>
+                        <p>Optional properties or shipping accessorials that apply to this location. List of Name/Value pairs.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>street2</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Second line of street address if applicable. eg &#39;Building 5 Suite 210&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>zipcode</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>5 digit zipcode (US) or post code if applicable. eg &#39;78748&#39;, &#39;SS8 9DE&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>locationId</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Unique ID assigned to the location. Required FedEx HAL and UPS Access Point shipments</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>pickupState</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>For Use With UPS AccessPoint: The state of center to pick up from, eg &#39;TX&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>pickupZipcode</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>For Use With UPS AccessPoint: The zipcode of center to pick up from</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>pickupStreet1</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>For Use With UPS AccessPoint: The main street of center to pick up from</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>region</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>2 or 3 character region code if applicable. eg &#39;AK&#39;, &#39;BC&#39;, &#39;NSW&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>street</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>First line of the street address. eg &#39;123 Main Street&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>destinationType</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Deprecated. Use selectedOptions instead.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>pickupName</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>For Use With UPS AccessPoint: The name of center to pick up from</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>city</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>City name. eg &#39;Columbus&#39;, &#39;Ontario&#39;, &#39;Perth&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>pickupCity</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>For Use With UPS AccessPoint: The city of center to pick up from</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>locationType</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Currently only required for FedEx HAL shipments, describes the type of center to be picked up from</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>email</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Email address of a contact at this location, if applicable. eg &#39;
+                          <a href="mailto:&#x68;&#x65;&#x6c;&#x6c;&#111;&#x40;&#101;&#120;&#x61;&#x6d;&#x70;&#108;&#x65;&#46;&#99;&#111;&#x6d;">&#x68;&#x65;&#x6c;&#x6c;&#111;&#x40;&#101;&#120;&#x61;&#x6d;&#x70;&#108;&#x65;&#46;&#99;&#111;&#x6d;</a>&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>givenName</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Given name of a contact at this location, if applicable. eg &#39;Karen&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>pickupStreet2</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>For Use With UPS AccessPoint (optional): Additional address details of center to pick up from, eg &#39;Suite 500&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>accessorials</code> -
+                        <a href="#definition-SelectedOptionsInput"><code>SelectedOptionsInput</code></a>
+                      </td>
+                      <td>
+                        <p>Deprecated. Use selectedOptions instead</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>pickupCountry</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>For Use With UPS AccessPoint: The country of center to pick up from, eg &#39;US&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>familyName</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Family name of a contact at this location, if applicable. eg &#39;Baker&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>companyName</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Business name of this location, if applicable. eg &#39;Zowta, LLC&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>country</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>ISO 2 character country code for this location. eg &#39;US&#39;, &#39;MX&#39;, &#39;UK&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>telNo</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Telephone number of a contact at this location, if applicable. eg &#39;(+44) 00000 000000&#39;</p>
+                      </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"selectedOptions"</span>: <span class="hljs-string">SelectedOptionsInput</span>,
+  <span class="hljs-attr">"street2"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"zipcode"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"locationId"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"pickupState"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"pickupZipcode"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"pickupStreet1"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"region"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"street"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"destinationType"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"pickupName"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"city"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"pickupCity"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"locationType"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"email"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"givenName"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"pickupStreet2"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"accessorials"</span>: <span class="hljs-string">SelectedOptionsInput</span>,
+  <span class="hljs-attr">"pickupCountry"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"familyName"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"companyName"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"country"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"telNo"</span>: <span class="hljs-string">"xyz789"</span>
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-ResponseSummary" class="definition panel" data-traverse-target="definition-ResponseSummary">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/ResponseSummary"></a>
+              <p><code>ResponseSummary</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Field Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td data-property-name="date"> <code>date</code> -
+                        <a href="#definition-Date"><code>Date</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="version"> <code>version</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="transactionId"> <code>transactionId</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="status"> <code>status</code> -
+                        <a href="#definition-Int"><code>Int!</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"date"</span>: <span class="hljs-string">"2021-10-13T04:36:14.135Z"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"transactionId"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"status"</span>: <span class="hljs-number">123</span>
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-SelectedOptionsInput" class="definition panel" data-traverse-target="definition-SelectedOptionsInput">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/SelectedOptionsInput"></a>
+              <p><code>SelectedOptionsInput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>List of optional properties that are active. Name/Value pairs.</p>
+                </section>
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Field Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td data-property-name="options"> <code>options</code> -
+                        <a href="#definition-NameValuePairInput"><code>[NameValuePairInput]</code></a>
+                      </td>
+                      <td> List of optional properties that are active. Name/Value pairs. </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"options"</span>: [<span class="hljs-string">NameValuePairInput</span>]}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-SenderInput" class="definition panel" data-traverse-target="definition-SenderInput">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/SenderInput"></a>
+              <p><code>SenderInput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Input Field</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>givenName</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Given name of a contact at this location, if applicable. eg &#39;Karen&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>familyName</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Family name of a contact at this location, if applicable. eg &#39;Baker&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>country</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>ISO 2 character country code for this location. eg &#39;US&#39;, &#39;MX&#39;, &#39;UK&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>region</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>2 or 3 character region code if applicable. eg &#39;AK&#39;, &#39;BC&#39;, &#39;NSW&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>zipcode</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>5 digit zipcode (US) or post code if applicable. eg &#39;78748&#39;, &#39;SS8 9DE&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>companyName</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Business name of this location, if applicable. eg &#39;Zowta, LLC&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>originName</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td><code>selectedOptions</code> -
+                        <a href="#definition-SelectedOptionsInput"><code>SelectedOptionsInput</code></a>
+                      </td>
+                      <td>
+                        <p>Optional properties or shipping accessorials that apply to this location. List of Name/Value pairs.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>city</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>City name. eg &#39;Columbus&#39;, &#39;Ontario&#39;, &#39;Perth&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>destinationType</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Deprecated. Use selectedOptions instead.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>telNo</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Telephone number of a contact at this location, if applicable. eg &#39;(+44) 00000 000000&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>street</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>First line of the street address. eg &#39;123 Main Street&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>email</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Email address of a contact at this location, if applicable. eg &#39;
+                          <a href="mailto:&#104;&#101;&#108;&#x6c;&#111;&#64;&#x65;&#x78;&#x61;&#109;&#112;&#108;&#x65;&#46;&#99;&#x6f;&#x6d;">&#104;&#101;&#108;&#x6c;&#111;&#64;&#x65;&#x78;&#x61;&#109;&#112;&#108;&#x65;&#46;&#99;&#x6f;&#x6d;</a>&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>accessorials</code> -
+                        <a href="#definition-SelectedOptionsInput"><code>SelectedOptionsInput</code></a>
+                      </td>
+                      <td>
+                        <p>Deprecated. Use selectedOptions instead</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>street2</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Second line of street address if applicable. eg &#39;Building 5 Suite 210&#39;</p>
+                      </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"givenName"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"familyName"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"country"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"region"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"zipcode"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"companyName"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"originName"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"selectedOptions"</span>: <span class="hljs-string">SelectedOptionsInput</span>,
+  <span class="hljs-attr">"city"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"destinationType"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"telNo"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"street"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"email"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"accessorials"</span>: <span class="hljs-string">SelectedOptionsInput</span>,
+  <span class="hljs-attr">"street2"</span>: <span class="hljs-string">"xyz789"</span>
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-ServiceInput" class="definition panel" data-traverse-target="definition-ServiceInput">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/ServiceInput"></a>
+              <p><code>ServiceInput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Special requested service for package</p>
+                </section>
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Input Field</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>name</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Name of the attribute requested, eg &#39;SIGNATURE_OPTION&#39;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>value</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Value of the attribute requested, eg &#39;3&#39; for adult signature via UPS, different per carrier</p>
+                      </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"value"</span>: <span class="hljs-string">"abc123"</span>}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-ShipmentDetailInput" class="definition panel" data-traverse-target="definition-ShipmentDetailInput">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/ShipmentDetailInput"></a>
+              <p><code>ShipmentDetailInput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Describes the details associated with shipment</p>
+                </section>
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Input Field</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>taxCharges</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td>
+                        <p>Deprecated: Currently do not use for any shipments</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>shipmentId</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Unique ID associated with the shipment. Can be used for later cancelling/tracking services</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>shippingMethodCode</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Method code of service used for shipping package. Best to be case sensitive, eg &#39;FEDEX_GROUND&#39;, should not be adapted in any way</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>shippingMethodName</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Deprecated: Currently do not use</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>insuranceCharges</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td>
+                        <p>Deprecated: Currently do not use. Can place declared value on Piece level</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>shippingCharges</code> -
+                        <a href="#definition-BigDecimal"><code>BigDecimal</code></a>
+                      </td>
+                      <td>
+                        <p>The cost of shipping the package via the method requested</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>selectedDate</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Used for setting a specific shipment day, eg &#39;MM/dd/yyyy</p>
+                      </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"taxCharges"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"shipmentId"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"shippingMethodCode"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"shippingMethodName"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"insuranceCharges"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"shippingCharges"</span>: <span class="hljs-string">BigDecimal</span>,
+  <span class="hljs-attr">"selectedDate"</span>: <span class="hljs-string">"abc123"</span>
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-ShipmentInput" class="definition panel" data-traverse-target="definition-ShipmentInput">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/ShipmentInput"></a>
+              <p><code>ShipmentInput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Describes the details associated with package being shipped and it&#39;s contents</p>
+                </section>
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Field Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td data-property-name="pieces"> <code>pieces</code> -
+                        <a href="#definition-LabelPieceInput"><code>[LabelPieceInput]</code></a>
+                      </td>
+                      <td> The packages of the shipment </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="shipmentDetail"> <code>shipmentDetail</code> -
+                        <a href="#definition-ShipmentDetailInput"><code>ShipmentDetailInput</code></a>
+                      </td>
+                      <td> Details of service and additional info for shipment </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"pieces"</span>: [<span class="hljs-string">LabelPieceInput</span>],
+  <span class="hljs-attr">"shipmentDetail"</span>: <span class="hljs-string">ShipmentDetailInput</span>
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-SiteDetailsInput" class="definition panel" data-traverse-target="definition-SiteDetailsInput">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/SiteDetailsInput"></a>
+              <p><code>SiteDetailsInput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Details about the website/platform</p>
+                </section>
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Input Field</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>ecommerceCart</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Ecommerce Platform Name</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>ipAddress</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>User&#39;s IP Address</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>websiteUrl</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Website URL the request is sent from, should match what is inside SHQ dashboard</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>appVersion</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Version number of the client application</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>ecommerceVersion</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>Ecommerce Platform&#39;s version</p>
+                      </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"ecommerceCart"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"ipAddress"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"websiteUrl"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"appVersion"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"ecommerceVersion"</span>: <span class="hljs-string">"abc123"</span>
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-String" class="definition panel" data-traverse-target="definition-String">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/String"></a>
+              <p><code>String</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Built-in String</p>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div class="doc-row no-margin">
+            <div class="doc-copy doc-separator">
+              <a class="powered-by" href="https://github.com/anvilco/spectaql">Documentation by
+                <span>Anvil SpectaQL</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </body>
+</html>
