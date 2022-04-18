@@ -8,10 +8,16 @@ tags: [rates, api, guide, examples]
 Below you'll find a number of examples covering various uses cases for the Rates API. You'll also find a Postman collection that can be downloaded.
 
 ## Postman Collection
+Our Postman collection contains pre-configured examples you can use to get started with testing as quickly as possible. Postman is a tool for easily interacting with APIs. If you don't have the Postman app installed already, you can download it from [Postman.com](https://www.postman.com/downloads/).
 
-Download our [Postman](https://www.postman.com/downloads/) collection with pre-configured examples you can use to get started with testing as quickly as possible. Once you've downloaded the collection, go to File > Import in Postman and choose the downloaded file to import it. Review the Collection Variables and fill in the required credentials. You can then run any of the examples provided.
+Once you have Postman installed, download the collection below, open Postman, click File > Import, and choose the ShipperHQ Rates collection. This will import the collection and show you the examples included in it. You will need to set up your credentials within the collection by clicking on the collection, clicking Variables, and entering your API Key and Authentication Code. You'll also want to confirm your Website Scope is LIVE or, if not, change it to the appropriate scope. Now, by choosing any of the examples you'll be able to run Rates API requests.
 
-<a target="_blank" href="/examples/shipperhq-rates.postman_collection.json" download="shipperhq-rates.postman_collection.json">Download Collection <i class="fa fa-arrow-right"></i></a>
+<p><a target="_blank" href="/examples/shipperhq-rates.postman_collection.json" download="shipperhq-rates.postman_collection.json">Download the ShipperHQ Rates API Collection <i class="fa fa-arrow-right"></i></a></p>
+
+:::tip Credentials
+
+Since the Rates API requires a JWT Token in order to run requests, our Postman collection is set up with a Pre-request Script that automatically generates a token for you using the API Key and Authentication Code you've set up whenever you run a Rates API requests within the collection. You can see this script by clicking on the Collection and clicking Pre-request Script. Note that when you integrate the Rates API into your own system, you'll need to make this call yourself.
+:::
 
 ## Example Scenarios
 

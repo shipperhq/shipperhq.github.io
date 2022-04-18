@@ -9,9 +9,11 @@ tags: [insights, api, guide, examples]
 Since the Insights API is implemented in GraphQL, you can retrieve as much information as you want or as little as you need. Below you'll find examples of both simple and more advanced Insights API requests and their associated responses.
 
 ## Postman Collection
-Download our [Postman](https://www.postman.com/downloads/) collection with pre-configured examples you can use to get started with testing as quickly as possible. Once you've downloaded the collection, go to File > Import in Postman and choose the downloaded file to import it. Review the Collection Variables and fill in the required credentials. You can then run any of the examples provided.
+Our Postman collection contains pre-configured examples you can use to get started with testing as quickly as possible. Postman is a tool for easily interacting with APIs. If you don't have the Postman app installed already, you can download it from [Postman.com](https://www.postman.com/downloads/).
 
-<a target="_blank" href="/examples/shipperhq-insights.postman_collection.json" download="shipperhq-insights.postman_collection.json">Download Collection <i class="fa fa-arrow-right"></i></a>
+Once you have Postman installed, download the collection below, open Postman, click File > Import, and choose the ShipperHQ Insights collection. This will import the collection and show you the examples included in it. You will need to set up your credentials within the collection by clicking on the collection, clicking Variables, and entering your Access Token. You'll also want to confirm your Website Scope is LIVE or, if not, change it to the appropriate scope. Now, by choosing any of the examples you'll be able to run Insights API requests.
+
+<p><a target="_blank" href="/examples/shipperhq-insights.postman_collection.json" download="shipperhq-insights.postman_collection.json">Download the ShipperHQ Insights API Collection <i class="fa fa-arrow-right"></i></a></p>
 
 ## Basic Example
 
