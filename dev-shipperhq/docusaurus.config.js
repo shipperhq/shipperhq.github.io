@@ -96,6 +96,11 @@ const config = {
               },
               {
                 type: 'doc',
+                docId: 'rates/examples',
+                label: 'Examples'
+              },
+              {
+                type: 'doc',
                 docId: 'rates/faq',
                 label: 'FAQ'
               },
@@ -126,6 +131,11 @@ const config = {
                 type: 'doc',
                 docId: 'insights/quickstart',
                 label: 'Quickstart'
+              },
+              {
+                type: 'doc',
+                docId: 'insights/examples',
+                label: 'Examples'
               },
               {
                 type: 'doc',
