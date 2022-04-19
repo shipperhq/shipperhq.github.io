@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "0a46e66c-e5dd-486d-bfaf-97bd593f7741",
+		"name": "ShipperHQ Insights API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Insights - Basic",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ShipperHQ-Access-Token",
+						"value": "{{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "X-ShipperHQ-Scope",
+						"value": "{{websiteScope}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query Order {\n  viewOrder(orderNumber: \"00000008\") {\n    shipments {\n      id\n      shipmentDetail {\n        shipmentId\n        name\n      }\n      carriers {\n          carrierDetail {\n              carrierCode\n              carrierTitle\n              carrierType\n          }\n        methods {\n          methodDetails {\n            methodCode\n            methodTitle\n            totalCharges\n            currency\n            negotiatedRate\n          }\n          timeInTransitOptions {\n            dispatchDate\n            deliveryDate\n          }\n        }\n        packages {\n          packageDetail {\n            declaredValue\n            height\n            length\n            width\n            weight\n            packingWeight\n            packageName\n            surchargePrice\n          }\n          items {\n            sku\n            qtyPacked\n            weightPacked\n          }\n        }\n      }\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{insightsEndpointUrl}}",
+					"host": [
+						"{{insightsEndpointUrl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insights - Extended",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ShipperHQ-Access-Token",
+						"value": "{{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "X-ShipperHQ-Scope",
+						"value": "{{websiteScope}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query Order {\n  viewOrder(orderNumber: \"00000008\") {\n    orderNumber\n    createdAt\n    shipments {\n      id\n      shipmentDetail {\n        shipmentId\n        name\n      }\n      carriers {\n        carrierDetail {\n            carrierCode\n            carrierTitle\n            carrierType\n        }\n        methods {\n          id\n          methodDetails {\n            methodCode\n            methodTitle\n            totalCharges\n            currency\n            negotiatedRate\n          }\n          timeInTransitOptions {\n            dispatchDate\n            deliveryDate\n          }\n        }\n        packages {\n          packageDetail {\n            declaredValue\n            height\n            length\n            width\n            weight\n            packingWeight\n            packageName\n            surchargePrice\n          }\n          items {\n            sku\n            qtyPacked\n            weightPacked\n          }\n        }\n      }\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{insightsEndpointUrl}}",
+					"host": [
+						"{{insightsEndpointUrl}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "insightsEndpointUrl",
+			"value": "https://ovs.shipperhq.com",
+			"type": "string"
+		},
+		{
+			"key": "accessToken",
+			"value": "ACCESS_TOKEN_HERE",
+			"type": "string"
+		},
+		{
+			"key": "websiteScope",
+			"value": "LIVE",
+			"type": "string"
+		}
+	]
+}

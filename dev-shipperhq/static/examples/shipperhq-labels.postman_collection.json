@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "8ca10042-8936-4c73-ac33-2fff8dc102a0",
+		"name": "ShipperHQ Labels API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Label",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ShipperHQ-Access-Token",
+						"value": "{{secretToken}}",
+						"type": "text"
+					},
+					{
+						"key": "X-ShipperHQ-Scope",
+						"value": "{{websiteScope}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query createLabel {\n  createLabel(labelInfo: {\n    carrier: {\n      carrierCode: \"shqfedex1\"\n      carrierType: \"fedEx\"\n    },\n    sender: {\n       originName: \"Austin\"\n    },\n    recipient: {\n        country: \"US\"\n        region: \"TX\"\n        city: \"Austin\"\n      \tstreet: \"1234 Texas Road\"\n        zipcode: \"78738\"\n    },\n    shipments: [\n        {\n            pieces: [\n                {\n                    referenceId: \"12agdsjds\"\n                    weight: \"15\"\n                    length: \"5\"\n                    width: \"5\"\n                  height: \"5\"\n                }\n            ],\n            shipmentDetail: {\n                shipmentId: \"KB1234\"\n                shippingMethodCode: \"FEDEX_GROUND\"\n              selectedDate: \"02/04/2022\"\n            }\n        }\n    ]\n  }) {\n    labels {\n      trackingId\n      labelImage\n    }\n    errors {\n      errorCode\n      internalErrorMessage\n      externalErrorMessage\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{labelsEndpointUrl}}",
+					"host": [
+						"{{labelsEndpointUrl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Label (International)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ShipperHQ-Access-Token",
+						"value": "{{secretToken}}",
+						"type": "text"
+					},
+					{
+						"key": "X-ShipperHQ-Scope",
+						"value": "{{websiteScope}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query createLabel {\n  createLabel(labelInfo: {\n    carrier: {\n      carrierCode: \"shqfedex1\"\n      carrierType: \"fedEx\"\n    },\n    sender: {\n       originName: \"Austin\"\n    },\n    recipient: {\n        country: \"AU\"\n        region: \"\"\n        city: \"Perth\"\n      \tstreet: \"1234 Texas Road\"\n        zipcode: \"6003\"\n    },\n    shipments: [\n        {\n            pieces: [\n                {\n                    referenceId: \"12agdsjds\"\n                    weight: 15.0\n                    length: 5.0\n                    width: 5.0\n                  height: 5.0\n                  declaredValue: 10.0\n                  customsDetails:{\n                    countryOfOrigin: \"US\"\n                    itemDescription: \"generic\"\n                    sku: \"JACKET1\"\n                    weight: 15.0\n                    qty: 1\n                  }\n                }\n            ],\n            shipmentDetail: {\n                shipmentId: \"KB1234\"\n                shippingMethodCode: \"INTERNATIONAL_PRIORITY\"\n              selectedDate: \"02/15/2022\"\n            }\n        }\n    ]\n  }) {\n    labels {\n      trackingId\n      labelImage\n      shipmentId\n      labelUrl\n      labelImage\n      labelType\n      copies\n    }\n    errors {\n      errorCode\n      internalErrorMessage\n      externalErrorMessage\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{labelsEndpointUrl}}",
+					"host": [
+						"{{labelsEndpointUrl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Label",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ShipperHQ-Access-Token",
+						"value": "{{secretToken}}",
+						"type": "text"
+					},
+					{
+						"key": "X-ShipperHQ-Scope",
+						"value": "{{websiteScope}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query cancelLabel {\n  cancelLabel(cancelLabelInfo: {\n    carrier: {\n      carrierCode: \"shqfedex1\"\n      carrierType: \"fedEx\"\n    },\n    trackingId: \"794606985160\"  \n  }) {\n    responseSummary {\n      status\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{labelsEndpointUrl}}",
+					"host": [
+						"{{labelsEndpointUrl}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Retrieve Secret Token",
+					"pm.sendRequest({",
+					"    url: pm.collectionVariables.get(\"rmsUrl\"),",
+					"    method: 'POST',    ",
+					"    headers: {",
+					"        \"Content-Type\": \"application/json\"",
+					"    },",
+					"    body: {",
+					"        graphql: {",
+					"        \"variables\":JSON.stringify({",
+					"                \"api_key\": pm.collectionVariables.get(\"apiKey\"),",
+					"                \"auth_code\":pm.collectionVariables.get(\"authCode\")",
+					"        }),",
+					"        \"query\":\"mutation CreateSecretToken($api_key: String!, $auth_code: String!) { createSecretToken(api_key: $api_key, auth_code: $auth_code) { token  }}\",",
+					"        },",
+					"        mode: \"GraphQL\"",
+					"    }",
+					"}, function (err, res) {",
+					"    pm.collectionVariables.set(\"secretToken\", res.json().data.createSecretToken.token);",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "labelsEndpointUrl",
+			"value": "https://postapi.shipperhq.com/v3/graphql/label",
+			"type": "string"
+		},
+		{
+			"key": "rmsUrl",
+			"value": "https://rms.shipperhq.com",
+			"type": "string"
+		},
+		{
+			"key": "apiKey",
+			"value": "API_KEY_HERE",
+			"type": "string"
+		},
+		{
+			"key": "authCode",
+			"value": "AUTH_CODE_HERE",
+			"type": "string"
+		},
+		{
+			"key": "websiteScope",
+			"value": "LIVE",
+			"type": "string"
+		},
+		{
+			"key": "secretToken",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
