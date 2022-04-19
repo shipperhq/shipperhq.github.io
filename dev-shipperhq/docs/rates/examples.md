@@ -8,11 +8,15 @@ tags: [rates, api, guide, examples]
 Below you'll find a number of examples covering various uses cases for the Rates API. You'll also find a Postman collection that can be downloaded.
 
 ## Postman Collection
-Our Postman collection contains pre-configured examples you can use to get started with testing as quickly as possible. Postman is a tool for easily interacting with APIs. If you don't have the Postman app installed already, you can download it from [Postman.com](https://www.postman.com/downloads/).
-
-Once you have Postman installed, download the collection below, open Postman, click File > Import, and choose the ShipperHQ Rates collection. This will import the collection and show you the examples included in it. You will need to set up your credentials within the collection by clicking on the collection, clicking Variables, and entering your API Key and Authentication Code. You'll also want to confirm your Website Scope is LIVE or, if not, change it to the appropriate scope. Now, by choosing any of the examples you'll be able to run Rates API requests.
+Our Postman collection contains pre-configured examples you can use to get started with testing as quickly as possible. Postman is a tool for easily interacting with APIs. If you don't have the Postman app installed already, you can [download it](https://www.postman.com/downloads/) from Postman.
 
 <p><a target="_blank" href="/examples/shipperhq-rates.postman_collection.json" download="shipperhq-rates.postman_collection.json">Download the ShipperHQ Rates API Collection <i class="fa fa-arrow-right"></i></a></p>
+
+### Usage
+
+Once you have Postman installed and have downloaded the ShipperHQ Rates API Collection, open Postman, click File > Import, and choose the ShipperHQ Rates collection. This will import the collection and the examples included in it.
+
+You will need to set up your credentials within the collection by clicking on the Collection in the Postman Collections list, clicking Variables, entering your API Key and Authentication Code, and clicking the "Save" icon. You'll also want to confirm your Website Scope is LIVE or, if not, change it to the appropriate scope. Now, by choosing any of the examples you'll be able to run Rates API requests.
 
 :::tip Credentials
 
