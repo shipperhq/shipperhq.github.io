@@ -59,10 +59,21 @@ const config = {
         },
         items: [
           {
-            type: 'doc',
-            docId: 'sdk-use-cases',
+            type: 'dropdown',
             position: 'left',
-            label: 'SDK Use Cases',
+            label: 'Use Cases',
+            items: [
+              {
+                type: 'doc',
+                docId: 'use-cases/index',
+                label: 'Use Cases',
+              },
+              {
+                type: 'doc',
+                docId: 'use-cases/use-case-crm',
+                label: 'Blueprint: CRM'
+              },
+            ]
           },
           {
             type: 'doc',
