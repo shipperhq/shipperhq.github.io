@@ -11,7 +11,7 @@ This document is for technical architects and developers that need to integrate 
 
 Note, this does not document the standard types and fields the API provides. This information is included in the [Rates API Reference](https://dev.shipperhq.com/rates-service/) documentation or can be obtained via our [API playground](https://graphiql.shipperhq.com/).
 
-Our Rates API is implemented in GraphQL. See the [SDK Quickstart](../quickstart.md) for more information.
+Our Rates API is implemented in GraphQL. See the [SDK Quickstart](/quickstart.md#graphql) for more information.
 
 ## Requirements
 In order to use the ShipperHQ Rates API you'll need a ShipperHQ account configured with at least one Website, one Origin, and one Carrier. Once you have an account, you'll need to retrieve authentication credentials as described below that will allow you to access the Rates API.
@@ -22,7 +22,7 @@ In order to use the ShipperHQ Rates API you'll need a ShipperHQ account configur
 [//]: # (Look for the import statement at the top of the file to have the path of the included file)
 <JWTAuth doc="Rates" />
 
-## API Details
+## Definitions
 
 ### Endpoint
 
@@ -30,12 +30,7 @@ In order to use the ShipperHQ Rates API you'll need a ShipperHQ account configur
 | ---------------------------|---------------------|---------------------|---------------------|
 | `HTTPS` | `POST` | `application/JSON` |  `https://api.shipperhq.com/v2/graphql` |
 
-
-### API Rate Limits
-- **Request Limits:**  Rates API queries are subject to the request limits of your ShipperHQ account. Please view your request limits on ShipperHQ’s pricing page.
-- **Monitoring Request limits:** You can view your usage within the Analytics tab of your ShipperHQ dashboard.
-
-### Request Headers
+### Headers
 Any query or request must include the following headers:
 
 | Header Name  |Header description |
@@ -44,13 +39,19 @@ Any query or request must include the following headers:
 | `X-ShipperHQ-Scope` |   The configuration [Scope](https://docs.shipperhq.com/using-scopes-shipperhq/) for this ShipperHQ [Website](https://docs.shipperhq.com/adding-websites-in-shipperhq/) (accepts `LIVE`, `TEST`, `DEVELOPMENT` or `INTEGRATION`). If unsure or if the ShipperHQ account does not support multiple scopes, use `LIVE`.|
 | `X-ShipperHQ-Session` | This is a unique identifier for a cart/order. Use any unique alphanumeric string. |
 
-### Request Definitions
-The ShipperHQ Rates API includes the following three queries.
+### Operations
+The ShipperHQ Rates API includes the following operations.
 
 | Query                      | Description         |
 | ---------------------------|---------------------|
-|`retrieveShippingQuote`     |	Retrieve basic shipping rates including carrier and method titles and total shipping charges. |
-|`retrieveFullShippingQuote`	| Retrieve detailed shipping rate information for each shipment, including origin or warehouse information, carrier and method information, freight options available, available dates, in-store pickup information, and more.|
+| [`retrieveShippingQuote`](https://dev.shipperhq.com/rates-service/#operation-retrieveshippingquote-Queries)     |	Retrieve basic shipping rates including carrier and method titles and total shipping charges. |
+| [`retrieveFullShippingQuote`](https://dev.shipperhq.com/rates-service/#operation-retrievefullshippingquote-Queries)	| Retrieve detailed shipping rate information for each shipment, including origin or warehouse information, carrier and method information, freight options available, available dates, in-store pickup information, and more.|
+
+## Details
+
+### API Rate Limits
+- **Request Limits:**  Rates API queries are subject to the request limits of your ShipperHQ account. Please view your request limits on ShipperHQ’s pricing page.
+- **Monitoring Request limits:** You can view your usage within the Analytics tab of your ShipperHQ dashboard.
 
 ### Ship-To Address
 
@@ -197,7 +198,7 @@ While very few elements are required for a successful API call to the Rates API 
 Some requirements are dependent on the capabilities of the platform into which ShipperHQ is being integrated. For example, if the platform doesn't support [Customer Groups](https://docs.shipperhq.com/set-up-customer-groups-shipperhq/), that field is not required. These exceptions are noted below.
 
 :::info
-While we have endeavored to provide a complete list of requirements for a baseline integration of ShipperHQ, individual use cases may differ. Therefore, we always recommend contacting [dev support](/contact) prior to building a new integration.
+While we have endeavored to provide a complete list of requirements for a baseline integration of ShipperHQ, individual use cases may differ. Therefore, we always recommend contacting [Dev Support](/contact) prior to building a new integration.
 :::
 
 :::note
@@ -218,7 +219,7 @@ In addition to the general integration requirements, there are specific elements
 | Element | Notes |
 | ----- | ----- |
 | [`cartType`](https://dev.shipperhq.com/rates-service/#definition-CartType) | The appropriate Cart Type for each rate quote should be set. E.g. `CART` for shipping estimate in a shopping cart, `STD` for checkout, etc. |
-| [`siteDetailsInput`](https://dev.shipperhq.com/rates-service/#definition-SiteDetailsInput) | <table><tr><td>`ecommerceCart`</td><td>The name of the integrated platform (e.g. "Magento" or "XYZ CRM"). Contact [dev support](/contact) if unsure.</td></tr><tr><td>`appVersion`</td><td>The version of your integration with ShipperHQ (e.g. your first release may be "1.0.0" but updated to "1.0.1" at a later date)</td></tr><tr><td>`ecommerceVersion`</td><td>The version number of the platform on which the integration sits (e.g. for a Magento extension, this would indicate the version of Magento on which the extension is installed)</td></tr></table> |
+| [`siteDetailsInput`](https://dev.shipperhq.com/rates-service/#definition-SiteDetailsInput) | <table><tr><td>`ecommerceCart`</td><td>The name of the integrated platform (e.g. "Magento" or "XYZ CRM"). Contact [Dev Support](/contact) if unsure.</td></tr><tr><td>`appVersion`</td><td>The version of your integration with ShipperHQ (e.g. your first release may be "1.0.0" but updated to "1.0.1" at a later date)</td></tr><tr><td>`ecommerceVersion`</td><td>The version number of the platform on which the integration sits (e.g. for a Magento extension, this would indicate the version of Magento on which the extension is installed)</td></tr></table> |
 | [`cartInput`](https://dev.shipperhq.com/rates-service/#definition-CartInput) | The `freeShipping` elements indicates that free shipping applies to the entire cart. Should be used if the integrated platform supports order-level free shipping and set to `true` when the cart is eligible for free shipping. |
 | [`items`](https://dev.shipperhq.com/rates-service/#definition-ItemInput) | <table><tr><td>`type`</td><td>Generally set to `SIMPLE` but if the integrated platform supports item bundles, the `BUNDLE` type should be used and child `items` included under those products. If the integrated platform supports `VIRTUAL` or `GIFTCARD` products, the appropriate `type` should be used.</td></tr><tr><td>`items`</td><td>If the integrated platform supports item bundles, the `BUNDLE` `type` should be used and the child items should be included in the `items` property. For `SIMPLE` products this element is not required.</td></tr><tr><td>`attributes`</td><td>The following minimum product attributes should be supported: <ul><li>`shipperhq_shipping_group`</li><li>`shipperhq_warehouse`</li><li>`shipperhq_dim_group`</li><li>`ship_length`, `ship_width`, `ship_height`</li><li>`freight_class`</li><li>`shipperhq_hs_code`</li></ul> See the [Item Attributes](#item-attributes) section of this doc for details on these attributes and for other attributes that may be supported if useful for your integration.</td></tr></table> |
 | [`customerInput`](https://dev.shipperhq.com/rates-service/#definition-CustomerInput) | If the integrated platform supports assigning [Customer Groups](https://docs.shipperhq.com/set-up-customer-groups-shipperhq/), the group name should be included in the `customerGroup` element. |
@@ -254,7 +255,7 @@ See the [Errors](#errors) section of this doc for further details and for possib
 
 ### Additional Guidance
 
-While the [Rates API Reference](https://dev.shipperhq.com/rates-service/) contains all available fields, not all possible attributes are described in the current version of this guide. Some less-common attributes are not yet described. Contact [dev support](/contact) if you need assistance with any specific scenario or for additional guidance on best practices for your specific use case.
+While the [Rates API Reference](https://dev.shipperhq.com/rates-service/) contains all available fields, not all possible attributes are described in the current version of this guide. Some less-common attributes are not yet described. Contact [Dev Support](/contact) if you need assistance with any specific scenario or for additional guidance on best practices for your specific use case.
 
 ## Testing
 

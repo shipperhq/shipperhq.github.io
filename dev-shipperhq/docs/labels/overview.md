@@ -5,7 +5,7 @@ title: Overview
 tags: [labels, api, guide, overview]
 ---
 
-The Labels API enables you to produce shipping labels for shipments directly within your application. When used in conjunction with the ShipperHQ [Rates API](../rates/overview.md) and [Insights API](../insights/overview.md) it provides a powerful end-to-end solution for fulfillment.
+The Labels API enables you to produce shipping labels for shipments directly within your application. When used in conjunction with the ShipperHQ [Rates API](rates/overview.md) and [Insights API](insights/overview.md) it provides an end-to-end solution from checkout to fulfillment.
 
 ## Use cases
 
