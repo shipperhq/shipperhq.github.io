@@ -256,6 +256,14 @@ See the [Errors](#errors) section of this doc for further details and for possib
 
 While the [Rates API Reference](https://dev.shipperhq.com/rates-service/) contains all available fields, not all possible attributes are described in the current version of this guide. Some less-common attributes are not yet described. Contact [dev support](/contact) if you need assistance with any specific scenario or for additional guidance on best practices for your specific use case.
 
+## Testing
+
+### Test with the API Playground
+[//]: # (API Playground)
+[//]: # (This is an imported file - Do not modify directly this section)
+[//]: # (Look for the import statement at the top of the file to have the path of the included file)
+<APIPlayground doc="Rates" />
+
 ## Examples
 
 ###  `retrieveShippingQuote`
