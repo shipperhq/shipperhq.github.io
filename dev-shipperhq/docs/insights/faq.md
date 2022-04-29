@@ -15,6 +15,9 @@ Orders placed before this feature is active will not be available via Insights A
 ## How do I know what value to populate for `orderNumber`?
 The `orderNumber` field is used to look up a unique order with the Insights API. If you are using the native ShipperHQ apps/plugins/extensions for supported eCommerce platforms ([complete list here](https://shipperhq.com/pricing)), the `orderNumber` will be the Order Number set by your eCommerce platform. If you are instead using the [`PlaceOrder`](../labels/place-order.md) mutation of the [Labels API](../labels/overview.md), `orderNumber` will be the value you set as the Order Number in your `PlaceOrder` call.
 
+## How do I know what value to populate for `orderNumber`?
+The `orderNumber` field is used to look up a unique order with the Insights API. If you are using the native ShipperHQ apps/plugins/extensions for supported eCommerce platforms ([complete list here](https://shipperhq.com/pricing)), the `orderNumber` will be the Order Number set by your eCommerce platform. If you are instead using the [`PlaceOrder`](../labels/place-order.md) mutation of the [Labels API](../labels/overview.md), `orderNumber` will be the value you set as the Order Number in your `PlaceOrder` call.
+
 ## Is it possible to reuse Order Numbers?
 Each Order Number (used in the `orderNumber` field) must be unique to a specific [Website](https://docs.shipperhq.com/adding-websites-in-shipperhq/) configured in ShipperHQ. This means that it is possible to reuse an Order Number only on separate Websites (whether on the same ShipperHQ account or on separate accounts). For example, if you have a dev site connected to the same ShipperHQ account as your production site, you would need to ensure you have separate Websites configured in ShipperHQ for each to avoid duplicate entries for the same Order Number.
 
