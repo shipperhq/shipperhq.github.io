@@ -40,4 +40,3 @@ The Rates API is a read-only API. It consists of three queries:
 | ---------------------------|---------------------|
 |`retrieveShippingQuote`     |	Retrieve basic shipping rates including carrier and method titles and total shipping charges. |
 |`retrieveFullShippingQuote`	| Retrieve detailed shipping rate information for each shipment, including origin or warehouse information, carrier and method information, freight options available, available dates, in-store pickup information, and more.|
-|`retrieveUserSettings`|	Retrieve merchant’s settings like locale and currency.|
