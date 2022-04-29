@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 10
 slug: how-labels-work
 title: How Labels Work
 tags: [labels, api, guide, overview]

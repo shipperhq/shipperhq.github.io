@@ -33,8 +33,8 @@ If you're unfamiliar with GraphQL, Please refer to the [Introduction to GraphQL]
 ## Authentication
 
 ShipperHQ's APIs use two types of authentication:
-- **Rates API** and **Labels API** use a [JWT Token](https://jwt.io/) generated using an API Key and Authentication Code pair. See [Rates API Quickstart Guide](rates/quickstart.md#Authentication) and [Labels API Quickstart Guide](labels/quickstart.md#Authentication) for details.
-- **Insights API** uses a function-specific and account-specific Access Token retrieved from a ShipperHQ account. See [Insights API Quickstart Guide](insights/quickstart.md#Authentication) for details.
+- **Rates API** and **Labels API** use a [JWT Token](https://jwt.io/) generated using an API Key and Authentication Code pair. See [Rates API Quickstart Guide](rates/quickstart.md#authentication) and [Labels API Quickstart Guide](labels/quickstart.md#authentication) for details.
+- **Insights API** uses a function-specific and account-specific Access Token retrieved from a ShipperHQ account. See [Insights API Quickstart Guide](insights/quickstart.md#authentication) for details.
 
 ## Integration Requirements
 Each ShipperHQ API is highly flexible and can support a variety of use cases. Due to our implementation of GraphQL, each API call can request only relevant elements be returned. However, for each API, there are certain elements which are important when a ShipperHQ account is using certain functionality. Because of this, if you intend to make your integration of ShipperHQ's APIs available to multiple clients, we require support for certain elements. Meeting these requirements means your integration will support all of the most commonly used ShipperHQ features and functionality.
@@ -45,7 +45,7 @@ See specific requirements by API:
 - [Labels API Integration Requirements](labels/quickstart#integration-requirements)
 
 :::info
-While we have endeavored to provide a complete list of requirements for a baseline integration of ShipperHQ, individual use cases may differ. Therefore, we always recommend contacting [dev support](/contact) prior to building a new integration.
+While we have endeavored to provide a complete list of requirements for a baseline integration of ShipperHQ, individual use cases may differ. Therefore, we always recommend contacting [Dev Support](/contact) prior to building a new integration.
 :::
 
 :::note

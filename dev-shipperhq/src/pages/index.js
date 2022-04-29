@@ -44,7 +44,7 @@ export default function Home() {
 
               <div className="q-heading">
                   <h3 className="text-2xl">Need specialized developer support?</h3>
-                  <p className="mb20"> We would love to hear from you: Please use our <Link to="/contact">Dev Support</Link> contact form.</p>
+                  <p className="mb20"> We would love to hear from you: Please contact our <Link to="/contact">Dev Support</Link> team.</p>
                   <p>If you need help configuring ShipperHQ, please visit our <Link to="https://docs.shipperhq.com/" className="arrow-right">ShipperHQ Help Docs</Link></p>
               </div>
           </div>

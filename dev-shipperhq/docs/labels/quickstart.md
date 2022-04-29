@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 20
 slug: quickstart
 title: Quickstart
 tags: [labels, api, guide, quickstart]

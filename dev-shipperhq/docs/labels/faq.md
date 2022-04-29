@@ -1,5 +1,5 @@
 ---
-sidebar_position: 10
+sidebar_position: 50
 slug: faq
 title: FAQ
 tags: [labels, api, guide, faq]
