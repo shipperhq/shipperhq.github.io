@@ -11,7 +11,7 @@ The goal of the ShipperHQ SDK is to give you the information you need to use the
 
 While developers can use each API independently, the goal of the ShipperHQ SDK is to make it easy to integrate with the full ShipperHQ workflow following this sequence:
   1. [Rates API](rates/overview.md)
-  2. [PlaceOrder Mutation](insights/place-order.md) (not required for most major integrations)
+  2. [PlaceOrder Mutation](labels/place-order.md) (not required for most major integrations)
   3. [Insights API](insights/overview.md)
   4. [Labels API](labels/overview.md) (in beta)
 

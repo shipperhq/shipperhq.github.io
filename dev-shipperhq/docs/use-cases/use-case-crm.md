@@ -11,9 +11,9 @@ Customer Relationship Management platforms can be a key element of maintaining s
 - Developers comfortable with using GraphQL (API standard used by ShipperHQ) and JSON (results are provided with this format)
 - Developers need to understand the CRM into which they will be integrating and have the ability to extend the CRM’s functionality via external API calls to ShipperHQ
 
-### Use Cases
+## Use Cases
 
-#### Primary use case
+### In-CRM Shipping Quotes
 
 >As a sales representative using a CRM to create quotes and sales orders, I want to obtain shipping rates and options via ShipperHQ so that the available shipping options and their cost can be accurately calculated for inclusion in my quote.
 
@@ -25,7 +25,7 @@ When creating an order, make an API call to ShipperHQ's Rates API to retrieve sh
 
 :::
 
-#### Advanced use case
+### Advanced: Detailed Shipment Info
 
 >As a sales representative using a CRM,  I want to consult which shipping method was used for an order based on a quote captured in the CRM
 
@@ -77,4 +77,4 @@ In order to leverage the Insight API that contains all the order information, yo
 Once your orders are properly captured in ShipperHQ, you can use the [Insights API](insights/overview.md) to retrieve all the fulfillment information.
 
 ## How can I get support for my integration?
-Developers should use the dedicated [contact form](/contact) on our developer portal.
+Developers should use the dedicated [contact form](/contact) on our developer portal to get in touch with our Dev Support team.
