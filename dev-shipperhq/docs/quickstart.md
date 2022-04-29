@@ -2,6 +2,7 @@
 sidebar_position: 2
 title: Quickstart
 ---
+import APIPlayground from '@site/docs/transclusion/_apiplayground.md' // This is an included file (see below the Error component)
 
 The goal of the ShipperHQ SDK is to give you the information you need to use the ShipperHQ APIs. Each API has its own overview, usage guide, quickstart guide, FAQ, and API reference. On these, you'll find detailed information related to each specific API. Below you'll find general information that applies to the ShipperHQ Developer Platform as a whole.
 
@@ -52,7 +53,7 @@ See specific requirements by API:
 - [Labels API Integration Requirements](labels/quickstart#integration-requirements)
 
 :::info
-While we have endeavored to provide a complete list of requirements for a baseline integration of ShipperHQ, individual use cases may differ. Therefore, we always recommend contacting [dev support](/contact) prior to building a new integration.
+While we have endeavored to provide a complete list of requirements for a baseline integration of ShipperHQ, individual use cases may differ. Therefore, we always recommend contacting [Dev Support](/contact) prior to building a new integration.
 :::
 
 :::note

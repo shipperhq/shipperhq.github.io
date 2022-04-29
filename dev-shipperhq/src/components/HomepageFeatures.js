@@ -32,7 +32,7 @@ const FeatureList = [
     Png: require('../../static/img/label-feature-comingsoon.png').default,
     description: (
       <>
-        Coming soon! Please <Link to="https://dev.shipperhq.com/contact">contact-us</Link> if you want to print Shipping Labels in your application! (Labels API available in beta).
+        Coming soon! Please <Link to="/contact">contact us</Link> if you want to print Shipping Labels in your application! (Labels API available in beta).
       </>
     ),
   },
@@ -46,7 +46,7 @@ function Feature({Png, title, subtitle, description, docsLink}) {
           <div className={styles.featureImg}>
             <img src={Png} className={styles.featurePng} alt={title} />
           </div>
-          
+
           <div className="text--left padding-horiz--md col col--6">
             <div className={styles.featureText}>
               <h2 className="text-2xl mb10">{title}</h2>

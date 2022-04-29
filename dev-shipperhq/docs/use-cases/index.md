@@ -36,7 +36,7 @@ Give customer service teams full visibility of the delivery option selected by a
   <summary><strong>Relevant APIs</strong></summary>
 
 * [Rates API](rates/overview.md) to get shipping options and rates
-* [PlaceOrder Mutation](insights/place-order.md) to capture successful orders placed or updated via the CRM
+* [PlaceOrder Mutation](labels/place-order.md) to capture successful orders placed or updated via the CRM
 * [Insights API](insights/overview.md) to display full shipping details
 
 </details>
@@ -51,7 +51,7 @@ When creating draft-orders or manual orders, rates can be retrieved from Shipper
   <summary><strong>Relevant APIs</strong></summary>
 
 * [Rates API](rates/overview.md) to get rates
-* [PlaceOrder Mutation](insights/place-order.md) to capture successful orders
+* [PlaceOrder Mutation](labels/place-order.md) to capture successful orders
 
 *Optionally*
 
@@ -94,7 +94,7 @@ While ShipperHQ supports many [major eCommerce platforms](https://shipperhq.com/
 * [Rates API](rates/overview.md) to get shipping options and rates
 
 *Optionally*
-* [PlaceOrder Mutation](insights/place-order.md) to store ShipperHQ shipment information against orders
+* [PlaceOrder Mutation](labels/place-order.md) to store ShipperHQ shipment information against orders
 * [Insights API](insights/overview.md) to retrieve rich shipment information for display within the eCommerce platform admin
 
 </details>
@@ -107,7 +107,7 @@ No need for an eCommerce platform. With the ShipperHQ SDK you can build your own
   <summary><strong>Relevant APIs</strong></summary>
 
 * [Rates API](rates/overview.md) to get shipping options and rates
-* [PlaceOrder Mutation](insights/place-order.md) to store ShipperHQ shipment information against orders
+* [PlaceOrder Mutation](labels/place-order.md) to store ShipperHQ shipment information against orders
 * [Insights API](insights/overview.md) to retrieve shipment information
 
 </details>

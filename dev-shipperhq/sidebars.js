@@ -78,6 +78,11 @@ module.exports = {
           dirName: 'labels'
         }
       ]
+    },
+    {
+      type: 'link',
+      label: 'Labels API Reference',
+      href: 'https://dev.shipperhq.com/labels-service/'
     }
   ],
 }

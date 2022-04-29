@@ -33,7 +33,7 @@ ShipperHQ can store detailed shipment information about an order including: Orig
 
 :::note Relevant APIs
 
-* [PlaceOrder Mutation](insights/place-order.md) to capture successful orders placed or updated via the CRM
+* [PlaceOrder Mutation](labels/place-order.md) to capture successful orders placed or updated via the CRM
 * [Insights API](insights/overview.md) to display full shipping details
 
 :::

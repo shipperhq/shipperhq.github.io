@@ -5,18 +5,19 @@ title: Quickstart
 authors: []
 tags: [insights, api, guide, quickstart]
 ---
+import APIPlayground from '@site/docs/transclusion/_apiplayground.md' // This is an included file (see below the Error component)
 
 This document is for technical architects and developers that need to integrate with ShipperHQ’s Insights API to build their own integration to retrieve shipment details from ShipperHQ.
 
 Note, this does not document the standard types and fields the API provides. This information is included in the [Insights API Reference](https://dev.shipperhq.com/insights-service/) documentation or can be obtained via our [API playground](https://graphiql.shipperhq.com/).
 
-As with all our APIs, our Insights API is implemented with GraphQL. If you're unfamiliar with GraphQL, see our [SDK Quickstart](../quickstart.md).
+As with all our APIs, our Insights API is implemented with GraphQL. If you're unfamiliar with GraphQL, see our [SDK Quickstart](/quickstart.md#graphql).
 
 ## Requirements
 * ShipperHQ account with the [Shipping Insights](https://docs.shipperhq.com/shipping-insights-configuration/) Advanced Feature enabled
-* An eCommerce platform or custom integration supporting the [`PlaceOrder`](place-order.md) mutation of the [Labels API](../labels/overview.md), either:
+* An eCommerce platform or custom integration supporting the [`PlaceOrder`](labels/place-order.md) mutation of the [Labels API](labels/overview.md), either:
   * ShipperHQ’s native [Magento 2](https://docs.shipperhq.com/installing-magento-2-shipperhq-extension/), [BigCommerce](https://docs.shipperhq.com/setup-shipperhq-bigcommerce-store/), or [Shopify](https://docs.shipperhq.com/connect-shopify-shipperhq/) app installed on the eCommerce platform
-  * A custom integration implementing both our [Rates API](../rates/overview.md) and the [`PlaceOrder`](place-order.md) mutation of our [Labels API](../labels/overview.md)
+  * A custom integration implementing both our [Rates API](rates/overview.md) and the [`PlaceOrder`](labels/place-order.md) mutation of our [Labels API](labels/overview.md)
 
 ## Authentication
 The Insights API is accessed using a unique Access Token generated in a ShipperHQ account. Each access token is unique per [Website](https://docs.shipperhq.com/adding-websites-in-shipperhq/) for multi-site ShipperHQ accounts.
@@ -39,13 +40,14 @@ Generating a new Access Token invalidates any previously generated Access Tokens
 
 :::
 
-## API Details
+## Definitions
+
 ### Endpoint
 | Protocol                      | Method | Body Encoding | Endpoint URL         |
 | ---------------------------|---------------------|---------------------|---------------------|
 | `HTTPS` | `POST` | `application/JSON` |  `https://ovs.shipperhq.com` |
 
-### Request Headers
+### Headers
 The following headers are required for every Insights API call.
 
 | Header                      | Description         |
@@ -53,9 +55,17 @@ The following headers are required for every Insights API call.
 | `X-ShipperHQ-Access-Token` | The Access Token retrieved from the ShipperHQ dashboard |
 | `X-ShipperHQ-Scope` | The configuration [Scope](https://docs.shipperhq.com/using-scopes-shipperhq/) for this ShipperHQ [Website](https://docs.shipperhq.com/adding-websites-in-shipperhq/) (accepts `LIVE`, `TEST`, `DEVELOPMENT`, or `INTEGRATION`). If unsure or if the ShipperHQ account does not support multiple scopes, use `LIVE`. |
 
+### Operations
+The ShipperHQ Insights API includes the following operation.
+
+| Query                      | Description         |
+| ---------------------------|---------------------|
+| [`viewOrder`](https://dev.shipperhq.com/insights-service/#operation-vieworder-Queries)     |	Returns detailed shipment information for a given order. |
+
+## Details
 
 ### `orderNumber`
-The `orderNumber` argument of the `viewOrder` call is used to look up a unique order with the Insights API. If you are using the native ShipperHQ apps/plugins/extensions for supported eCommerce platforms ([complete list here](https://shipperhq.com/pricing)), the `orderNumber` will be the Order Number set by your eCommerce platform. If you are instead using the [`PlaceOrder`](place-order.md) mutation of the [Labels API](../labels/overview.md), `orderNumber` will be the value you set as the Order Number in your `PlaceOrder` call.
+The `orderNumber` argument of the `viewOrder` call is used to look up a unique order with the Insights API. If you are using the native ShipperHQ apps/plugins/extensions for supported eCommerce platforms ([complete list here](https://shipperhq.com/pricing)), the `orderNumber` will be the Order Number set by your eCommerce platform. If you are instead using the [`PlaceOrder`](labels/place-order.md) mutation of the [Labels API](labels/overview.md), `orderNumber` will be the value you set as the Order Number in your `PlaceOrder` call.
 
 ### Useful fields by feature
 
@@ -177,7 +187,7 @@ Our Insights API can return a variety of useful information (see the [Insights A
 The following sections describe the fields that can be returned by the Insights API which integrations should support retrieving and processing.
 
 :::info
-While we have endeavored to provide a complete list of requirements for a baseline integration of ShipperHQ, individual use cases may differ. Therefore, we always recommend contacting [dev support](/contact) prior to building a new integration.
+While we have endeavored to provide a complete list of requirements for a baseline integration of ShipperHQ, individual use cases may differ. Therefore, we always recommend contacting [Dev Support](/contact) prior to building a new integration.
 :::
 
 :::note
@@ -226,20 +236,20 @@ The integration should appropriately handle at minimum the following elements an
 | [`address`](https://dev.shipperhq.com/insights-service/#definition-Address) | The following address elements must be supported: <ul><li>`company`</li><li>`street`</li><li>`street2`</li><li>`city`</li><li>`region`</li><li>`zipcode`</li><li>`country`</li></ul> |
 
 #### Error Handling
-The ShipperHQ Rates API may return errors in an [`error`](https://dev.shipperhq.com/insights-service/#definition-Error) object in several cases:
-- If ShipperHQ encounters a general error processing a request (e.g. credentials issues, malformed request, etc.) an [error message](faq#what-are-possible-error-codes-and-messages) will be returned indicating the type of error encountered. In this case, your integration should appropriately display a user-friendly message. The values of the `errorCode` and `internalErrorMessage` are not intended to be displayed to end-users but are useful to log for troubleshooting.
-- If a specific Carrier or service is unavailable, ShipperHQ will return an [`error`](https://dev.shipperhq.com/insights-service/#definition-Error) within the [`carrier`](https://dev.shipperhq.com/insights-service/#definition-Carrier). This type of error may indicate that ShipperHQ was unable to return options for this carrier due to a problem (e.g. carrier API timeout), that the ShipperHQ configuration was intentionally set to prevent this carrier from returning any options, or configured to intentionally prevent this carrier from returning specific options for this order. These [`error`](https://dev.shipperhq.com/insights-service/#definition-Error) objects will include an `errorCode` and `internalErrorMessage` which should not be displayed to the end user but may also include an `externalErrorMessage` which may be displayed to the end user. Your integration should support displaying these messages.
+The ShipperHQ Insights API may return errors in in several cases:
+- If ShipperHQ encounters a general error processing a request (e.g. credentials issues, malformed request, etc.) an [error message](faq.md#what-are-possible-error-codes-and-messages) will be returned indicating the type of error encountered. In this case, your integration should appropriately display a user-friendly message. The values of the `errorCode` and `internalErrorMessage` are not intended to be displayed to end-users but are useful to log for troubleshooting.
+- If no shipment information can be found for the given [`OrderNumber`](https://dev.shipperhq.com/insights-service/#operation-vieworder-Queries)
 
-See the [Errors](#errors) section of this doc for further details and for possible error codes and messages see the [Insights API FAQ](faq#what-are-possible-error-codes-and-messages).
+See the [Errors](#errors) section of this doc for further details and for possible error codes and messages see the [Insights API FAQ](faq.md#what-are-possible-error-codes-and-messages).
 
 ### Additional Guidance
 
-While the [Insights API Reference](https://dev.shipperhq.com/insights-service/) contains all available fields, not all possible attributes are described in the current version of this guide. Some less-common attributes are not yet described. Contact [dev support](/contact) if you need assistance with any specific scenario or for additional guidance on best practices for your specific use case.
+While the [Insights API Reference](https://dev.shipperhq.com/insights-service/) contains all available fields, not all possible attributes are described in the current version of this guide. Some less-common attributes are not yet described. Contact [Dev Support](/contact) if you need assistance with any specific scenario or for additional guidance on best practices for your specific use case.
 
 ## Testing
 To test the Insights API you will need to already have either:
 1. ShipperHQ's native integration installed and enabled on [Magento 2](https://docs.shipperhq.com/installing-magento-2-shipperhq-extension/), [BigCommerce](https://docs.shipperhq.com/setup-shipperhq-bigcommerce-store/), or [Shopify](https://docs.shipperhq.com/connect-shopify-shipperhq/)
-2. A custom integration of the ShipperHQ [Rates API](../rates/overview.md) and the [`PlaceOrder`](place-order.md) mutation of the [Labels API](../labels/overview.md).
+2. A custom integration of the ShipperHQ [Rates API](rates/overview.md) and the [`PlaceOrder`](labels/place-order.md) mutation of the [Labels API](labels/overview.md).
 
 ### Enable & Retrieve Access Token
 Within the ShipperHQ account you wish to use, enable the Shipping Insights Advanced Feature from the Advanced Features section of the dashboard. Then, retrieve the Shipping Insights Access Token from the Website on that account.
@@ -248,11 +258,10 @@ Within the ShipperHQ account you wish to use, enable the Shipping Insights Advan
 Place an order on your eCommerce or custom platform. Note the Order Number since this will be used to retrieve Shipping Insights information.
 
 ### Test with the API Playground
-- Navigate to the ShipperHQ [API Playground](https://graphiql.shipperhq.com/)
-- In a new playground tab, enter the Insights API Endpoint URL into the URL bar
-- Click the Docs button
-- Click the Reload Docs icon
-- Click the Query link to view a list of available queries and the arguments and fields you can include in your request
+[//]: # (API Playground)
+[//]: # (This is an imported file - Do not modify directly this section)
+[//]: # (Look for the import statement at the top of the file to have the path of the included file)
+<APIPlayground doc="Insights" />
 
 ## Examples
 
