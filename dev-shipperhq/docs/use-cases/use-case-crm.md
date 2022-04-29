@@ -33,7 +33,7 @@ ShipperHQ can store detailed shipment information about an order including: Orig
 
 :::note Relevant APIs
 
-* [PlaceOrder Mutation](insights/place-order.md) to capture successful orders placed or updated via the CRM
+* [PlaceOrder Mutation](labels/place-order.md) to capture successful orders placed or updated via the CRM
 * [Insights API](insights/overview.md) to display full shipping details
 
 :::
@@ -70,7 +70,7 @@ You'll find more guidance on what elements we recommend supporting on the [Rates
 
 ### Set up PlaceOrder from your CRM
 
-In order to leverage the Insight API that contains all the order information, you need to notify ShipperHQ that a quote is now an order. To do this, you need to use the [`PlaceOrder`](https://dev.shipperhq.com/docs/insights/place-order) mutation. A call to PlaceOrder should be made each time an order is confirmed in your CRM. It can be done immediately or on a scheduled basis.
+In order to leverage the Insight API that contains all the order information, you need to notify ShipperHQ that a quote is now an order. To do this, you need to use the [`PlaceOrder`](labels/place-order.md) mutation. A call to PlaceOrder should be made each time an order is confirmed in your CRM. It can be done immediately or on a scheduled basis.
 
 ### Retrieve the information with the Insights API and display it in your CRM
 

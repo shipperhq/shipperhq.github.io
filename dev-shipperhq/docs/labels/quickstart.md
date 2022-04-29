@@ -11,7 +11,7 @@ This document is for technical architects and developers that need to integrate 
 
 Note, this does not document the standard types and fields the API provides. This information is included in the [Labels API Reference](https://dev.shipperhq.com/labels-service/) documentation or can be obtained via our [API playground](https://graphiql.shipperhq.com/).
 
-As with all our APIs, our Labels API is implemented with GraphQL. If you're unfamiliar with GraphQL, see our [SDK Quickstart](../quickstart.md#graphql).
+As with all our APIs, our Labels API is implemented with GraphQL. If you're unfamiliar with GraphQL, see our [SDK Quickstart](quickstart.md#graphql).
 
 :::caution Early Access Program
 
@@ -22,9 +22,9 @@ Please [contact us](/contact) if interested.
 
 ## Requirements
 * ShipperHQ account with the [Generate Shipping Labels](https://docs.shipperhq.com/generate-shipping-labels/) Advanced Feature enabled
-* An eCommerce platform or custom integration supporting the [`PlaceOrder`](../labels/place-order.md) mutation of the [Labels API](../labels/overview.md), either:
+* An eCommerce platform or custom integration supporting the [`PlaceOrder`](labels/place-order.md) mutation of the [Labels API](labels/overview.md), either:
   * ShipperHQ’s native [Magento 2](https://docs.shipperhq.com/installing-magento-2-shipperhq-extension/), [BigCommerce](https://docs.shipperhq.com/setup-shipperhq-bigcommerce-store/), or [Shopify](https://docs.shipperhq.com/connect-shopify-shipperhq/) app installed on the eCommerce platform
-  * A custom integration implementing both our [Rates API](../rates/overview.md) and the [`PlaceOrder`](../labels/place-order.md) mutation of our [Labels API](../labels/overview.md)
+  * A custom integration implementing both our [Rates API](rates/overview.md) and the [`PlaceOrder`](labels/place-order.md) mutation of our [Labels API](labels/overview.md)
 * An account with at least one of the [carriers supported](#supported-carriers) by the ShipperHQ Labels API connected to your ShipperHQ account
 
 ## Authentication
@@ -43,7 +43,7 @@ Please [contact us](/contact) if interested.
 ### Request Headers
 | Header                      | Description         |
 | ---------------------------|---------------------|
-| `X-ShipperHQ-Secret-Token` | The secret token that you have generated to use the [Rates API](/docs/rates/overview.md) |
+| `X-ShipperHQ-Secret-Token` | The secret token that you have generated to use the [Rates API](rates/overview.md) |
 
 ### Core Elements
 
@@ -51,13 +51,13 @@ There are several elements which are key to accurately creating Labels with Ship
 
 | Parent Element | Element(s)                   | Notes         |
 | ---------------------------| ---------------------------|---------------------|
-| `data` | `orderNumber` | The order number for the shipment as returned by the [Insights API](../insights/overview.md). |
+| `data` | `orderNumber` | The order number for the shipment as returned by the [Insights API](insights/overview.md). |
 | `data` | `carrierCode` | The unique code for the carrier to print a label with.  |
 | `recipient` | `street`<br />`street2`<br />`city`<br />`region`<br />`zipcode`<br />`country` | The recipient (ship-to) address.  |
 | `sender` | `originName` | The unique identifier (name) of the Origin configured in ShipperHQ. |
 | `pieces` | `referenceId` | The unique identifier for the package. |
 | `pieces` | `length`<br />`width`<br />`height`<br />`weight` | Package dimensions and weight are required for most shipments. |
-| `shipmentDetail` | `shipmentId` | The unique identifier for the shipment as returned by the [Insights API](../insights/overview.md). |
+| `shipmentDetail` | `shipmentId` | The unique identifier for the shipment as returned by the [Insights API](insights/overview.md). |
 | `shipmentDetail` | `shippingMethodCode` | The unique code for the shipping method to print a label with. |
 
 ### Ship-to Addresses
@@ -97,7 +97,7 @@ A `carrierId` is a unique identifier for a specific instance of a [carrier](http
 A `methodCode` is a unique identifier for a specific service offered by a carrier. See the [Labels FAQ](faq#what-are-possible-shippingmethodcode-values) for a list of possible method codes.
 
 :::tip Choosing a carrier and method
-While you can use any valid `carrierId` and `methodCode` when requesting a label, not all carriers or methods are available for all shipments. Therefore, it's generally best practice to use the `carrierId` and `methodCode` returned by ShipperHQ. You can use the [Insights API](../insights/overview.md) to retrieve this information.
+While you can use any valid `carrierId` and `methodCode` when requesting a label, not all carriers or methods are available for all shipments. Therefore, it's generally best practice to use the `carrierId` and `methodCode` returned by ShipperHQ. You can use the [Insights API](insights/overview.md) to retrieve this information.
 :::
 
 ### Label Formats, Types, and Stock
@@ -306,7 +306,7 @@ While the [Labels API Reference](https://dev.shipperhq.com/labels-service/) cont
 ## Testing
 To test the Labels API you will need to already have either:
 1. ShipperHQ's native integration installed and enabled on [Magento 2](https://docs.shipperhq.com/installing-magento-2-shipperhq-extension/), [BigCommerce](https://docs.shipperhq.com/setup-shipperhq-bigcommerce-store/), or [Shopify](https://docs.shipperhq.com/connect-shopify-shipperhq/)
-2. A custom integration of the ShipperHQ [Rates API](../rates/overview.md) and the [`PlaceOrder`](../labels/place-order.md) mutation of the [Labels API](../labels/overview.md).
+2. A custom integration of the ShipperHQ [Rates API](rates/overview.md) and the [`PlaceOrder`](labels/place-order.md) mutation of the [Labels API](labels/overview.md).
 
 ### Enable & Retrieve Access Token
 Within the ShipperHQ account you wish to use, enable the Labels Advanced Feature from the Advanced Features section of the dashboard. Then, retrieve the Shipping Insights Access Token from the Website on that account.
@@ -321,60 +321,17 @@ Place an order on your eCommerce or custom platform. Note the Order Number since
 <APIPlayground doc="Labels" />
 
 ## Examples
+Since the Labels API is implemented in GraphQL, you can retrieve as much information as you want or as little as you need. You'll find examples of both simple and more advanced Labels API requests and their associated responses as well as a Postman collection with pre-configured examples on the Examples doc.
 
-### Example Request
-```json title="Example Request"
-query placeOrder {
-  placeOrder( placeOrderInfo: {
-    orderNumber: "1234",      
-     totalCharges: 9.85,                    # totalCharges in Rates API response
-     carrierCode: "shqusps",                # carrierCode in Rates API response   
-     methodCode: "Priority Mail",           # methodCode in Rates API response
-     transId: "SHQ_20220201_1625_5144966"   # transactionID from Rates API response
-  }) {
-     transactionId
-     responseSummary{
-        status
-    }
-    errors {
-      errorCode
-      internalErrorMessage
-      externalErrorMessage
-    }
-  }
-}
-```
-
-### Example Response
-```json title="Example response"
-{
-    “placeOrder: {
-      “transactionId” : “SHQ_20220212_12345678_BAQ_639272”,
-      “responseSummary”: {
-        “status”: 1
-      },
-      “errors”: null
-    }
-}
-```
-
-### Example Error Response
-```json title="Error response"
-{
-    “placeOrder: {
-       “transactionId": “SHQ_20220212_12345678_BAQ_639273”,
-      “responseSummary”: {
-        “status”: 0
-      },
-      “errors”: [
-        {
-          "errorCode": 0,
-          "internalErrorMessage": "Order not found when looking up",
-          "externalErrorMessage": null
-        }
-      ]
-    }
-}
-```
+[See Examples <i class="fa fa-arrow-right"></i>](examples.md)
 
 ## Errors
+Most errors are returned as an `errors` object. These will include a `message` property which will indicate the specific error.
+
+#### No order found
+
+When an order can not be found that matches the `orderNumber` provided an empty `viewOrder` object will be returned.
+
+#### Authentication issues
+
+If the Access Token provided is invalid or the ShipperHQ account it belongs to is disabled, the error message `Access Denied` will be returned.

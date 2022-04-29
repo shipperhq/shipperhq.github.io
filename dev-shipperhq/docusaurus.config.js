@@ -188,6 +188,11 @@ const config = {
               },
               {
                 type: 'doc',
+                docId: 'labels/examples',
+                label: 'Examples'
+              },
+              {
+                type: 'doc',
                 docId: 'labels/faq',
                 label: 'FAQ'
               },
