@@ -12,7 +12,16 @@ Our APIs are primarily intended for developers looking to integrate ShipperHQ wi
 [Supported eCommerce platforms <i class="fa fa-arrow-right"></i>](https://shipperhq.com/marketplace#platforms)
 :::
 
-## Use Cases
+### High-level Workflow
+![High Level ShipperHQ processes and API](./sdk-main-processes-and-api.jpg)
+
+While developers can use each API independently, the goal of the ShipperHQ SDK is to make it easy to integrate with the full ShipperHQ workflow following this sequence:
+  1. [Rates API](rates/overview.md)
+  2. [PlaceOrder Mutation](labels/place-order.md) (not required for most major integrations)
+  3. [Insights API](insights/overview.md)
+  4. [Labels API](labels/overview.md) (in beta)
+
+## Use cases
 
 To illustrate what can be achieved with ShipperHQ SDK, here are some examples of use cases that have been implemented using ShipperHQ's APIs.
 

@@ -11,9 +11,9 @@ Customer Relationship Management platforms can be a key element of maintaining s
 - Developers comfortable with using GraphQL (API standard used by ShipperHQ) and JSON (results are provided with this format)
 - Developers need to understand the CRM into which they will be integrating and have the ability to extend the CRM’s functionality via external API calls to ShipperHQ
 
-## Use Cases
+### Use Cases
 
-### In-CRM Shipping Quotes
+#### Primary use case
 
 >As a sales representative using a CRM to create quotes and sales orders, I want to obtain shipping rates and options via ShipperHQ so that the available shipping options and their cost can be accurately calculated for inclusion in my quote.
 
@@ -25,7 +25,7 @@ When creating an order, make an API call to ShipperHQ's Rates API to retrieve sh
 
 :::
 
-### Advanced: Detailed Shipment Info
+#### Advanced use case
 
 >As a sales representative using a CRM,  I want to consult which shipping method was used for an order based on a quote captured in the CRM
 
@@ -70,11 +70,11 @@ You'll find more guidance on what elements we recommend supporting on the [Rates
 
 ### Set up PlaceOrder from your CRM
 
-In order to leverage the Insight API that contains all the order information, you need to notify ShipperHQ that a quote is now an order. To do this, you need to use the [`PlaceOrder`](insights/place-order.md) mutation. A call to PlaceOrder should be made each time an order is confirmed in your CRM. It can be done immediately or on a scheduled basis.
+In order to leverage the Insight API that contains all the order information, you need to notify ShipperHQ that a quote is now an order. To do this, you need to use the [`PlaceOrder`](labels/place-order.md) mutation. A call to PlaceOrder should be made each time an order is confirmed in your CRM. It can be done immediately or on a scheduled basis.
 
 ### Retrieve the information with the Insights API and display it in your CRM
 
 Once your orders are properly captured in ShipperHQ, you can use the [Insights API](insights/overview.md) to retrieve all the fulfillment information.
 
 ## How can I get support for my integration?
-Developers should use the dedicated [contact form](/contact) on our developer portal to get in touch with our Dev Support team.
+Developers should use the dedicated [contact form](/contact) on our developer portal.
