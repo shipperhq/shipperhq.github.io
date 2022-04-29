@@ -32,11 +32,11 @@ If you're unfamiliar with GraphQL, Please refer to the [Introduction to GraphQL]
 - **Customization:** GraphQL gives users the ability to build their own integration into ShipperHQ to rate shipments, retrieve shipment details, produce labels, and more.
 
 ## API Playground
-The API Playground gives you an easy way to test different ShipperHQ APIs without having to write any code. You'll need the Endpoint URL for the API you're looking to experiment with as well as the authorization credentials for that API. See each API's Quickstart page for the Endpoint URL and required credentials for that API.
+The API Playground gives you an easy way to test different ShipperHQ APIs without having to write any code. You'll need the Endpoint URL for the API you're looking to experiment with as well as the authorization credentials for that API. See each API's Quickstart page for its Endpoint URL and required credentials.
 
 ### Test with the API Playground
-- Navigate to the ShipperHQ GraphQL playground
-- In a new GraphQL playground tab, enter the appropriate Endpoint URL for the API you're looking to use into the URL bar
+- Navigate to the ShipperHQ [API playground](https://graphiql.shipperhq.com)
+- In a new API playground tab, enter the appropriate Endpoint URL for the API you're looking to use into the URL bar
 - Click the Docs button
 - Click the Reload Docs icon
 - Click the Query link to view a list of available queries and the arguments and fields you can include in your request
@@ -45,8 +45,8 @@ The API Playground gives you an easy way to test different ShipperHQ APIs withou
 Each ShipperHQ API is highly flexible and can support a variety of use cases. Due to our implementation of GraphQL, each API call can request only relevant elements be returned. However, for each API, there are certain elements which are important when a ShipperHQ account is using certain functionality. Because of this, if you intend to make your integration of ShipperHQ's APIs available to multiple clients, we require support for certain elements. Meeting these requirements means your integration will support all of the most commonly used ShipperHQ features and functionality.
 
 See specific requirements by API:
-- [Rates API Integration Requirements](rates/quickstart#integration-requirements)
-- [Insights API Integration Requirements](insights/quickstart#integration-requirements)
+- [Rates API Integration Requirements](rates/quickstart.md#integration-requirements)
+- [Insights API Integration Requirements](insights/quickstart.md#integration-requirements)
 
 :::info
 While we have endeavored to provide a complete list of requirements for a baseline integration of ShipperHQ, individual use cases may differ. Therefore, we always recommend contacting [dev support](/contact) prior to building a new integration.
