@@ -51,30 +51,30 @@ It is technically possible to use your live site to get rates because the Rates 
 ### Getting Started
 
 Please take some time to familiarize yourself with the ShipperHQ Rates API:
-- Read the [Rates API Guide](https://dev.shipperhq.com/docs/rates/overview)
+- Read the [Rates API Guide](rates/overview.md)
 - Review the [Rates API Reference](https://dev.shipperhq.com/rates-service)
-- Download and try out our [Rates API Postman collection](https://dev.shipperhq.com/docs/rates/examples#postman-collection)
+- Download and try out our [Rates API Postman collection](rates/examples.md#postman-collection)
 
-We recommend starting with a focus on the simpler [`retrieveShippingQuote`](https://dev.shipperhq.com/docs/rates/examples#retrieveshippingquote) query. Once you have this working, you can decide whether `retrieveShippingQuote` is enough for your needs. If not, please zoom-in and use the more complete (and complex) query: [`retrieveFullShippingQuote`](https://dev.shipperhq.com/docs/rates/examples#example-retrieve-shipping-quote-with-scheduling-option).
+We recommend starting with a focus on the simpler [`retrieveShippingQuote`](rates/examples.md#retrieveshippingquote) query. Once you have this working, you can decide whether `retrieveShippingQuote` is enough for your needs. If not, please zoom-in and use the more complete (and complex) query: [`retrieveFullShippingQuote`](rates/examples.md#example-retrieve-shipping-quote-with-scheduling-option).
 
 :::tip
 Re-use the token produced by our Postman collection to start coding with the language of your choice. This means you can get an understanding of the meat of the Rates API without having to first implement authentication yourself. We recommend that you use the language that will be used to integrate with the CRM so that you have a working prototype uncoupled from the CRM extension framework.
 :::
 
 ### What ShipperHQ functionality should I support?
-Because this is a custom integration, you do not need to support all of ShipperHQ's functionality. However, it is highly recommended that you support all the functionality for your LIVE site. Pay close attention to the [`ItemAttributes`](https://dev.shipperhq.com/docs/rates/quickstart#item-attributes) used in production. If you do not support the same attributes, the rates displayed in the CRM will be different from the rates displayed on the Websites and this can lead to a negative sales experience for the buyers or for extra cost at fulfillment.
+Because this is a custom integration, you do not need to support all of ShipperHQ's functionality. However, it is highly recommended that you support all the functionality for your LIVE site. Pay close attention to the [`ItemAttributes`](rates/quickstart.md#item-attributes) used in production. If you do not support the same attributes, the rates displayed in the CRM will be different from the rates displayed on the Websites and this can lead to a negative sales experience for the buyers or for extra cost at fulfillment.
 
-You'll find more guidance on what elements we recommend supporting on the [Rates API Quickstart Guide](https://dev.shipperhq.com/docs/rates/quickstart#integration-requirements).
+You'll find more guidance on what elements we recommend supporting on the [Rates API Quickstart Guide](rates/quickstart.md#integration-requirements).
 
 ## Advanced Use Cases
 
 ### Set up PlaceOrder from your CRM
 
-In order to leverage the Insight API that contains all the order information, you need to notify ShipperHQ that a quote is now an order. To do this, you need to use the [`PlaceOrder`](https://dev.shipperhq.com/docs/insights/place-order) mutation. A call to PlaceOrder should be made each time an order is confirmed in your CRM. It can be done immediately or on a scheduled basis.
+In order to leverage the Insight API that contains all the order information, you need to notify ShipperHQ that a quote is now an order. To do this, you need to use the [`PlaceOrder`](insights/place-order.md) mutation. A call to PlaceOrder should be made each time an order is confirmed in your CRM. It can be done immediately or on a scheduled basis.
 
 ### Retrieve the information with the Insights API and display it in your CRM
 
-Once your orders are properly captured in ShipperHQ, you can use the [Insights API](https://dev.shipperhq.com/docs/insights/overview) to retrieve all the fulfillment information.
+Once your orders are properly captured in ShipperHQ, you can use the [Insights API](insights/overview.md) to retrieve all the fulfillment information.
 
 ## How can I get support for my integration?
 Developers should use the dedicated [contact form](/contact) on our developer portal to get in touch with our Dev Support team.
