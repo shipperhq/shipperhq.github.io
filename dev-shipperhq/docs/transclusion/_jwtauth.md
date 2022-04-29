@@ -59,7 +59,7 @@ On these platforms, you can generate a new Authentication Code within the Shippe
 
 :::danger Changing Live Authentication Codes
 
-Generating a new Authentication Code invalidates the previous Authentication Codes for that Website.  This should not be done while in production unless absolutely necessary. We recommend creating a new Website for new integrations to avoid impacting existing integrations. [Contact support](/contact) to double-check and avoid any service disruption for existing Websites.
+Generating a new Authentication Code invalidates the previous Authentication Codes for that Website.  This should not be done while in production unless absolutely necessary. We recommend creating a new Website for new integrations to avoid impacting existing integrations. Contact [Dev Support](/contact) to double-check and avoid any service disruption for existing Websites.
 
 :::
   </TabItem>
@@ -69,13 +69,13 @@ Generating a new Authentication Code invalidates the previous Authentication Cod
 
 For these platforms, the Authentication Code is automatically generated and exchanged between the eCommerce platform and ShipperHQ. It is not available within the ShipperHQ dashboard but can be provided by our developer support team.
 
-[Contact support](/contact) and make sure to specify the URL of the Website for which you would like to get the Authentication Code.
+Contact [Dev Support](/contact) and make sure to specify the URL of the Website for which you would like to get the Authentication Code.
   </TabItem>
   <TabItem value="existing">
 
 *Platforms*: All
 
-Please [contact support](/contact) and make sure to specify the URL of the Website for which you would like to get the Authentication Code.
+Please contact [Dev Support](/contact) and make sure to specify the URL of the Website for which you would like to get the Authentication Code.
   </TabItem>
 </Tabs>
 

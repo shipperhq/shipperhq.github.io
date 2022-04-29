@@ -1,48 +1,45 @@
 {
   "OBJECT": {
-    "SecretType": {
+    "TrackingOutput": {
       "documentation": { "undocumented": true }
     },
-    "MyType": {
-      "fields": {
-        "nonRequiredField": {
-          "documentation": { "example": "Metadata example of `nonRequiredField`"}
-        }
-      }
+    "ListingOutput": {
+      "documentation": { "undocumented": true }
     },
     "Query": {
       "fields": {
-        "myQuery": {
-          "args": {
-            "nonReqQueryArg": {
-              "documentation": { "example": "Metadata example of `nonReqQueryArg`" }
-            }
-          }
-        }
+        "retrieveTrackingInfo": {
+          "documentation": { "undocumented": true }
+       },
+       "createListing": {
+        "documentation": { "undocumented": true }
+     }
       }
     }
   },
   "SCALAR": {
     "DateTime": {
       "documentation": { "example": "\"2016-10-07T01:08:03.420Z\"" }
+    },
+    "UNREPRESENTABLE": {
+      "documentation": { "undocumented": true }
     }
   },
   "INPUT_OBJECT": {
-    "FilterType": {
-      "inputFields": {
-        "someField": {
-          "documentation": { "example": true }
-        },
-        "anotherField": {
-          "documentation": { "example": "Metadata example of `anotherField`" }
-        },
-        "lastName": {
-          "documentation": { "example": "Doe" }
-        },
-        "episodeEnums": {
-          "documentation": { "example": ["EMPIRE"] }
-        }
-      }
+    "TrackingInfoInput": {
+      "documentation": { "undocumented": true }
+    },
+    "ListingInput": {
+      "documentation": { "undocumented": true }
+    },
+    "ListingInfoInput": {
+      "documentation": { "undocumented": true }
+    },
+    "ListingDetailInput": {
+      "documentation": { "undocumented": true }
+    },
+    "PieceInput": {
+      "documentation": { "undocumented": true }
     }
   }
 }
