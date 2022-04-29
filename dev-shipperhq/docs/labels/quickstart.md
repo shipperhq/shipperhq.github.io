@@ -138,7 +138,7 @@ Requirements for international shipments are generally more strict than domestic
 
 :::danger Important
 
-Customs declarations are goverened by national and international law and contracts between shippers and carriers may also govern customs declarations. Any individual requesting a label via ShipperHQ for an international shipment accepts responsibility for any customs information provided and ensuring that all required declarations are made in the form required.
+Customs declarations are governed by national and international law and contracts between shippers and carriers may also govern customs declarations. Any individual requesting a label via ShipperHQ for an international shipment accepts responsibility for any customs information provided and ensuring that all required declarations are made in the form required.
 
 :::
 
@@ -206,7 +206,7 @@ The following at a minimum should be included in the requested response fields.
 
 :::danger Important
 
-The use of labels generated via ShipperHQ is goverened by any agreements and/or contracts in place between the shipper and the carrier. A person requesting a label to be generated via ShipperHQ accepts responsibility for ensuring that any labels produced are used in accordance with applicable agreements.
+The use of labels generated via ShipperHQ is governed by any agreements and/or contracts in place between the shipper and the carrier. A person requesting a label to be generated via ShipperHQ accepts responsibility for ensuring that any labels produced are used in accordance with applicable agreements.
 
 :::
 
@@ -258,7 +258,7 @@ The following at a minimum should be included in the requested response fields. 
 
 ### Cancelling Labels
 
-If a label will not be used it may be cancelled. Each carrier has specific limits on the length of time after it is generated that a lable may be cancelled (generally at a minimum several days). The [`cancelLabel`](https://dev.shipperhq.com/labels-service/#operation-cancellabel-Queries) operation supports cancelling labels.
+If a label will not be used it may be cancelled. Each carrier has specific limits on the length of time after it is generated that a label may be cancelled (generally at a minimum several days). The [`cancelLabel`](https://dev.shipperhq.com/labels-service/#operation-cancellabel-Queries) operation supports cancelling labels.
 
 #### Key Cancellation Request Elements
 
