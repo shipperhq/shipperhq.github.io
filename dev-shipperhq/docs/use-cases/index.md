@@ -1,9 +1,8 @@
 ---
 sidebar_position: 1
-title: SDK Use Cases
+title: Overview
+slug: overview
 ---
-
-## Overview
 
 The ShipperHQ SDK provides an end to end solution to help merchants, developers, and partners integrate with ShipperHQ for purposes and in places not currently available through the native ShipperHQ and eCommerce platform experience. This means being able to take advantage of ShipperHQ's advanced shipping functionality wherever it's needed without having to build a fully custom solution.
 
@@ -29,6 +28,8 @@ To illustrate what can be achieved with ShipperHQ SDK, here are some examples of
 ### CRM integration
 
 Give customer service teams full visibility of the delivery option selected by a customer when they place an order. And, give the team shipping rates and options that respect complex business logic configured in ShipperHQ when placing or adjusting orders on behalf of customers. Shipping quotes can be live and accurate instead of estimated plus the sales person can see additional information like expected delivery date (if configured in ShipperHQ).
+
+[CRM Integration Blueprint <i class="fa fa-arrow-right"></i>](use-cases/use-case-crm.md)
 
 :::note Relevant APIs
 
