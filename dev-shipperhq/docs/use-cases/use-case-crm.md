@@ -4,16 +4,16 @@ title: 'Blueprint: CRM'
 slug: blueprint-crm
 ---
 
-## Introduction
+Customer Relationship Management platforms can be a key element of maintaining strong customer relationships and managing your company's data. Integrating ShipperHQ into your CRM can give your customer service teams real-time shipping quotes that are in sync with your eCommerce site or make their job easier by providing them with detailed shipment information for previous orders.
 
 ### Prerequisites
 - An active ShipperHQ account on the ShipperHQ Enterprise plan
-- Developers comfortable with using GraphQL (API standard used by ShipperHQ) and Json (results are provided with this format)
+- Developers comfortable with using GraphQL (API standard used by ShipperHQ) and JSON (results are provided with this format)
 - Developers need to understand the CRM into which they will be integrating and have the ability to extend the CRM’s functionality via external API calls to ShipperHQ
 
-### Use Cases:
+## Use Cases
 
-#### Primary use case:
+### In-CRM Shipping Quotes
 
 >As a sales representative using a CRM to create quotes and sales orders, I want to obtain shipping rates and options via ShipperHQ so that the available shipping options and their cost can be accurately calculated for inclusion in my quote.
 
@@ -25,7 +25,7 @@ When creating an order, make an API call to ShipperHQ's Rates API to retrieve sh
 
 :::
 
-#### Advanced use case:
+### Advanced: Detailed Shipment Info
 
 >As a sales representative using a CRM,  I want to consult which shipping method was used for an order based on a quote captured in the CRM
 
@@ -38,14 +38,14 @@ ShipperHQ can store detailed shipment information about an order including: Orig
 
 :::
 
-## Blueprint for CRM integration
+## CRM Integration Blueprint
 
-**Main use case: getting rates from ShipperHQ**
+**Main use case: Getting rates from ShipperHQ**
 
-These instructions are high-level and quite technical: a good knowledge of APIs, integrations, GraphQL is required to follow this blueprint. It is not a step / step guide to integrate any CRM but provides clear milestones from the most simple integration to the more complex (and complete).
+These instructions are high-level and quite technical: a good knowledge of APIs, integrations, GraphQL is required to follow this blueprint. It is not a step by step guide to integrate any CRM but provides clear milestones from the most simple integration to the more complex (and complete).
 
 :::caution
-It is technically possible to use your live site to get rates because the rate-API is a read-only API. This being said, a preferred solution is to use a scope that is not `LIVE` (e.g. `TEST`, `DEVELOPMENT` or `INTEGRATION`). If you don't use a different scope or ShipperHQ account and instead use the LIVE ShipperHQ account and scope of your production website, be extremely careful when making any changes to your ShipperHQ account so as to not impact live rates.
+It is technically possible to use your live site to get rates because the Rates API is a read-only API. This being said, a preferred solution is to use a scope that is not `LIVE` (e.g. `TEST`, `DEVELOPMENT` or `INTEGRATION`). If you don't use a different scope or ShipperHQ account and instead use the LIVE ShipperHQ account and scope of your production website, be extremely careful when making any changes to your ShipperHQ configuration so as to not impact live rates.
 :::
 
 ### Getting Started
@@ -77,4 +77,4 @@ In order to leverage the Insight API that contains all the order information, yo
 Once your orders are properly captured in ShipperHQ, you can use the [Insights API](https://dev.shipperhq.com/docs/insights/overview) to retrieve all the fulfillment information.
 
 ## How can I get support for my integration?
-Developers should use the dedicated [contact form](https://dev.shipperhq.com/contact) on our developer portal.
+Developers should use the dedicated [contact form](/contact) on our developer portal to get in touch with our Dev Support team.

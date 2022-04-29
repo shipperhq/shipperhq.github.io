@@ -73,6 +73,11 @@ const config = {
                 docId: 'use-cases/use-case-crm',
                 label: 'Blueprint: CRM'
               },
+              {
+                type: 'doc',
+                docId: 'use-cases/use-case-erp',
+                label: 'Blueprint: ERP'
+              },
             ]
           },
           {
