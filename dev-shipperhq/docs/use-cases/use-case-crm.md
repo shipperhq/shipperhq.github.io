@@ -4,11 +4,11 @@ title: 'Blueprint: CRM'
 slug: blueprint-crm
 ---
 
-## Introduction
+Customer Relationship Management platforms can be a key element of maintaining strong customer relationships and managing your company's data. Integrating ShipperHQ into your CRM can give your customer service teams real-time shipping quotes that are in sync with your eCommerce site or make their job easier by providing them with detailed shipment information for previous orders.
 
 ### Prerequisites
 - An active ShipperHQ account on the ShipperHQ Enterprise plan
-- Developers comfortable with using GraphQL (API standard used by ShipperHQ) and Json (results are provided with this format)
+- Developers comfortable with using GraphQL (API standard used by ShipperHQ) and JSON (results are provided with this format)
 - Developers need to understand the CRM into which they will be integrating and have the ability to extend the CRM’s functionality via external API calls to ShipperHQ
 
 ### Use Cases
@@ -38,14 +38,14 @@ ShipperHQ can store detailed shipment information about an order including: Orig
 
 :::
 
-## Blueprint for CRM integration
+## CRM Integration Blueprint
 
-**Main use case: getting rates from ShipperHQ**
+**Main use case: Getting rates from ShipperHQ**
 
-These instructions are high-level and quite technical: a good knowledge of APIs, integrations, GraphQL is required to follow this blueprint. It is not a step / step guide to integrate any CRM but provides clear milestones from the most simple integration to the more complex (and complete).
+These instructions are high-level and quite technical: a good knowledge of APIs, integrations, GraphQL is required to follow this blueprint. It is not a step by step guide to integrate any CRM but provides clear milestones from the most simple integration to the more complex (and complete).
 
 :::caution
-It is technically possible to use your live site to get rates because the rate-API is a read-only API. This being said, a preferred solution is to use a scope that is not `LIVE` (e.g. `TEST`, `DEVELOPMENT` or `INTEGRATION`). If you don't use a different scope or ShipperHQ account and instead use the LIVE ShipperHQ account and scope of your production website, be extremely careful when making any changes to your ShipperHQ account so as to not impact live rates.
+It is technically possible to use your live site to get rates because the Rates API is a read-only API. This being said, a preferred solution is to use a scope that is not `LIVE` (e.g. `TEST`, `DEVELOPMENT` or `INTEGRATION`). If you don't use a different scope or ShipperHQ account and instead use the LIVE ShipperHQ account and scope of your production website, be extremely careful when making any changes to your ShipperHQ configuration so as to not impact live rates.
 :::
 
 ### Getting Started

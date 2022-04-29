@@ -4,8 +4,16 @@ title: Quickstart
 ---
 import APIPlayground from '@site/docs/transclusion/_apiplayground.md' // This is an included file (see below the Error component)
 
-## Introduction
 The goal of the ShipperHQ SDK is to give you the information you need to use the ShipperHQ APIs. Each API has its own overview, usage guide, quickstart guide, FAQ, and API reference. On these, you'll find detailed information related to each specific API. Below you'll find general information that applies to the ShipperHQ Developer Platform as a whole.
+
+## High-level Workflow
+![High Level ShipperHQ processes and API](./sdk-main-processes-and-api.jpg)
+
+While developers can use each API independently, the goal of the ShipperHQ SDK is to make it easy to integrate with the full ShipperHQ workflow following this sequence:
+  1. [Rates API](rates/overview.md)
+  2. [PlaceOrder Mutation](insights/place-order.md) (not required for most major integrations)
+  3. [Insights API](insights/overview.md)
+  4. [Labels API](labels/overview.md) (in beta)
 
 ## ShipperHQ Test Accounts
 
