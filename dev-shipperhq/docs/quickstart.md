@@ -11,7 +11,6 @@ The goal of the ShipperHQ SDK is to give you the information you need to use the
 
 In order to use ShipperHQ, you'll need to have a ShipperHQ account. Some functionality may also require that your account is on a certain ShipperHQ plan. You can create a ShipperHQ account at [ShipperHQ.com](https://shipperhq.com) which will start with a 15-day free trial.
 
-
 ## Developer Support
 
 To support your integration with ShipperHQ, please use our [Dev Support](/contact) contact form. Our dev support team aims to help you integrate with ShipperHQ as fast as possible with minimal hiccups. Keep in mind that we are ShipperHQ experts, not necessarily experts into your own area of expertise: please share context with us including what you want to achieve and why.

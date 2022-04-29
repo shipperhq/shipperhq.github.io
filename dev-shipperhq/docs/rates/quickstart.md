@@ -52,6 +52,43 @@ The ShipperHQ Rates API includes the following three queries.
 |`retrieveShippingQuote`     |	Retrieve basic shipping rates including carrier and method titles and total shipping charges. |
 |`retrieveFullShippingQuote`	| Retrieve detailed shipping rate information for each shipment, including origin or warehouse information, carrier and method information, freight options available, available dates, in-store pickup information, and more.|
 
+### Ship-To Address
+
+The address to which the order will be shipped is defined in the [`destinationInput`](https://dev.shipperhq.com/rates-service/#definition-DestinationInput) type. While `destinationInput` should always be included, the specific fields required depend on several factors. A limited set of fields (e.g. `region`, `zipcode`, `country`) can be used in cases where a low-accuracy shipping estimate is required (e.g. on shopping cart or product pages).
+
+| Option Name | Data Type  | 	Description |
+| -------------- | ------------ | ------------ |
+| `selectedOptions` | Name/Value | Optional. Name/value pair used to set specific attributes of the destination. [See below](#selected-options) for available options. |
+| `street` |String | Optional but recommended for accuracy particularly in a checkout scenario. Can be excluded when requesting an informational estimate (e.g. cart or product pages). |
+| `street2` | String | Optional but recommended for accuracy particularly in a checkout scenario if provided by the end user. |
+| `city` | String | Optional for most scenarios. Required for certain carriers including [DHL Express](https://docs.shipperhq.com/dhl-carrier-setup/) and most [LTL Freight](https://docs.shipperhq.com/ltl-freight-carrier-configuration/) carriers (e.g. [YRC Freight](https://docs.shipperhq.com/set-yrc-freight-credentials/), [FedEx Freight](https://docs.shipperhq.com/fedex-freight-carrier-setup/)). |
+| `region` | String | Optional but recommended for certain countries (e.g. US, Canada, Australia, etc.). Required by certain carriers to return live rates. Expected values vary by country but most are standard 2-character region codes. |
+| `zipcode` | String | Optional but recommended for many countries (e.g. US, Canada, Australia, UK, etc.). Required by most carriers to return live rates for these countries. |
+| `country` | String | Required for nearly all scenarios. Expected value is an ISO alpha-2 country code. |
+
+#### Selected Options
+Possible values of the `selectedOptions` field are:
+
+| Option Name | Data Type  | 	Description |
+| -------------- | ------------ | ------------ |
+| `destination_type` | Enum | The type of address given. Values can be `residential` or `commercial`. Address type may be set explicitly here or can be determined automatically by ShipperHQ's [Address Validation](https://docs.shipperhq.com/address-validation/#Dynamic_Address_Type_Lookup) functionality. |
+
+#### `destination` Example
+
+```json
+"destination": {
+    "street": "4801 Southwest Pkwy",
+    "street2": "Bldg 2, Ste 240",
+    "city": "Austin",
+    "region": "TX",
+    "zipcode": "78738",
+    "country": "US",
+    "selectedOptions": [ {
+        "name" : "destination_type",
+        "value" : "commercial"
+      } ]
+}
+```
 
 ### Item Attributes
 Item attributes in the request allow you to include item-specific values like a shipping group or an origin. They may be required if you are using any type of features such as [Shipping Groups](https://docs.shipperhq.com/shipping-group-configuration/), [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/), [Multi-Origin](https://docs.shipperhq.com/setup-multiorigin-dropshipping/), etc.
@@ -64,13 +101,21 @@ All item attribute values are case sensitive and must match the corresponding it
 For example, if the name of an Origin in ShipperHQ is "New York", none of "NEW YORK", "new york", or "NewYork" would match.
 
 :::
-| Attribute Name | 	Description |
-| -------------- | ------------ |
-|`shipperhq_shipping_group` | 	Assigns an item to one or more [Shipping Groups](https://docs.shipperhq.com/shipping-group-configuration/). |
-|`shipperhq_warehouse`|	Used with ShipperHQ's [Multi-Origin](https://docs.shipperhq.com/setup-multiorigin-dropshipping/) functionality to specify the [Origin](https://docs.shipperhq.com/origin-configuration/) or Origins which can fulfill the item. |
-|`shipperhq_dim_group` |	Assigns an item to a [Packing Rule](https://docs.shipperhq.com/dimensional-rules-setup/) used in [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/). Only required when Dimensional Rules are used to pack specific items differently than general packing rules. |
-|`ship_length`, `ship_width`, `ship_height`|	Used with [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/) to specify the product's dimensions for packing. If used, all 3 fields are required. |
-|`ship_separately`|	Used with [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/) to identify items which are [packed separately](https://docs.shipperhq.com/pack-separately/) to other items. |
+| Attribute Name | Data Type  | 	Description |
+| -------------- | ------------ | ------------ |
+| `shipperhq_shipping_group` | String | Assigns an item to one or more [Shipping Groups](https://docs.shipperhq.com/shipping-group-configuration/). |
+| `shipperhq_warehouse` |	String |	Used with ShipperHQ's [Multi-Origin](https://docs.shipperhq.com/setup-multiorigin-dropshipping/) functionality to specify the [Origin](https://docs.shipperhq.com/origin-configuration/) or Origins which can fulfill the item. |
+| `shipperhq_dim_group` |	String |	Assigns an item to a [Packing Rule](https://docs.shipperhq.com/dimensional-rules-setup/) used in [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/). Only required when Dimensional Rules are used to pack specific items differently than general packing rules. |
+| `ship_length` <br /> `ship_width` <br /> `ship_height` |	Float |	Used with [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/) to specify the product's dimensions for packing. If used, all 3 fields are required. |
+| `freight_class` |	Float | Sets the [freight class](https://docs.shipperhq.com/ltl-freight-carrier-configuration/#Freight_Classes) of the item. Freight classes can also be [set on Shipping Groups](https://docs.shipperhq.com/define-freight-class-using-shipping-groups/) if this attribute is not used. |
+| `shipperhq_hs_code` | String | Used with ShipperHQ's [Landed Cost Engine](https://docs.shipperhq.com/landed-cost-engine-configuration/) functionality and shipping providers which return cross-border duties & taxes to set the HS Code of the item. |
+| `shipperhq_location` | String | Used with ShipperHQ's [In-Store Pickup](https://docs.shipperhq.com/store-pick-up-configuration/) functionality to specific the [Location](https://docs.shipperhq.com/store-pick-up-configuration/#Set_Up_Pickup_Locations) or Locations where the item is available for pickup. Not necessary if all items are available from all locations. |
+| `ship_separately` |	Boolean |	Used with [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/) to identify items which are [packed separately](https://docs.shipperhq.com/pack-separately/) to other items. |
+| `shipperhq_master_boxes` | String | Used with [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/) to assign products to [Master Packing Boxes](https://docs.shipperhq.com/using-master-packing-boxes/). |
+| `shipperhq_availability_date`| Date | Used with ShipperHQ's [Date & Time](https://docs.shipperhq.com/delivery-datecalendar-configuration/) functionality to tell ShipperHQ the date on which this product [will be available](https://docs.shipperhq.com/next-available-date-products-magento/) (e.g. backorder, preorder). |
+| `shipperhq_declared_value` |	Float | Sets the [declared value](https://docs.shipperhq.com/set-declared-value/) of the item for use in insurance or duties & tax calculation. |
+| `must_ship_freight` |	Boolean | Tells ShipperHQ this item [must ship](https://docs.shipperhq.com/set-items-must-ship-freight/) via a freight carrier. |
+| `shipperhq_poss_boxes` | String | Used with ShipperHQ's [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/) functionality to [set the boxes](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/#Packing_Boxes) which this item may pack into. Not necessary if using [Dimensional Rules](https://docs.shipperhq.com/dimensional-rules-setup/) to set item box assigments. |
 
 :::tip Delimiting multiple values
 A delimiter is required between multiple values for item attributes. The default delimiter is a comma (`,`) followed by an optional space (`, `). A hash sign (`#`) is also accepted but requires that the `appVersion` in the `siteDetails` of your request is set to `2.0.0`.
@@ -80,28 +125,28 @@ A delimiter is required between multiple values for item attributes. The default
 #### Attributes Example
 
 ```json title=
-    "attributes" : [ {
-        "name" : "shipperhq_shipping_group",
-        "value" : "FLAT59,FREE"
-      }, {
-        "name" : "ship_width",
-        "value" : "2.0000"
-      }, {
-        "name" : "ship_length",
-        "value" : "2.0000"
-      }, {
-        "name" : "ship_height",
-        "value" : "36.0000"
-      }, {
-        "name" : "shipperhq_dim_group",
-        "value" : "RULE1,RULE2"
-      }, {
-        "name" : "shipperhq_hs_code",
-        "value" : "123456"
-      }, {
-        "name" : "shipperhq_warehouse",
-        "value" : "ORIGIN1,ORIGIN2"
-      } ],
+"attributes" : [ {
+    "name" : "shipperhq_shipping_group",
+    "value" : "FLAT59,FREE"
+  }, {
+    "name" : "ship_width",
+    "value" : "2.0000"
+  }, {
+    "name" : "ship_length",
+    "value" : "2.0000"
+  }, {
+    "name" : "ship_height",
+    "value" : "36.0000"
+  }, {
+    "name" : "shipperhq_dim_group",
+    "value" : "RULE1,RULE2"
+  }, {
+    "name" : "shipperhq_hs_code",
+    "value" : "123456"
+  }, {
+    "name" : "shipperhq_warehouse",
+    "value" : "ORIGIN1,ORIGIN2"
+  } ],
 ```
 
 ### Requested Options
@@ -110,18 +155,13 @@ Requested Options allow you to indicate specific services or properties for the 
 
 These attributes and their values are sent in a set of name/value pairs in the `requestedOptions` field on a Rates API request. The most common attributes are listed below.
 
-| Requested Options  | 	Data Type| 	Description |
+| Requested Options  | 	Data Type | 	Description |
 |--------------------|-----------|--------------|
 |`liftgate_required` |	Boolean	 | This specifies liftgate is required at the destination.  |
 |`notify_required`  |	Boolean	   | This requests an appointment delivery or notice of delivery. |
 | `inside_delivery` |	Boolean	   | This requests delivery inside the destination. |
 |`limited_delivery` |	Boolean    | 	This specifies limited access at the destination address. |
 |`destination_type` |	Enum |	Specifies if a destination is a residential (`residential`) or business (`commercial`) address. |
-
-:::info Values are case sensitive
-All Requested Option attribute values are case sensitive.
-
-:::
 
 #### Available Options Example
 

@@ -79,7 +79,7 @@ introspection:
   #
 
   # File that contains your metadata data in JS module export, or JSON format
-  # metadataFile: spectaql-data/label-service-metadata.json
+  metadataFile: spectaql-data/label-service-metadata.json
 
   # The path to a key from which to read the documentation-related metadata at each level of your metadata file.
   # Defaults to 'documentation', but in case you use a different name, or have a complex/nested metadata structure, you can
