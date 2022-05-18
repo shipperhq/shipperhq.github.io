@@ -29,7 +29,7 @@ const FeatureList = [
     title: 'Labels',
     subtitle: 'Purchase and print shipping labels',
     docsLink: "/docs/labels/overview",
-    Png: require('../../static/img/label-feature-comingsoon.png').default,
+    Png: require('../../static/img/label-feature-portal.png').default,
     description: (
       <>
         Coming soon! Please <Link to="/contact">contact us</Link> if you want to print Shipping Labels in your application! (Labels API available in beta).
