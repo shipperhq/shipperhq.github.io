@@ -64,19 +64,16 @@ const config = {
             label: 'Use Cases',
             items: [
               {
-                type: 'doc',
-                docId: 'use-cases/index',
                 label: 'Use Cases',
+                to: 'docs/use-cases/overview'
               },
               {
-                type: 'doc',
-                docId: 'use-cases/use-case-crm',
-                label: 'Blueprint: CRM'
+                label: 'Blueprint: CRM',
+                to: 'docs/use-cases/blueprint-crm'
               },
               {
-                type: 'doc',
-                docId: 'use-cases/use-case-erp',
-                label: 'Blueprint: ERP'
+                label: 'Blueprint: ERP',
+                to: 'docs/use-cases/blueprint-erp'
               },
             ]
           },
@@ -96,29 +93,24 @@ const config = {
             label: 'Rates',
             items: [
               {
-                type: 'doc',
-                docId: 'rates/overview',
-                label: 'Overview'
+                label: 'Overview',
+                to: 'docs/rates/overview'
               },
               {
-                type: 'doc',
-                docId: 'rates/how-rates-work',
-                label: 'How Rates Work'
+                label: 'How Rates Work',
+                to: 'docs/rates/how-rates-work'
               },
               {
-                type: 'doc',
-                docId: 'rates/quickstart',
-                label: 'Quickstart'
+                label: 'Quickstart',
+                to: 'docs/rates/quickstart'
               },
               {
-                type: 'doc',
-                docId: 'rates/examples',
-                label: 'Examples'
+                label: 'Examples',
+                to: 'docs/rates/examples'
               },
               {
-                type: 'doc',
-                docId: 'rates/faq',
-                label: 'FAQ'
+                label: 'FAQ',
+                to: 'docs/rates/faq'
               },
               {
                 to: 'rates-service',
@@ -134,29 +126,24 @@ const config = {
             label: 'Insights',
             items: [
               {
-                type: 'doc',
-                docId: 'insights/overview',
-                label: 'Overview'
+                label: 'Overview',
+                to: 'docs/insights/overview'
               },
               {
-                type: 'doc',
-                docId: 'insights/how-insights-work',
-                label: 'How Insights Work'
+                label: 'How Insights Work',
+                to: 'docs/insights/how-insights-work'
               },
               {
-                type: 'doc',
-                docId: 'insights/quickstart',
-                label: 'Quickstart'
+                label: 'Quickstart',
+                to: 'docs/insights/quickstart'
               },
               {
-                type: 'doc',
-                docId: 'insights/examples',
-                label: 'Examples'
+                label: 'Examples',
+                to: 'docs/insights/examples'
               },
               {
-                type: 'doc',
-                docId: 'insights/faq',
-                label: 'FAQ'
+                label: 'FAQ',
+                to: 'docs/insights/faq'
               },
               {
                 to: 'insights-service',
@@ -172,34 +159,28 @@ const config = {
             label: 'Labels',
             items: [
               {
-                type: 'doc',
-                docId: 'labels/overview',
-                label: 'Overview'
+                label: 'Overview',
+                to: 'docs/labels/overview'
               },
               {
-                type: 'doc',
-                docId: 'labels/how-labels-work',
-                label: 'How Labels Work'
+                label: 'How Labels Work',
+                to: 'docs/labels/how-labels-work'
               },
               {
-                type: 'doc',
-                docId: 'labels/quickstart',
-                label: 'Quickstart'
+                label: 'Quickstart',
+                to: 'docs/labels/quickstart'
               },
               {
-                type: 'doc',
-                docId: 'labels/place-order',
-                label: 'Place Order'
+                label: 'Place Order',
+                to: 'docs/labels/place-order'
               },
               {
-                type: 'doc',
-                docId: 'labels/examples',
-                label: 'Examples'
+                label: 'Examples',
+                to: 'docs/labels/examples'
               },
               {
-                type: 'doc',
-                docId: 'labels/faq',
-                label: 'FAQ'
+                label: 'FAQ',
+                to: 'docs/labels/faq'
               },
               {
                 to: 'labels-service',
