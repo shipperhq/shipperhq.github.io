@@ -49,7 +49,7 @@ const config = {
     [
       require.resolve('docusaurus-gtm-plugin'),
       {
-        id: 'G-373VYQPXLP', // GTM Container ID
+        id: 'GTM-K2FR378', // GTM Container ID
       }
     ]
   ],
