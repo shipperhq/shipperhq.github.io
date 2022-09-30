@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2a761a50-121a-490d-a138-ea39e1a4b84e",
+		"_postman_id": "600ccd23-1b7f-4ddc-b40c-ce36a18a1549",
 		"name": "ShipperHQ Rates API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				"method": "POST",
 				"header": [
 					{
-						"key": "X-ShipperHQ-Access-Token",
+						"key": "X-ShipperHQ-Secret-Token",
 						"value": "{{secretToken}}",
 						"type": "text"
 					},
@@ -43,7 +43,7 @@
 				"method": "POST",
 				"header": [
 					{
-						"key": "X-ShipperHQ-Access-Token",
+						"key": "X-ShipperHQ-Secret-Token",
 						"value": "{{secretToken}}",
 						"type": "text"
 					},
@@ -56,7 +56,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "query retrieveShippingQuote {\n   retrieveFullShippingQuote(ratingInfo: {\n    cart: {\n      items: [\n        {\n          itemId: \"12\"\n          sku: \"tables\"\n          storePrice: 12.00\n          weight: 1.00\n          qty:1\n          type: SIMPLE\n          attributes:[\n              {\n                name:\"shipperhq_shipping_group\",\n                value:\"bulky\"\n              }\n            ],\n        }\n      ]\n    },\n    destination: {\n      country: \"US\"\n      region: \"TX\"\n      city: \"Austin\"\n      zipcode: \"78735\"\n\n    },\n      siteDetails: {\n          appVersion: \"1.0.0\",\n          ecommerceCart: \"Your Integrated Platform\",\n          ecommerceVersion: \"1.0.0\",\n          websiteUrl: \"www.yoursite.com\",\n          ipAddress: \"0.0.0.0\"\n      }\n  }) {\n    transactionId\n    carriers {\n      carrierCode\n      carrierTitle\n      carrierType\n      error {\n        errorCode\n        internalErrorMessage\n        externalErrorMessage\n        priority\n      }\n      shippingRates {\n        code\n        title\n        totalCharges\n      }\n    }\n    errors {\n      errorCode\n      internalErrorMessage\n      externalErrorMessage\n      priority\n    }\n  }\n}",
+						"query": "query retrieveShippingQuote {\n   retrieveFullShippingQuote(ratingInfo: {\n    cart: {\n      items: [\n        {\n          itemId: \"12\"\n          sku: \"tables\"\n          storePrice: 12.00\n          weight: 1.00\n          qty:1\n          type: SIMPLE\n          attributes:[\n              {\n                name:\"shipperhq_shipping_group\",\n                value:\"bulky\"\n              }\n            ],\n        }\n      ]\n    },\n    destination: {\n      country: \"US\"\n      region: \"TX\"\n      city: \"Austin\"\n      zipcode: \"78735\"\n\n    },\n      siteDetails: {\n          appVersion: \"1.0.0\",\n          ecommerceCart: \"Your Integrated Platform\",\n          ecommerceVersion: \"1.0.0\",\n          websiteUrl: \"www.yoursite.com\",\n          ipAddress: \"0.0.0.0\"\n      }\n  }) {\n    validationStatus\n    transactionId\n    errors {\n      errorCode\n      externalErrorMessage\n      internalErrorMessage\n    }\n    shipments {\n      shipmentDetail {\n        name\n        shipmentId\n      }\n      groupedItems {\n        itemId\n      }\n      carriers {\n        carrierDetail {\n          carrierCode\n          carrierTitle\n          carrierType\n          carrierEstimatedDeliveryDate\n        }\n        methods {\n          methodDetails {\n            methodCode\n            methodTitle\n            totalCharges\n          }\n          advancedFees {\n            shippingPrice\n            handlingFee\n            totalCharges\n          }\n          timeInTransitOptions {\n            deliveryDate\n            dispatchDate\n          }\n          rateBreakdownList {\n            shipmentDetail {\n              shipmentId\n            }\n            carrierDetail {\n              carrierCode\n            }\n            methodCode\n          }\n        }\n        packages {\n          packageDetail {\n            packageName\n            width\n            length\n            height\n            weight\n            declaredValue\n            surchargePrice\n            packingWeight\n          }\n          items {\n            sku\n            qtyPacked\n            weightPacked\n          }\n        }\n        error {\n          errorCode\n          externalErrorMessage\n          internalErrorMessage\n        }\n      }\n    }\n  }\n}",
 						"variables": ""
 					}
 				},
@@ -75,7 +75,7 @@
 				"method": "POST",
 				"header": [
 					{
-						"key": "X-ShipperHQ-Access-Token",
+						"key": "X-ShipperHQ-Secret-Token",
 						"value": "{{secretToken}}",
 						"type": "text"
 					},
@@ -107,7 +107,7 @@
 				"method": "POST",
 				"header": [
 					{
-						"key": "X-ShipperHQ-Access-Token",
+						"key": "X-ShipperHQ-Secret-Token",
 						"value": "{{secretToken}}",
 						"type": "text"
 					},
@@ -120,7 +120,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "query RetrieveFullShippingQuote($ratingInfo: RatingInfoInput!) {\n  retrieveFullShippingQuote(ratingInfo: $ratingInfo) {\n    transactionId\n    validationStatus\n    shipments {\n      shipmentDetail {\n        name\n        shipmentId\n      }\n      carriers {\n        carrierDetail {\n          carrierCode\n          carrierTitle\n          carrierType\n        }\n        methods {\n          methodDetails {\n            methodCode\n            methodTitle\n            totalCharges\n          }\n        }\n        availableOptions {\n          destinationType\n          insideDelivery\n          liftGateRequired\n          limitedDelivery\n          notifyRequired\n        }\n        error {\n          errorCode\n          internalErrorMessage\n          externalErrorMessage\n          priority\n        }\n      }\n    }\n    errors {\n      errorCode\n      internalErrorMessage\n      externalErrorMessage\n      priority\n    }\n  }\n}",
+						"query": "query retrieveShippingQuote {\n   retrieveFullShippingQuote(ratingInfo: {\n    cart: {\n      items: [\n        {\n          itemId: \"12\"\n          sku: \"tables\"\n          storePrice: 12.00\n          weight: 500.00\n          qty:1\n          type: SIMPLE\n          attributes:[],\n        }\n      ]\n    },\n    destination: {\n      country: \"US\"\n      region: \"TX\"\n      city: \"Austin\"\n      zipcode: \"78735\"\n\n    },\n      siteDetails: {\n          appVersion: \"1.0.0\",\n          ecommerceCart: \"Your Integrated Platform\",\n          ecommerceVersion: \"1.0.0\",\n          websiteUrl: \"www.yoursite.com\",\n          ipAddress: \"0.0.0.0\"\n      }\n  }) {\n    transactionId\n    validationStatus\n    shipments {\n      shipmentDetail {\n        name\n        shipmentId\n      }\n      carriers {\n        carrierDetail {\n          carrierCode\n          carrierTitle\n          carrierType\n        }\n        methods {\n          methodDetails {\n            methodCode\n            methodTitle\n            totalCharges\n          }\n        }\n        availableOptions {\n          destinationType\n          insideDelivery\n          liftGateRequired\n          limitedDelivery\n          notifyRequired\n        }\n        error {\n          errorCode\n          internalErrorMessage\n          externalErrorMessage\n          priority\n        }\n      }\n    }\n    errors {\n      errorCode\n      internalErrorMessage\n      externalErrorMessage\n      priority\n    }\n  }\n}",
 						"variables": ""
 					}
 				},
@@ -139,7 +139,7 @@
 				"method": "POST",
 				"header": [
 					{
-						"key": "X-ShipperHQ-Access-Token",
+						"key": "X-ShipperHQ-Secret-Token",
 						"value": "{{secretToken}}",
 						"type": "text"
 					},
@@ -152,7 +152,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "query RetrieveFullShippingQuote($ratingInfo: RatingInfoInput!) {\n  retrieveFullShippingQuote(ratingInfo: $ratingInfo) {\n    transactionId\n    validationStatus\n    shipments {\n      shipmentDetail {\n        name\n        shipmentId\n      }\n      carriers {\n        carrierDetail {\n          carrierCode\n          carrierTitle\n          carrierType\n        }\n        methods {\n          methodDetails {\n            methodCode\n            methodTitle\n            totalCharges\n          }\n          rateBreakdownList {\n            methodCode\n            carrierDetail {\n              carrierCode\n              carrierTitle\n            }\n            methodDetails {\n              totalCharges\n              methodTitle\n              methodCode\n            }\n            packages {\n              items {\n                qtyPacked\n                sku\n                weightPacked\n              }\n              packageDetail {\n                packageName\n                width\n                height\n                length\n                weight\n                declaredValue\n              }\n            }\n          }\n        }\n        packages {\n          items {\n            qtyPacked\n            sku\n            weightPacked\n          }\n          packageDetail {\n            packageName\n            width\n            height\n            length\n            weight\n            declaredValue\n          }\n        }\n        availableOptions {\n          destinationType\n          insideDelivery\n          liftGateRequired\n          limitedDelivery\n          notifyRequired\n        }\n        error {\n          errorCode\n          internalErrorMessage\n          externalErrorMessage\n          priority\n        }\n      }\n    }\n    errors {\n      errorCode\n      internalErrorMessage\n      externalErrorMessage\n      priority\n    }\n  }\n}",
+						"query": "query retrieveShippingQuote {\n   retrieveFullShippingQuote(ratingInfo: {\n    cart: {\n      items: [\n        {\n          itemId: \"12\"\n          sku: \"tables\"\n          storePrice: 12.00\n          weight: 1.00\n          qty:1\n          type: SIMPLE\n          attributes:[\n              {\n                name:\"shipperhq_warehouse\",\n                value:\"Origin1,Origin2,Origin3\"\n              }\n            ],\n        },\n                {\n          itemId: \"12\"\n          sku: \"tables\"\n          storePrice: 12.00\n          weight: 1.00\n          qty:1\n          type: SIMPLE\n          attributes:[\n              {\n                name:\"shipperhq_warehouse\",\n                value:\"Origin1\"\n              }\n            ],\n        }\n      ]\n    },\n    destination: {\n      country: \"US\"\n      region: \"TX\"\n      city: \"Austin\"\n      zipcode: \"78735\"\n\n    },\n      siteDetails: {\n          appVersion: \"1.0.0\",\n          ecommerceCart: \"Your Integrated Platform\",\n          ecommerceVersion: \"1.0.0\",\n          websiteUrl: \"www.yoursite.com\",\n          ipAddress: \"0.0.0.0\"\n      }\n  }) {\n    transactionId\n    validationStatus\n    shipments {\n      shipmentDetail {\n        name\n        shipmentId\n      }\n      carriers {\n        carrierDetail {\n          carrierCode\n          carrierTitle\n          carrierType\n        }\n        methods {\n          methodDetails {\n            methodCode\n            methodTitle\n            totalCharges\n          }\n          rateBreakdownList {\n            methodCode\n            carrierDetail {\n              carrierCode\n              carrierTitle\n            }\n            methodDetails {\n              totalCharges\n              methodTitle\n              methodCode\n            }\n            packages {\n              items {\n                qtyPacked\n                sku\n                weightPacked\n              }\n              packageDetail {\n                packageName\n                width\n                height\n                length\n                weight\n                declaredValue\n              }\n            }\n          }\n        }\n        packages {\n          items {\n            qtyPacked\n            sku\n            weightPacked\n          }\n          packageDetail {\n            packageName\n            width\n            height\n            length\n            weight\n            declaredValue\n          }\n        }\n        availableOptions {\n          destinationType\n          insideDelivery\n          liftGateRequired\n          limitedDelivery\n          notifyRequired\n        }\n        error {\n          errorCode\n          internalErrorMessage\n          externalErrorMessage\n          priority\n        }\n      }\n    }\n    errors {\n      errorCode\n      internalErrorMessage\n      externalErrorMessage\n      priority\n    }\n  }\n}",
 						"variables": ""
 					}
 				},
