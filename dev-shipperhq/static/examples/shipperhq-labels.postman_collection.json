@@ -11,7 +11,7 @@
 				"method": "POST",
 				"header": [
 					{
-						"key": "X-ShipperHQ-Access-Token",
+						"key": "X-ShipperHQ-Secret-Token",
 						"value": "{{secretToken}}",
 						"type": "text"
 					},
@@ -43,7 +43,7 @@
 				"method": "POST",
 				"header": [
 					{
-						"key": "X-ShipperHQ-Access-Token",
+						"key": "X-ShipperHQ-Secret-Token",
 						"value": "{{secretToken}}",
 						"type": "text"
 					},
@@ -75,7 +75,7 @@
 				"method": "POST",
 				"header": [
 					{
-						"key": "X-ShipperHQ-Access-Token",
+						"key": "X-ShipperHQ-Secret-Token",
 						"value": "{{secretToken}}",
 						"type": "text"
 					},
