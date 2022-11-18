@@ -119,7 +119,7 @@ For example, if the name of an Origin in ShipperHQ is "New York", none of "NEW Y
 | `shipperhq_poss_boxes` | String | Used with ShipperHQ's [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/) functionality to [set the boxes](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/#Packing_Boxes) which this item may pack into. Not necessary if using [Dimensional Rules](https://docs.shipperhq.com/dimensional-rules-setup/) to set item box assigments. |
 
 :::tip Delimiting multiple values
-A delimiter is required between multiple values for item attributes. The default delimiter is a comma (`,`) followed by an optional space (`, `). A hash sign (`#`) is also accepted but requires that the `appVersion` in the `siteDetails` of your request is set to `2.0.0`.
+A delimiter is required between multiple values for item attributes. The default delimiter is a comma (`,`) followed by an optional space (`, `). 
 
 :::
 
