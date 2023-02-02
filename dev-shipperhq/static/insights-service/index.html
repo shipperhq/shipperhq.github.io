@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ShipperHQ Insights API Reference Documentation</title>
+    <title>ShipperHQ Insights API Reference</title>
     <link rel="stylesheet" href="stylesheets/spectaql.min.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap" rel="stylesheet">
@@ -30,6 +30,7 @@
           <a href="#definition-CalendarDate"> CalendarDate </a>
           <a href="#definition-Carrier"> Carrier </a>
           <a href="#definition-CarrierDetail"> CarrierDetail </a>
+          <a href="#definition-DateTime"> DateTime </a>
           <a href="#definition-DeliveryDateRange"> DeliveryDateRange </a>
           <a href="#definition-Float"> Float </a>
           <a href="#definition-GroupedItem"> GroupedItem </a>
@@ -60,26 +61,23 @@
         </button>
         <div class="example-box doc-content"></div>
         <article id="content">
-          <h1 class="doc-title">ShipperHQ Insights API Reference Documentation</h1>
+          <h1 class="doc-title">ShipperHQ Insights API Reference</h1>
           <div id="introduction" data-traverse-target="introduction">
             <div class="doc-row">
               <div class="doc-copy">
-                <p>ShipperHQ Insights API Reference</p>
+                <p>ShipperHQ Insights API Reference Documentation</p>
               </div>
               <div class="doc-examples">
                 <section>
                   <h5>Contact</h5>
                   <p> ShipperHQ Dev Support
-                    <br/>
-                    <a href="https://dev.shipperhq.com/contact">Contact us</a>
-                  </p>
+                    <br/> </p>
                   <p>Terms of Service:
                     <a href="https://shipperhq.com/useragreement">https://shipperhq.com/useragreement</a>
                   </p>
-                  <h5>API Endpoints</h5>
-                  <pre>
-                    <code>Production Server: https://ovs.shipperhq.com/
-                  </code></pre> </section>
+                  <h5>API Endpoints</h5> <pre><code>Production Server:
+http://localhost:4060
+</code></pre> </section>
               </div>
             </div>
             <div id="intro-item-1" data-traverse-target="intro-item-1">
@@ -133,7 +131,6 @@
                   <head></head>
                   <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> viewOrder<span class="hljs-tag">(<span class="hljs-code">$orderNumber</span>:<span class="hljs-type"> String!</span>)</span> <span class="hljs-tag">{
   <span class="hljs-symbol">viewOrder<span class="hljs-tag">(orderNumber: <span class="hljs-code">$orderNumber</span>)</span> <span class="hljs-tag">{
-    <span class="hljs-symbol">createdAt</span>
     <span class="hljs-symbol">orderNumber</span>
     <span class="hljs-symbol">apiKey</span>
     <span class="hljs-symbol">orderNumberText</span>
@@ -147,6 +144,7 @@
     <span class="hljs-symbol">recipient <span class="hljs-tag">{
       <span class="hljs-type">...AddressFragment</span>
     }</span></span>
+    <span class="hljs-symbol">createdAt</span>
   }</span></span>
 }</span></span>
 </code></pre> </body>
@@ -171,14 +169,14 @@
   <span class="hljs-attr">"data"</span>: {
     <span class="hljs-attr">"viewOrder"</span>: [
       {
-        <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"abc123"</span>,
-        <span class="hljs-attr">"orderNumber"</span>: <span class="hljs-string">"xyz789"</span>,
+        <span class="hljs-attr">"orderNumber"</span>: <span class="hljs-string">"abc123"</span>,
         <span class="hljs-attr">"apiKey"</span>: <span class="hljs-string">"xyz789"</span>,
-        <span class="hljs-attr">"orderNumberText"</span>: <span class="hljs-string">"xyz789"</span>,
+        <span class="hljs-attr">"orderNumberText"</span>: <span class="hljs-string">"abc123"</span>,
         <span class="hljs-attr">"isActive"</span>: <span class="hljs-literal">true</span>,
         <span class="hljs-attr">"orderDetail"</span>: <span class="hljs-string">OrderDetail</span>,
         <span class="hljs-attr">"shipments"</span>: [<span class="hljs-string">Shipment</span>],
-        <span class="hljs-attr">"recipient"</span>: <span class="hljs-string">Address</span>
+        <span class="hljs-attr">"recipient"</span>: <span class="hljs-string">Address</span>,
+        <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>
       }
     ]
   }
@@ -283,16 +281,16 @@
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"country"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"region"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"city"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"region"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"city"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"street"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"street2"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"zipcode"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"zipcode"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"email"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"email"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"company"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"telephone"</span>: <span class="hljs-string">"xyz789"</span>
+  <span class="hljs-attr">"telephone"</span>: <span class="hljs-string">"abc123"</span>
 }
 </code></pre> </body>
                   </html>
@@ -351,13 +349,13 @@
                     </tr>
                     <tr>
                       <td data-property-name="flatRulesApplied"> <code>flatRulesApplied</code> -
-                        <a href="#definition-String"><code>[String!]</code></a>
+                        <a href="#definition-String"><code>[String]</code></a>
                       </td>
                       <td> List of shipping rules that set the shipping rate </td>
                     </tr>
                     <tr>
                       <td data-property-name="changeRulesApplied"> <code>changeRulesApplied</code> -
-                        <a href="#definition-String"><code>[String!]</code></a>
+                        <a href="#definition-String"><code>[String]</code></a>
                       </td>
                       <td> List of shipping rules that surcharged or discounted the shipping rate </td>
                     </tr>
@@ -372,11 +370,11 @@
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"handlingFee"</span>: <span class="hljs-number">987.65</span>,
   <span class="hljs-attr">"shippingPrice"</span>: <span class="hljs-number">123.45</span>,
-  <span class="hljs-attr">"totalCharges"</span>: <span class="hljs-number">123.45</span>,
-  <span class="hljs-attr">"cost"</span>: <span class="hljs-number">987.65</span>,
-  <span class="hljs-attr">"customDuties"</span>: <span class="hljs-number">123.45</span>,
-  <span class="hljs-attr">"flatRulesApplied"</span>: [<span class="hljs-string">"xyz789"</span>],
-  <span class="hljs-attr">"changeRulesApplied"</span>: [<span class="hljs-string">"xyz789"</span>]
+  <span class="hljs-attr">"totalCharges"</span>: <span class="hljs-number">987.65</span>,
+  <span class="hljs-attr">"cost"</span>: <span class="hljs-number">123.45</span>,
+  <span class="hljs-attr">"customDuties"</span>: <span class="hljs-number">987.65</span>,
+  <span class="hljs-attr">"flatRulesApplied"</span>: [<span class="hljs-string">"abc123"</span>],
+  <span class="hljs-attr">"changeRulesApplied"</span>: [<span class="hljs-string">"abc123"</span>]
 }
 </code></pre> </body>
                   </html>
@@ -436,16 +434,16 @@
                       <td> Internal use only </td>
                     </tr>
                     <tr>
-                      <td data-property-name="availableDeliveryDates"> <code>availableDeliveryDates</code> -
-                        <a href="#definition-String"><code>[String!]</code></a>
-                      </td>
-                      <td> Selected delivery date or pickup date </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="timeSlots"> <code>timeSlots</code> -
                         <a href="#definition-TimeSlot"><code>[TimeSlot!]!</code></a>
                       </td>
                       <td> Selected time slot for pickup or delivery </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="availableDeliveryDates"> <code>availableDeliveryDates</code> -
+                        <a href="#definition-String"><code>[String!]</code></a>
+                      </td>
+                      <td> Selected delivery date or pickup date </td>
                     </tr>
                   </table>
                 </section>
@@ -457,8 +455,8 @@
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"deliveryDateRanges"</span>: [<span class="hljs-string">DeliveryDateRange</span>],
-  <span class="hljs-attr">"availableDeliveryDates"</span>: [<span class="hljs-string">"xyz789"</span>],
-  <span class="hljs-attr">"timeSlots"</span>: [<span class="hljs-string">TimeSlot</span>]
+  <span class="hljs-attr">"timeSlots"</span>: [<span class="hljs-string">TimeSlot</span>],
+  <span class="hljs-attr">"availableDeliveryDates"</span>: [<span class="hljs-string">"xyz789"</span>]
 }
 </code></pre> </body>
                   </html>
@@ -489,7 +487,7 @@
                       <td data-property-name="carrierDetail"> <code>carrierDetail</code> -
                         <a href="#definition-CarrierDetail"><code>CarrierDetail!</code></a>
                       </td>
-                      <td> Carrier specific information e.g. code and name </td>
+                      <td> Carrier and shipping method information for the shipment </td>
                     </tr>
                     <tr>
                       <td data-property-name="methods"> <code>methods</code> -
@@ -603,10 +601,32 @@
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"carrierCode"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"carrierTitle"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"carrierTitle"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"carrierType"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"deliveryDateMessage"</span>: <span class="hljs-string">"xyz789"</span>
 }
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-DateTime" class="definition panel" data-traverse-target="definition-DateTime">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/DateTime"></a>
+              <p><code>DateTime</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy"> </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">object</span>
 </code></pre> </body>
                   </html>
                 </section>
@@ -652,7 +672,7 @@
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"fromDate"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"toDate"</span>: <span class="hljs-string">"xyz789"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"fromDate"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"toDate"</span>: <span class="hljs-string">"abc123"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -671,7 +691,7 @@
               <div class="doc-copy">
                 <section class="json-schema-description">
                   <p>The <code>Float</code> scalar type represents signed double-precision fractional values as specified by
-                    <a href="https://en.wikipedia.org/wiki/IEEE_floating_point">IEEE 754</a>. </p>
+                    <a href="http://en.wikipedia.org/wiki/IEEE_floating_point">IEEE 754</a>. </p>
                 </section>
               </div>
               <div class="doc-examples">
@@ -679,7 +699,7 @@
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">123.45</span>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">987.65</span>
 </code></pre> </body>
                   </html>
                 </section>
@@ -756,13 +776,13 @@
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"itemId"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"sku"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"itemId"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"sku"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"qty"</span>: <span class="hljs-number">987</span>,
   <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"hs_code"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"origin_country"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"declared_value"</span>: <span class="hljs-number">987.65</span>
+  <span class="hljs-attr">"declared_value"</span>: <span class="hljs-number">123.45</span>
 }
 </code></pre> </body>
                   </html>
@@ -815,7 +835,7 @@
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">123</span>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">987</span>
 </code></pre> </body>
                   </html>
                 </section>
@@ -840,6 +860,12 @@
                     <tr>
                       <th>Field Name</th>
                       <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td data-property-name="id"> <code>id</code> -
+                        <a href="#definition-ID"><code>ID</code></a>
+                      </td>
+                      <td> Deprecated: do not use </td>
                     </tr>
                     <tr>
                       <td data-property-name="sku"> <code>sku</code> -
@@ -867,7 +893,12 @@
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"sku"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"qtyPacked"</span>: <span class="hljs-number">123.45</span>, <span class="hljs-attr">"weightPacked"</span>: <span class="hljs-number">987.65</span>}
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
+  <span class="hljs-attr">"sku"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"qtyPacked"</span>: <span class="hljs-number">987.65</span>,
+  <span class="hljs-attr">"weightPacked"</span>: <span class="hljs-number">987.65</span>
+}
 </code></pre> </body>
                   </html>
                 </section>
@@ -945,6 +976,12 @@
                       <th>Description</th>
                     </tr>
                     <tr>
+                      <td data-property-name="id"> <code>id</code> -
+                        <a href="#definition-ID"><code>ID</code></a>
+                      </td>
+                      <td> Deprecated: do not use </td>
+                    </tr>
+                    <tr>
                       <td data-property-name="methodDetails"> <code>methodDetails</code> -
                         <a href="#definition-MethodDetail"><code>MethodDetail!</code></a>
                       </td>
@@ -989,6 +1026,7 @@
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
   <span class="hljs-attr">"methodDetails"</span>: <span class="hljs-string">MethodDetail</span>,
   <span class="hljs-attr">"timeInTransitOptions"</span>: <span class="hljs-string">TimeInTransitOptions</span>,
   <span class="hljs-attr">"rateBreakdownList"</span>: [<span class="hljs-string">RateBreakdown</span>],
@@ -1057,6 +1095,12 @@
                       </td>
                       <td> Delivery date information included in method title - included so developers can conditionally format this part of method title </td>
                     </tr>
+                    <tr>
+                      <td data-property-name="quoteId"> <code>quoteId</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> Quote ID for this shipment estimate </td>
+                    </tr>
                   </table>
                 </section>
               </div>
@@ -1068,10 +1112,11 @@
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"methodCode"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"methodTitle"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"totalCharges"</span>: <span class="hljs-number">123.45</span>,
-  <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"negotiatedRate"</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-attr">"deliveryMessage"</span>: <span class="hljs-string">"abc123"</span>
+  <span class="hljs-attr">"totalCharges"</span>: <span class="hljs-number">987.65</span>,
+  <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"negotiatedRate"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"deliveryMessage"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"quoteId"</span>: <span class="hljs-string">"xyz789"</span>
 }
 </code></pre> </body>
                   </html>
@@ -1099,20 +1144,14 @@
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="createdAt"> <code>createdAt</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="orderNumber"> <code>orderNumber</code> -
-                        <a href="#definition-String"><code>String</code></a>
+                        <a href="#definition-String"><code>String!</code></a>
                       </td>
                       <td> Unique number or id for this order </td>
                     </tr>
                     <tr>
                       <td data-property-name="apiKey"> <code>apiKey</code> -
-                        <a href="#definition-String"><code>String</code></a>
+                        <a href="#definition-String"><code>String!</code></a>
                       </td>
                       <td> Internal use only </td>
                     </tr>
@@ -1124,19 +1163,19 @@
                     </tr>
                     <tr>
                       <td data-property-name="isActive"> <code>isActive</code> -
-                        <a href="#definition-Boolean"><code>Boolean</code></a>
+                        <a href="#definition-Boolean"><code>Boolean!</code></a>
                       </td>
                       <td> Internal use only </td>
                     </tr>
                     <tr>
                       <td data-property-name="orderDetail"> <code>orderDetail</code> -
-                        <a href="#definition-OrderDetail"><code>OrderDetail</code></a>
+                        <a href="#definition-OrderDetail"><code>OrderDetail!</code></a>
                       </td>
                       <td> Summary of shipping information for the entire order </td>
                     </tr>
                     <tr>
                       <td data-property-name="shipments"> <code>shipments</code> -
-                        <a href="#definition-Shipment"><code>[Shipment]</code></a>
+                        <a href="#definition-Shipment"><code>[Shipment!]!</code></a>
                       </td>
                       <td> Shipping and packing information for each shipment in the order </td>
                     </tr>
@@ -1145,6 +1184,12 @@
                         <a href="#definition-Address"><code>Address</code></a>
                       </td>
                       <td> Shipping address information for the order </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="createdAt"> <code>createdAt</code> -
+                        <a href="#definition-DateTime"><code>DateTime!</code></a>
+                      </td>
+                      <td> When this order was created </td>
                     </tr>
                   </table>
                 </section>
@@ -1155,14 +1200,14 @@
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"orderNumber"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"orderNumber"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"apiKey"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"orderNumberText"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"orderNumberText"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"isActive"</span>: <span class="hljs-literal">false</span>,
   <span class="hljs-attr">"orderDetail"</span>: <span class="hljs-string">OrderDetail</span>,
   <span class="hljs-attr">"shipments"</span>: [<span class="hljs-string">Shipment</span>],
-  <span class="hljs-attr">"recipient"</span>: <span class="hljs-string">Address</span>
+  <span class="hljs-attr">"recipient"</span>: <span class="hljs-string">Address</span>,
+  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">DateTime</span>
 }
 </code></pre> </body>
                   </html>
@@ -1225,6 +1270,12 @@
                       </td>
                       <td> ShipperHQ's transction ID </td>
                     </tr>
+                    <tr>
+                      <td data-property-name="currency"> <code>currency</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> Currency the account is set to </td>
+                    </tr>
                   </table>
                 </section>
               </div>
@@ -1234,12 +1285,13 @@
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"carrierCode"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"carrierTitle"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"carrierCode"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"carrierTitle"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"methodCode"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"methodTitle"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"totalCharges"</span>: <span class="hljs-number">123.45</span>,
-  <span class="hljs-attr">"transactionId"</span>: <span class="hljs-string">"abc123"</span>
+  <span class="hljs-attr">"transactionId"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"xyz789"</span>
 }
 </code></pre> </body>
                   </html>
@@ -1349,7 +1401,7 @@
                       <td data-property-name="surchargePrice"> <code>surchargePrice</code> -
                         <a href="#definition-Float"><code>Float!</code></a>
                       </td>
-                      <td> </td>
+                      <td> Surcharge from package </td>
                     </tr>
                     <tr>
                       <td data-property-name="weight"> <code>weight</code> -
@@ -1363,6 +1415,12 @@
                       </td>
                       <td> Width of package </td>
                     </tr>
+                    <tr>
+                      <td data-property-name="freightClass"> <code>freightClass</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> Freight class of package </td>
+                    </tr>
                   </table>
                 </section>
               </div>
@@ -1372,14 +1430,15 @@
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"declaredValue"</span>: <span class="hljs-number">987.65</span>,
+  <span class="hljs-attr">"declaredValue"</span>: <span class="hljs-number">123.45</span>,
   <span class="hljs-attr">"height"</span>: <span class="hljs-number">123.45</span>,
   <span class="hljs-attr">"length"</span>: <span class="hljs-number">123.45</span>,
   <span class="hljs-attr">"packageName"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"packingWeight"</span>: <span class="hljs-number">987.65</span>,
-  <span class="hljs-attr">"surchargePrice"</span>: <span class="hljs-number">123.45</span>,
+  <span class="hljs-attr">"surchargePrice"</span>: <span class="hljs-number">987.65</span>,
   <span class="hljs-attr">"weight"</span>: <span class="hljs-number">987.65</span>,
-  <span class="hljs-attr">"width"</span>: <span class="hljs-number">987.65</span>
+  <span class="hljs-attr">"width"</span>: <span class="hljs-number">987.65</span>,
+  <span class="hljs-attr">"freightClass"</span>: <span class="hljs-string">"abc123"</span>
 }
 </code></pre> </body>
                   </html>
@@ -1454,8 +1513,8 @@
   <span class="hljs-attr">"pickupLocationDetails"</span>: [<span class="hljs-string">PickupLocationDetail</span>],
   <span class="hljs-attr">"pickupCart"</span>: <span class="hljs-literal">false</span>,
   <span class="hljs-attr">"googleApiKey"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"showOpeningHours"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">"showMap"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"showOpeningHours"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">"showMap"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"showAddress"</span>: <span class="hljs-string">"xyz789"</span>
 }
 </code></pre> </body>
@@ -1654,33 +1713,33 @@
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"pickupId"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"pickupId"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"pickupName"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"latitude"</span>: <span class="hljs-number">123.45</span>,
-  <span class="hljs-attr">"longitude"</span>: <span class="hljs-number">123.45</span>,
+  <span class="hljs-attr">"latitude"</span>: <span class="hljs-number">987.65</span>,
+  <span class="hljs-attr">"longitude"</span>: <span class="hljs-number">987.65</span>,
   <span class="hljs-attr">"street1"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"street2"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"city"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"state"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"street2"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"city"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"state"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"country"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"zipcode"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"distance"</span>: <span class="hljs-number">987.65</span>,
-  <span class="hljs-attr">"currentTime"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"pickupDate"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"dispatchDate"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"zipcode"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"distance"</span>: <span class="hljs-number">123.45</span>,
+  <span class="hljs-attr">"currentTime"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"pickupDate"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"dispatchDate"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"locationMap"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"calendarDate"</span>: <span class="hljs-string">CalendarDate</span>,
   <span class="hljs-attr">"standardHours"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"publicId"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"nonStandardHours"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"email"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"nonStandardHours"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"email"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"contactName"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"imageUrl"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"walkingDirections"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"websiteUrl"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"pickupFullName"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"emailOption"</span>: <span class="hljs-string">"abc123"</span>
+  <span class="hljs-attr">"walkingDirections"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"websiteUrl"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"pickupFullName"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"emailOption"</span>: <span class="hljs-string">"xyz789"</span>
 }
 </code></pre> </body>
                   </html>
@@ -1744,6 +1803,12 @@
                       <td> Fees and charges included in shipping method </td>
                     </tr>
                     <tr>
+                      <td data-property-name="isWinningRate"> <code>isWinningRate</code> -
+                        <a href="#definition-Boolean"><code>Boolean</code></a>
+                      </td>
+                      <td> Is this the winning rate </td>
+                    </tr>
+                    <tr>
                       <td data-property-name="packages"> <code>packages</code> -
                         <a href="#definition-Package"><code>[Package!]!</code></a>
                       </td>
@@ -1764,6 +1829,7 @@
   <span class="hljs-attr">"methodDetails"</span>: <span class="hljs-string">MethodDetail</span>,
   <span class="hljs-attr">"timeInTransitOptions"</span>: <span class="hljs-string">TimeInTransitOptions</span>,
   <span class="hljs-attr">"advancedFees"</span>: <span class="hljs-string">AdvancedFees</span>,
+  <span class="hljs-attr">"isWinningRate"</span>: <span class="hljs-literal">false</span>,
   <span class="hljs-attr">"packages"</span>: [<span class="hljs-string">Package</span>]
 }
 </code></pre> </body>
@@ -1811,7 +1877,7 @@
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"value"</span>: <span class="hljs-string">"abc123"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"value"</span>: <span class="hljs-string">"abc123"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -1836,6 +1902,12 @@
                     <tr>
                       <th>Field Name</th>
                       <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td data-property-name="id"> <code>id</code> -
+                        <a href="#definition-ID"><code>ID</code></a>
+                      </td>
+                      <td> Deprecated: do not use </td>
                     </tr>
                     <tr>
                       <td data-property-name="shipmentDetail"> <code>shipmentDetail</code> -
@@ -1864,6 +1936,7 @@
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
   <span class="hljs-attr">"shipmentDetail"</span>: <span class="hljs-string">ShipmentDetail</span>,
   <span class="hljs-attr">"carriers"</span>: [<span class="hljs-string">Carrier</span>],
   <span class="hljs-attr">"groupedItems"</span>: [<span class="hljs-string">GroupedItem</span>]
@@ -1911,6 +1984,12 @@
                       </td>
                       <td> Further description of shipment - intended for display to end user e.g. tooltip </td>
                     </tr>
+                    <tr>
+                      <td data-property-name="originAddress"> <code>originAddress</code> -
+                        <a href="#definition-Address"><code>Address</code></a>
+                      </td>
+                      <td> Address of origin </td>
+                    </tr>
                   </table>
                 </section>
               </div>
@@ -1919,7 +1998,12 @@
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"shipmentId"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"description"</span>: <span class="hljs-string">"abc123"</span>}
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"shipmentId"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"originAddress"</span>: <span class="hljs-string">Address</span>
+}
 </code></pre> </body>
                   </html>
                 </section>
@@ -2033,7 +2117,7 @@
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"timeStart"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"timeEnd"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"interval"</span>: <span class="hljs-string">"xyz789"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"timeStart"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"timeEnd"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"interval"</span>: <span class="hljs-string">"abc123"</span>}
 </code></pre> </body>
                   </html>
                 </section>
