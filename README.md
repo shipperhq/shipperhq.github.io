@@ -82,6 +82,10 @@ yarn run docusaurus docs:version 1.1.0
 
 ### Regenerating Existing API Docs
 - Run the spectaql command for the API you would like to regenerate. See package.json for commands. (Ex. `yarn rate-service-spectaql`)
+- If the server was currently modified, you can pull down those changes on the server repo and point the server endpoint for spectaql to your local env. This will regenerate the docs using your local API endpoint, so you don't have to wait for the server changes to be deployed. 
+    - Make sure you do not push up the API endpoint changes since this is temporary. 
+    - You will need to change the server URL in the corresponding index.html file. 
+    - Ex. In ovs-config.yml, I changed the ovs.shipperhq.com endpoint to localhost:4060. I ran the spectaql command to regenerate docs. Then I changed the server url in insights-service/index.html back to ovs.shipperhq.com. 
 
 ### Hiding Fields
 - You can hide fields inside of the metadata.json file. See rate-service-metadata.json for reference.
