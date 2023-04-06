@@ -79,10 +79,5 @@ module.exports = {
         }
       ]
     },
-    {
-      type: 'link',
-      label: 'Labels API Reference',
-      href: 'https://dev.shipperhq.com/labels-service/'
-    }
   ],
 }

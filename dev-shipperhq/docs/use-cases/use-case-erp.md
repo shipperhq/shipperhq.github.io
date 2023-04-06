@@ -112,7 +112,7 @@ If you are already using or plan to use our Insights API to retrieve detailed sh
 
 If your ERP also handles fulfillment operations, supporting shipping label generation and printing directly within your ERP can help simplify workflows. ShipperHQ's [Labels API](labels/overview.md) provides the ability to print shipping labels. If considering this option, take some time to familiarize yourself with the ShipperHQ Labels API:
 - Read the [Labels API Guide](labels/overview.md)
-- Review the [Labels API Reference](https://dev.shipperhq.com/labels-service)
+- Review the Labels API Reference
 - Download and try out our [Labels API Postman collection](labels/examples.md#postman-collection)
 
 :::caution Beta API

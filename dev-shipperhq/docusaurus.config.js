@@ -189,12 +189,6 @@ const config = {
                 label: 'FAQ',
                 to: 'docs/labels/faq'
               },
-              {
-                to: 'labels-service',
-                label: 'Labels API Reference',
-                target: '_blank',
-                className: 'external-nav-link'
-              },
             ]
           },
           {
