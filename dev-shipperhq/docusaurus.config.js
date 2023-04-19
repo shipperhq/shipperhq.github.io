@@ -58,6 +58,8 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [{name: 'ShipperHQ Developer Platform', content: 'Explore our SDK with API reference, examples, and a playground to help you start building your custom integration with ShipperHQ'}],
+      image: 'img/shq-meta.jpg',
       navbar: {
         logo: {
           alt: 'ShipperHQ',
