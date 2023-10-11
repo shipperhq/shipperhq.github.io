@@ -26,6 +26,14 @@ Usage of the Labels API will not be free and its use is not covered by a base Sh
 
 :::
 
+:::info API Access Available on ShipperHQ Enterprise
+
+Access to the ShipperHQ APIs requires a ShipperHQ Enterprise plan. You can check your current plan in [your ShipperHQ Dashboard](https://docs.shipperhq.com/subscription/#What_plan_am_I_on). If you're not currently on an Enterprise plan, please [contact us](https://shipperhq.com/contact) to review upgrade options.
+
+***Note:*** This requirement does not apply to ShipperHQ Partners. Contact our [Partnerships team](https://shipperhq.com/contact) for more info.
+
+:::
+
 ## Requirements
 * ShipperHQ account with the [Generate Shipping Labels](https://docs.shipperhq.com/generate-shipping-labels/) Advanced Feature enabled
 * An eCommerce platform or custom integration supporting the [`PlaceOrder`](labels/place-order.md) mutation of the [Labels API](labels/overview.md), either:

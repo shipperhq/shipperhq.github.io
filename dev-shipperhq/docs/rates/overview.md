@@ -13,6 +13,15 @@ These shipping options, the amounts charged for them, and a set of properties th
 
 Depending on the use case and how you implement the Rates API, you may provide additional information like ship-from address, LTL freight accessorials, selected delivery date, product Shipping Groups, dimensions, etc. and receive additional details like expected packacking, per-fulfillment-location rates and items, dispatch dates, and more.
 
+
+:::info API Access Available on ShipperHQ Enterprise
+
+Access to the ShipperHQ APIs requires a ShipperHQ Enterprise plan. You can check your current plan in [your ShipperHQ Dashboard](https://docs.shipperhq.com/subscription/#What_plan_am_I_on). If you're not currently on an Enterprise plan, please [contact us](https://shipperhq.com/contact) to review upgrade options.
+
+***Note:*** This requirement does not apply to ShipperHQ Partners. Contact our [Partnerships team](https://shipperhq.com/contact) for more info.
+
+:::
+
 ## Use cases
 Some scenarios in which ShipperHQ's Rates API is frequently used are:
 * **eCommerce Sites:** As a critical aspect of eCommerce, shipping and delivery rates retrieved using the Rates API can be displayed to customers on product pages, shopping carts, and checkouts to give them accurate and relevant options.

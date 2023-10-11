@@ -7,6 +7,14 @@ tags: [labels, api, guide, overview]
 
 The Labels API enables you to produce shipping labels for shipments directly within your application. When used in conjunction with the ShipperHQ [Rates API](rates/overview.md) and [Insights API](insights/overview.md) it provides an end-to-end solution from checkout to fulfillment.
 
+:::info API Access Available on ShipperHQ Enterprise
+
+Access to the ShipperHQ APIs requires a ShipperHQ Enterprise plan. You can check your current plan in [your ShipperHQ Dashboard](https://docs.shipperhq.com/subscription/#What_plan_am_I_on). If you're not currently on an Enterprise plan, please [contact us](https://shipperhq.com/contact) to review upgrade options.
+
+***Note:*** This requirement does not apply to ShipperHQ Partners. Contact our [Partnerships team](https://shipperhq.com/contact) for more info.
+
+:::
+
 ## Use cases
 
 Some scenarios in which ShipperHQ's Labels API is most useful are:

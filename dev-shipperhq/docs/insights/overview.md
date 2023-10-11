@@ -10,6 +10,14 @@ Many elements impact both the shipping rates and shipping options offered to cus
 
 [Learn more about the ShipperHQ Shipping Insights Advanced Feature <i class="fa fa-arrow-right"></i>](https://docs.shipperhq.com/shipping-insights-configuration/)
 
+:::info API Access Available on ShipperHQ Enterprise
+
+Access to the ShipperHQ APIs requires a ShipperHQ Enterprise plan. You can check your current plan in [your ShipperHQ Dashboard](https://docs.shipperhq.com/subscription/#What_plan_am_I_on). If you're not currently on an Enterprise plan, please [contact us](https://shipperhq.com/contact) to review upgrade options.
+
+***Note:*** This requirement does not apply to ShipperHQ Partners. Contact our [Partnerships team](https://shipperhq.com/contact) for more info.
+
+:::
+
 :::tip Ready-to-Use Integrations
 
 ShipperHQ and our partners provide a number of out of the box integrations with eCommerce platforms and other software that can be used with no coding required. If you use one of these platforms or products, we recommend evaluating the existing integration to see if it meets your needs. Existing integrations include:
