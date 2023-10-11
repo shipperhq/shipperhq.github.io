@@ -6,6 +6,14 @@ import APIPlayground from '@site/docs/transclusion/_apiplayground.md' // This is
 
 The goal of the ShipperHQ SDK is to give you the information you need to use the ShipperHQ APIs. Each API has its own overview, usage guide, quickstart guide, FAQ, and API reference. On these, you'll find detailed information related to each specific API. Below you'll find general information that applies to the ShipperHQ Developer Platform as a whole.
 
+:::info API Access Available on ShipperHQ Enterprise
+
+Access to the ShipperHQ APIs requires a ShipperHQ Enterprise plan. You can check your current plan in [your ShipperHQ Dashboard](https://docs.shipperhq.com/subscription/#What_plan_am_I_on). If you're not currently on an Enterprise plan, please [contact us](https://shipperhq.com/contact) to review upgrade options.
+
+***Note:*** This requirement does not apply to ShipperHQ Partners. Contact our [Partnerships team](https://shipperhq.com/contact) for more info.
+
+:::
+
 ## High-level Workflow
 ![High Level ShipperHQ processes and API](./sdk-main-processes-and-api.jpg)
 
