@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdev_shipperhq=self.webpackChunkdev_shipperhq||[]).push([[9287],{794:a=>{a.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/api","name":"api","count":1,"permalink":"/blog/tags/api"}')}}]);
