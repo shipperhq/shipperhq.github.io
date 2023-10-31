@@ -38,6 +38,8 @@ Specific fields and attributes can be found in the [Insights API Reference](http
 
 ## Availability
 
-The Insights API requires to activate the [Shipping Insights](https://docs.shipperhq.com/shipping-insights-configuration/) Advanced Feature.
+The Insights API Access requires you to activate the [Shipping Insights](https://docs.shipperhq.com/shipping-insights-configuration/) Advanced Feature. 
 
- The Shipping Insights feature is available on the **Standard**, **Advanced**, and **Enterprise** ShipperHQ plans (see our [pricing page](https://shipperhq.com/pricing) for more information).
+The Shipping Insights advanced feature is available on the **Standard**, **Advanced**, and **Enterprise** ShipperHQ plans (see our [pricing page](https://shipperhq.com/pricing) for more information). 
+
+API Access is only available on the **Enterprise** ShipperHQ plan. In order to have access to **both** Shipping Insights and API Access, you will need to be on an **Enterprise** plan.
