@@ -194,6 +194,12 @@ const config = {
             ]
           },
           {
+            type: 'doc',
+            docId: 'sdk',
+            position: 'left',
+            label: 'Enhanced Checkout SDK',
+          },
+          {
             to: '/contact',
             label: 'Dev Support',
             position: 'right'
