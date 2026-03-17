@@ -1,8 +1,16 @@
 # shipperhq.github.io
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator. 
+> **⚠️ This repository has been deprecated.**
+>
+> The documentation has moved to **https://docs.shipperhq.com/**
+>
+> The site now redirects there automatically. No new content should be added here.
 
-The live site is at https://dev.shipperhq.com/ .
+---
+
+This website was built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+
+The site formerly hosted at https://dev.shipperhq.com/ now permanently redirects to https://docs.shipperhq.com/.
 
 ## Prerequisites
 - Set up Git: https://stackoverflow.com/c/shipperhq/questions/481
