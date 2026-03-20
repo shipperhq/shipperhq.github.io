@@ -9,13 +9,13 @@ tags: [labels, insights, api, guide]
 
 Merchants integrate with ShipperHQ's Rates API to provide shipping rate estimates based on contents of a `virtual cart`. This is done leveraging the [Rates API](../rates/overview.md).  
 
-Once a customer has finalized their choices at checkout and completes the order, the rating (a quote) needs to be converted into an order so it can stored for use with the [Insights API](../insights/overview.md). Usually, multiple quotes are sent by ShipperHQ (for example, in the cart, when the customer changes their address, when they changes delivery options, etc.).
+Once a customer has finalized their choices at checkout and completes the order, the rating (a quote) needs to be converted into an order so it can stored for use with the [Advanced Shipment Details API](../insights/overview.md). Usually, multiple quotes are sent by ShipperHQ (for example, in the cart, when the customer changes their address, when they changes delivery options, etc.).
 
-The role of `PlaceOrder` is to convert one of these quotes into a full-fledge order. Then, the complete quote information can be stored on ShipperHQ order database and later on retrieved via the [Insights API](../insights/overview.md).
+The role of `PlaceOrder` is to convert one of these quotes into a full-fledge order. Then, the complete quote information can be stored on ShipperHQ order database and later on retrieved via the [Advanced Shipment Details API](../insights/overview.md).
 
 :::tip Most users don't need to use the `PlaceOrder` mutation
 
-If you are using an eCommerce platform supported by ShipperHQ ([Magento/Adobe Commerce](https://docs.shipperhq.com/installing-magento-2-shipperhq-extension/), [BigCommerce](https://docs.shipperhq.com/setup-shipperhq-bigcommerce-store/) or [Shopify](https://docs.shipperhq.com/connect-shopify-shipperhq/)): you do not need to use `PlaceOrder`. In these scenarios, the order creation is done automatically by the platform using ShipperHQ rates and ShipperHQ captures this information automatically so that you can directly use the [Insights API](/docs/insights/overview). If you are using a native ShipperHQ integration on any other platform, please [contact us](https://dev.shipperhq.com/contact) to register your interest for Shipping Insights on your eCommerce platform.
+If you are using an eCommerce platform supported by ShipperHQ ([Magento/Adobe Commerce](https://docs.shipperhq.com/installing-magento-2-shipperhq-extension/), [BigCommerce](https://docs.shipperhq.com/setup-shipperhq-bigcommerce-store/) or [Shopify](https://docs.shipperhq.com/connect-shopify-shipperhq/)): you do not need to use `PlaceOrder`. In these scenarios, the order creation is done automatically by the platform using ShipperHQ rates and ShipperHQ captures this information automatically so that you can directly use the [Advanced Shipment Details API](/docs/insights/overview). If you are using a native ShipperHQ integration on any other platform, please [contact us](https://dev.shipperhq.com/contact) to register your interest for Advanced Shipment Details on your eCommerce platform.
 
 The specific scenarios where you would need to use `PlaceOrder` are detailed below.
 

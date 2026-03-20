@@ -132,14 +132,14 @@ const config = {
           {
             type: 'dropdown',
             position: 'left',
-            label: 'Insights',
+            label: 'Advanced Shipment Details',
             items: [
               {
                 label: 'Overview',
                 to: 'docs/insights/overview'
               },
               {
-                label: 'How Insights Work',
+                label: 'How Advanced Shipment Details Work',
                 to: 'docs/insights/how-insights-work'
               },
               {
@@ -156,7 +156,7 @@ const config = {
               },
               {
                 to: 'insights-service',
-                label: 'Insights API Reference',
+                label: 'Advanced Shipment Details API Reference',
                 target: '_blank',
                 className: 'external-nav-link'
               },

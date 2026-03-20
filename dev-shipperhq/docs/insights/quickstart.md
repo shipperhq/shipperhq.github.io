@@ -7,11 +7,11 @@ tags: [insights, api, guide, quickstart]
 ---
 import APIPlayground from '@site/docs/transclusion/_apiplayground.md' // This is an included file (see below the Error component)
 
-This document is for technical architects and developers that need to integrate with ShipperHQ’s Insights API to build their own integration to retrieve shipment details from ShipperHQ.
+This document is for technical architects and developers that need to integrate with ShipperHQ’s Advanced Shipment Details API to build their own integration to retrieve shipment details from ShipperHQ.
 
-Note, this does not document the standard types and fields the API provides. This information is included in the [Insights API Reference](https://dev.shipperhq.com/insights-service/) documentation or can be obtained via our [API playground](https://graphiql.shipperhq.com/).
+Note, this does not document the standard types and fields the API provides. This information is included in the [Advanced Shipment Details API Reference](https://dev.shipperhq.com/insights-service/) documentation or can be obtained via our [API playground](https://graphiql.shipperhq.com/).
 
-As with all our APIs, our Insights API is implemented with GraphQL. If you're unfamiliar with GraphQL, see our [SDK Quickstart](/quickstart.md#graphql).
+As with all our APIs, our Advanced Shipment Details API is implemented with GraphQL. If you're unfamiliar with GraphQL, see our [SDK Quickstart](/quickstart.md#graphql).
 
 :::info API Access Available on ShipperHQ Enterprise
 
@@ -22,25 +22,25 @@ Access to the ShipperHQ APIs requires a ShipperHQ Enterprise plan. You can check
 :::
 
 ## Requirements
-* ShipperHQ account with the [Shipping Insights](https://docs.shipperhq.com/shipping-insights-configuration/) Advanced Feature enabled
+* ShipperHQ account with the [Advanced Shipment Details](https://docs.shipperhq.com/shipping-insights-configuration/) Advanced Feature enabled
 * An eCommerce platform or custom integration supporting the [`PlaceOrder`](labels/place-order.md) mutation of the [Labels API](labels/overview.md), either:
   * ShipperHQ’s native [Magento 2](https://docs.shipperhq.com/installing-magento-2-shipperhq-extension/), [BigCommerce](https://docs.shipperhq.com/setup-shipperhq-bigcommerce-store/), or [Shopify](https://docs.shipperhq.com/connect-shopify-shipperhq/) app installed on the eCommerce platform
   * A custom integration implementing both our [Rates API](rates/overview.md) and the [`PlaceOrder`](labels/place-order.md) mutation of our [Labels API](labels/overview.md)
 
 ## Authentication
-The Insights API is accessed using a unique Access Token generated in a ShipperHQ account. Each access token is unique per [Website](https://docs.shipperhq.com/adding-websites-in-shipperhq/) for multi-site ShipperHQ accounts.
+The Advanced Shipment Details API is accessed using a unique Access Token generated in a ShipperHQ account. Each access token is unique per [Website](https://docs.shipperhq.com/adding-websites-in-shipperhq/) for multi-site ShipperHQ accounts.
 
-Since Access Tokens are unique for each ShipperHQ account and Website, Partners or Third Party integrations should include a mechanism for merchants to input their Shipping Insights Access Token in the integration. Each ShipperHQ merchant will generate an access token on their ShipperHQ account in order to access the Insights API for their orders.
+Since Access Tokens are unique for each ShipperHQ account and Website, Partners or Third Party integrations should include a mechanism for merchants to input their Advanced Shipment Details Access Token in the integration. Each ShipperHQ merchant will generate an access token on their ShipperHQ account in order to access the Advanced Shipment Details API for their orders.
 
 ### Generating an Access Token
 To generate an access token in ShipperHQ:
 * Log into a ShipperHQ account
-* Ensure the Shipping Insights Advanced Feature is enabled (under Advanced Features on the left-hand navbar)
+* Ensure the Advanced Shipment Details Advanced Feature is enabled (under Advanced Features on the left-hand navbar)
 * Click "Websites" in the left-hand navbar and click the edit icon to edit the website which you wish to connect to
 * Go to the "Integrations" tab on the Website
-* Under Shipping Insights, select Generate New Access Token
+* Under Advanced Shipment Details, select Generate New Access Token
 
-This will provide you with an Access Token which can be used for Insights API requests.
+This will provide you with an Access Token which can be used for Advanced Shipment Details API requests.
 
 :::danger Changing Live Access Tokens
 
@@ -56,7 +56,7 @@ Generating a new Access Token invalidates any previously generated Access Tokens
 | `HTTPS` | `POST` | `application/JSON` |  `https://ovs.shipperhq.com` |
 
 ### Headers
-The following headers are required for every Insights API call.
+The following headers are required for every Advanced Shipment Details API call.
 
 | Header                      | Description         |
 | ---------------------------|---------------------|
@@ -64,7 +64,7 @@ The following headers are required for every Insights API call.
 | `X-ShipperHQ-Scope` | The configuration [Scope](https://docs.shipperhq.com/using-scopes-shipperhq/) for this ShipperHQ [Website](https://docs.shipperhq.com/adding-websites-in-shipperhq/) (accepts `LIVE`, `TEST`, `DEVELOPMENT`, or `INTEGRATION`). If unsure or if the ShipperHQ account does not support multiple scopes, use `LIVE`. |
 
 ### Operations
-The ShipperHQ Insights API includes the following operation.
+The ShipperHQ Advanced Shipment Details API includes the following operation.
 
 | Query                      | Description         |
 | ---------------------------|---------------------|
@@ -73,12 +73,12 @@ The ShipperHQ Insights API includes the following operation.
 ## Details
 
 ### `orderNumber`
-The `orderNumber` argument of the `viewOrder` call is used to look up a unique order with the Insights API. If you are using the native ShipperHQ apps/plugins/extensions for supported eCommerce platforms ([complete list here](https://shipperhq.com/pricing)), the `orderNumber` will be the Order Number set by your eCommerce platform. If you are instead using the [`PlaceOrder`](labels/place-order.md) mutation of the [Labels API](labels/overview.md), `orderNumber` will be the value you set as the Order Number in your `PlaceOrder` call.
+The `orderNumber` argument of the `viewOrder` call is used to look up a unique order with the Advanced Shipment Details API. If you are using the native ShipperHQ apps/plugins/extensions for supported eCommerce platforms ([complete list here](https://shipperhq.com/pricing)), the `orderNumber` will be the Order Number set by your eCommerce platform. If you are instead using the [`PlaceOrder`](labels/place-order.md) mutation of the [Labels API](labels/overview.md), `orderNumber` will be the value you set as the Order Number in your `PlaceOrder` call.
 
 ### Useful fields by feature
 
 #### Date & Time
-The [Date & Time](https://docs.shipperhq.com/delivery-datecalendar-configuration/) Advanced Feature allows merchants to give their customers accurate delivery dates, times in transit, or even a date picker on supported eCommerce platforms. In order to determine the correct delivery date to display, ShipperHQ also generates a Dispatch Date (the date on which the package is expected to be picked up by the carrier) based on the merchant's ShipperHQ configuration. For merchants who use Date & Time, it's useful to have the Insights API return the Dispatch and Delivery dates.
+The [Date & Time](https://docs.shipperhq.com/delivery-datecalendar-configuration/) Advanced Feature allows merchants to give their customers accurate delivery dates, times in transit, or even a date picker on supported eCommerce platforms. In order to determine the correct delivery date to display, ShipperHQ also generates a Dispatch Date (the date on which the package is expected to be picked up by the carrier) based on the merchant's ShipperHQ configuration. For merchants who use Date & Time, it's useful to have the Advanced Shipment Details API return the Dispatch and Delivery dates.
 
 **Fields for Date & Time**
 
@@ -105,7 +105,7 @@ query Order {
 ```
 
 #### Dimensional Packing
-The [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/) will determine the best package or packages to use for each shipment based on the merchant's ShipperHQ configuration. When Dimensional Packing is used, the Insights API can return the packages, details about each package, and item assignments for each.
+The [Dimensional Packing](https://docs.shipperhq.com/setting-up-and-using-dimensional-shipping/) will determine the best package or packages to use for each shipment based on the merchant's ShipperHQ configuration. When Dimensional Packing is used, the Advanced Shipment Details API can return the packages, details about each package, and item assignments for each.
 
 This information will be returned as one or more `packages` objects each containing `packageDetail` and `items` objects. The `packageName` field of the `packageDetail` object will be the name defined in ShipperHQ for that package. The `items` object may contain one or more items and indicate the `sku` of each as well as the quantity of that SKU packed in this package.
 
@@ -143,13 +143,13 @@ query Order {
 ```
 
 :::note
-Other related fields are available and can be found in the [Insights API Reference](https://dev.shipperhq.com/insights-service/) documentation.
+Other related fields are available and can be found in the [Advanced Shipment Details API Reference](https://dev.shipperhq.com/insights-service/) documentation.
 :::
 
 #### Multi-Origin Shipping
 With the [Multi-Origin Shipping](https://docs.shipperhq.com/setup-multiorigin-dropshipping/) Advanced Feature enabled, merchants are able to configure multiple ship-from locations ([Origins](https://docs.shipperhq.com/origin-configuration/)) in their ShipperHQ account. They can then assign specific products to specific Origins or use their ShipperHQ configuration to configure ShipperHQ to select Origins automatically.
 
-When an order contains shipments from multiple Origins, the Insights API will return multiple `shipments` objects. Each shipment has its own unique ID and contains the details about that shipment and the carriers used for that shipment. No special Insights API request is required to return multiple shipments but there are some fields which are useful in this scenario.
+When an order contains shipments from multiple Origins, the Advanced Shipment Details API will return multiple `shipments` objects. Each shipment has its own unique ID and contains the details about that shipment and the carriers used for that shipment. No special Advanced Shipment Details API request is required to return multiple shipments but there are some fields which are useful in this scenario.
 
 **Fields for Multi-Origin**
 
@@ -171,14 +171,14 @@ query Order {
 }
 ```
 :::note
-Other related fields are available and can be found in the [Insights API Reference](https://dev.shipperhq.com/insights-service/) documentation.
+Other related fields are available and can be found in the [Advanced Shipment Details API Reference](https://dev.shipperhq.com/insights-service/) documentation.
 :::
 
 ### Requested Options
 
 Requested Options indicate specific services or properties for the entire shipment such as "Liftgate Required" or "Residential Delivery". These are most commonly used for LTL Freight carriers or small package carriers that offer specific delivery methods for residential delivery.
 
-These attributes and their values are returned in a set of name/value pairs in the [`selectedOption`](https://dev.shipperhq.com/insights-service/#definition-SelectedOption) field on a Insights API response. The most common attributes are listed below.
+These attributes and their values are returned in a set of name/value pairs in the [`selectedOption`](https://dev.shipperhq.com/insights-service/#definition-SelectedOption) field on an Advanced Shipment Details API response. The most common attributes are listed below.
 
 | Requested Options  | 	Data Type | 	Description |
 |--------------------|-----------|--------------|
@@ -190,16 +190,16 @@ These attributes and their values are returned in a set of name/value pairs in t
 
 ## Integration Requirements
 
-Our Insights API can return a variety of useful information (see the [Insights API Reference](https://dev.shipperhq.com/insights-service/) for full details) and you can request as little or as much as needed. However, there are certain elements that are important when a ShipperHQ account is using certain functionality. Because of this, if you intend to make your integration of ShipperHQ's Insights API available to multiple clients we require support for certain elements. Meeting these requirements means your integration will support all of the most commonly used ShipperHQ features and functionality.
+Our Advanced Shipment Details API can return a variety of useful information (see the [Advanced Shipment Details API Reference](https://dev.shipperhq.com/insights-service/) for full details) and you can request as little or as much as needed. However, there are certain elements that are important when a ShipperHQ account is using certain functionality. Because of this, if you intend to make your integration of ShipperHQ's Advanced Shipment Details API available to multiple clients we require support for certain elements. Meeting these requirements means your integration will support all of the most commonly used ShipperHQ features and functionality.
 
-The following sections describe the fields that can be returned by the Insights API which integrations should support retrieving and processing.
+The following sections describe the fields that can be returned by the Advanced Shipment Details API which integrations should support retrieving and processing.
 
 :::info
 While we have endeavored to provide a complete list of requirements for a baseline integration of ShipperHQ, individual use cases may differ. Therefore, we always recommend contacting [Dev Support](/contact) prior to building a new integration.
 :::
 
 :::note
-We don't require single-purpose, custom integrations to meet these requirements. However, we do strongly recommend that all integrations of the ShipperHQ Insights API do so in order to support the breadth of ShipperHQ's capabilities and to future-proof the integration against shipping needs that may change in the future.
+We don't require single-purpose, custom integrations to meet these requirements. However, we do strongly recommend that all integrations of the ShipperHQ Advanced Shipment Details API do so in order to support the breadth of ShipperHQ's capabilities and to future-proof the integration against shipping needs that may change in the future.
 :::
 
 ### General Requirements
@@ -213,7 +213,7 @@ Each request to `viewOrder` requires that the `orderNumber` argument is included
 
 ### Response Handling
 
-Since each ShipperHQ account may be configured with different features and functionality, it's important to support a fairly broad set of response elements in any integration. These are discussed below. See the [Insights API Reference](https://dev.shipperhq.com/insights-service/) for all available options.
+Since each ShipperHQ account may be configured with different features and functionality, it's important to support a fairly broad set of response elements in any integration. These are discussed below. See the [Advanced Shipment Details API Reference](https://dev.shipperhq.com/insights-service/) for all available options.
 
 #### Handling Multiples
 
@@ -244,26 +244,26 @@ The integration should appropriately handle at minimum the following elements an
 | [`address`](https://dev.shipperhq.com/insights-service/#definition-Address) | The following address elements must be supported: <ul><li>`company`</li><li>`street`</li><li>`street2`</li><li>`city`</li><li>`region`</li><li>`zipcode`</li><li>`country`</li></ul> |
 
 #### Error Handling
-The ShipperHQ Insights API may return errors in in several cases:
+The ShipperHQ Advanced Shipment Details API may return errors in in several cases:
 - If ShipperHQ encounters a general error processing a request (e.g. credentials issues, malformed request, etc.) an [error message](faq.md#what-are-possible-error-codes-and-messages) will be returned indicating the type of error encountered. In this case, your integration should appropriately display a user-friendly message. The values of the `errorCode` and `internalErrorMessage` are not intended to be displayed to end-users but are useful to log for troubleshooting.
 - If no shipment information can be found for the given [`OrderNumber`](https://dev.shipperhq.com/insights-service/#operation-vieworder-Queries)
 
-See the [Errors](#errors) section of this doc for further details and for possible error codes and messages see the [Insights API FAQ](faq.md#what-are-possible-error-codes-and-messages).
+See the [Errors](#errors) section of this doc for further details and for possible error codes and messages see the [Advanced Shipment Details API FAQ](faq.md#what-are-possible-error-codes-and-messages).
 
 ### Additional Guidance
 
-While the [Insights API Reference](https://dev.shipperhq.com/insights-service/) contains all available fields, not all possible attributes are described in the current version of this guide. Some less-common attributes are not yet described. Contact [Dev Support](/contact) if you need assistance with any specific scenario or for additional guidance on best practices for your specific use case.
+While the [Advanced Shipment Details API Reference](https://dev.shipperhq.com/insights-service/) contains all available fields, not all possible attributes are described in the current version of this guide. Some less-common attributes are not yet described. Contact [Dev Support](/contact) if you need assistance with any specific scenario or for additional guidance on best practices for your specific use case.
 
 ## Testing
-To test the Insights API you will need to already have either:
+To test the Advanced Shipment Details API you will need to already have either:
 1. ShipperHQ's native integration installed and enabled on [Magento 2](https://docs.shipperhq.com/installing-magento-2-shipperhq-extension/), [BigCommerce](https://docs.shipperhq.com/setup-shipperhq-bigcommerce-store/), or [Shopify](https://docs.shipperhq.com/connect-shopify-shipperhq/)
 2. A custom integration of the ShipperHQ [Rates API](rates/overview.md) and the [`PlaceOrder`](labels/place-order.md) mutation of the [Labels API](labels/overview.md).
 
 ### Enable & Retrieve Access Token
-Within the ShipperHQ account you wish to use, enable the Shipping Insights Advanced Feature from the Advanced Features section of the dashboard. Then, retrieve the Shipping Insights Access Token from the Website on that account.
+Within the ShipperHQ account you wish to use, enable the Advanced Shipment Details Advanced Feature from the Advanced Features section of the dashboard. Then, retrieve the Advanced Shipment Details Access Token from the Website on that account.
 
 ### Place an Order
-Place an order on your eCommerce or custom platform. Note the Order Number since this will be used to retrieve Shipping Insights information.
+Place an order on your eCommerce or custom platform. Note the Order Number since this will be used to retrieve Advanced Shipment Details information.
 
 ### Test with the API Playground
 [//]: # (API Playground)
@@ -273,7 +273,7 @@ Place an order on your eCommerce or custom platform. Note the Order Number since
 
 ## Examples
 
-Since the Insights API is implemented in GraphQL, you can retrieve as much information as you want or as little as you need. You'll find examples of both simple and more advanced Insights API requests and their associated responses as well as a Postman collection with pre-configured examples on the Examples doc.
+Since the Advanced Shipment Details API is implemented in GraphQL, you can retrieve as much information as you want or as little as you need. You'll find examples of both simple and more advanced Advanced Shipment Details API requests and their associated responses as well as a Postman collection with pre-configured examples on the Examples doc.
 
 [See Examples <i class="fa fa-arrow-right"></i>](examples)
 

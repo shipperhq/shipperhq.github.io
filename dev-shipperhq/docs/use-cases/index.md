@@ -28,7 +28,7 @@ Give customer service teams full visibility of the delivery option selected by a
 
 * [Rates API](rates/overview.md) to get shipping options and rates
 * [PlaceOrder Mutation](labels/place-order.md) to capture successful orders placed or updated via the CRM
-* [Insights API](insights/overview.md) to display full shipping details
+* [Advanced Shipment Details API](insights/overview.md) to display full shipping details
 
 </details>
 
@@ -46,21 +46,21 @@ When creating draft-orders or manual orders, rates can be retrieved from Shipper
 
 *Optionally*
 
-* [Insights API](insights/overview.md) to fulfill efficiently based on the recommended shipment details from ShipperHQ
+* [Advanced Shipment Details API](insights/overview.md) to fulfill efficiently based on the recommended shipment details from ShipperHQ
 * [Labels API](labels/overview.md) (in beta) to print shipping labels
 
 </details>
 
 ### Order Management System
 
-ShipperHQ customers uses various order management systems and the Insights API is a key to leverage the detailed shipment information produced by ShipperHQ during rating at time of fulfillment.
+ShipperHQ customers uses various order management systems and the Advanced Shipment Details API is a key to leverage the detailed shipment information produced by ShipperHQ during rating at time of fulfillment.
 
-The [Insights API](insights/overview.md) enables order management systems to access information like ship-from locations (Origins), package sizes and types, label providers, service classes, and delivery and dispatch dates.
+The [Advanced Shipment Details API](insights/overview.md) enables order management systems to access information like ship-from locations (Origins), package sizes and types, label providers, service classes, and delivery and dispatch dates.
 
 <details>
   <summary><strong>Relevant APIs</strong></summary>
 
-* [Insights API](insights/overview.md) to retrieve shipment information from ShipperHQ
+* [Advanced Shipment Details API](insights/overview.md) to retrieve shipment information from ShipperHQ
 
 </details>
 
@@ -86,19 +86,19 @@ While ShipperHQ supports many [major eCommerce platforms](https://shipperhq.com/
 
 *Optionally*
 * [PlaceOrder Mutation](labels/place-order.md) to store ShipperHQ shipment information against orders
-* [Insights API](insights/overview.md) to retrieve rich shipment information for display within the eCommerce platform admin
+* [Advanced Shipment Details API](insights/overview.md) to retrieve rich shipment information for display within the eCommerce platform admin
 
 </details>
 
 ### Headless Commerce
 
-No need for an eCommerce platform. With the ShipperHQ SDK you can build your own experience using whichever tools and technologies that you select. The [Rates API](rates/overview.md) will enable you to focus on the user experience while all the business logic is configured in ShipperHQ. The [Insights API](insights/overview.md) will allow you to place orders and retrieve all the fulfillment information required to complete this order.
+No need for an eCommerce platform. With the ShipperHQ SDK you can build your own experience using whichever tools and technologies that you select. The [Rates API](rates/overview.md) will enable you to focus on the user experience while all the business logic is configured in ShipperHQ. The [Advanced Shipment Details API](insights/overview.md) will allow you to place orders and retrieve all the fulfillment information required to complete this order.
 
 <details>
   <summary><strong>Relevant APIs</strong></summary>
 
 * [Rates API](rates/overview.md) to get shipping options and rates
 * [PlaceOrder Mutation](labels/place-order.md) to store ShipperHQ shipment information against orders
-* [Insights API](insights/overview.md) to retrieve shipment information
+* [Advanced Shipment Details API](insights/overview.md) to retrieve shipment information
 
 </details>

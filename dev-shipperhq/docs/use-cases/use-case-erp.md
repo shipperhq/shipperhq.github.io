@@ -17,13 +17,13 @@ Bringing ShipperHQ's detailed shipment information and rate quoting abilities in
 
 >You want to capture accurate fulfillment information for orders where shipping quotes were provided by ShipperHQ (usually from an eCommerce platform). Relevant information might include ship-from locations, dispatch and delivery dates, packages used, and the original rates returned by the carrier before any adjustments.
 
-With the ShipperHQ Insights API, you have access to the details ShipperHQ generated while producing the shipping option chosen by the customer at checkout. This allows you to enhance your ERP's reporting by including additional data like the original estimated shipping rate and shipping cost charged to the customer and matching this up with data you may already have like final carrier charge.
+With the ShipperHQ Advanced Shipment Details API, you have access to the details ShipperHQ generated while producing the shipping option chosen by the customer at checkout. This allows you to enhance your ERP's reporting by including additional data like the original estimated shipping rate and shipping cost charged to the customer and matching this up with data you may already have like final carrier charge.
 
 Additionally, when using an ERP to manage fulfillment, information like expected dispatch date and predicted packaging produced by ShipperHQ can be used to improve fulfillment accuracy and efficiency.
 
 :::note Relevant APIs
 
-* [Insights API](insights/overview.md) to return shipment details
+* [Advanced Shipment Details API](insights/overview.md) to return shipment details
 
 :::
 
@@ -70,25 +70,25 @@ It is technically possible to use your live site to get rates because the Rates 
 
 ### Getting Started: Insights API
 
-As a key API for ERP integrations, its useful to start by taking some time to familiarize yourself with the ShipperHQ Insights API:
-- Read the [Insights API Guide](insights/overview.md)
-- Review the [Insights API Reference](https://dev.shipperhq.com/insights-service)
-- Download and try out our [Insights API Postman collection](insights/examples.md#postman-collection)
+As a key API for ERP integrations, its useful to start by taking some time to familiarize yourself with the ShipperHQ Advanced Shipment Details API:
+- Read the [Advanced Shipment Details API Guide](insights/overview.md)
+- Review the [Advanced Shipment Details API Reference](https://dev.shipperhq.com/insights-service)
+- Download and try out our [Advanced Shipment Details API Postman collection](insights/examples.md#postman-collection)
 
 We recommend starting with simpler orders from a single origin using a live-rate small package carrier (e.g. UPS, FedEx, etc.). Once you have this working, you can then enable additional functionality like multi-origin shipping, LTL Freight, international shipments, date & time, etc.
 
 :::tip
-Start with the Basic example included in our [Insights API Postman collection](insights/examples.md#postman-collection) as your guide to get started on your integration. This will help you understand the elements of the request and, more significantly, response. We recommend that you use the language that will be used to integrate with the ERP so that you have a working prototype uncoupled from the ERP extension framework.
+Start with the Basic example included in our [Advanced Shipment Details API Postman collection](insights/examples.md#postman-collection) as your guide to get started on your integration. This will help you understand the elements of the request and, more significantly, response. We recommend that you use the language that will be used to integrate with the ERP so that you have a working prototype uncoupled from the ERP extension framework.
 :::
 
 #### What Insights functionality should I support?
-Because this is a custom integration, you do not need to support all of ShipperHQ's functionality. However, it is highly recommended that you support all the functionality for your LIVE site.  We recommend reviewing the [Useful fields by feature](insights/quickstart.md#useful-fields-by-feature) provided on the Insights Quickstart for the most important elements for many of ShipperHQ's features and more advanced functionality. If you don't support the relevant fields for a given feature, you won't be receiving the full picture of the shipment.
+Because this is a custom integration, you do not need to support all of ShipperHQ's functionality. However, it is highly recommended that you support all the functionality for your LIVE site.  We recommend reviewing the [Useful fields by feature](insights/quickstart.md#useful-fields-by-feature) provided on the Advanced Shipment Details Quickstart for the most important elements for many of ShipperHQ's features and more advanced functionality. If you don't support the relevant fields for a given feature, you won't be receiving the full picture of the shipment.
 
-You'll find more guidance on what elements we recommend supporting in the [Insights API Quickstart Guide](insights/quickstart.md#integration-requirements).
+You'll find more guidance on what elements we recommend supporting in the [Advanced Shipment Details API Quickstart Guide](insights/quickstart.md#integration-requirements).
 
 ### Optional: Retrieving Shipping Rates
 
-While integrating the Insights API with your ERP provides a variety of benefits, you can go further by supporting shipping rating for order creation within your ERP. If considering this option, take some time to familiarize yourself with the ShipperHQ Rates API:
+While integrating the Advanced Shipment Details API with your ERP provides a variety of benefits, you can go further by supporting shipping rating for order creation within your ERP. If considering this option, take some time to familiarize yourself with the ShipperHQ Rates API:
 - Read the [Rates API Guide](rates/overview.md)
 - Review the [Rates API Reference](https://dev.shipperhq.com/rates-service)
 - Download and try out our [Rates API Postman collection](rates/examples.md#postman-collection)
@@ -106,7 +106,7 @@ You'll find more guidance on what elements we recommend supporting on the [Rates
 
 ##### `PlaceOrder` Mutation
 
-If you are already using or plan to use our Insights API to retrieve detailed shipment information about orders quoted via your integration of our Rates API you'll need to also implement the [`PlaceOrder` Mutation](labels/place-order.md). This is called immediately after an order has been finalized directing ShipperHQ to store the shipment information and providing an Order ID from your system that can be used for Insights API calls to retrieve that order's shipment details.
+If you are already using or plan to use our Advanced Shipment Details API to retrieve detailed shipment information about orders quoted via your integration of our Rates API you'll need to also implement the [`PlaceOrder` Mutation](labels/place-order.md). This is called immediately after an order has been finalized directing ShipperHQ to store the shipment information and providing an Order ID from your system that can be used for Advanced Shipment Details API calls to retrieve that order's shipment details.
 
 ### Advanced: Printing Shipping Labels
 

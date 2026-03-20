@@ -94,7 +94,7 @@ The Labels API current supports UPS, FedEx, and USPS. The `carrierId` and `metho
 | `ShipmentDetailInput` | `shippingMethodCode` | Code for the specific service (shipping method) to be used. |
 
 :::tip Choosing a carrier and method
-While you can use any valid `carrierType`, `carrierCode`, and `shippingMethodCode` when requesting a label, not all services are available for all shipments. Therefore, it's generally best practice to use the values returned by the [Insights API](insights/overview.md).
+While you can use any valid `carrierType`, `carrierCode`, and `shippingMethodCode` when requesting a label, not all services are available for all shipments. Therefore, it's generally best practice to use the values returned by the [Advanced Shipment Details API](insights/overview.md).
 :::
 
 ### Carrier Accounts
@@ -160,9 +160,9 @@ UPS requires that for UPS Access Point shipments, both the customer (recipient) 
 
 | Parent Element | Element(s)                   | Notes         |
 | ---------------------------| ---------------------------|---------------------|
-| `RecipientInput` | `locationId` | Unique identifier for the UPS Access Point location, can be retrieved from the [Insights API](insights/overview.md). |
-| `RecipientInput` | `pickupName` | The name of the UPS Access Point location, can be retrieved from the [Insights API](insights/overview.md). |
-| `RecipientInput` | `pickupStreet1`<br />`pickupStreet2`<br />`pickupCity`<br />`pickupState`<br /> | Full address of the UPS Access Point location, can be retrieved from the [Insights API](insights/overview.md). |
+| `RecipientInput` | `locationId` | Unique identifier for the UPS Access Point location, can be retrieved from the [Advanced Shipment Details API](insights/overview.md). |
+| `RecipientInput` | `pickupName` | The name of the UPS Access Point location, can be retrieved from the [Advanced Shipment Details API](insights/overview.md). |
+| `RecipientInput` | `pickupStreet1`<br />`pickupStreet2`<br />`pickupCity`<br />`pickupState`<br /> | Full address of the UPS Access Point location, can be retrieved from the [Advanced Shipment Details API](insights/overview.md). |
 
 #### FedEx Hold at Location
 
@@ -170,8 +170,8 @@ For FedEx Hold at Location shipments, the recipient address provided should be t
 
 | Parent Element | Element(s)                   | Notes         |
 | ---------------------------| ---------------------------|---------------------|
-| `RecipientInput` | `locationId` | Unique identifier for the FedEx Hold at Location location, can be retrieved from the [Insights API](insights/overview.md). |
-| `RecipientInput` | `locationType` | Identifies if the location is a FedEx OnSite or FedEx Hold at Location location, can be retrieved from the [Insights API](insights/overview.md). |
+| `RecipientInput` | `locationId` | Unique identifier for the FedEx Hold at Location location, can be retrieved from the [Advanced Shipment Details API](insights/overview.md). |
+| `RecipientInput` | `locationType` | Identifies if the location is a FedEx OnSite or FedEx Hold at Location location, can be retrieved from the [Advanced Shipment Details API](insights/overview.md). |
 
 ## Usage
 
@@ -187,11 +187,11 @@ There are several elements which are key to accurately creating labels with Ship
 | `sender` | `originName` | The unique identifier (name) of the Origin configured in ShipperHQ. |
 | `recipient` | `street`<br />`street2`<br />`city`<br />`region`<br />`zipcode`<br />`country` | The recipient (ship-to) address.  |
 | `carrier` | `carrierType` | The carrier type code for the selected carrier (e.g. `ups` or `fedEx`). |
-| `carrier` | `carrierCode` | Unique identifier for the specific Carrier defined in ShipperHQ to be used for this label, can be retrieved with [Insights API](insights/overview.md). |
+| `carrier` | `carrierCode` | Unique identifier for the specific Carrier defined in ShipperHQ to be used for this label, can be retrieved with [Advanced Shipment Details API](insights/overview.md). |
 | `shipmentDetail` | `shipmentId` | A unique alphanumeric string which will act as an identifier for any subsequent actions (e.g. cancel). |
-| `shipmentDetail` | `shippingMethodCode` | Code for the specific service (shipping method) to be used, can be retrieved with [Insights API](insights/overview.md). |
+| `shipmentDetail` | `shippingMethodCode` | Code for the specific service (shipping method) to be used, can be retrieved with [Advanced Shipment Details API](insights/overview.md). |
 | `shipmentInput` | `pieces` | Contains one or more packages included in this shipment for which you wish to create labels. |
-| `pieces` | `referenceId` | The unique identifier for the package, can be retrieved with [Insights API](insights/overview.md). |
+| `pieces` | `referenceId` | The unique identifier for the package, can be retrieved with [Advanced Shipment Details API](insights/overview.md). |
 | `pieces` | `length`<br />`width`<br />`height`<br />`weight` | Package dimensions and weight are required for most shipments. |
 
 #### Key Label Response Elements
