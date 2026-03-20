@@ -68,7 +68,7 @@ These instructions are high-level and quite technical: a good knowledge of APIs,
 It is technically possible to use your live site to get rates because the Rates API is a read-only API. This being said, a preferred solution is to use a scope that is not `LIVE` (e.g. `TEST`, `DEVELOPMENT` or `INTEGRATION`). If you don't use a different scope or ShipperHQ account and instead use the LIVE ShipperHQ account and scope of your production website, be extremely careful when making any changes to your ShipperHQ configuration so as to not impact live rates.
 :::
 
-### Getting Started: Insights API
+### Getting Started: Advanced Shipment Details API
 
 As a key API for ERP integrations, its useful to start by taking some time to familiarize yourself with the ShipperHQ Advanced Shipment Details API:
 - Read the [Advanced Shipment Details API Guide](insights/overview.md)
@@ -81,7 +81,7 @@ We recommend starting with simpler orders from a single origin using a live-rate
 Start with the Basic example included in our [Advanced Shipment Details API Postman collection](insights/examples.md#postman-collection) as your guide to get started on your integration. This will help you understand the elements of the request and, more significantly, response. We recommend that you use the language that will be used to integrate with the ERP so that you have a working prototype uncoupled from the ERP extension framework.
 :::
 
-#### What Insights functionality should I support?
+#### What Advanced Shipment Details functionality should I support?
 Because this is a custom integration, you do not need to support all of ShipperHQ's functionality. However, it is highly recommended that you support all the functionality for your LIVE site.  We recommend reviewing the [Useful fields by feature](insights/quickstart.md#useful-fields-by-feature) provided on the Advanced Shipment Details Quickstart for the most important elements for many of ShipperHQ's features and more advanced functionality. If you don't support the relevant fields for a given feature, you won't be receiving the full picture of the shipment.
 
 You'll find more guidance on what elements we recommend supporting in the [Advanced Shipment Details API Quickstart Guide](insights/quickstart.md#integration-requirements).

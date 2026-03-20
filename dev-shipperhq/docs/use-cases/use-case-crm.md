@@ -72,7 +72,7 @@ You'll find more guidance on what elements we recommend supporting on the [Rates
 
 In order to leverage the Advanced Shipment Details API that contains all the order information, you need to notify ShipperHQ that a quote is now an order. To do this, you need to use the [`PlaceOrder`](labels/place-order.md) mutation. A call to PlaceOrder should be made each time an order is confirmed in your CRM. It can be done immediately or on a scheduled basis.
 
-### Retrieve the information with the Insights API and display it in your CRM
+### Retrieve the information with the Advanced Shipment Details API and display it in your CRM
 
 Once your orders are properly captured in ShipperHQ, you can use the [Advanced Shipment Details API](insights/overview.md) to retrieve all the fulfillment information.
 

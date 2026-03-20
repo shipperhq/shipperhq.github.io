@@ -6,13 +6,13 @@ tags: [insights, api, guide, faq]
 ---
 import Error from '@site/docs/transclusion/_error.md' // This is an included file (see below the Error component)
 
-## Is the data for past orders available via the Insights API?
+## Is the data for past orders available via the Advanced Shipment Details API?
 
 No, ShipperHQ does not store shipment data until the [Advanced Shipment Details](https://docs.shipperhq.com/shipping-insights-configuration/) Advanced Feature is enabled. To enable it you will have to accept the term of services related to the storage of the Advanced Shipment Details information by ShipperHQ.
 
 Orders placed before this feature is active will not be available via Advanced Shipment Details API. Additionally, if the Advanced Shipment Details feature is disabled, no shipment information will be stored until it is reenabled.
 
-## Why is the data for a specific order not available via the Insights API?
+## Why is the data for a specific order not available via the Advanced Shipment Details API?
 
 There are several reasons that a specific order may not be be available via the Advanced Shipment Details API. This includes the order being placed before the [Advanced Shipment Details](https://docs.shipperhq.com/shipping-insights-configuration/) Advanced Feature was enabled, a mismatch between the website used for the order and the one being used to request the order, etc.  More information is available in our [Troubleshooting Advanced Shipment Details](https://docs.shipperhq.com/troubleshooting-shipping-insights/) documentation.
 

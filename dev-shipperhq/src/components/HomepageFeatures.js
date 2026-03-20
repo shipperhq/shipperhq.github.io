@@ -15,13 +15,13 @@ const FeatureList = [
     ),
   },
   {
-    title: 'Insights',
+    title: 'Advanced Shipment Details',
     subtitle: 'Manage and fulfill your orders easily',
     docsLink: "/docs/insights/overview",
     Png: require('../../static/img/insights-feature-portal.png').default,
     description: (
       <>
-          Leverage ShipperHQ's orders database to fulfill orders more efficiently via the Insights API.
+          Leverage ShipperHQ's orders database to fulfill orders more efficiently via the Advanced Shipment Details API.
       </>
     ),
   },

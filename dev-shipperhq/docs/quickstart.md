@@ -20,7 +20,7 @@ Access to the ShipperHQ APIs requires a ShipperHQ Enterprise plan. You can check
 While developers can use each API independently, the goal of the ShipperHQ SDK is to make it easy to integrate with the full ShipperHQ workflow following this sequence:
   1. [Rates API](rates/overview.md)
   2. [PlaceOrder Mutation](labels/place-order.md) (not required for most major integrations)
-  3. [Insights API](insights/overview.md)
+  3. [Advanced Shipment Details API](insights/overview.md)
   4. [Labels API](labels/overview.md) (in beta)
 
 ## ShipperHQ Test Accounts
@@ -50,14 +50,14 @@ If you're unfamiliar with GraphQL, Please refer to the [Introduction to GraphQL]
 
 ShipperHQ's APIs use two types of authentication:
 - **Rates API** and **Labels API** use a [JWT Token](https://jwt.io/) generated using an API Key and Authentication Code pair. See [Rates API Quickstart Guide](rates/quickstart.md#authentication) and [Labels API Quickstart Guide](labels/quickstart.md#authentication) for details.
-- **Insights API** uses a function-specific and account-specific Access Token retrieved from a ShipperHQ account. See [Insights API Quickstart Guide](insights/quickstart.md#authentication) for details.
+- **Advanced Shipment Details API** uses a function-specific and account-specific Access Token retrieved from a ShipperHQ account. See [Advanced Shipment Details API Quickstart Guide](insights/quickstart.md#authentication) for details.
 
 ## Integration Requirements
 Each ShipperHQ API is highly flexible and can support a variety of use cases. Due to our implementation of GraphQL, each API call can request only relevant elements be returned. However, for each API, there are certain elements which are important when a ShipperHQ account is using certain functionality. Because of this, if you intend to make your integration of ShipperHQ's APIs available to multiple clients, we require support for certain elements. Meeting these requirements means your integration will support all of the most commonly used ShipperHQ features and functionality.
 
 See specific requirements by API:
 - [Rates API Integration Requirements](rates/quickstart#integration-requirements)
-- [Insights API Integration Requirements](insights/quickstart#integration-requirements)
+- [Advanced Shipment Details API Integration Requirements](insights/quickstart#integration-requirements)
 - [Labels API Integration Requirements](labels/quickstart#integration-requirements)
 
 :::info
