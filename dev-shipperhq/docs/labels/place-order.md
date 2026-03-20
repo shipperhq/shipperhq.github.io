@@ -5,7 +5,7 @@ title: PlaceOrder Mutation
 tags: [labels, insights, api, guide]
 ---
 
-## How Rating + Shipping Insights Work with `PlaceOrder`
+## How Rating + Advanced Shipment Details Work with `PlaceOrder`
 
 Merchants integrate with ShipperHQ's Rates API to provide shipping rate estimates based on contents of a `virtual cart`. This is done leveraging the [Rates API](../rates/overview.md).  
 
