@@ -6,7 +6,7 @@ authors: []
 tags: [insights, api, guide, examples]
 ---
 
-Since the Advanced Shipment Details API is implemented in GraphQL, you can retrieve as much information as you want or as little as you need. Below you'll find examples of both simple and more advanced Advanced Shipment Details API requests and their associated responses.
+Since the Advanced Shipment Details API is implemented in GraphQL, you can retrieve as much information as you want or as little as you need. Below you'll find examples of both simple and more complex Advanced Shipment Details API requests and their associated responses.
 
 ## Postman Collection
 Our Postman collection contains pre-configured examples you can use to get started with testing as quickly as possible. Postman is a tool for easily interacting with APIs. If you don't have the Postman app installed already, you can [download it](https://www.postman.com/downloads/) from Postman.
