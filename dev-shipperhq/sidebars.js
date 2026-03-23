@@ -52,7 +52,7 @@ module.exports = {
   ShippingInsights: [
     {
       type: 'category',
-      label: 'Insights API Guide',
+      label: 'Advanced Shipment Details API Guide',
       collapsible: false,
       items: [
         {
@@ -63,7 +63,7 @@ module.exports = {
     },
     {
       type: 'link',
-      label: 'Insights API Reference',
+      label: 'Advanced Shipment Details API Reference',
       href: 'https://dev.shipperhq.com/insights-service/'
     }
   ],

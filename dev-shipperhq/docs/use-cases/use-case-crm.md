@@ -29,12 +29,12 @@ When creating an order, make an API call to ShipperHQ's Rates API to retrieve sh
 
 >As a sales representative using a CRM,  I want to consult which shipping method was used for an order based on a quote captured in the CRM
 
-ShipperHQ can store detailed shipment information about an order including: Origin Location for each shipment, weight & dimensions of each shipment, support for multiple delivery methods (Small Parcels, LTL, Pickup in Store, Local Delivery, etc.), Delivery Date & Time, etc. This can then be retrieved using the Insights API for display or automated use within the CRM.
+ShipperHQ can store detailed shipment information about an order including: Origin Location for each shipment, weight & dimensions of each shipment, support for multiple delivery methods (Small Parcels, LTL, Pickup in Store, Local Delivery, etc.), Delivery Date & Time, etc. This can then be retrieved using the Advanced Shipment Details API for display or automated use within the CRM.
 
 :::note Relevant APIs
 
 * [PlaceOrder Mutation](labels/place-order.md) to capture successful orders placed or updated via the CRM
-* [Insights API](insights/overview.md) to display full shipping details
+* [Advanced Shipment Details API](insights/overview.md) to display full shipping details
 
 :::
 
@@ -70,11 +70,11 @@ You'll find more guidance on what elements we recommend supporting on the [Rates
 
 ### Set up PlaceOrder from your CRM
 
-In order to leverage the Insight API that contains all the order information, you need to notify ShipperHQ that a quote is now an order. To do this, you need to use the [`PlaceOrder`](labels/place-order.md) mutation. A call to PlaceOrder should be made each time an order is confirmed in your CRM. It can be done immediately or on a scheduled basis.
+In order to leverage the Advanced Shipment Details API that contains all the order information, you need to notify ShipperHQ that a quote is now an order. To do this, you need to use the [`PlaceOrder`](labels/place-order.md) mutation. A call to PlaceOrder should be made each time an order is confirmed in your CRM. It can be done immediately or on a scheduled basis.
 
-### Retrieve the information with the Insights API and display it in your CRM
+### Retrieve the information with the Advanced Shipment Details API and display it in your CRM
 
-Once your orders are properly captured in ShipperHQ, you can use the [Insights API](insights/overview.md) to retrieve all the fulfillment information.
+Once your orders are properly captured in ShipperHQ, you can use the [Advanced Shipment Details API](insights/overview.md) to retrieve all the fulfillment information.
 
 ## How can I get support for my integration?
 Developers should use the dedicated [contact form](/contact) on our developer portal to get in touch with our Dev Support team.
