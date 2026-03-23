@@ -244,7 +244,7 @@ The integration should appropriately handle at minimum the following elements an
 | [`address`](https://dev.shipperhq.com/insights-service/#definition-Address) | The following address elements must be supported: <ul><li>`company`</li><li>`street`</li><li>`street2`</li><li>`city`</li><li>`region`</li><li>`zipcode`</li><li>`country`</li></ul> |
 
 #### Error Handling
-The ShipperHQ Advanced Shipment Details API may return errors in in several cases:
+The ShipperHQ Advanced Shipment Details API may return errors in several cases:
 - If ShipperHQ encounters a general error processing a request (e.g. credentials issues, malformed request, etc.) an [error message](faq.md#what-are-possible-error-codes-and-messages) will be returned indicating the type of error encountered. In this case, your integration should appropriately display a user-friendly message. The values of the `errorCode` and `internalErrorMessage` are not intended to be displayed to end-users but are useful to log for troubleshooting.
 - If no shipment information can be found for the given [`OrderNumber`](https://dev.shipperhq.com/insights-service/#operation-vieworder-Queries)
 
