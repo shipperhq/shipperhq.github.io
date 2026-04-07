@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdev_shipperhq=self.webpackChunkdev_shipperhq||[]).push([[8790],{4815:function(a){a.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/rating","name":"rating","count":1,"permalink":"/blog/tags/rating"}')}}]);
