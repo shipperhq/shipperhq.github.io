@@ -11,7 +11,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.png',
   organizationName: 'shipperhq',
   projectName: 'shipperhq.github.io',
   deploymentBranch: 'gh-pages',
@@ -47,8 +47,8 @@ const config = {
       navbar: {
         logo: {
           alt: 'ShipperHQ',
-          src: "img/shq-devplatform-logo.svg",
-          srcDark: "img/shq-devplatform-logo-dark.svg"
+          src: "img/logo-dark.png",
+          srcDark: "img/logo.png"
         },
         items: [],
       },
