@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "ShipperHQ Developer Platform",
-  tagline: "ShipperHQ documentation has moved to docs.shipperhq.com",
+  tagline: "ShipperHQ documentation has moved to docs.shipperhq.com/shipperhq-sdk",
   url: 'https://dev.shipperhq.com/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -61,7 +61,7 @@ const config = {
           },
           {
             label: 'Help Docs',
-            href: 'https://docs.shipperhq.com',
+            href: 'https://docs.shipperhq.com/shipperhq-sdk',
           },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} ShipperHQ`,

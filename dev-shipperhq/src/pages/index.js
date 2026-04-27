@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const REDIRECT_URL = 'https://docs.shipperhq.com/';
+const REDIRECT_URL = 'https://docs.shipperhq.com/shipperhq-sdk/';
 
 export default function Home() {
   useEffect(() => {
