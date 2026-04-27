@@ -2,7 +2,7 @@
 
 > **⚠️ This repository has been deprecated.**
 >
-> The documentation has moved to **https://docs.shipperhq.com/**
+> The documentation has moved to **https://docs.shipperhq.com/shipperhq-sdk/**
 >
 > The site now redirects there automatically. No new content should be added here.
 
@@ -10,7 +10,7 @@
 
 This website was built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
-The site formerly hosted at https://dev.shipperhq.com/ now permanently redirects to https://docs.shipperhq.com/.
+The site formerly hosted at https://dev.shipperhq.com/ now permanently redirects to https://docs.shipperhq.com/shipperhq-sdk/.
 
 ## Prerequisites
 - Set up Git: https://stackoverflow.com/c/shipperhq/questions/481
